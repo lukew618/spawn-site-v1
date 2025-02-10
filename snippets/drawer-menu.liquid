@@ -1,0 +1,51 @@
+<!-- snippets/drawer-menu.liquid -->
+<div
+    id="drawer-menu"
+    class="drawer-menu hidden"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="drawer-menu-title"
+  >
+    <div class="drawer-menu__overlay" id="drawer-menu-overlay"></div>
+  
+    <div class="drawer-menu__content">
+      <button
+        type="button"
+        class="drawer-menu__close"
+        id="drawer-menu-close"
+        aria-label="Close Navigation"
+      >
+        &times;
+      </button>
+        
+      <!-- Example: Using Shopify's navigation for "main-menu-2" with sub-menu items expanded -->
+      <div class="drawer-menu__grid">
+      {% for link in linklists.main-menu-2.links %}
+        <div class="drawer-menu__item">
+          {% if link.links.size > 0 %}
+            <button 
+              class="drawer-menu__link"
+              aria-expanded="false"
+              aria-controls="submenu-{{ forloop.index }}"
+            >
+              {{ link.title }}
+            </button>
+            <ul id="submenu-{{ forloop.index }}" class="drawer-menu__submenu">
+              {% for sublink in link.links %}
+                <li class="drawer-menu__submenu-item">
+                  <a href="{{ sublink.url }}" class="drawer-menu__sublink">
+                    {{ sublink.title }}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          {% else %}
+            <a href="{{ link.url }}" class="drawer-menu__link">
+              {{ link.title }}
+            </a>
+          {% endif %}
+        </div>
+      {% endfor %}
+      </div>
+    </div>
+  </div>

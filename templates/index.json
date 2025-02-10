@@ -1,0 +1,583 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_banner": {
+      "type": "image-banner",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "25% OFF SITE-WIDE",
+            "heading_size": "h1"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "ENDS SUNDAY 2/16",
+            "text_style": "body"
+          }
+        },
+        "button": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "SHOP THE SALE",
+            "button_link_1": "shopify://collections/fly-tying-fly-fishing-deals",
+            "button_style_secondary_1": true,
+            "button_label_2": "",
+            "button_link_2": "shopify://collections/spawn-dubbing",
+            "button_style_secondary_2": true
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text",
+        "button"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/homepage-hero.png",
+        "image_mobile": "shopify://shop_images/homepage-hero-mobile.png",
+        "image_overlay_opacity": 0,
+        "image_height": "large",
+        "desktop_content_position": "middle-left",
+        "show_text_box": false,
+        "desktop_content_alignment": "left",
+        "color_scheme": "scheme-1",
+        "image_behavior": "ambient",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      }
+    },
+    "featured_collection_UdX4CU": {
+      "type": "featured-collection",
+      "custom_css": [
+        "h3 {text-transform: uppercase;}"
+      ],
+      "settings": {
+        "title": "<strong>BEST SELLERS</strong>",
+        "heading_size": "h2",
+        "description": "<p>SHOP THE BEST FROM SPAWN</p>",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "best-sellers",
+        "products_to_show": 15,
+        "columns_desktop": 3,
+        "full_width": true,
+        "show_view_all": true,
+        "view_all_style": "link",
+        "enable_desktop_slider": true,
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": true,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 56,
+        "padding_bottom": 36
+      }
+    },
+    "rich_text_f99xiG": {
+      "type": "rich-text",
+      "blocks": {
+        "caption_qHAWbk": {
+          "type": "caption",
+          "settings": {
+            "caption": "ABOUT SPAWN",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "large"
+          }
+        },
+        "heading_qJPCk4": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>THE SPAWN DIFFERENCE</strong>",
+            "heading_size": "h1"
+          }
+        },
+        "text_Bit8nz": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Discover Spawn Fly Fish, the ultimate online destination for fly tying and fly fishing. Our website delivers expert advice, detailed gear reviews, and actionable tips that empower both beginners and experts to master the moment. Whether you’re seeking in-depth tutorials on fly tying, or the latest innovations in fishing gear and tying materials, Spawn Fly Fish provides a wealth of content designed to enhance your outdoor adventures. Explore our engaging articles and blogs and join a vibrant community of passionate anglers and tiers committed to elevating the fly fishing experience. Cast your way to success with Spawn Fly Fish—the trusted hub for expert advice, innovative gear, materials, insights, and inspiring fly fishing journeys.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "caption_qHAWbk",
+        "heading_qJPCk4",
+        "text_Bit8nz"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 72
+      }
+    },
+    "image_banner_7jcGPt": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_EmPh4J": {
+          "type": "heading",
+          "settings": {
+            "heading": "NEW ARRIVALS",
+            "heading_size": "h0"
+          }
+        },
+        "buttons_HaUDUM": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "SHOP NOW",
+            "button_link_1": "shopify://collections/new-products",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_EmPh4J",
+        "buttons_HaUDUM"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/new-arrivals-banner.png",
+        "image_mobile": "shopify://shop_images/new-arrivals-banner-mobile.png",
+        "image_overlay_opacity": 0,
+        "image_height": "large",
+        "desktop_content_position": "middle-left",
+        "show_text_box": false,
+        "desktop_content_alignment": "left",
+        "color_scheme": "scheme-3",
+        "image_behavior": "ambient",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": false
+      }
+    },
+    "collection_list_QGtX47": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_xtfYnQ": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "fly-tying-materials"
+          }
+        },
+        "featured_collection_iXjiXn": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "fly-rods"
+          }
+        },
+        "featured_collection_GAdW8E": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "fly-reels"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_xtfYnQ",
+        "featured_collection_iXjiXn",
+        "featured_collection_GAdW8E"
+      ],
+      "settings": {
+        "title": "<strong>TOP CATEGORIES</strong>",
+        "heading_size": "h2",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "color_scheme": "scheme-1",
+        "show_view_all": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 80,
+        "padding_bottom": 100
+      }
+    },
+    "video": {
+      "type": "video",
+      "settings": {
+        "heading": "",
+        "heading_size": "hxl",
+        "enable_video_looping": true,
+        "video": "shopify://files/videos/Hero Banner Video.mp4",
+        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "description": "",
+        "full_width": true,
+        "color_scheme": "scheme-2",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "featured_product_HHeNBg": {
+      "type": "featured-product",
+      "blocks": {
+        "text_t3DQaf": {
+          "type": "text",
+          "settings": {
+            "text": "<strong>GAME CHANGING DUBBING</strong>",
+            "text_style": "subtitle"
+          }
+        },
+        "title_PamCAd": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "price_LRCkUh": {
+          "type": "price",
+          "settings": {}
+        },
+        "buy_buttons_wGwfgW": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": true
+          }
+        }
+      },
+      "block_order": [
+        "text_t3DQaf",
+        "title_PamCAd",
+        "price_LRCkUh",
+        "buy_buttons_wGwfgW"
+      ],
+      "settings": {
+        "product": "spawn-unreal-dub",
+        "color_scheme": "scheme-1",
+        "secondary_background": false,
+        "media_size": "medium",
+        "constrain_to_viewport": true,
+        "media_fit": "cover",
+        "media_position": "right",
+        "image_zoom": "hover",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 72,
+        "padding_bottom": 36
+      }
+    },
+    "image_with_text_EJEVBb": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_L9rKYc": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>THE CHANNEL</strong>",
+            "heading_size": "h0"
+          }
+        },
+        "text_6paNG8": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Follow life as part of the Spawn family. Learn more, fish more.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_Ca4tef": {
+          "type": "button",
+          "settings": {
+            "button_label": "WATCH NOW",
+            "button_link": "https://www.youtube.com/@SpawnFlyFish",
+            "button_style_secondary": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_L9rKYc",
+        "text_6paNG8",
+        "button_Ca4tef"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/1_a46b1817-2f04-44c4-9a20-ba962b6fb92f.png",
+        "height": "large",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "scheme-4",
+        "color_scheme": "scheme-4",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 52,
+        "padding_bottom": 36
+      }
+    },
+    "featured_blog_UaRnVq": {
+      "type": "featured-blog",
+      "settings": {
+        "heading": "<strong>THE BLOG</strong>",
+        "heading_size": "h0",
+        "blog": "spawn-blog",
+        "post_limit": 3,
+        "columns_desktop": 3,
+        "color_scheme": "scheme-4",
+        "show_image": true,
+        "show_date": true,
+        "show_author": false,
+        "show_view_all": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "collage_x8nznF": {
+      "type": "collage",
+      "blocks": {
+        "image_qbJpzt": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/gear_hauler_tote_alt_lifestyle_1_jpg.webp"
+          }
+        },
+        "product_ExgDa8": {
+          "type": "product",
+          "settings": {
+            "product": "grundens-gear-hauler-tote-bag-50l",
+            "second_image": false
+          }
+        },
+        "product_48A3jd": {
+          "type": "product",
+          "settings": {
+            "product": "grundens-bootlegger-roll-top-backpack-30l",
+            "second_image": true
+          }
+        }
+      },
+      "block_order": [
+        "image_qbJpzt",
+        "product_ExgDa8",
+        "product_48A3jd"
+      ],
+      "settings": {
+        "heading": "<strong>GRUNDENS</strong>",
+        "heading_size": "h2",
+        "desktop_layout": "left",
+        "mobile_layout": "column",
+        "card_styles": "product-card-wrapper",
+        "color_scheme": "scheme-1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_banner_4k67yw": {
+      "type": "image-banner",
+      "blocks": {
+        "text_R8rV8b": {
+          "type": "text",
+          "settings": {
+            "text": "ALL-WEATHER. ALL-YEAR.",
+            "text_style": "body"
+          }
+        },
+        "heading_9jDz8k": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>SPAWN OUTERWEAR</strong>",
+            "heading_size": "hxl"
+          }
+        },
+        "buttons_PaxakW": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "SHOP NOW",
+            "button_link_1": "shopify://products/sportsman-106-kayak",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "text_R8rV8b",
+        "heading_9jDz8k",
+        "buttons_PaxakW"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/homepage-outerwear.png",
+        "image_mobile": "shopify://shop_images/homepage-outerwear-mobile.png",
+        "image_overlay_opacity": 0,
+        "image_height": "large",
+        "desktop_content_position": "middle-left",
+        "show_text_box": false,
+        "desktop_content_alignment": "left",
+        "color_scheme": "scheme-3",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": false
+      }
+    },
+    "image_with_text_bViTjP": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_W8JFQR": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>SPAWN APPAREL</strong>",
+            "heading_size": "h1"
+          }
+        },
+        "text_6fe79C": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "text_style": "subtitle"
+          }
+        },
+        "button_aJctwE": {
+          "type": "button",
+          "settings": {
+            "button_label": "SHOP NOW",
+            "button_link": "shopify://collections/spawn-apparel",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_W8JFQR",
+        "text_6fe79C",
+        "button_aJctwE"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/spawn-h-ilwaco-s-spawn-ilwaco-hoodie-spawn-fly-fish-272096.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "scheme-1",
+        "color_scheme": "scheme-1",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_banner_ja4xUn": {
+      "type": "image-banner",
+      "blocks": {
+        "text_naMBB4": {
+          "type": "text",
+          "settings": {
+            "text": "SOME THINGS ARE BETTER IN PERSON",
+            "text_style": "body"
+          }
+        },
+        "heading_dtCVNq": {
+          "type": "heading",
+          "settings": {
+            "heading": "ILWACO FLAGSHIP",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "text_naMBB4",
+        "heading_dtCVNq"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/homepage-ilwaco.png",
+        "image_mobile": "shopify://shop_images/unnamed.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "scheme-78823a03-0880-4c09-84ee-d09083839a52",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": false
+      }
+    },
+    "multicolumn_78HbFk": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_EcPYtw": {
+          "type": "column",
+          "settings": {
+            "title": "<strong>FREE SHIPPING</strong>",
+            "text": "<p>Free shipping on orders over $49 to the contiguous US.</p>",
+            "link_label": "",
+            "link": "shopify://policies/refund-policy"
+          }
+        },
+        "column_iJgtUk": {
+          "type": "column",
+          "settings": {
+            "title": "<strong>FREE RETURNS</strong>",
+            "text": "<p>We stand behind our products. Return shipping is free on all returns shipped from within the United States.</p>",
+            "link_label": "",
+            "link": "shopify://policies/refund-policy"
+          }
+        },
+        "column_X9cXEB": {
+          "type": "column",
+          "settings": {
+            "title": "<strong>2% PLEDGE</strong>",
+            "text": "<p>2% of all Spawn profits are donated to conservation groups. This has been true since our 1st day of business.</p>",
+            "link_label": "",
+            "link": "shopify://pages/conservation"
+          }
+        }
+      },
+      "block_order": [
+        "column_EcPYtw",
+        "column_iJgtUk",
+        "column_X9cXEB"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "image_banner",
+    "featured_collection_UdX4CU",
+    "rich_text_f99xiG",
+    "image_banner_7jcGPt",
+    "collection_list_QGtX47",
+    "video",
+    "featured_product_HHeNBg",
+    "image_with_text_EJEVBb",
+    "featured_blog_UaRnVq",
+    "collage_x8nznF",
+    "image_banner_4k67yw",
+    "image_with_text_bViTjP",
+    "image_banner_ja4xUn",
+    "multicolumn_78HbFk"
+  ]
+}

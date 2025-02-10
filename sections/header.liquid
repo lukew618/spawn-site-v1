@@ -1,0 +1,322 @@
+{% if request.page_type contains 'index' %}
+  {% assign is_homepage = true %}
+{% else %}
+  {% assign is_homepage = false %}
+{% endif %}
+{%- style -%}
+  :root {
+    --header-height: 80px;
+  }
+
+  .header {
+    width: 100%;
+    padding-left: 8rem;
+    padding-right: 8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: var(--header-height);
+    transition: all 0.1s ease;
+    position: fixed;
+    top: var(--announcement-bar-height);
+    left: 0;
+    z-index: 90;
+    background-color: {% if is_homepage %}transparent{% else %}black{% endif %};
+  }
+
+  /* Add padding to body to account for header height */
+  body {
+    padding-top: {% if is_homepage %}var(--announcement-bar-height){% else %}calc(var(--announcement-bar-height) + var(--header-height)){% endif %};
+  }
+
+  /* Add mobile-specific padding */
+  @media screen and (max-width: 991px) {
+    body {
+      /* For homepage on mobile, only account for announcement bar height */
+      padding-top: {% if is_homepage %}var(--announcement-bar-height){% else %}var(--header-height){% endif %};
+    }
+
+    /* Ensure collection and product pages have correct spacing */
+    body:not(.template-index) .main-page-content {
+      margin-top: 0;
+    }
+
+    /* Adjust header positioning for mobile */
+    .header {
+      top: {% if is_homepage %}var(--announcement-bar-height){% else %}0{% endif %};
+    }
+  }
+
+  /* Remove relative positioning from main content */
+  main {
+    z-index: auto;
+  }
+
+  /* Ensure header group stays on top */
+  .shopify-section-group-header-group {
+    position: relative;
+    z-index: 90;
+  }
+
+  /* Conditionally set text/icon color */
+  .header__heading-link,
+  .header__icon,
+  .header__menu-item {
+    color: {% if is_homepage %}black{% else %}white{% endif %};
+    transition: color 0.1s ease;
+  }
+
+  /* Homepage-specific styles */
+  {% if is_homepage %}
+    /* Hover states */
+    .header__icon:hover,
+    .header__menu-item:hover {
+      color: white;
+    }
+
+    /* Scrolled state */
+    body.scrolled-past-header .header {
+      background-color: black;
+    }
+
+    body.scrolled-past-header .header__heading-link,
+    body.scrolled-past-header .header__icon,
+    body.scrolled-past-header .header__menu-item {
+      color: white;
+    }
+
+    /* Hover state for header */
+    .header:hover {
+      background-color: black;
+    }
+
+    .header:hover .header__heading-link,
+    .header:hover .header__icon,
+    .header:hover .header__menu-item {
+      color: white !important;
+    }
+
+    .header__menu-item:active,
+    .header__menu-item:focus,
+    .header__heading-link:active,
+    .header__heading-link:focus,
+    .header__active-menu-item {
+      color: white !important;
+    }
+
+    .header__menu-item:hover {
+      color: white !important;
+    }
+
+    .link--text:hover {
+      color: white !important;
+    }
+
+  {% endif %}
+
+  /* Cart count bubble */
+  .cart-count-bubble {
+    background-color: white;
+    color: black;
+    position: absolute;
+    height: 1.7rem;
+    width: 1.7rem;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9rem;
+    bottom: 0.8rem;
+    left: 2.2rem;
+  }
+
+  /* Left column - Navigation */
+  .header__inline-menu {
+    display: flex;
+    align-items: center;
+    padding-bottom: 1rem;
+  }
+
+  /* Maintain nav styling for list-menu */
+  .header__inline-menu nav {
+    width: 100%;
+    height: 100%;
+  }
+
+  .header__inline-menu .list-menu {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .header__inline-menu .list-menu > li {
+    display: flex;
+    align-items: center;
+    flex: 1;
+  }
+
+  .header__inline-menu .list-menu__item {
+    padding: 0;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    white-space: nowrap;
+  }
+
+  /* Add separators between menu items with equal spacing */
+  .header__inline-menu .list-menu > li:not(:last-child)::after {
+    content: "|";
+    padding: 0 1rem;
+    color: inherit;
+  }
+
+  /* Remove default hover effects */
+  .header__menu-item:hover span {
+    text-decoration: none;
+  }
+
+  .header__menu-item span {
+    transition: opacity 0.1s ease;
+  }
+
+  {% if is_homepage %}
+    .header__menu-item:hover span {
+      opacity: 0.8;
+    }
+  {% endif %}
+
+  /* Hide dropdown arrows */
+  .header__menu-item .icon-caret {
+    display: none;
+  }
+
+  /* Middle column - Logo/Heading */
+  .header__heading {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Right column - Icons */
+  .header__icons {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .header__heading .h2 {
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    color: inherit;
+    font-weight: bold;
+  }
+{%- endstyle -%}
+
+<!-- Existing JS (header-scroll) -->
+<script src="{{ 'header-scroll.js' | asset_url }}" defer></script>
+
+<header-scroll>
+  <header class="header">
+    <!-- Desktop menu -->
+    <div class="header__inline-menu header__inline-menu--desktop">
+      <button type="button" class="header__menu-button" id="shop-button">Shop</button>
+      <a href="/pages/deals" class="header__menu-button" id="deals-button" style="text-decoration: none;">Deals</a>
+      <a href="/blogs/spawn-blog" class="header__menu-button" id="blog-button" style="text-decoration: none;">Blog</a>
+    </div>
+
+    <!-- Mobile header -->
+    <div class="header__inline-menu--mobile">
+      <div class="mobile-left-group">
+        <button type="button" class="header__hamburger" id="mobile-menu-toggle" aria-label="Open Navigation">
+          <svg class="icon-hamburger" width="24" height="24" viewBox="0 0 24 24">
+            <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2"/>
+          </svg>
+          <svg class="icon-close" width="24" height="24" viewBox="0 0 24 24">
+            <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2"/>
+          </svg>
+        </button>
+        
+        {% render 'header-search', input_id: 'Search-In-Mobile' %}
+      </div>
+
+      <div class="mobile-right-group">
+        {%- if shop.customer_accounts_enabled -%}
+          <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
+            class="header__icon header__icon--account">
+            <span class="svg-wrapper">{{ 'icon-account.svg' | inline_asset_content }}</span>
+          </a>
+        {%- endif -%}
+
+        <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart" id="cart-icon-bubble-mobile">
+          <span class="svg-wrapper">{{ 'icon-cart.svg' | inline_asset_content }}</span>
+          {%- if cart != empty -%}
+            <div class="cart-count-bubble">
+              {%- if cart.item_count < 100 -%}
+                <span aria-hidden="true">{{ cart.item_count }}</span>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+        </a>
+      </div>
+    </div>
+
+    <!-- Logo -->
+    <div class="header__heading">
+      <a href="{{ routes.root_url }}" class="header__heading-link">
+        <span class="h2">SPAWN FLY FISH</span>
+      </a>
+    </div>
+
+    <!-- Desktop icons -->
+    <div class="header__icons">
+      {% render 'header-search', input_id: 'Search-In-Desktop' %}
+      
+      {%- if shop.customer_accounts_enabled -%}
+        <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
+          class="header__icon header__icon--account">
+          <span class="svg-wrapper">{{ 'icon-account.svg' | inline_asset_content }}</span>
+        </a>
+      {%- endif -%}
+
+      <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart" id="cart-icon-bubble">
+        <span class="svg-wrapper">{{ 'icon-cart.svg' | inline_asset_content }}</span>
+        {%- if cart != empty -%}
+          <div class="cart-count-bubble">
+            {%- if cart.item_count < 100 -%}
+              <span aria-hidden="true">{{ cart.item_count }}</span>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+      </a>
+    </div>
+
+    {% render 'drawer-menu' %}
+  </header>
+</header-scroll>
+
+{% schema %}
+{
+  "name": "t:sections.header.name",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "menu",
+      "default": "main-menu",
+      "label": "t:sections.header.settings.menu.label"
+    }
+  ]
+}
+{% endschema %}
