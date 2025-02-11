@@ -2069,7 +2069,7 @@ input[type="checkbox"] {
 }
 
 .modal__close-button.link {
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   padding: 0rem;
@@ -2756,8 +2756,9 @@ menu-drawer + .header__search { display: none; }
 
 /* Search modal styles */
 .search-modal {
+  position: absolute;
+  background: transparent;
   opacity: 0;
-  border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08);
   min-height: calc(
     100% + var(--inputs-margin-offset) + (2 * var(--inputs-border-width))
   );
@@ -2767,6 +2768,7 @@ menu-drawer + .header__search { display: none; }
 details[open] > .search-modal {
   opacity: 1;
   animation: animateMenuOpen var(--duration-default) ease;
+  background: transparent;
 }
 
 /* Mobile styles */
@@ -4141,5 +4143,154 @@ body:not(.template-index) .header__inline-menu .header__menu-button {
     position: absolute;
     width: 24px;
     height: 24px;
+  }
+}
+/* Update search modal styles */
+.search-modal__content {
+  position: relative;
+  width: 70%; /* Increased from 50% to 70% */
+  margin: 0 auto; /* Center the modal */
+  background: transparent;
+  padding: 2rem;
+  margin-top: 16.7rem;
+}
+
+/* Ensure the modal overlay covers full width */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(var(--color-foreground), 0.2);
+  z-index: -1;
+}
+
+/* Add responsive width for mobile */
+@media screen and (max-width: 749px) {
+  .search-modal__content {
+    width: 90%; /* Wider on mobile for better usability */
+  }
+}
+
+/* Hide the close button in search modal */
+.search-modal__close-button {
+  display: none;
+}
+
+/* Also hide the close icon in the search trigger button */
+.header__icon--search .header__icon-close {
+  display: none;
+}
+
+/* Search modal styles */
+@media screen and (max-width: 990px) {
+  .search-modal {
+    width: 100vw; /* Full viewport width */
+    left: 0;
+    right: 0;
+    padding: 0;
+  }
+
+  .search-modal__content {
+    width: 100%;
+    max-width: none;
+    padding: 1rem 0.5rem;
+    margin: 16.7rem 2.5rem 0rem 0rem;
+  }
+
+  .search-modal__form {
+    width: 100%;
+    max-width: none;
+  }
+
+  .search-modal .field {
+    width: 100%;
+    max-width: none;
+  }
+
+  .search-modal .search__input {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+/* Search modal styles for mobile */
+@media screen and (max-width: 990px) {
+  .search-modal {
+    width: 100vw;
+    left: 0;
+    right: 0;
+    padding: 0;
+  }
+
+  .search-modal__content {
+    width: 100%;
+    max-width: none;
+    padding: 1rem 0.5rem;
+    margin: 16.7rem 2.5rem 0rem 0rem; /* Remove right margin */
+  }
+
+  .search-modal__form {
+    width: 100%;
+    max-width: none;
+  }
+
+  .search-modal .field {
+    width: 100%;
+    max-width: none;
+    padding-left: 0rem; /* Add left padding to align with header */
+  }
+
+  /* Adjust search input and button positioning */
+  .search-modal .search__button {
+    left: 0; /* Position button at far left */
+    right: auto;
+    stroke: black;
+    stroke-width: 0.25;
+    width: 1.5rem; /* Make button smaller */
+    height: 1.5rem; /* Make button smaller */
+    margin-top: 1.5rem;
+    margin-left: 1rem;
+  }
+
+  .search-modal .search__input {
+    width: 100%;
+    max-width: none;
+    padding-left: 4rem; /* Make room for the search icon */
+    margin-left: 0;
+  }
+
+  /* ... existing mobile styles ... */
+
+  .search-modal .field__label {
+    left: 4rem; /* Align with input text which has 4rem left padding */
+    right: auto;
+    text-align: left;
+    margin-top: 1rem;
+    font-size: 1.2rem;
+  }
+
+  /* Ensure label is visible and properly positioned */
+  .search-modal .field:not(.field--with-error) .field__label {
+    transform-origin: left top;
+    left: 4rem;
+    margin-top: 0.1rem;
+    font-size: 1.5rem;
+  }
+
+  /* Adjust label position when field is focused/filled */
+  .search-modal
+    .field:not(.field--with-error)
+    .field__input:focus
+    ~ .field__label,
+  .search-modal
+    .field:not(.field--with-error)
+    .field__input:not(:placeholder-shown)
+    ~ .field__label {
+    transform: translateY(-1rem) scale(0.8);
+    left: 4rem;
+    font-size: 1.2rem;
+    margin-top: 1rem;
   }
 }

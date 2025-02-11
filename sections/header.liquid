@@ -31,9 +31,13 @@
 
   /* Add mobile-specific padding */
   @media screen and (max-width: 991px) {
+    :root {
+      --header-height: 55px;  /* Reduced from 80px */
+    }
+
     body {
       /* For homepage on mobile, only account for announcement bar height */
-      padding-top: {% if is_homepage %}var(--announcement-bar-height){% else %}var(--header-height){% endif %};
+      padding-top: {% if is_homepage %}var(--announcement-bar-height){% else %}calc(var(--announcement-bar-height) + var(--header-height)){% endif %};
     }
 
     /* Ensure collection and product pages have correct spacing */
@@ -43,7 +47,7 @@
 
     /* Adjust header positioning for mobile */
     .header {
-      top: {% if is_homepage %}var(--announcement-bar-height){% else %}0{% endif %};
+      top: {% if is_homepage %}var(--announcement-bar-height){% else %}var(--announcement-bar-height){% endif %};
     }
   }
 
