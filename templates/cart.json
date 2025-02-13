@@ -45,15 +45,6 @@
     },
     "17384546370a665ac3": {
       "type": "apps",
-      "blocks": {
-        "recommended_product_salesup_autoketing_recommended_NUM6r9": {
-          "type": "shopify://apps/recommended-product-salesup/blocks/autoketing-recommended/28c5212f-728d-4d10-a8b6-81dc32610afb",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "recommended_product_salesup_autoketing_recommended_NUM6r9"
-      ],
       "settings": {
         "include_margins": true
       }
@@ -93,10 +84,10 @@
         "buy_buttons_dTPrDF"
       ],
       "settings": {
-        "product": "",
-        "color_scheme": "",
+        "product": "spawn-super-select-green-winged-teal",
+        "color_scheme": "scheme-2",
         "secondary_background": false,
-        "media_size": "medium",
+        "media_size": "small",
         "constrain_to_viewport": true,
         "media_fit": "contain",
         "media_position": "left",
@@ -143,19 +134,19 @@
     "featured-collection": {
       "type": "featured-collection",
       "settings": {
-        "title": "Featured collection",
+        "title": "BEST SELLERS",
         "heading_size": "h2",
         "description": "",
         "show_description": false,
         "description_style": "body",
-        "collection": "all",
+        "collection": "best-sellers",
         "products_to_show": 4,
         "columns_desktop": 4,
-        "full_width": false,
+        "full_width": true,
         "show_view_all": true,
         "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "color_scheme": "scheme-1",
+        "enable_desktop_slider": true,
+        "color_scheme": "scheme-2",
         "image_ratio": "square",
         "image_shape": "default",
         "show_secondary_image": false,
@@ -163,7 +154,7 @@
         "show_rating": false,
         "quick_add": "none",
         "columns_mobile": "2",
-        "swipe_on_mobile": false,
+        "swipe_on_mobile": true,
         "padding_top": 36,
         "padding_bottom": 36
       }
@@ -173,8 +164,8 @@
     "cart-items",
     "cart-footer",
     "17384546370a665ac3",
-    "featured_product_7pxnFY",
     "newsletter_xwjCyJ",
+    "featured_product_7pxnFY",
     "featured-collection"
   ]
 }

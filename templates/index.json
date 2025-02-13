@@ -326,7 +326,7 @@
           "type": "buttons",
           "settings": {
             "button_label_1": "SHOP NOW",
-            "button_link_1": "shopify://collections/spawn-flies",
+            "button_link_1": "shopify://collections/flies",
             "button_style_secondary_1": false,
             "button_label_2": "",
             "button_link_2": "",
@@ -479,7 +479,7 @@
           "type": "buttons",
           "settings": {
             "button_label_1": "Visit the Store",
-            "button_link_1": "shopify://pages/contact-us",
+            "button_link_1": "https://maps.app.goo.gl/b7MzVaJmaJVaK7Ec6",
             "button_style_secondary_1": false,
             "button_label_2": "",
             "button_link_2": "",

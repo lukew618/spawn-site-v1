@@ -7,6 +7,7 @@
 
 {{ 'quantity-popover.css' | asset_url | stylesheet_tag }}
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-free-shipping-bar.css' | asset_url | stylesheet_tag }}
 
 <script src="{{ 'cart.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'quantity-popover.js' | asset_url }}" defer="defer"></script>
@@ -74,6 +75,25 @@
           </span>
         </button>
       </div>
+      {%- assign free_shipping_threshold = 4900 -%}
+      {%- assign remaining_amount = free_shipping_threshold | minus: cart.total_price -%}
+      {%- assign progress_percentage = cart.total_price | times: 100.0 | divided_by: free_shipping_threshold | at_most: 100 -%}
+      
+      <div class="free-shipping-bar">
+        <div class="progress-bar-container">
+          <div class="progress-bar">
+            <div class="progress-bar-value" style="width: {{ progress_percentage }}%;"></div>
+          </div>
+        </div>
+        <div class="free-shipping-text">
+          {%- if remaining_amount > 0 -%}
+            <p>Add <strong>{{ remaining_amount | money }}</strong> more to get <strong>FREE SHIPPING!</strong></p>
+          {%- else -%}
+            <p><strong>🎉 CONGRATULATIONS! YOU'VE GOT FREE SHIPPING!</strong></p>
+          {%- endif -%}
+        </div>
+      </div>
+
       <cart-drawer-items
         {% if cart == empty %}
           class=" is-empty"

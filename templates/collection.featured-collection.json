@@ -42,6 +42,7 @@
       ],
       "settings": {
         "image": "{{ collection.metafields.custom.collection_hero_image.value }}",
+        "image_mobile": "{{ collection.metafields.custom.collection_hero_image.value }}",
         "image_overlay_opacity": 0,
         "image_height": "medium",
         "desktop_content_position": "middle-center",
