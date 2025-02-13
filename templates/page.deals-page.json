@@ -38,7 +38,7 @@
           "type": "buttons",
           "settings": {
             "button_label_1": "SHOP THE SALE",
-            "button_link_1": "",
+            "button_link_1": "shopify://collections/fly-tying-fly-fishing-deals",
             "button_style_secondary_1": true,
             "button_label_2": "",
             "button_link_2": "",
@@ -54,6 +54,7 @@
       "custom_css": [],
       "settings": {
         "image": "shopify://shop_images/BFCM_Deals_Page_Blank.png",
+        "image_mobile": "shopify://shop_images/IMG_1058.jpg",
         "image_overlay_opacity": 0,
         "image_height": "medium",
         "desktop_content_position": "middle-left",
@@ -63,7 +64,7 @@
         "image_behavior": "none",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": true,
-        "show_text_below": true
+        "show_text_below": false
       }
     },
     "multicolumn_QCy8g6": {

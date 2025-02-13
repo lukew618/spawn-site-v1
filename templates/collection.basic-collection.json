@@ -15,7 +15,7 @@
         "h1 {text-transform: uppercase; text-align: center;}"
       ],
       "settings": {
-        "show_collection_description": false,
+        "show_collection_description": true,
         "show_collection_image": false,
         "color_scheme": "scheme-1"
       }
@@ -25,7 +25,7 @@
       "settings": {
         "products_per_page": 36,
         "columns_desktop": 4,
-        "color_scheme": "",
+        "color_scheme": "scheme-1",
         "image_ratio": "square",
         "image_shape": "default",
         "show_secondary_image": false,

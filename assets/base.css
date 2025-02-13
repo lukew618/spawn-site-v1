@@ -3965,7 +3965,7 @@ body:not(.template-index) .header__inline-menu .header__menu-button {
 /* Mobile drawer menu styles */
 @media screen and (max-width: 991px) {
   .drawer-menu {
-    top: var(--header-height) !important; /* Remove announcement bar offset */
+    top: 80px !important; /* Remove announcement bar offset */
   }
 
   .drawer-menu__grid {
@@ -4292,5 +4292,25 @@ body:not(.template-index) .header__inline-menu .header__menu-button {
     left: 4rem;
     font-size: 1.2rem;
     margin-top: 1rem;
+  }
+}
+
+/* Add this CSS to hide the reset button on desktop */
+@media screen and (min-width: 991px) {
+  .search-modal .reset__button {
+    display: none !important;
+  }
+}
+
+/* Add this CSS to make hamburger menu white on non-homepage pages for mobile */
+@media screen and (max-width: 991px) {
+  body:not(.template-index) .header__hamburger svg path {
+    stroke: white !important;
+  }
+
+  /* Also ensure the stroke width and opacity remain consistent */
+  body:not(.template-index) .header__hamburger svg path {
+    stroke-width: 2;
+    stroke-opacity: 1;
   }
 }
