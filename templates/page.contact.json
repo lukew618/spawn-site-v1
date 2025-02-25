@@ -1,5 +1,63 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
+    "image_banner_9MhFVi": {
+      "type": "image-banner",
+      "blocks": {
+        "text_yTTiMj": {
+          "type": "text",
+          "settings": {
+            "text": "SOME THINGS ARE BETTER IN PERSON",
+            "text_style": "body"
+          }
+        },
+        "heading_FkXtm8": {
+          "type": "heading",
+          "settings": {
+            "heading": "ILWACO FLAGSHIP",
+            "heading_size": "h1"
+          }
+        },
+        "buttons_mi8aJG": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "DIRECTIONS",
+            "button_link_1": "https://maps.app.goo.gl/b7MzVaJmaJVaK7Ec6",
+            "button_style_secondary_1": false,
+            "button_label_2": "(360) 777-3075",
+            "button_link_2": "tel:+13607773075",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "text_yTTiMj",
+        "heading_FkXtm8",
+        "buttons_mi8aJG"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/homepage-ilwaco.png",
+        "image_mobile": "shopify://shop_images/ilwaco_shop_mobile.png",
+        "image_overlay_opacity": 0,
+        "image_height": "small",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "left",
+        "color_scheme": "scheme-78823a03-0880-4c09-84ee-d09083839a52",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      }
+    },
     "main": {
       "type": "main-page",
       "settings": {
@@ -19,6 +77,7 @@
     }
   },
   "order": [
+    "image_banner_9MhFVi",
     "main",
     "form"
   ]

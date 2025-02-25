@@ -49,6 +49,18 @@
     .header {
       top: {% if is_homepage %}var(--announcement-bar-height){% else %}var(--announcement-bar-height){% endif %};
     }
+
+    /* Ensure mobile menu elements have white text */
+    .header__inline-menu--mobile .header__menu-button,
+    .mobile-left-group .header__hamburger,
+    .mobile-left-group .header__icon--search,
+    .mobile-right-group .header__icon {
+      color: white;
+    }
+    
+    .header__hamburger svg path {
+      stroke: white;
+    }
   }
 
   /* Remove relative positioning from main content */
@@ -62,11 +74,11 @@
     z-index: 90;
   }
 
-  /* Conditionally set text/icon color */
+  /* Set text/icon color to white for all pages */
   .header__heading-link,
   .header__icon,
   .header__menu-item {
-    color: {% if is_homepage %}black{% else %}white{% endif %};
+    color: white;
     transition: color 0.1s ease;
   }
 
@@ -190,6 +202,11 @@
     transition: opacity 0.1s ease;
   }
 
+  /* Set menu button text color to white */
+  .header__menu-button {
+    color: white;
+  }
+
   {% if is_homepage %}
     .header__menu-item:hover span {
       opacity: 0.8;
@@ -226,6 +243,17 @@
     letter-spacing: 0.05em;
     color: inherit;
     font-weight: bold;
+  }
+
+  /* Drawer menu styles */
+  .drawer-menu__link,
+  .drawer-menu__sublink {
+    color: white;
+  }
+  
+  .drawer-menu__link:hover,
+  .drawer-menu__sublink:hover {
+    color: rgba(255, 255, 255, 0.8);
   }
 {%- endstyle -%}
 

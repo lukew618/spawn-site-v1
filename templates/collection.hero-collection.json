@@ -1,0 +1,174 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "banner": {
+      "type": "main-collection-banner",
+      "disabled": true,
+      "settings": {
+        "show_collection_description": false,
+        "show_collection_image": false,
+        "color_scheme": "scheme-1"
+      }
+    },
+    "image_banner_6HKwzN": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_xVGfaH": {
+          "type": "heading",
+          "settings": {
+            "heading": "{{ collection.title }}",
+            "heading_size": "h1"
+          }
+        },
+        "text_grhyGi": {
+          "type": "text",
+          "settings": {
+            "text": "{{ collection.metafields.custom.collection_description.value }}",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_xVGfaH",
+        "text_grhyGi"
+      ],
+      "settings": {
+        "image": "{{ collection.metafields.custom.collection_hero_image.value }}",
+        "image_mobile": "{{ collection.metafields.custom.collection_hero_image.value }}",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "scheme-78823a03-0880-4c09-84ee-d09083839a52",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": false
+      }
+    },
+    "featured_collection_jtTmM7": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "TOP FLY TYING MATERIALS",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": true,
+        "description_style": "body",
+        "collection": "fly-tying-materials",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": true,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_with_text_gB3aLn": {
+      "type": "image-with-text",
+      "blocks": {
+        "text_LWDhwa": {
+          "type": "text",
+          "settings": {
+            "text": "<p>At Spawn, we’ve curated a handpicked selection of high-quality fly tying materials to help you craft professional-grade flies every time. From classic staples like <a href=\"/products/hareline-ostrich-herl\" title=\"Hareline Ostrich Herl\">ostrich herl</a> and <a href=\"/products/natures-spirit-golden-pheasant-crest\" title=\"Nature's Spirit Golden Pheasant Crest\">golden pheasant feathers</a> to cutting-edge products like <a href=\"/products/easy-shrimp-eyes\" title=\"Easy Shrimp Eyes\">shrimp eyes</a> and <a href=\"/products/spawn-eyes\" title=\"Spawn Eyes\">spawn eyes</a>, you’ll find everything you need for fresh or saltwater patterns. Elevate your tying bench with top brands, including <a href=\"/collections/ahrex-hooks-products\" title=\"Ahrex Hooks Products\">Ahrex Hooks</a> and <a href=\"/collections/river-road-creations-products\" title=\"River Road Creations Products\">River Road Creations</a>, and get the reliable adhesives you need—like <a href=\"/products/aleenes-liquid-fusion\" title=\"Aleenes Liquid Fusion\">Liquid Fusion Glue</a>—to ensure durable, irresistible flies.</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "text_LWDhwa"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/homepage-outerwear.png",
+        "height": "medium",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "scheme-2",
+        "color_scheme": "scheme-2",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "products_per_page": 36,
+        "columns_desktop": 4,
+        "color_scheme": "",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": true,
+        "show_rating": false,
+        "quick_add": "bulk",
+        "enable_filtering": true,
+        "filter_type": "vertical",
+        "enable_sorting": true,
+        "columns_mobile": "2",
+        "padding_top": 52,
+        "padding_bottom": 36
+      }
+    },
+    "image_banner_8BAFkJ": {
+      "type": "image-banner",
+      "blocks": {
+        "text_P84FTD": {
+          "type": "text",
+          "settings": {
+            "text": "At Spawn Fly Fish, we’re proud to carry a handpicked selection of {{ collection.title }} for anglers of all levels. Explore top brands like <a href=\"/collections/sage-products\" title=\"Sage Products\">Sage</a>, <a href=\"/collections/redington-products\" title=\"Redington Products\">Redington</a>, <a href=\"/collections/douglas-outdoors-products\" title=\"Douglas Outdoors Products\">Douglas LRS</a>, <a href=\"/collections/ross-reels-products\" title=\"Ross Reels Products\">Ross Reels</a>, and <a href=\"/collections/all-products\" title=\"All Products\">more</a>. Whether you’re tying with <a href=\"/collections/easy-shrimp-eyes-products\" title=\"Easy Shrimp Eyes Products\">Shrimp Eyes</a>, crafting with <a href=\"/products/spawn-unreal-dub\" title=\"Spawn Unreal Dub\">Unreal Dubbing</a>, or looking for <a href=\"/products/loctite-super-glue-extra-time-control\" title=\"Loctite Super Glue - Extra Time Control\">Loctite Super Glue Extra Time Control</a> to secure your creations, you’ll find everything you need here.We also stock a wide range of <a href=\"/collections/fly-tying-products\" title=\"FLY TYING\">fly tying materials</a>, <a href=\"/collections/fly-rods\" title=\"FLY RODS\">fly rods</a>, and <a href=\"/collections/fly-reels\" title=\"FLY REELS\">fly reels</a>—including favorites like <a href=\"/collections/tibor-fly-reels\" title=\"Tibor Fly Reels\">Tibor Fly Reels</a>, <a href=\"/collections/waterworks-lamson-products\" title=\"Waterworks-Lamson Products\">Lamson Fly Reels</a>, and <a href=\"/collections/redington-fly-reels\" title=\"Redington Fly Reels\">Redington Fly Reels</a>. For complete guides on where and how to use your new gear, check out our <a href=\"/blogs/spawn-blog/sea-run-cutthroat-fishing-challenging-the-tide-rules\" title=\"Sea Run Cutthroat Fishing: Challenging the Tide Rules\">Fly Fishing Guide to Washington</a> or browse <a href=\"/blogs/spawn-blog\" title=\"Spawn Blog\">our blog</a> or <a href=\"https://www.youtube.com/c/SpawnFlyFish\" target=\"_blank\" title=\"https://www.youtube.com/c/SpawnFlyFish\">YouTube channel</a> for in-depth product tips and tutorials",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "text_P84FTD"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/winston-bamboo-fly-rod-winston-fly-rods-859806.png",
+        "image_mobile": "shopify://shop_images/winston-bamboo-fly-rod-winston-fly-rods-859806.png",
+        "image_overlay_opacity": 30,
+        "image_height": "small",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "scheme-78823a03-0880-4c09-84ee-d09083839a52",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": false
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "image_banner_6HKwzN",
+    "featured_collection_jtTmM7",
+    "image_with_text_gB3aLn",
+    "product-grid",
+    "image_banner_8BAFkJ"
+  ]
+}

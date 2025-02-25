@@ -1,0 +1,139 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "multicolumn_YTmbhh": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_VtkGbm": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/SPAWN_BIOS_josh.png",
+            "title": "JOSH PHILLIPS - CEO",
+            "text": "<p>For over 30 years Josh has been surrounded by fishing. Growing up in the Pacific Northwest, his father was a head fisheries biologist for the State of Washington. After graduating from High School in Olympia, Washington, Josh received an athletic scholarship to play soccer at Gonzaga University. During his four years at Gonzaga, Josh excelled both in the classroom and on the field, receiving All Conference Academic and Athletic awards.</p><p>After four years and graduating with a degree in Business Administration, Josh landed his dream job as a professional soccer player. While playing in 2017 Josh put a team together and launched a company in the fly fishing industry that you know today as Spawn Fly Fish. </p><p>With a foundation built on the same roots as his soccer experience, Josh knew he could lead a team, company, and community to success. Today you will find Josh continuing his relentless determination to bring Spawn Fly Fish to the front and center of this industry.</p>",
+            "link_label": "",
+            "link": "https://www.linkedin.com/in/joshua-phillips-974453219/"
+          }
+        },
+        "column_xeLnqw": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/SPAWN_BIOS_pete.png",
+            "title": "PETE ROSENAU - VP OF OPS",
+            "text": "<p>Born and raised in the Midwest, fishing has been integral in Pete’s life since the very beginning. With nature and the outdoors at the forefront, fly fishing, and especially fly tying, were a natural fit. Whether he’s leading a fly tying class or designing new fly materials, Pete is always eager to share his knowledge and passion with others. </p><p>If he’s not out fishing you most likely will find him in the dye room at Spawn’s headquarters. In his role as SVP of Operations, Pete leads all of Spawn's manufacturing and product innovation efforts as well as managing the day-to-day of our warehouse and fullfilment operation in Ilwaco, Washington.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_imeBgz": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/SPAWN_BIOS_LUKE.png",
+            "title": "LUKE WHITEMAN - CFO",
+            "text": "<p>Luke grew up on the inlet waters of Puget Sound. He spent his childhood sailing through the San Juan Islands with his dad, crabbing and fishing along the way when it was time to eat. After high school, Luke moved to Los Angeles to study Architecture at the University of Southern California.</p><p>After college, Luke began his career at Amazon managing a P&L within Sports and Outdoors.  Luke quickly moved on to various technology-focused positions at Amazon, and then departed to join an early stage re-commerce startup, Trove. </p>",
+            "link_label": "",
+            "link": "https://www.linkedin.com/in/luke-whiteman-2b28ab63/"
+          }
+        }
+      },
+      "block_order": [
+        "column_VtkGbm",
+        "column_xeLnqw",
+        "column_imeBgz"
+      ],
+      "settings": {
+        "title": "THE TEAM",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "custom_css": [
+        "h1 {text-transform: uppercase; text-align: center;}"
+      ],
+      "settings": {
+        "padding_top": 0,
+        "padding_bottom": 52
+      }
+    },
+    "slideshow_ydqbLG": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_Gy8bfd": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/IMG_0385.jpg",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_EcAeBy": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/IMG_9698.jpg",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "",
+            "text_alignment_mobile": "center"
+          }
+        }
+      },
+      "block_order": [
+        "slide_Gy8bfd",
+        "slide_EcAeBy"
+      ],
+      "settings": {
+        "layout": "full_bleed",
+        "slide_height": "medium",
+        "slider_visual": "dots",
+        "auto_rotate": true,
+        "change_slides_speed": 3,
+        "image_behavior": "none",
+        "show_text_below": false,
+        "accessibility_info": "Slideshow about our brand"
+      }
+    }
+  },
+  "order": [
+    "multicolumn_YTmbhh",
+    "main",
+    "slideshow_ydqbLG"
+  ]
+}

@@ -196,17 +196,33 @@
         "padding_bottom": 28
       }
     },
-    "full_bleed_video_nygjXP": {
-      "type": "full-bleed-video",
+    "image_banner_irBgAP": {
+      "type": "image-banner",
+      "blocks": {
+        "text_67KrWV": {
+          "type": "text",
+          "settings": {
+            "text": "At Spawn Fly Fish, we’re proud to carry a handpicked selection of products for anglers of all levels. Explore top brands like <a href=\"/collections/sage-products\" title=\"Sage Products\">Sage</a>, <a href=\"/collections/redington-products\" title=\"Redington Products\">Redington</a>, <a href=\"/collections/douglas-outdoors-products\" title=\"Douglas Outdoors Products\">Douglas LRS</a>, <a href=\"/collections/ross-reels-products\" title=\"Ross Reels Products\">Ross Reels</a>, and <a href=\"/collections/all-products\" title=\"All Products\">more</a>. Whether you’re tying with <a href=\"/collections/easy-shrimp-eyes-products\" title=\"Easy Shrimp Eyes Products\">Shrimp Eyes</a>, crafting with <a href=\"/products/spawn-unreal-dub\" title=\"Spawn Unreal Dub\">Unreal Dubbing</a>, or looking for <a href=\"/products/loctite-super-glue-extra-time-control\" title=\"Loctite Super Glue - Extra Time Control\">Loctite Super Glue Extra Time Control</a> to secure your creations, you’ll find everything you need here.We also stock a wide range of <a href=\"/collections/fly-tying-products\" title=\"FLY TYING\">fly tying materials</a>, <a href=\"/collections/fly-rods\" title=\"FLY RODS\">fly rods</a>, and <a href=\"/collections/fly-reels\" title=\"FLY REELS\">fly reels</a>—including favorites like <a href=\"/collections/tibor-fly-reels\" title=\"Tibor Fly Reels\">Tibor Fly Reels</a>, <a href=\"/collections/waterworks-lamson-products\" title=\"Waterworks-Lamson Products\">Lamson Fly Reels</a>, and <a href=\"/collections/redington-fly-reels\" title=\"Redington Fly Reels\">Redington Fly Reels</a>. For complete guides on where and how to use your new gear, check out our <a href=\"/blogs/spawn-blog/sea-run-cutthroat-fishing-challenging-the-tide-rules\" title=\"Sea Run Cutthroat Fishing: Challenging the Tide Rules\">Fly Fishing Guide to Washington</a> or browse <a href=\"/blogs/spawn-blog\" title=\"Spawn Blog\">our blog</a> or <a href=\"https://www.youtube.com/c/SpawnFlyFish\" target=\"_blank\" title=\"https://www.youtube.com/c/SpawnFlyFish\">YouTube channel</a> for in-depth product tips and tutorials",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "text_67KrWV"
+      ],
       "settings": {
-        "video": "shopify://files/videos/spawn_homepage_vid_logo.mp4",
-        "video_url": "",
-        "enable_video_looping": true,
-        "show_overlay": false,
-        "overlay_opacity": 0,
-        "heading": "",
-        "heading_size": "h1",
-        "text": ""
+        "image": "shopify://shop_images/winston-bamboo-fly-rod-winston-fly-rods-859806.png",
+        "image_mobile": "shopify://shop_images/winston-bamboo-fly-rod-winston-fly-rods-859806.png",
+        "image_overlay_opacity": 30,
+        "image_height": "medium",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "scheme-78823a03-0880-4c09-84ee-d09083839a52",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": false
       }
     },
     "multicolumn_frj3Ei": {
@@ -266,7 +282,7 @@
   "order": [
     "main",
     "related-products",
-    "full_bleed_video_nygjXP",
+    "image_banner_irBgAP",
     "multicolumn_frj3Ei"
   ]
 }

@@ -17,28 +17,21 @@
         "padding_bottom": 28
       }
     },
-    "image_banner_6VchWt": {
+    "image_banner_XXtdQW": {
       "type": "image-banner",
       "blocks": {
-        "heading_QtL6rX": {
+        "heading_anqgeK": {
           "type": "heading",
           "settings": {
-            "heading": "25% OFF SITE-WIDE",
+            "heading": "TOP DEALS",
             "heading_size": "h1"
           }
         },
-        "text_CeVmbQ": {
-          "type": "text",
-          "settings": {
-            "text": "GEAR UP FOR SPRING.",
-            "text_style": "body"
-          }
-        },
-        "buttons_7h7LAU": {
+        "buttons_yfjHhe": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "SHOP THE SALE",
-            "button_link_1": "shopify://collections/fly-tying-fly-fishing-deals",
+            "button_label_1": "SHOP NOW",
+            "button_link_1": "shopify://collections/deals",
             "button_style_secondary_1": true,
             "button_label_2": "",
             "button_link_2": "",
@@ -47,75 +40,162 @@
         }
       },
       "block_order": [
-        "heading_QtL6rX",
-        "text_CeVmbQ",
-        "buttons_7h7LAU"
+        "heading_anqgeK",
+        "buttons_yfjHhe"
       ],
-      "custom_css": [],
       "settings": {
-        "image": "shopify://shop_images/BFCM_Deals_Page_Blank.png",
-        "image_mobile": "shopify://shop_images/IMG_1058.jpg",
+        "image": "shopify://shop_images/16.png",
+        "image_mobile": "shopify://shop_images/Deals_Page_Banner.png",
         "image_overlay_opacity": 0,
         "image_height": "medium",
-        "desktop_content_position": "middle-left",
+        "desktop_content_position": "middle-center",
         "show_text_box": false,
-        "desktop_content_alignment": "left",
-        "color_scheme": "scheme-3",
+        "desktop_content_alignment": "center",
+        "color_scheme": "scheme-4",
         "image_behavior": "none",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": true,
         "show_text_below": false
       }
     },
-    "multicolumn_QCy8g6": {
+    "multicolumn_r6jkDx": {
       "type": "multicolumn",
       "blocks": {
-        "column_QaRffR": {
+        "column_wgKqVp": {
           "type": "column",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "link_label": "",
-            "link": ""
+            "image": "shopify://shop_images/2_ed3c7b50-7342-41ee-8926-c61646ece8e8.png",
+            "title": "",
+            "text": "",
+            "link_label": "SHOP NOW",
+            "link": "shopify://collections/35-off-select-products"
           }
         },
-        "column_RjkqzV": {
+        "column_9m8hdw": {
           "type": "column",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_UitwEY": {
-          "type": "column",
-          "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "link_label": "",
-            "link": ""
+            "image": "shopify://shop_images/3_80a2a3a9-ad12-48df-a1e1-018c5be18076.png",
+            "title": "",
+            "text": "<p><em>*Some restrictions apply</em></p>",
+            "link_label": "SHOP NOW",
+            "link": "shopify://collections/fly-tying-fly-fishing-deals"
           }
         }
       },
       "block_order": [
-        "column_QaRffR",
-        "column_RjkqzV",
-        "column_UitwEY"
+        "column_wgKqVp",
+        "column_9m8hdw"
       ],
       "disabled": true,
       "settings": {
-        "title": "Multicolumn",
-        "heading_size": "h1",
+        "title": "",
+        "heading_size": "h2",
         "image_width": "full",
+        "image_ratio": "square",
+        "columns_desktop": 2,
+        "column_alignment": "center",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "scheme-2",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "featured_collection_i43TfT": {
+      "type": "featured-collection",
+      "disabled": true,
+      "custom_css": [
+        "h2 {text-align: center;}"
+      ],
+      "settings": {
+        "title": "35% OFF SELECT ITEMS",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "35-off-select-products",
+        "products_to_show": 8,
+        "columns_desktop": 3,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": true,
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 72
+      }
+    },
+    "collection_list_zKM8eX": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_6mYXFz": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "spawn-fly-fish-products"
+          }
+        },
+        "featured_collection_zD69eg": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "fly-tying-products"
+          }
+        },
+        "featured_collection_QBiik6": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "flies"
+          }
+        },
+        "featured_collection_yzD7Ep": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "gear-apparel"
+          }
+        },
+        "featured_collection_dhLBj6": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "fly-rods"
+          }
+        },
+        "featured_collection_9mPf69": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "fly-reels"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_6mYXFz",
+        "featured_collection_zD69eg",
+        "featured_collection_QBiik6",
+        "featured_collection_yzD7Ep",
+        "featured_collection_dhLBj6",
+        "featured_collection_9mPf69"
+      ],
+      "disabled": true,
+      "custom_css": [
+        "h3 {text-align: center;}"
+      ],
+      "settings": {
+        "title": "UP TO 25% OFF SITE-WIDE",
+        "heading_size": "h1",
         "image_ratio": "adapt",
         "columns_desktop": 3,
-        "column_alignment": "left",
-        "background_style": "primary",
-        "button_label": "Button label",
-        "button_link": "",
         "color_scheme": "",
-        "columns_mobile": "1",
+        "show_view_all": false,
+        "columns_mobile": "2",
         "swipe_on_mobile": false,
         "padding_top": 36,
         "padding_bottom": 36
@@ -123,24 +203,27 @@
     },
     "featured_collection_dNfwEF": {
       "type": "featured-collection",
+      "custom_css": [
+        "h2 {text-align: center;}"
+      ],
       "settings": {
         "title": "",
         "heading_size": "h1",
         "description": "",
         "show_description": false,
         "description_style": "body",
-        "collection": "fly-tying-fly-fishing-deals",
-        "products_to_show": 8,
-        "columns_desktop": 4,
-        "full_width": true,
+        "collection": "deals",
+        "products_to_show": 6,
+        "columns_desktop": 6,
+        "full_width": false,
         "show_view_all": true,
         "view_all_style": "solid",
         "enable_desktop_slider": false,
         "color_scheme": "",
-        "image_ratio": "adapt",
+        "image_ratio": "square",
         "image_shape": "default",
         "show_secondary_image": false,
-        "show_vendor": false,
+        "show_vendor": true,
         "show_rating": false,
         "quick_add": "none",
         "columns_mobile": "2",
@@ -152,8 +235,10 @@
   },
   "order": [
     "main",
-    "image_banner_6VchWt",
-    "multicolumn_QCy8g6",
+    "image_banner_XXtdQW",
+    "multicolumn_r6jkDx",
+    "featured_collection_i43TfT",
+    "collection_list_zKM8eX",
     "featured_collection_dNfwEF"
   ]
 }

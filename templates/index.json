@@ -15,14 +15,14 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "JUST LANDED",
-            "text_style": "body"
+            "text": "ONE DESIGN, COUNTLESS SPECIES.",
+            "text_style": "subtitle"
           }
         },
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "NEW ARRIVALS",
+            "heading": "SPAWN FLIES",
             "heading_size": "h1"
           }
         },
@@ -30,10 +30,10 @@
           "type": "buttons",
           "settings": {
             "button_label_1": "SHOP NOW",
-            "button_link_1": "shopify://collections/new-products",
+            "button_link_1": "shopify://collections/spawn-flies",
             "button_style_secondary_1": true,
             "button_label_2": "",
-            "button_link_2": "shopify://collections/spawn-dubbing",
+            "button_link_2": "",
             "button_style_secondary_2": true
           }
         }
@@ -44,15 +44,15 @@
         "button"
       ],
       "settings": {
-        "image": "shopify://shop_images/homepage-hero.png",
-        "image_mobile": "shopify://shop_images/homepage-hero-mobile.png",
+        "image": "shopify://shop_images/21.png",
+        "image_mobile": "shopify://shop_images/Full_Bleed_Mobile_Hero_Banne.png",
         "image_overlay_opacity": 0,
         "image_height": "large",
         "desktop_content_position": "middle-left",
         "show_text_box": false,
         "desktop_content_alignment": "left",
-        "color_scheme": "scheme-1",
-        "image_behavior": "ambient",
+        "color_scheme": "scheme-4",
+        "image_behavior": "none",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": false,
         "show_text_below": false
@@ -72,7 +72,7 @@
         "collection": "best-sellers",
         "products_to_show": 15,
         "columns_desktop": 3,
-        "full_width": true,
+        "full_width": false,
         "show_view_all": true,
         "view_all_style": "link",
         "enable_desktop_slider": true,
@@ -110,7 +110,7 @@
         "text_Bit8nz": {
           "type": "text",
           "settings": {
-            "text": "<p>Discover Spawn Fly Fish, the ultimate online destination for fly tying and fly fishing. Our website delivers expert advice, detailed gear reviews, and actionable tips that empower both beginners and experts to master the moment. Whether you’re seeking in-depth tutorials on fly tying, or the latest innovations in fishing gear and tying materials, Spawn Fly Fish provides a wealth of content designed to enhance your outdoor adventures. Explore our engaging articles and blogs and join a vibrant community of passionate anglers and tiers committed to elevating the fly fishing experience. Cast your way to success with Spawn Fly Fish—the trusted hub for expert advice, innovative gear, materials, insights, and inspiring fly fishing journeys.</p>"
+            "text": "<p>At Spawn Fly Fish, we’re proud to carry a handpicked selection of products for anglers of all levels. Explore top brands like <a href=\"/collections/sage-products\" title=\"Sage Products\">Sage</a>, <a href=\"/collections/redington-products\" title=\"Redington Products\">Redington</a>, <a href=\"/collections/douglas-outdoors-products\" title=\"Douglas Outdoors Products\">Douglas LRS</a>, <a href=\"/collections/ross-reels-products\" title=\"Ross Reels Products\">Ross Reels</a>, and <a href=\"/collections/all-products\" title=\"All Products\">more</a>. Whether you’re tying with <a href=\"/collections/easy-shrimp-eyes-products\" title=\"Easy Shrimp Eyes Products\">Shrimp Eyes</a>, crafting with <a href=\"/products/spawn-unreal-dub\" title=\"Spawn Unreal Dub\">Unreal Dubbing</a>, or looking for <a href=\"/products/loctite-super-glue-extra-time-control\" title=\"Loctite Super Glue - Extra Time Control\">Loctite Super Glue Extra Time Control</a> to secure your creations, you’ll find everything you need here.We also stock a wide range of <a href=\"/collections/fly-tying-products\" title=\"FLY TYING\">fly tying materials</a>, <a href=\"/collections/fly-rods\" title=\"FLY RODS\">fly rods</a>, and <a href=\"/collections/fly-reels\" title=\"FLY REELS\">fly reels</a>—including favorites like <a href=\"/collections/tibor-fly-reels\" title=\"Tibor Fly Reels\">Tibor Fly Reels</a>, <a href=\"/collections/waterworks-lamson-products\" title=\"Waterworks-Lamson Products\">Lamson Fly Reels</a>, and <a href=\"/collections/redington-fly-reels\" title=\"Redington Fly Reels\">Redington Fly Reels</a>. For complete guides on where and how to use your new gear, check out our <a href=\"/blogs/spawn-blog/sea-run-cutthroat-fishing-challenging-the-tide-rules\" title=\"Sea Run Cutthroat Fishing: Challenging the Tide Rules\">Fly Fishing Guide to Washington</a> or browse <a href=\"/blogs/spawn-blog\" title=\"Spawn Blog\">our blog</a> or <a href=\"https://www.youtube.com/c/SpawnFlyFish\" target=\"_blank\" title=\"https://www.youtube.com/c/SpawnFlyFish\">YouTube channel</a> for in-depth product tips and tutorials</p>"
           }
         }
       },
@@ -142,7 +142,7 @@
           "type": "buttons",
           "settings": {
             "button_label_1": "SHOP NOW",
-            "button_link_1": "shopify://collections/new-products",
+            "button_link_1": "shopify://collections/new-arrivals",
             "button_style_secondary_1": false,
             "button_label_2": "",
             "button_link_2": "",
@@ -189,24 +189,31 @@
           "settings": {
             "collection": "fly-reels"
           }
+        },
+        "featured_collection_nQwnKi": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "flies"
+          }
         }
       },
       "block_order": [
         "featured_collection_xtfYnQ",
         "featured_collection_iXjiXn",
-        "featured_collection_GAdW8E"
+        "featured_collection_GAdW8E",
+        "featured_collection_nQwnKi"
       ],
       "settings": {
         "title": "<strong>TOP CATEGORIES</strong>",
         "heading_size": "h2",
         "image_ratio": "adapt",
-        "columns_desktop": 3,
+        "columns_desktop": 2,
         "color_scheme": "scheme-1",
         "show_view_all": false,
         "columns_mobile": "1",
-        "swipe_on_mobile": false,
+        "swipe_on_mobile": true,
         "padding_top": 80,
-        "padding_bottom": 100
+        "padding_bottom": 36
       }
     },
     "featured_product_HHeNBg": {
@@ -305,55 +312,6 @@
         "padding_bottom": 36
       }
     },
-    "image_banner_4k67yw": {
-      "type": "image-banner",
-      "blocks": {
-        "text_R8rV8b": {
-          "type": "text",
-          "settings": {
-            "text": "ONE DESIGN, COUNTLESS SPECIES.",
-            "text_style": "body"
-          }
-        },
-        "heading_9jDz8k": {
-          "type": "heading",
-          "settings": {
-            "heading": "<strong>SPAWN FLIES</strong>",
-            "heading_size": "hxl"
-          }
-        },
-        "buttons_PaxakW": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "SHOP NOW",
-            "button_link_1": "shopify://collections/flies",
-            "button_style_secondary_1": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "text_R8rV8b",
-        "heading_9jDz8k",
-        "buttons_PaxakW"
-      ],
-      "settings": {
-        "image": "shopify://shop_images/homepage-outerwear.png",
-        "image_mobile": "shopify://shop_images/homepage-outerwear-mobile.png",
-        "image_overlay_opacity": 0,
-        "image_height": "large",
-        "desktop_content_position": "middle-left",
-        "show_text_box": false,
-        "desktop_content_alignment": "left",
-        "color_scheme": "scheme-3",
-        "image_behavior": "none",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": true,
-        "show_text_below": false
-      }
-    },
     "collage_x8nznF": {
       "type": "collage",
       "blocks": {
@@ -394,6 +352,96 @@
         "padding_bottom": 36
       }
     },
+    "featured_product_j3htGa": {
+      "type": "featured-product",
+      "blocks": {
+        "title_bHbHR7": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "price_64tb3t": {
+          "type": "price",
+          "settings": {}
+        },
+        "buy_buttons_mtDYeD": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": true
+          }
+        }
+      },
+      "block_order": [
+        "title_bHbHR7",
+        "price_64tb3t",
+        "buy_buttons_mtDYeD"
+      ],
+      "settings": {
+        "product": "spawn-super-select-green-winged-teal",
+        "color_scheme": "scheme-1",
+        "secondary_background": false,
+        "media_size": "medium",
+        "constrain_to_viewport": true,
+        "media_fit": "cover",
+        "media_position": "left",
+        "image_zoom": "hover",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 72,
+        "padding_bottom": 36
+      }
+    },
+    "image_banner_4k67yw": {
+      "type": "image-banner",
+      "blocks": {
+        "text_R8rV8b": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "text_style": "body"
+          }
+        },
+        "heading_9jDz8k": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>HOW TO FISH PUGET SOUND</strong>",
+            "heading_size": "h1"
+          }
+        },
+        "buttons_PaxakW": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "LEARN MORE",
+            "button_link_1": "shopify://pages/how-to-fly-fish-puget-sound",
+            "button_style_secondary_1": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "text_R8rV8b",
+        "heading_9jDz8k",
+        "buttons_PaxakW"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/41.png",
+        "image_mobile": "shopify://shop_images/Full_Bleed_Mobile_Hero_Banner_2.png",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "desktop_content_position": "middle-left",
+        "show_text_box": false,
+        "desktop_content_alignment": "left",
+        "color_scheme": "scheme-3",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": false
+      }
+    },
     "image_with_text_bViTjP": {
       "type": "image-with-text",
       "blocks": {
@@ -427,9 +475,9 @@
       ],
       "settings": {
         "image": "shopify://shop_images/spawn-h-ilwaco-s-spawn-ilwaco-hoodie-spawn-fly-fish-272096.jpg",
-        "height": "adapt",
+        "height": "medium",
         "desktop_image_width": "medium",
-        "layout": "image_first",
+        "layout": "text_first",
         "desktop_content_position": "top",
         "desktop_content_alignment": "left",
         "content_layout": "no-overlap",
@@ -494,7 +542,7 @@
       ],
       "settings": {
         "image": "shopify://shop_images/homepage-ilwaco.png",
-        "image_mobile": "shopify://shop_images/unnamed.jpg",
+        "image_mobile": "shopify://shop_images/ilwaco_shop_mobile.png",
         "image_overlay_opacity": 0,
         "image_height": "medium",
         "desktop_content_position": "middle-center",
@@ -569,8 +617,9 @@
     "collection_list_QGtX47",
     "featured_product_HHeNBg",
     "image_with_text_EJEVBb",
-    "image_banner_4k67yw",
     "collage_x8nznF",
+    "featured_product_j3htGa",
+    "image_banner_4k67yw",
     "image_with_text_bViTjP",
     "featured_blog_UaRnVq",
     "image_banner_ja4xUn",
