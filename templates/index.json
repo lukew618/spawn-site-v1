@@ -28,7 +28,6 @@
         },
         "button": {
           "type": "buttons",
-          "disabled": true,
           "settings": {
             "button_label_1": "SHOP SPAWN",
             "button_link_1": "shopify://pages/fly-tying-deals",
