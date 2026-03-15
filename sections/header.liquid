@@ -264,9 +264,17 @@
   <header class="header">
     <!-- Desktop menu -->
     <div class="header__inline-menu header__inline-menu--desktop">
-      <button type="button" class="header__menu-button" id="shop-button">Shop</button>
-      <a href="/pages/deals" class="header__menu-button" id="deals-button" style="text-decoration: none;">Deals</a>
-      <a href="/blogs/spawn-blog" class="header__menu-button" id="blog-button" style="text-decoration: none;">Blog</a>
+      {%- for link in section.settings.menu.links -%}
+        {%- if link.links.size > 0 -%}
+          <button type="button" class="header__menu-button" data-opens-drawer aria-expanded="false">
+            {{- link.title -}}
+          </button>
+        {%- else -%}
+          <a href="{{ link.url }}" class="header__menu-button" style="text-decoration: none;">
+            {{- link.title -}}
+          </a>
+        {%- endif -%}
+      {%- endfor -%}
     </div>
 
     <!-- Mobile header -->
@@ -335,7 +343,7 @@
       </a>
     </div>
 
-    {% render 'drawer-menu' %}
+    {% render 'drawer-menu', menu: section.settings.drawer_menu %}
   </header>
 </header-scroll>
 
@@ -348,6 +356,11 @@
       "id": "menu",
       "default": "main-menu",
       "label": "t:sections.header.settings.menu.label"
+    },
+    {
+      "type": "link_list",
+      "id": "drawer_menu",
+      "label": "Drawer menu (Shop categories)"
     }
   ]
 }

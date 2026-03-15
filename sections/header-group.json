@@ -38,7 +38,8 @@
     "header": {
       "type": "header",
       "settings": {
-        "menu": "main-menu"
+        "menu": "main-menu",
+        "drawer_menu": "main-menu-2"
       }
     }
   },

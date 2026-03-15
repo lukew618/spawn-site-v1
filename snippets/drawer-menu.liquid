@@ -1,10 +1,13 @@
 <!-- snippets/drawer-menu.liquid -->
+{%- unless menu -%}
+  {%- assign menu = linklists['main-menu-2'] -%}
+{%- endunless -%}
 <div
     id="drawer-menu"
     class="drawer-menu hidden"
     role="dialog"
     aria-modal="true"
-    aria-labelledby="drawer-menu-title"
+    aria-label="Shop navigation"
   >
     <div class="drawer-menu__overlay" id="drawer-menu-overlay"></div>
   
@@ -20,7 +23,7 @@
         
       <!-- Example: Using Shopify's navigation for "main-menu-2" with sub-menu items expanded -->
       <div class="drawer-menu__grid">
-      {% for link in linklists.main-menu-2.links %}
+      {% for link in menu.links %}
         <div class="drawer-menu__item">
           {% if link.links.size > 0 %}
             <button 
