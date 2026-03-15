@@ -1,110 +1,168 @@
-# Spawn Fly Fish — Claude Agent Guide
+# Spawn Fly Fish — Shopify Theme
 
-## Store & Theme
+## Project
+Fly fishing retailer (Ilwaco, WA). Dawn v15.2.0 base theme with custom header scroll behavior, free shipping bar, in-store-only template, and PageFly integration. Store: spawn-fly-fish.myshopify.com. `SHOPIFY_FLAG_STORE` is already exported in `~/.zshrc`.
 
-- **Store:** spawn-fly-fish.myshopify.com
-- **Theme:** Dawn v15.2.0 (Shopify open-source starter theme, modified in-place)
-- **Repo:** https://github.com/lukew618/spawn-site-v1
-
-### Theme ID
-**spawn-store-v1: `129377796159`** — always use this theme for all operations.
-
-`SHOPIFY_FLAG_STORE` is exported in `~/.zshrc` — no need to set it manually.
-
-## No Build Step
-
-This is pure Liquid/CSS/vanilla JS. Edit files directly — no webpack, no Vite, no Tailwind, no compilation needed.
-
-## Key Commands
-
+## Commands
 ```bash
-# Preview locally
-shopify theme dev --theme=129377796159
+shopify theme dev --theme=129377796159       # local dev with hot reload
+shopify theme push --theme=129377796159      # deploy to Shopify
+shopify theme pull --theme=129377796159      # sync from Shopify (do before starting work)
+shopify theme check                          # lint — must pass clean before every commit
+```
 
-# Push to Shopify
-shopify theme push --theme=129377796159
+## Architecture (OS2)
+- **JSON templates** (`templates/*.json`) — define page structure, reference sections. No Liquid here.
+- **Sections** (`sections/*.liquid`) — rendering logic + `{% schema %}`. Unit of merchant customization.
+- **Snippets** (`snippets/*.liquid`) — single-purpose partials. Max 2 nesting levels.
+- **Assets** — CSS/JS only. No Liquid in assets.
 
-# Pull latest from Shopify (do this before starting work)
-shopify theme pull --theme=129377796159
+No build step. Edit files directly — no webpack, Vite, or compilation.
 
-# Validate Liquid syntax
-shopify theme check
+## Liquid Rules
+
+**Always `{% render %}`, never `{% include %}`** — `include` is deprecated and leaks variable scope.
+
+```liquid
+{% # Correct %}
+{% render 'product-card', product: product %}
+
+{% # Wrong — never do this %}
+{% include 'product-card' %}
+```
+
+**Paginate all loops over collections:**
+```liquid
+{% paginate collection.products by 24 %}
+  {% for product in collection.products %}...{% endfor %}
+{% endpaginate %}
+```
+
+**Cache repeated computations:**
+```liquid
+{% assign discounted = product.price | times: 0.8 %}  {%- # not repeated inline -%}
+```
+
+**Never:** iterate `all_products` or `collections.all` unpaginated, filter large arrays in Liquid (use collection filtering), nest `{% if %}` more than 3 levels deep without extracting to a snippet.
+
+## Performance Rules
+
+**Images — non-negotiable:**
+```liquid
+{%- # Above-the-fold / LCP image -%}
+{{ section.settings.image | image_url: width: 1500 | image_tag:
+   loading: 'eager',
+   fetchpriority: 'high',
+   preload: true,
+   widths: '375,750,1100,1500',
+   sizes: '100vw',
+   alt: section.settings.image.alt | escape }}
+
+{%- # Below-the-fold (product cards, etc.) -%}
+{{ product.featured_image | image_url: width: 600 | image_tag:
+   loading: 'lazy',
+   widths: '200,300,400,600',
+   sizes: '(min-width: 750px) 25vw, 50vw',
+   alt: product.featured_image.alt | default: product.title | escape }}
+```
+- Always `image_url` + `image_tag` — never raw `<img src>` or hardcoded CDN URLs.
+- Always `widths:` for srcset. Always explicit `alt`. Always `width` + `height` to prevent CLS.
+- LCP images: `loading: 'eager'` + `fetchpriority: 'high'`. Everything else: `loading: 'lazy'`.
+
+**CSS:**
+- Load section CSS at the top of its section file: `{{ 'component-name.css' | asset_url | stylesheet_tag }}`
+- Only global/critical CSS in `theme.liquid`.
+- CSS custom properties for all color/spacing values — no hardcoded hex.
+- No `!important` except documented third-party overrides.
+
+**JavaScript:**
+- All `<script>` tags: `defer` or `async`. No parser-blocking scripts in `<head>`.
+- New JS bundles: under 16KB minified.
+- Prefer CSS for transitions, hover states, toggles — only reach for JS when necessary.
+- Dawn's Web Component pattern is the standard. No jQuery.
+- Lazy-load third-party widgets (reviews, chat, upsells) — never block initial render.
+
+## Accessibility (WCAG 2.1 AA — Minimum)
+- Color contrast: 4.5:1 body text, 3:1 large text and interactive elements.
+- Focus states: never `outline: none` without a visible custom replacement.
+- All interactive elements keyboard-operable. Focus trapped inside modals/drawers.
+- `aria-label` on icon-only buttons. `aria-expanded` on toggles. `aria-live="polite"` on dynamic regions (cart count, filter results, error messages).
+- Every `<input>` has an associated `<label>` — not just placeholder text.
+- Skip-to-content link is the first focusable element on every page.
+
+## Section Schema Standards
+- All label/info strings use `t:` translation keys — never hardcoded English in schema.
+- Every setting has a `default` value.
+- Use `header` type blocks to group settings in the editor.
+- Blocks: composable and single-purpose (a "Button" block, not a "Hero Content" block).
+- Include `{ "type": "@app" }` in blocks array for any section that could benefit from app injection.
+- `disabled_on` group restrictions where appropriate (e.g., no testimonials section in header group).
+
+## Cart & UX Patterns
+- Add-to-cart opens cart drawer — never redirect to `/cart`.
+- Cart updates via Section Rendering API — not manual DOM manipulation.
+- Out-of-stock surfaced at variant selection, not at add-to-cart.
+- Errors display inline — never `alert()`.
+- Free shipping threshold bar visible in cart drawer ($49 threshold).
+- Checkout button always visible on mobile without scrolling.
+
+## Mobile-First
+- Base styles for mobile, `min-width` media queries up. Dawn breakpoints: `750px` / `990px` / `1200px`.
+- Minimum touch target: 44×44px.
+- All `<input>` elements: `font-size: 16px` minimum (prevents iOS auto-zoom).
+- No hover-only interactions — always a tap equivalent.
+
+## Off-Limits Files
+These are auto-generated by PageFly — never edit manually:
+- `sections/pf-b25451ca.liquid`
+- `snippets/pf-b25451ca-css.liquid`
+- `snippets/pagefly-main-js.liquid`
+- `templates/product.pf-b25451ca.json`
+
+Handle with care (Theme Editor owns these):
+- `config/settings_data.json` — prefer editing section/template JSON directly.
+
+## Key Customizations — Don't Break
+- **Scroll header:** `assets/header-scroll.js` + `.site-header--homepage` class in `sections/header.liquid` — transparent on homepage, solid on scroll/other pages.
+- **Free shipping bar:** `assets/component-free-shipping-bar.css` rendered in `snippets/cart-drawer.liquid`.
+- **In-store-only template:** `templates/product.in-store-only.json` — no buy buttons by design.
+- **Hero collection template:** `templates/collection.hero-collection.json` — image from `collection.metafields.custom.collection_hero_image`.
+
+## Metafield Namespaces
+- `custom.*` — site-specific (product features, description, bullets, variant descriptions, collection hero)
+- `mm-google-shopping.*` — Google Shopping feed (don't modify)
+- `shopify--discovery--*` — Shopify native search/recommendations (don't modify)
+- `descriptors.*` — Shopify standard subtitle, etc.
+
+## Pre-Commit Checklist
+Run before every commit, no exceptions:
+- [ ] `shopify theme check` — zero errors, zero unacknowledged warnings
+- [ ] All images: `alt` attribute present, `image_url` + `image_tag` used
+- [ ] No `{% include %}` anywhere in changed files
+- [ ] No hardcoded hex colors — CSS custom properties only
+- [ ] New `<script>` tags have `defer` or `async`
+- [ ] LCP image (if modified): `loading: 'eager'`, `fetchpriority: 'high'`
+- [ ] New schema settings use `t:` translation keys with `default` values
+- [ ] Interactive elements keyboard-accessible
+- [ ] Tested at 375px mobile viewport
+
+## Commit Format
+```
+type(scope): short description
+
+Types: feat | fix | perf | refactor | style | chore
+Scope: section, snippet, asset, template, config
+
+Examples:
+feat(product-card): add metafield block for size chart
+fix(cart-drawer): resolve focus trap on mobile
+perf(hero): preload LCP image, add proper srcset
+chore(snippets): migrate include to render in featured-collection
 ```
 
 ## Workflow
-
-1. Pull latest Shopify state before starting: `shopify theme pull --theme=129377796159`
-2. Make changes to Liquid/CSS/JS files
-3. Run `shopify theme check` to validate
-4. Push to Shopify: `shopify theme push --theme=129377796159`
-5. Commit to GitHub with descriptive message
-
-## Directory Structure
-
-```
-layout/          — theme.liquid, password.liquid
-sections/        — 58 sections (OS2 JSON-based)
-templates/       — 23 templates (JSON format)
-snippets/        — 41 snippets
-assets/          — CSS components + vanilla JS modules + SVGs
-config/          — settings_data.json, settings_schema.json, markets.json
-locales/         — i18n files (53 languages from Dawn base)
-.shopify/        — metafields.json (Shopify CLI v3)
-```
-
-## Off-Limits Files (Do Not Edit)
-
-These are auto-generated by apps and will be overwritten on app publish:
-- `sections/pf-b25451ca.liquid` — PageFly generated
-- `snippets/pf-b25451ca-css.liquid` — PageFly generated
-- `snippets/pagefly-main-js.liquid` — PageFly Google Analytics
-
-## Treat With Care
-
-- `config/settings_data.json` — owned by the Theme Editor; prefer editing section/template JSON directly over settings_data
-- `templates/product.pf-b25451ca.json` — PageFly-managed product template
-
-## Key Customizations (Don't Break These)
-
-- **Transparent-to-black scroll header** on homepage: `assets/header-scroll.js` + CSS class `site-header--homepage` in `sections/header.liquid`
-- **Free shipping progress bar** (threshold $49): `assets/component-free-shipping-bar.css`, rendered in `snippets/cart-drawer.liquid`
-- **In-store-only product template**: `templates/product.in-store-only.json` — no buy buttons, shows "IN-STORE ONLY" message
-- **Hero collection template**: `templates/collection.hero-collection.json` — image from `collection.metafields.custom.collection_hero_image`
-
-## Metafield Namespaces
-
-- `custom.*` — site-specific product/collection/variant metafields
-- `mm-google-shopping.*` — Google Shopping feed data
-- `shopify--discovery--*` — Shopify native search/recommendation
-- `descriptors.*` — Shopify standard (subtitle, etc.)
-
-### Key Custom Metafields
-**Product:** `feature_1`, `materials`, `all_product_features`, `product_description`, `all_product_features_bullets`, `care_instructions_2`, `additional_details`, `related_video`
-**Variant:** `variant_description`
-**Collection:** `collection_hero_image` (file_reference), `collection_description`
-
-## CSS Approach
-
-Dawn's native CSS custom properties. Component-level CSS files (`component-*.css`) loaded conditionally. Section-specific styles use inline `{% style %}` blocks with dynamic values from theme settings. No Tailwind.
-
-## JS Approach
-
-Vanilla JS Web Components (Dawn architecture). No framework. Custom additions:
-- `assets/header-scroll.js` — scroll-triggered header behavior
-- `assets/drawer-menu.js` — custom drawer menu
-
-Note: `react` and `@types/react` are in `package.json` but are unused — ignore them, don't add React-based code.
-
-## Brand Context
-
-**Spawn Fly Fish** — fly fishing retailer, Ilwaco WA (Pacific Northwest). Physical store + e-commerce.
-- Products: branded dubbing/beads/eyes, rods (Sage, Redington, Douglas, Winston), reels (Tibor, Waterworks-Lamson), flies, gear, apparel
-- Brand pillars: free shipping $49+, free returns, 2% of profits to conservation
-- YouTube: @SpawnFlyFish
-
-## Git Conventions
-
-- Single `main` branch
-- Commit frequently with descriptive messages after each meaningful change
-- Push to GitHub after every commit
-- Never push to live theme without Luke's explicit confirmation
+1. `shopify theme pull --theme=129377796159` — sync before starting
+2. Make changes
+3. Run pre-commit checklist
+4. `shopify theme push --theme=129377796159` — deploy
+5. Commit + push to GitHub
