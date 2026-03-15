@@ -15,22 +15,23 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "ONE DESIGN, COUNTLESS SPECIES.",
+            "text": "",
             "text_style": "subtitle"
           }
         },
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "SPAWN FLIES",
-            "heading_size": "h1"
+            "heading": "TIE. CAST. REPEAT",
+            "heading_size": "h0"
           }
         },
         "button": {
           "type": "buttons",
+          "disabled": true,
           "settings": {
-            "button_label_1": "SHOP NOW",
-            "button_link_1": "shopify://collections/spawn-flies",
+            "button_label_1": "SHOP SPAWN",
+            "button_link_1": "shopify://pages/fly-tying-deals",
             "button_style_secondary_1": true,
             "button_label_2": "",
             "button_link_2": "",
@@ -44,8 +45,8 @@
         "button"
       ],
       "settings": {
-        "image": "shopify://shop_images/21.png",
-        "image_mobile": "shopify://shop_images/Full_Bleed_Mobile_Hero_Banne.png",
+        "image": "shopify://shop_images/Todd_Moen_Aerial_Idaho.jpg",
+        "image_mobile": "shopify://shop_images/Todd_Moen_Coho.jpg",
         "image_overlay_opacity": 0,
         "image_height": "large",
         "desktop_content_position": "middle-left",
@@ -64,12 +65,12 @@
         "h3 {text-transform: uppercase;}"
       ],
       "settings": {
-        "title": "<strong>BEST SELLERS</strong>",
+        "title": "<strong>SPAWN FLY FISH PRODUCTS</strong>",
         "heading_size": "h2",
-        "description": "<p>SHOP THE BEST FROM SPAWN</p>",
+        "description": "<p>BEST FLY TYING MATERIALS</p>",
         "show_description": false,
         "description_style": "body",
-        "collection": "best-sellers",
+        "collection": "spawn-fly-fish-products",
         "products_to_show": 15,
         "columns_desktop": 3,
         "full_width": false,
@@ -87,86 +88,6 @@
         "swipe_on_mobile": true,
         "padding_top": 56,
         "padding_bottom": 36
-      }
-    },
-    "rich_text_f99xiG": {
-      "type": "rich-text",
-      "blocks": {
-        "caption_qHAWbk": {
-          "type": "caption",
-          "settings": {
-            "caption": "ABOUT SPAWN",
-            "text_style": "caption-with-letter-spacing",
-            "text_size": "large"
-          }
-        },
-        "heading_qJPCk4": {
-          "type": "heading",
-          "settings": {
-            "heading": "<strong>THE SPAWN DIFFERENCE</strong>",
-            "heading_size": "h1"
-          }
-        },
-        "text_Bit8nz": {
-          "type": "text",
-          "settings": {
-            "text": "<p>At Spawn Fly Fish, we’re proud to carry a handpicked selection of products for anglers of all levels. Explore top brands like <a href=\"/collections/sage-products\" title=\"Sage Products\">Sage</a>, <a href=\"/collections/redington-products\" title=\"Redington Products\">Redington</a>, <a href=\"/collections/douglas-outdoors-products\" title=\"Douglas Outdoors Products\">Douglas LRS</a>, <a href=\"/collections/ross-reels-products\" title=\"Ross Reels Products\">Ross Reels</a>, and <a href=\"/collections/all-products\" title=\"All Products\">more</a>. Whether you’re tying with <a href=\"/collections/easy-shrimp-eyes-products\" title=\"Easy Shrimp Eyes Products\">Shrimp Eyes</a>, crafting with <a href=\"/products/spawn-unreal-dub\" title=\"Spawn Unreal Dub\">Unreal Dubbing</a>, or looking for <a href=\"/products/loctite-super-glue-extra-time-control\" title=\"Loctite Super Glue - Extra Time Control\">Loctite Super Glue Extra Time Control</a> to secure your creations, you’ll find everything you need here.We also stock a wide range of <a href=\"/collections/fly-tying-products\" title=\"FLY TYING\">fly tying materials</a>, <a href=\"/collections/fly-rods\" title=\"FLY RODS\">fly rods</a>, and <a href=\"/collections/fly-reels\" title=\"FLY REELS\">fly reels</a>—including favorites like <a href=\"/collections/tibor-fly-reels\" title=\"Tibor Fly Reels\">Tibor Fly Reels</a>, <a href=\"/collections/waterworks-lamson-products\" title=\"Waterworks-Lamson Products\">Lamson Fly Reels</a>, and <a href=\"/collections/redington-fly-reels\" title=\"Redington Fly Reels\">Redington Fly Reels</a>. For complete guides on where and how to use your new gear, check out our <a href=\"/blogs/spawn-blog/sea-run-cutthroat-fishing-challenging-the-tide-rules\" title=\"Sea Run Cutthroat Fishing: Challenging the Tide Rules\">Fly Fishing Guide to Washington</a> or browse <a href=\"/blogs/spawn-blog\" title=\"Spawn Blog\">our blog</a> or <a href=\"https://www.youtube.com/c/SpawnFlyFish\" target=\"_blank\" title=\"https://www.youtube.com/c/SpawnFlyFish\">YouTube channel</a> for in-depth product tips and tutorials</p>"
-          }
-        }
-      },
-      "block_order": [
-        "caption_qHAWbk",
-        "heading_qJPCk4",
-        "text_Bit8nz"
-      ],
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "scheme-1",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 72
-      }
-    },
-    "image_banner_7jcGPt": {
-      "type": "image-banner",
-      "blocks": {
-        "heading_EmPh4J": {
-          "type": "heading",
-          "settings": {
-            "heading": "NEW ARRIVALS",
-            "heading_size": "h0"
-          }
-        },
-        "buttons_HaUDUM": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "SHOP NOW",
-            "button_link_1": "shopify://collections/new-arrivals",
-            "button_style_secondary_1": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_EmPh4J",
-        "buttons_HaUDUM"
-      ],
-      "settings": {
-        "image": "shopify://shop_images/new-arrivals-banner.png",
-        "image_mobile": "shopify://shop_images/new-arrivals-banner-mobile.png",
-        "image_overlay_opacity": 0,
-        "image_height": "large",
-        "desktop_content_position": "middle-left",
-        "show_text_box": false,
-        "desktop_content_alignment": "left",
-        "color_scheme": "scheme-3",
-        "image_behavior": "ambient",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": true,
-        "show_text_below": false
       }
     },
     "collection_list_QGtX47": {
@@ -216,21 +137,147 @@
         "padding_bottom": 36
       }
     },
+    "image_banner_7C3HhQ": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_98Phf4": {
+          "type": "heading",
+          "settings": {
+            "heading": "New Arrivals",
+            "heading_size": "h0"
+          }
+        },
+        "buttons_8zmXDw": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "SHOP NOW",
+            "button_link_1": "shopify://collections/new-arrivals",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_98Phf4",
+        "buttons_8zmXDw"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/1EFC119C-22B9-4169-9306-EF58F861E4F4.jpg",
+        "image_mobile": "shopify://shop_images/Todd_Moen_Aerial_Idaho.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "large",
+        "desktop_content_position": "middle-left",
+        "show_text_box": false,
+        "desktop_content_alignment": "left",
+        "color_scheme": "scheme-3",
+        "image_behavior": "ambient",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": false
+      }
+    },
+    "rich_text_f99xiG": {
+      "type": "rich-text",
+      "blocks": {
+        "caption_qHAWbk": {
+          "type": "caption",
+          "settings": {
+            "caption": "ABOUT SPAWN",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "large"
+          }
+        },
+        "heading_qJPCk4": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>THE SPAWN DIFFERENCE</strong>",
+            "heading_size": "h1"
+          }
+        },
+        "text_Bit8nz": {
+          "type": "text",
+          "settings": {
+            "text": "<p>At Spawn Fly Fish your leading expert in fly tying and fly fishing, we’re proud to carry a handpicked selection of products for anglers of all levels. Explore top brands like <a href=\"/collections/sage-products\" title=\"Sage Products\">Sage</a>, <a href=\"/collections/redington-products\" title=\"Redington Products\">Redington</a>, <a href=\"/collections/douglas-outdoors-products\" title=\"Douglas Outdoors Products\">Douglas </a>, <a href=\"/collections/ross-reels-products\" title=\"Ross Reels Products\">Ross Reels</a>, and <a href=\"/collections/all-products\" title=\"All Products\">more</a>. Whether you’re tying with <a href=\"/collections/easy-shrimp-eyes-products\" title=\"Easy Shrimp Eyes Products\">Shrimp Eyes</a>, crafting with <a href=\"/products/spawn-unreal-dub\" title=\"Spawn Unreal Dub\">Unreal Dubbing</a>, or looking for <a href=\"/products/loctite-super-glue-extra-time-control\" title=\"Loctite Super Glue - Extra Time Control\">Loctite Super Glue Extra Time Control</a> to secure your creations, you’ll find everything you need here.We also stock a wide range of <a href=\"/collections/fly-tying-products\" title=\"FLY TYING\">fly tying materials</a>, <a href=\"/collections/fly-rods\" title=\"FLY RODS\">fly rods</a>, and <a href=\"/collections/fly-reels\" title=\"FLY REELS\">fly reels</a>—including favorites like <a href=\"/collections/tibor-fly-reels\" title=\"Tibor Fly Reels\">Tibor Fly Reels</a>, <a href=\"/collections/waterworks-lamson-products\" title=\"Waterworks-Lamson Products\">Lamson Fly Reels</a>, and <a href=\"/collections/redington-fly-reels\" title=\"Redington Fly Reels\">Redington Fly Reels</a>. For complete guides on where and how to use your new gear, check out our <a href=\"/blogs/spawn-blog/sea-run-cutthroat-fishing-challenging-the-tide-rules\" title=\"Sea Run Cutthroat Fishing: Challenging the Tide Rules\">Fly Fishing Guide to Washington</a> or browse <a href=\"/blogs/spawn-blog\" title=\"Spawn Blog\">our blog</a> or <a href=\"https://www.youtube.com/c/SpawnFlyFish\" target=\"_blank\" title=\"https://www.youtube.com/c/SpawnFlyFish\">YouTube channel</a> for in-depth product tips and tutorials. </p>"
+          }
+        }
+      },
+      "block_order": [
+        "caption_qHAWbk",
+        "heading_qJPCk4",
+        "text_Bit8nz"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 72
+      }
+    },
+    "image_banner_7jcGPt": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_EmPh4J": {
+          "type": "heading",
+          "settings": {
+            "heading": "F",
+            "heading_size": "h0"
+          }
+        },
+        "buttons_HaUDUM": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Learn More",
+            "button_link_1": "shopify://pages/how-to-fly-fish-puget-sound",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_EmPh4J",
+        "buttons_HaUDUM"
+      ],
+      "disabled": true,
+      "settings": {
+        "image": "shopify://shop_images/DSC_8769-2_d6c830c3-f5d0-4599-9c14-2d969a34ce92.jpg",
+        "image_mobile": "shopify://shop_images/new-arrivals-banner-mobile.png",
+        "image_overlay_opacity": 0,
+        "image_height": "large",
+        "desktop_content_position": "middle-left",
+        "show_text_box": false,
+        "desktop_content_alignment": "left",
+        "color_scheme": "scheme-3",
+        "image_behavior": "ambient",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": false
+      }
+    },
     "featured_product_HHeNBg": {
       "type": "featured-product",
       "blocks": {
         "text_t3DQaf": {
           "type": "text",
           "settings": {
-            "text": "<strong>GAME CHANGING DUBBING</strong>",
+            "text": "<strong>Worlds Largest Slotted Beads</strong>",
             "text_style": "subtitle"
           }
         },
         "title_PamCAd": {
           "type": "title",
           "settings": {
-            "heading_size": "h1"
+            "heading_size": "h2"
           }
+        },
+        "rating_txbMB9": {
+          "type": "rating",
+          "settings": {}
         },
         "price_LRCkUh": {
           "type": "price",
@@ -247,11 +294,12 @@
       "block_order": [
         "text_t3DQaf",
         "title_PamCAd",
+        "rating_txbMB9",
         "price_LRCkUh",
         "buy_buttons_wGwfgW"
       ],
       "settings": {
-        "product": "spawn-unreal-dub",
+        "product": "spawn-fathom-beads",
         "color_scheme": "scheme-1",
         "secondary_background": false,
         "media_size": "medium",
@@ -278,7 +326,7 @@
         "text_6paNG8": {
           "type": "text",
           "settings": {
-            "text": "<p>Follow life as part of the Spawn family. Learn more, fish more.</p>",
+            "text": "<p>Want to learn from the fly fishing authority of the Pacific Northwest? Check out the Spawn Fly Fish YouTube channel—where expert insight, innovative gear, and proven tactics come together. From step-by-step fly tying tutorials featuring patterns like the Peach Bum and Steamboat Island Leech, to in-depth breakdowns of the best fisheries in the region, our channel is built for anglers who want to level up. Whether you're just getting started or chasing your hundredth cutthroat, this is your source.<strong>Subscribe now and fish with the future.</strong></p>",
             "text_style": "body"
           }
         },
@@ -312,26 +360,55 @@
         "padding_bottom": 36
       }
     },
+    "featured_collection_tXX8gN": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "title": "<a href=\"/collections/spawn-flies\" title=\"Spawn Flies\">Featured collection Spawn Signature Flies</a>",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "spawn-flies",
+        "products_to_show": 16,
+        "columns_desktop": 5,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 12,
+        "padding_bottom": 16
+      }
+    },
     "collage_x8nznF": {
       "type": "collage",
       "blocks": {
         "image_qbJpzt": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/gear_hauler_tote_alt_lifestyle_1_jpg.webp"
+            "image": "shopify://shop_images/dubm-br-but-spawn-mega-dub-spawn-fly-fish-220914.jpg"
           }
         },
         "product_ExgDa8": {
           "type": "product",
           "settings": {
-            "product": "grundens-gear-hauler-tote-bag-50l",
+            "product": "spawn-dubbing",
             "second_image": false
           }
         },
         "product_48A3jd": {
           "type": "product",
           "settings": {
-            "product": "grundens-bootlegger-roll-top-backpack-30l",
+            "product": "spawn-uv-simi-seal-dubbing",
             "second_image": true
           }
         }
@@ -342,12 +419,12 @@
         "product_48A3jd"
       ],
       "settings": {
-        "heading": "<strong>GRUNDENS</strong>",
+        "heading": "Spawn Dub - Best Fly Tying Dubbing",
         "heading_size": "h2",
-        "desktop_layout": "left",
-        "mobile_layout": "column",
-        "card_styles": "product-card-wrapper",
-        "color_scheme": "scheme-1",
+        "desktop_layout": "right",
+        "mobile_layout": "collage",
+        "card_styles": "none",
+        "color_scheme": "scheme-4",
         "padding_top": 36,
         "padding_bottom": 36
       }
@@ -379,17 +456,17 @@
         "buy_buttons_mtDYeD"
       ],
       "settings": {
-        "product": "spawn-super-select-green-winged-teal",
+        "product": "grunends-mens-bedrock-stockingfoot-wader",
         "color_scheme": "scheme-1",
         "secondary_background": false,
-        "media_size": "medium",
+        "media_size": "small",
         "constrain_to_viewport": true,
         "media_fit": "cover",
         "media_position": "left",
         "image_zoom": "hover",
         "hide_variants": false,
         "enable_video_looping": false,
-        "padding_top": 72,
+        "padding_top": 40,
         "padding_bottom": 36
       }
     },
@@ -562,7 +639,7 @@
           "type": "column",
           "settings": {
             "title": "<strong>FREE SHIPPING</strong>",
-            "text": "<p>Free shipping on orders over $49 to the contiguous US.</p>",
+            "text": "<p>Free shipping on orders over $75 to the contiguous US.</p>",
             "link_label": "",
             "link": "shopify://policies/refund-policy"
           }
@@ -612,11 +689,13 @@
   "order": [
     "image_banner",
     "featured_collection_UdX4CU",
+    "collection_list_QGtX47",
+    "image_banner_7C3HhQ",
     "rich_text_f99xiG",
     "image_banner_7jcGPt",
-    "collection_list_QGtX47",
     "featured_product_HHeNBg",
     "image_with_text_EJEVBb",
+    "featured_collection_tXX8gN",
     "collage_x8nznF",
     "featured_product_j3htGa",
     "image_banner_4k67yw",

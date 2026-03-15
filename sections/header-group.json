@@ -17,8 +17,8 @@
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
-            "text": "FREE SHIPPING OVER $49",
-            "link": "shopify://collections/all-products"
+            "text": "FREE SHIPPING OVER $75",
+            "link": "shopify://collections"
           }
         }
       },

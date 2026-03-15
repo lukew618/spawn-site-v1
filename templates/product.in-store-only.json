@@ -38,24 +38,6 @@
           "type": "price",
           "settings": {}
         },
-        "icon_with_text_tLpQYg": {
-          "type": "icon-with-text",
-          "settings": {
-            "layout": "horizontal",
-            "icon_1": "truck",
-            "heading_1": "Free Shipping",
-            "icon_2": "return",
-            "heading_2": "Free Returns",
-            "icon_3": "lightning_bolt",
-            "heading_3": ""
-          }
-        },
-        "custom_liquid_nE4Abq": {
-          "type": "custom_liquid",
-          "settings": {
-            "custom_liquid": "{% for variant in product.variants %}\n\n  {{ variant.metafields.custom.variant_description | metafield_tag }}\n\n{% endfor %}"
-          }
-        },
         "inventory_Q8TEkg": {
           "type": "inventory",
           "settings": {
@@ -71,63 +53,33 @@
             "swatch_shape": "circle"
           }
         },
-        "quantity_selector": {
-          "type": "quantity_selector",
-          "settings": {}
-        },
-        "buy_buttons": {
-          "type": "buy_buttons",
+        "icon_with_text_efeW7k": {
+          "type": "icon-with-text",
           "settings": {
-            "show_dynamic_checkout": true,
-            "show_gift_card_recipient": true
+            "layout": "horizontal",
+            "icon_1": "map_pin",
+            "heading_1": "IN-STORE ONLY: <a href=\"/pages/contact-us\" target=\"_blank\" title=\"Contact Us\">HERE</a>",
+            "icon_2": "return",
+            "heading_2": "",
+            "icon_3": "truck",
+            "heading_3": ""
           }
         },
         "collapsible_tab_knxctr": {
           "type": "collapsible_tab",
-          "disabled": true,
           "settings": {
             "heading": "FEATURES",
             "icon": "none",
-            "content": "<p>{{ product.metafields.custom.feature_1.value }}</p>",
+            "content": "{{ product.metafields.custom.all_product_features_bullets | metafield_tag }}",
             "page": ""
           }
         },
         "collapsible_tab_KjLei6": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "DESCRIPTION & FEATURES",
+            "heading": "DESCRIPTION",
             "icon": "none",
-            "content": "{{ product.description }}",
-            "page": ""
-          }
-        },
-        "collapsible-row-0": {
-          "type": "collapsible_tab",
-          "disabled": true,
-          "settings": {
-            "heading": "MATERIALS",
-            "icon": "none",
-            "content": "",
-            "page": ""
-          }
-        },
-        "collapsible-row-2": {
-          "type": "collapsible_tab",
-          "disabled": true,
-          "settings": {
-            "heading": "Dimensions",
-            "icon": "ruler",
-            "content": "",
-            "page": ""
-          }
-        },
-        "collapsible-row-3": {
-          "type": "collapsible_tab",
-          "disabled": true,
-          "settings": {
-            "heading": "Care Instructions",
-            "icon": "heart",
-            "content": "",
+            "content": "<p>{{ product.metafields.custom.product_description | metafield_tag }}</p>",
             "page": ""
           }
         }
@@ -138,20 +90,15 @@
         "caption",
         "rating_4VqEwi",
         "price",
-        "icon_with_text_tLpQYg",
-        "custom_liquid_nE4Abq",
         "inventory_Q8TEkg",
         "variant_picker",
-        "quantity_selector",
-        "buy_buttons",
+        "icon_with_text_efeW7k",
         "collapsible_tab_knxctr",
-        "collapsible_tab_KjLei6",
-        "collapsible-row-0",
-        "collapsible-row-2",
-        "collapsible-row-3"
+        "collapsible_tab_KjLei6"
       ],
       "custom_css": [
-        "h1 {font-size: 2.8rem; text-transform: uppercase;}"
+        "h1 {font-size: 2.8rem; text-transform: uppercase;}",
+        ".accordion__content {font-size: 1.25rem; text-align: start; line-height: 1.2;}"
       ],
       "settings": {
         "enable_sticky_info": true,

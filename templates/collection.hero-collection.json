@@ -97,6 +97,7 @@
       "block_order": [
         "text_LWDhwa"
       ],
+      "disabled": true,
       "settings": {
         "image": "shopify://shop_images/homepage-outerwear.png",
         "height": "medium",

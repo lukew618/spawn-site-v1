@@ -75,7 +75,7 @@
           </span>
         </button>
       </div>
-      {%- assign free_shipping_threshold = 4900 -%}
+      {%- assign free_shipping_threshold = 7500 -%}
       {%- assign remaining_amount = free_shipping_threshold | minus: cart.total_price -%}
       {%- assign progress_percentage = cart.total_price | times: 100.0 | divided_by: free_shipping_threshold | at_most: 100 -%}
       

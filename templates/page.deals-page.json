@@ -23,14 +23,15 @@
         "heading_anqgeK": {
           "type": "heading",
           "settings": {
-            "heading": "TOP DEALS",
+            "heading": "SPEND LESS, FISH MORE.",
             "heading_size": "h1"
           }
         },
         "buttons_yfjHhe": {
           "type": "buttons",
+          "disabled": true,
           "settings": {
-            "button_label_1": "SHOP NOW",
+            "button_label_1": "",
             "button_link_1": "shopify://collections/deals",
             "button_style_secondary_1": true,
             "button_label_2": "",
@@ -44,8 +45,8 @@
         "buttons_yfjHhe"
       ],
       "settings": {
-        "image": "shopify://shop_images/16.png",
-        "image_mobile": "shopify://shop_images/Deals_Page_Banner.png",
+        "image": "shopify://shop_images/IMG_0512.jpg",
+        "image_mobile": "shopify://shop_images/IMG_0512.jpg",
         "image_overlay_opacity": 0,
         "image_height": "medium",
         "desktop_content_position": "middle-center",
@@ -64,27 +65,49 @@
         "column_wgKqVp": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/2_ed3c7b50-7342-41ee-8926-c61646ece8e8.png",
+            "image": "shopify://shop_images/6_643ba313-38d4-496d-9a81-a8c04fee26a4.png",
             "title": "",
             "text": "",
             "link_label": "SHOP NOW",
-            "link": "shopify://collections/35-off-select-products"
+            "link": "shopify://collections/spawn-fly-fish-products"
           }
         },
         "column_9m8hdw": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/3_80a2a3a9-ad12-48df-a1e1-018c5be18076.png",
+            "image": "shopify://shop_images/Homepage_Product_Tiles_facffb49-69ec-46ff-8382-e6cbbef432d0.png",
             "title": "",
-            "text": "<p><em>*Some restrictions apply</em></p>",
+            "text": "",
             "link_label": "SHOP NOW",
-            "link": "shopify://collections/fly-tying-fly-fishing-deals"
+            "link": "shopify://collections/fly-tying-materials"
+          }
+        },
+        "column_zxFVGx": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/6_f468c681-8212-451e-89b4-d5c46f1481cc.png",
+            "title": "",
+            "text": "",
+            "link_label": "SHOP NOW",
+            "link": "shopify://collections/fly-lines"
+          }
+        },
+        "column_6kFmmM": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/8_4218928c-ef61-4a0c-a10c-16e929a42d41.png",
+            "title": "",
+            "text": "",
+            "link_label": "SHOP NOW",
+            "link": "shopify://collections/fly-lines-boxes-nets-tools"
           }
         }
       },
       "block_order": [
         "column_wgKqVp",
-        "column_9m8hdw"
+        "column_9m8hdw",
+        "column_zxFVGx",
+        "column_6kFmmM"
       ],
       "disabled": true,
       "settings": {
@@ -92,7 +115,7 @@
         "heading_size": "h2",
         "image_width": "full",
         "image_ratio": "square",
-        "columns_desktop": 2,
+        "columns_desktop": 4,
         "column_alignment": "center",
         "background_style": "none",
         "button_label": "",
@@ -102,38 +125,6 @@
         "swipe_on_mobile": false,
         "padding_top": 36,
         "padding_bottom": 36
-      }
-    },
-    "featured_collection_i43TfT": {
-      "type": "featured-collection",
-      "disabled": true,
-      "custom_css": [
-        "h2 {text-align: center;}"
-      ],
-      "settings": {
-        "title": "35% OFF SELECT ITEMS",
-        "heading_size": "h1",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "35-off-select-products",
-        "products_to_show": 8,
-        "columns_desktop": 3,
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "enable_desktop_slider": true,
-        "color_scheme": "scheme-1",
-        "image_ratio": "square",
-        "image_shape": "default",
-        "show_secondary_image": false,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "swipe_on_mobile": true,
-        "padding_top": 36,
-        "padding_bottom": 72
       }
     },
     "collection_list_zKM8eX": {
@@ -207,14 +198,14 @@
         "h2 {text-align: center;}"
       ],
       "settings": {
-        "title": "",
+        "title": "TOP DEALS",
         "heading_size": "h1",
         "description": "",
         "show_description": false,
         "description_style": "body",
         "collection": "deals",
-        "products_to_show": 6,
-        "columns_desktop": 6,
+        "products_to_show": 12,
+        "columns_desktop": 4,
         "full_width": false,
         "show_view_all": true,
         "view_all_style": "solid",
@@ -237,7 +228,6 @@
     "main",
     "image_banner_XXtdQW",
     "multicolumn_r6jkDx",
-    "featured_collection_i43TfT",
     "collection_list_zKM8eX",
     "featured_collection_dNfwEF"
   ]
