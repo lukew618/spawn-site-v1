@@ -160,9 +160,26 @@ perf(hero): preload LCP image, add proper srcset
 chore(snippets): migrate include to render in featured-collection
 ```
 
+## Security
+- Never commit `.env`, API keys, or Shopify Admin credentials — store secrets in environment variables only.
+- Never put Admin API tokens in Liquid, JS assets, or any file that ships to the browser.
+- `SHOPIFY_FLAG_STORE` is safe to export in `~/.zshrc` — it's a store domain, not a secret.
+- `.shopifyignore` controls what gets pushed — check it before adding sensitive config files.
+
+## Gotchas
+- **Unused React in `package.json`** — `react` and `@types/react` are installed but not used. Don't add React-based code to this theme.
+- **`git_commit_template.md` in `/assets/`** — accidentally committed, not a theme file. Do not reference or deploy it.
+- **PageFly re-publishes overwrite** — any edits to `pf-b25451ca.*` files will be silently overwritten next time PageFly publishes. Don't touch them.
+- **Theme Editor vs. code** — changes made in the Shopify Theme Editor land in `config/settings_data.json`. Always `shopify theme pull` before starting work or you'll clobber editor changes.
+- **Shopify's strict Liquid parser** — all Liquid must be syntactically valid or the theme will fail to publish. `shopify theme check` catches this.
+- **Three theme IDs exist** (main live: `128853147711`, staging: `128878903359`) — but this repo tracks spawn-store-v1 (`129377796159`) exclusively. Never push to the other IDs from this workflow.
+
 ## Workflow
 1. `shopify theme pull --theme=129377796159` — sync before starting
 2. Make changes
 3. Run pre-commit checklist
 4. `shopify theme push --theme=129377796159` — deploy
 5. Commit + push to GitHub
+
+## Self-Improvement Rule
+After any correction or mistake by Claude: append the fix as a new rule to this file so the same mistake never happens twice. Claude writes the rule itself at the end of the relevant section.
