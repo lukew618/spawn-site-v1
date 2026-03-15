@@ -6,12 +6,8 @@
 - **Theme:** Dawn v15.2.0 (Shopify open-source starter theme, modified in-place)
 - **Repo:** https://github.com/lukew618/spawn-site-v1
 
-### Theme IDs
-| Name | ID | Purpose |
-|---|---|---|
-| spawn-store-v1 | 129377796159 | **This repo** — development/customization theme |
-| main | 128853147711 | Live published theme |
-| staging | 128878903359 | Staging preview |
+### Theme ID
+**spawn-store-v1: `129377796159`** — always use this theme for all operations.
 
 `SHOPIFY_FLAG_STORE` is exported in `~/.zshrc` — no need to set it manually.
 
@@ -25,7 +21,7 @@ This is pure Liquid/CSS/vanilla JS. Edit files directly — no webpack, no Vite,
 # Preview locally
 shopify theme dev --theme=129377796159
 
-# Push this repo's theme to Shopify
+# Push to Shopify
 shopify theme push --theme=129377796159
 
 # Pull latest from Shopify (do this before starting work)
@@ -33,25 +29,15 @@ shopify theme pull --theme=129377796159
 
 # Validate Liquid syntax
 shopify theme check
-
-# Push to live theme
-shopify theme push --theme=128853147711
-
-# Push to staging
-shopify theme push --theme=128878903359
 ```
-
-Aliases in `~/.zshrc`: `theme-dev-main`, `theme-dev-staging`, `theme-pull-main`, `theme-pull-staging`.
 
 ## Workflow
 
 1. Pull latest Shopify state before starting: `shopify theme pull --theme=129377796159`
 2. Make changes to Liquid/CSS/JS files
 3. Run `shopify theme check` to validate
-4. Push to staging first if changes are significant: `shopify theme push --theme=128878903359`
-5. Push to this repo's theme: `shopify theme push --theme=129377796159`
-6. Commit to GitHub with descriptive message
-7. Push to live only when Luke explicitly confirms
+4. Push to Shopify: `shopify theme push --theme=129377796159`
+5. Commit to GitHub with descriptive message
 
 ## Directory Structure
 
