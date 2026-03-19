@@ -220,7 +220,7 @@
     display: none;
   }
 
-  /* Desktop nav hover dropdowns */
+  /* Desktop nav hover dropdowns (generic — for non-SHOP items with children) */
   .nav-dropdown {
     position: relative;
     height: 100%;
@@ -259,6 +259,81 @@
 
   .nav-dropdown__item:hover {
     opacity: 0.8;
+  }
+
+  /* Full-width mega menu (SHOP and any item using drawer_menu data) */
+  .nav-megamenu-wrapper {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-megamenu {
+    display: none;
+    position: fixed;
+    top: calc(var(--announcement-bar-height, 48px) + var(--header-height, 80px));
+    left: 0;
+    right: 0;
+    background: black;
+    padding: 2.5rem 8rem;
+    z-index: 99;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .nav-megamenu-wrapper:hover .nav-megamenu,
+  .nav-megamenu-wrapper:focus-within .nav-megamenu {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .nav-megamenu__column {
+    flex: 1;
+    min-width: 100px;
+  }
+
+  .nav-megamenu__heading {
+    display: block;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding-bottom: 0.6rem;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  }
+
+  .nav-megamenu__heading:hover {
+    opacity: 0.8;
+  }
+
+  .nav-megamenu__list {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0 0;
+  }
+
+  .nav-megamenu__item {
+    display: block;
+    color: rgba(255, 255, 255, 0.75);
+    text-decoration: none;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    padding: 0.35rem 0;
+    transition: color 0.1s ease;
+  }
+
+  .nav-megamenu__item:hover {
+    color: white;
+  }
+
+  @media screen and (max-width: 991px) {
+    .nav-megamenu {
+      display: none !important;
+    }
   }
 
   /* Middle column - Logo/Heading */
@@ -311,17 +386,26 @@
       {%- for link in section.settings.menu.links -%}
         {%- assign link_handle = link.title | downcase -%}
         {%- if link_handle == 'shop' and drawer_menu.links.size > 0 -%}
-          <div class="nav-dropdown">
+          <div class="nav-megamenu-wrapper">
             <button type="button" class="header__menu-button" aria-expanded="false" aria-haspopup="true">
               {{- link.title -}}
             </button>
-            <ul class="nav-dropdown__menu">
+            <div class="nav-megamenu" role="navigation" aria-label="Shop categories">
               {%- for category in drawer_menu.links -%}
-                <li>
-                  <a href="{{ category.url }}" class="nav-dropdown__item">{{ category.title }}</a>
-                </li>
+                <div class="nav-megamenu__column">
+                  <a href="{{ category.url }}" class="nav-megamenu__heading">{{ category.title }}</a>
+                  {%- if category.links.size > 0 -%}
+                    <ul class="nav-megamenu__list">
+                      {%- for sublink in category.links -%}
+                        <li>
+                          <a href="{{ sublink.url }}" class="nav-megamenu__item">{{ sublink.title }}</a>
+                        </li>
+                      {%- endfor -%}
+                    </ul>
+                  {%- endif -%}
+                </div>
               {%- endfor -%}
-            </ul>
+            </div>
           </div>
         {%- elsif link.links.size > 0 -%}
           <div class="nav-dropdown">
