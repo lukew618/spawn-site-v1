@@ -93,7 +93,7 @@
           "settings": {
             "heading": "FEATURES",
             "icon": "none",
-            "content": "<p>{{ product.metafields.custom.feature_1.value }}</p>",
+            "content": "<p>{{ product.metafields.custom.feature_1.value }}<br/>20 per package, 8 sizes</p>",
             "page": ""
           }
         },
