@@ -21,6 +21,7 @@
     top: var(--announcement-bar-height);
     left: 0;
     z-index: 90;
+    overflow: visible;
     background-color: {% if is_homepage %}transparent{% else %}black{% endif %};
   }
 
@@ -150,7 +151,8 @@
   .header__inline-menu {
     display: flex;
     align-items: center;
-    padding-bottom: 1rem;
+    height: 100%;
+    overflow: visible;
   }
 
   /* Maintain nav styling for list-menu */
@@ -218,6 +220,47 @@
     display: none;
   }
 
+  /* Desktop nav hover dropdowns */
+  .nav-dropdown {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-dropdown__menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: black;
+    list-style: none;
+    padding: 0.5rem 0;
+    min-width: 180px;
+    z-index: 100;
+  }
+
+  .nav-dropdown:hover .nav-dropdown__menu,
+  .nav-dropdown:focus-within .nav-dropdown__menu {
+    display: block;
+  }
+
+  .nav-dropdown__item {
+    display: block;
+    padding: 0.75rem 1.5rem;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+
+  .nav-dropdown__item:hover {
+    opacity: 0.8;
+  }
+
   /* Middle column - Logo/Heading */
   .header__heading {
     position: absolute;
@@ -264,11 +307,35 @@
   <header class="header">
     <!-- Desktop menu -->
     <div class="header__inline-menu header__inline-menu--desktop">
+      {%- assign drawer_menu = section.settings.drawer_menu -%}
       {%- for link in section.settings.menu.links -%}
-        {%- if link.links.size > 0 -%}
-          <button type="button" class="header__menu-button" data-opens-drawer aria-expanded="false">
-            {{- link.title -}}
-          </button>
+        {%- assign link_handle = link.title | downcase -%}
+        {%- if link_handle == 'shop' and drawer_menu.links.size > 0 -%}
+          <div class="nav-dropdown">
+            <button type="button" class="header__menu-button" aria-expanded="false" aria-haspopup="true">
+              {{- link.title -}}
+            </button>
+            <ul class="nav-dropdown__menu">
+              {%- for category in drawer_menu.links -%}
+                <li>
+                  <a href="{{ category.url }}" class="nav-dropdown__item">{{ category.title }}</a>
+                </li>
+              {%- endfor -%}
+            </ul>
+          </div>
+        {%- elsif link.links.size > 0 -%}
+          <div class="nav-dropdown">
+            <button type="button" class="header__menu-button" aria-expanded="false" aria-haspopup="true">
+              {{- link.title -}}
+            </button>
+            <ul class="nav-dropdown__menu">
+              {%- for child in link.links -%}
+                <li>
+                  <a href="{{ child.url }}" class="nav-dropdown__item">{{ child.title }}</a>
+                </li>
+              {%- endfor -%}
+            </ul>
+          </div>
         {%- else -%}
           <a href="{{ link.url }}" class="header__menu-button" style="text-decoration: none;">
             {{- link.title -}}
