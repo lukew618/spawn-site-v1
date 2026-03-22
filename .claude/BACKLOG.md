@@ -23,7 +23,7 @@ Check off each task when shipped. Add new tasks at the appropriate priority leve
 
 - [x] **Mobile product thumbnails** — On PDP mobile, the thumbnail strip below the main image is too small and clips. Increase thumb size to min 60px, ensure horizontal scroll works with touch. Acceptance: at 375px viewport, thumbnails are visible and scrollable.
 
-- [ ] **Duplicate SEO meta copy** — The page `<title>` and `og:title` are duplicating the store name (e.g. "Product Name — Spawn Fly Fish — Spawn Fly Fish"). Audit `layout/theme.liquid` meta tags and fix the duplication. Acceptance: `<title>` on a product page contains the product name + store name exactly once each.
+- [x] **Duplicate SEO meta copy** — The page `<title>` and `og:title` are duplicating the store name (e.g. "Product Name — Spawn Fly Fish — Spawn Fly Fish"). Audit `layout/theme.liquid` meta tags and fix the duplication. Acceptance: `<title>` on a product page contains the product name + store name exactly once each.
 
 - [ ] **Footer: add navigation links** — Footer currently has minimal content. Add a nav section with columns: Shop (link to /collections/all), About (link to /pages/about if exists, else skip), Contact (link to /pages/contact if exists), and social icons (Instagram, Facebook — use existing SVG assets if present). Acceptance: footer renders columns at desktop, stacks at mobile.
 

@@ -16,10 +16,16 @@
     {%- endunless -%}
 
     <title>
-      {{ page_title }}
+      {%- liquid
+        assign title_separator = ' - ' | append: shop.name
+        assign clean_title = page_title | replace: title_separator, '' | strip
+        assign title_ndash = ' – ' | append: shop.name
+        assign clean_title = clean_title | replace: title_ndash, '' | strip
+      -%}
+      {{- clean_title -}}
       {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
       {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
-      {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+      {%- unless clean_title == shop.name %} &ndash; {{ shop.name }}{% endunless -%}
     </title>
 
     {% if page_description %}
