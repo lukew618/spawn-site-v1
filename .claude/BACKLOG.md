@@ -19,7 +19,7 @@ Check off each task when shipped. Add new tasks at the appropriate priority leve
 
 - [x] **Variant picker swatches on PDP** — Replace the default Dawn dropdown variant picker with visual color swatches. Use CSS-only approach: render a swatch `<button>` for each variant option value, style with `background-color` from variant option name (map common color names to hex). Out-of-stock variants: strikethrough style + `disabled`. Acceptance: PDP shows swatches not a `<select>`, selecting a swatch updates price/image, OOS variants are visually distinct.
 
-- [ ] **Collection descriptions** — Collection pages currently show no description text. Add a description block below the collection heading in `sections/main-collection-banner.liquid` (or equivalent). Pull from `collection.description`. Only render if non-empty. Acceptance: a collection with a description set in Shopify admin shows it on the page.
+- [x] **Collection descriptions** — Collection pages currently show no description text. Add a description block below the collection heading in `sections/main-collection-banner.liquid` (or equivalent). Pull from `collection.description`. Only render if non-empty. Acceptance: a collection with a description set in Shopify admin shows it on the page.
 
 - [ ] **Mobile product thumbnails** — On PDP mobile, the thumbnail strip below the main image is too small and clips. Increase thumb size to min 60px, ensure horizontal scroll works with touch. Acceptance: at 375px viewport, thumbnails are visible and scrollable.
 
