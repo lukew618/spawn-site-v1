@@ -9,10 +9,12 @@ The human will review your work when they return. Make them proud.
 ## Step 0 — Prep (run once at the start)
 
 1. `cd` into the repo: `/Users/lukewhiteman/Library/Mobile\ Documents/com~apple~CloudDocs/Projects/spawn-store`
-2. Pull latest: `shopify theme pull --theme=129377796159`
-3. Run `shopify theme check` — note any pre-existing errors (PageFly file has 3 known errors — ignore those, flag anything new)
-4. Check git status — if there are uncommitted changes, commit them with message `chore: commit uncommitted work before agent loop`
-5. Working tree is clean. Proceed to the loop.
+2. Pull latest from GitHub: `git pull origin main` — incorporates any changes from cloud sessions or other machines
+3. Pull latest from Shopify: `shopify theme pull --theme=129377796159` — incorporates any Theme Editor changes
+4. If git detects conflicts between GitHub and Shopify pulls: commit the Shopify state with message `chore: sync Shopify theme state` before proceeding
+5. Run `shopify theme check` — note any pre-existing errors (PageFly file has 3 known errors — ignore those, flag anything new)
+6. Check git status — if there are uncommitted changes, commit them with message `chore: commit uncommitted work before agent loop`
+7. Working tree is clean. Proceed to the loop.
 
 ---
 
@@ -64,6 +66,15 @@ Make the changes. Follow CLAUDE.md rules without exception:
 - `defer` on all new `<script>` tags
 - Never touch off-limits files (PageFly files, `config/settings_data.json`)
 
+### 5.5. Code review gate (gstack /review)
+
+Run `/review` on your changes before verifying. This catches structural issues the sub-agents miss — dead code, side effects, conditional logic bugs, accessibility regressions.
+
+- Let /review AUTO-FIX any mechanical issues it finds (formatting, unused vars, etc.)
+- If /review flags a CRITICAL finding: stop, fix it, then continue
+- If /review flags INFORMATIONAL items only: note them but proceed
+- Skip the Codex integration (adds cost and latency — not needed in autonomous loop)
+
 ### 6. Verify
 
 Run `shopify theme check`. Requirements:
@@ -71,10 +82,13 @@ Run `shopify theme check`. Requirements:
 - Warnings are acceptable if they're in unchanged files
 
 Go through your acceptance criteria one by one. Check each off mentally.
-If a criterion can't be verified without a browser, note it clearly in your commit message so the human can spot-check it.
 
-If theme check has new errors: fix them before proceeding. Do not ship broken code.
-If you cannot fix a new error after two attempts: add the task back to BACKLOG.md with a `[BLOCKED]` note explaining the error, and move to the next task.
+If theme check has new errors: **run /investigate** instead of ad-hoc debugging:
+- /investigate will systematically trace the root cause (recent changes, Liquid syntax, schema)
+- It follows a hypothesis → test → fix cycle with a 3-strike rule
+- If /investigate cannot resolve after 3 hypotheses: add the task back to BACKLOG.md with a `[BLOCKED]` note explaining the error and the investigation findings, then move to the next task
+
+If theme check passes: proceed to push.
 
 ### 7. Push and commit
 
@@ -100,6 +114,21 @@ Acceptance criteria verified:
 
 Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
 ```
+
+### 7.5. Live QA smoke test (gstack /qa)
+
+After pushing, run a quick QA pass on the live page most affected by the change:
+
+```bash
+# Example — adjust URL to the page this task changed
+/qa --quick https://spawn-fly-fish.myshopify.com/[relevant-page]
+```
+
+- Use diff-aware quick mode (~30s) — not a full site audit
+- Check: page loads, no console errors, changed elements render correctly, mobile viewport OK
+- If /qa finds a regression: fix it, re-push, re-verify before moving on
+- If /qa finds issues unrelated to this task: note them in RECAP.md under "QA Findings" but do not fix (stay scoped)
+- This step resolves the "needs browser verification" gap — acceptance criteria verified by /qa should be marked `[x]` in the commit, not `[ ]`
 
 ### 8. Loop
 
@@ -137,6 +166,12 @@ When the loop ends (backlog empty or STOP condition hit):
 
 ## Needs Browser Verification
 - list any acceptance criteria that couldn't be verified without a browser
+
+## QA Findings (unrelated to tasks)
+- any issues /qa found that were out of scope for the current task
+
+## Review Findings (informational)
+- any INFORMATIONAL items from /review worth noting
 
 ## Notes for Luke
 - anything surprising, any judgment calls made, any patterns noticed

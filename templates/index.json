@@ -23,7 +23,7 @@
           "type": "heading",
           "settings": {
             "heading": "TIE. CAST. REPEAT",
-            "heading_size": "h0"
+            "heading_size": "h2"
           }
         },
         "button": {
@@ -44,7 +44,7 @@
         "button"
       ],
       "settings": {
-        "image": "shopify://shop_images/Todd_Moen_Aerial_Idaho.jpg",
+        "image": "shopify://shop_images/Untitled_design_1.png",
         "image_mobile": "shopify://shop_images/Todd_Moen_Coho.jpg",
         "image_overlay_opacity": 0,
         "image_height": "large",
