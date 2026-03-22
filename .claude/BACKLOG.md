@@ -7,7 +7,7 @@ Check off each task when shipped. Add new tasks at the appropriate priority leve
 
 ## Bugs
 
-- [ ] **Skip-to-content link hidden** — `layout/theme.liquid` has a skip-to-content link with `hidden` attribute. Remove `hidden`, style it as visually-hidden by default and visible on focus (WCAG 2.1 AA). Acceptance: keyboard Tab from any page focuses the skip link first, pressing Enter jumps to `#MainContent`.
+- [x] **Skip-to-content link hidden** — `layout/theme.liquid` has a skip-to-content link with `hidden` attribute. Remove `hidden`, style it as visually-hidden by default and visible on focus (WCAG 2.1 AA). Acceptance: keyboard Tab from any page focuses the skip link first, pressing Enter jumps to `#MainContent`.
 
 - [ ] **Mobile nav drawer focus trap missing** — When the mobile drawer is open, Tab should cycle only within the drawer. Currently focus escapes to the page behind. Fix in `assets/drawer-menu.js`: trap focus on open, release on close. Acceptance: with drawer open, repeated Tab never leaves the drawer; Escape closes it.
 
