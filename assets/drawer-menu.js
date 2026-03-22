@@ -7,7 +7,26 @@ document.addEventListener("DOMContentLoaded", () => {
   const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
   const drawerTriggers = document.querySelectorAll("[data-opens-drawer]");
 
+  let activeTrigger = null;
+
+  function openDrawer(trigger) {
+    drawerMenu.classList.remove("hidden");
+    document.documentElement.classList.add("no-scroll");
+    if (trigger) {
+      trigger.setAttribute("aria-expanded", "true");
+      activeTrigger = trigger;
+    }
+    if (trigger === mobileMenuToggle) {
+      mobileMenuToggle.classList.add("is-open");
+      mobileMenuToggle.setAttribute("aria-label", "Close Navigation");
+    }
+    trapFocus(drawerMenu, drawerCloseBtn);
+    document.addEventListener("keyup", onEscapeClose);
+  }
+
   function closeDrawer() {
+    document.removeEventListener("keyup", onEscapeClose);
+    removeTrapFocus(activeTrigger);
     drawerMenu.classList.add("hidden");
     document.documentElement.classList.remove("no-scroll");
     drawerTriggers.forEach((t) => t.setAttribute("aria-expanded", "false"));
@@ -15,15 +34,20 @@ document.addEventListener("DOMContentLoaded", () => {
       mobileMenuToggle.classList.remove("is-open");
       mobileMenuToggle.setAttribute("aria-label", "Open Navigation");
     }
+    activeTrigger = null;
+  }
+
+  function onEscapeClose(event) {
+    if (event.code.toUpperCase() === "ESCAPE") {
+      closeDrawer();
+    }
   }
 
   // Open drawer when any desktop nav item with children is clicked
   drawerTriggers.forEach((trigger) => {
     trigger.addEventListener("click", (event) => {
       event.stopPropagation();
-      drawerMenu.classList.remove("hidden");
-      document.documentElement.classList.add("no-scroll");
-      trigger.setAttribute("aria-expanded", "true");
+      openDrawer(trigger);
     });
   });
 
@@ -34,10 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!drawerMenu.classList.contains("hidden")) {
         closeDrawer();
       } else {
-        drawerMenu.classList.remove("hidden");
-        document.documentElement.classList.add("no-scroll");
-        mobileMenuToggle.classList.add("is-open");
-        mobileMenuToggle.setAttribute("aria-label", "Close Navigation");
+        openDrawer(mobileMenuToggle);
       }
     });
   }
