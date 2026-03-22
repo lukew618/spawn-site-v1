@@ -25,7 +25,7 @@ Check off each task when shipped. Add new tasks at the appropriate priority leve
 
 - [x] **Duplicate SEO meta copy** — The page `<title>` and `og:title` are duplicating the store name (e.g. "Product Name — Spawn Fly Fish — Spawn Fly Fish"). Audit `layout/theme.liquid` meta tags and fix the duplication. Acceptance: `<title>` on a product page contains the product name + store name exactly once each.
 
-- [ ] **Footer: add navigation links** — Footer currently has minimal content. Add a nav section with columns: Shop (link to /collections/all), About (link to /pages/about if exists, else skip), Contact (link to /pages/contact if exists), and social icons (Instagram, Facebook — use existing SVG assets if present). Acceptance: footer renders columns at desktop, stacks at mobile.
+- [x] **Footer: add navigation links** — Already configured: COMPANY, SHOP, SUPPORT columns + newsletter + social icons. No code change needed.
 
 - [ ] **Collection page: empty state** — If a collection has no products (e.g. filtered to zero), there's no message. Add a friendly "No products found" empty state with a "Clear filters" link. Acceptance: empty collection shows the message, not a blank grid.
 
