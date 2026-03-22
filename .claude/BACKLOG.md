@@ -11,7 +11,7 @@ Check off each task when shipped. Add new tasks at the appropriate priority leve
 
 - [x] **Mobile nav drawer focus trap missing** — When the mobile drawer is open, Tab should cycle only within the drawer. Currently focus escapes to the page behind. Fix in `assets/drawer-menu.js`: trap focus on open, release on close. Acceptance: with drawer open, repeated Tab never leaves the drawer; Escape closes it.
 
-- [ ] **Cart drawer missing aria-live region** — Cart item count updates silently. Wrap the count element in `aria-live="polite"` so screen readers announce changes. Acceptance: `shopify theme check` passes, count element has live region.
+- [x] **Cart drawer missing aria-live region** — Cart item count updates silently. Wrap the count element in `aria-live="polite"` so screen readers announce changes. Acceptance: `shopify theme check` passes, count element has live region.
 
 ---
 
