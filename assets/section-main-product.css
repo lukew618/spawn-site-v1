@@ -971,6 +971,25 @@ a.product__text {
 
   .thumbnail-list__item.slider__slide {
     width: calc(33% - 0.6rem);
+    min-width: 6rem;
+  }
+}
+
+/* Mobile thumbnail list: ensure horizontal scroll with touch */
+@media screen and (max-width: 749px) {
+  .thumbnail-list {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    gap: 0.8rem;
+    padding-bottom: 0.4rem;
+  }
+
+  .thumbnail-list__item {
+    flex: 0 0 auto;
+    min-width: 6rem;
+    scroll-snap-align: start;
   }
 }
 
