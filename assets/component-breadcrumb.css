@@ -27,7 +27,7 @@
 }
 
 .breadcrumb__link {
-  color: rgba(var(--color-foreground), 0.6);
+  color: rgba(var(--color-foreground), 0.75);
   text-decoration: none;
   transition: color var(--duration-short) ease;
 }
