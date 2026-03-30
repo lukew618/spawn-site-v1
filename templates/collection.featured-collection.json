@@ -9,6 +9,10 @@
  */
 {
   "sections": {
+    "breadcrumb": {
+      "type": "breadcrumb",
+      "settings": {}
+    },
     "banner": {
       "type": "main-collection-banner",
       "disabled": true,
@@ -112,6 +116,7 @@
     }
   },
   "order": [
+    "breadcrumb",
     "banner",
     "image_banner_6HKwzN",
     "product-grid",

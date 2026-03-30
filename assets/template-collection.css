@@ -94,6 +94,17 @@
   }
 }
 
+/* Standardize product grid spacing */
+.collection .product-grid {
+  gap: 1.5rem;
+}
+
+@media screen and (min-width: 750px) {
+  .collection .product-grid {
+    gap: 2rem;
+  }
+}
+
 .collection__view-all a:not(.link) {
   margin-top: 1rem;
 }

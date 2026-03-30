@@ -9,6 +9,7 @@
  */
 {
   "general": {
+    "breadcrumbs": { "home": "Home" },
     "password_page": {
       "login_form_heading": "Uđite u trgovinu pomoću lozinke:",
       "login_password_button": "Uđite pomoću lozinke",

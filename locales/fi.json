@@ -9,6 +9,7 @@
  */
 {
   "general": {
+    "breadcrumbs": { "home": "Home" },
     "password_page": {
       "login_form_heading": "Siirry kauppaan käyttämällä salasanaa:",
       "login_password_button": "Siirry sisään käyttämällä salasanaa",

@@ -9,6 +9,7 @@
  */
 {
   "general": {
+    "breadcrumbs": { "home": "Home" },
     "password_page": {
       "login_form_heading": "Brug adgangskode for at få adgang til butikken:",
       "login_password_button": "Brug adgangskode for at få adgang",

@@ -9,6 +9,7 @@
  */
 {
   "general": {
+    "breadcrumbs": { "home": "Home" },
     "password_page": {
       "login_form_heading": "Belépés a webáruházba jelszóval:",
       "login_password_button": "Belépés jelszóval",

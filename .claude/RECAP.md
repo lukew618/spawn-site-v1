@@ -1,34 +1,32 @@
-# Agent Loop Recap — 2026-03-22
+# Agent Loop Recap — 2026-03-29
 
 ## Tasks Completed
-1. **Skip-to-content link hidden** — Removed `hidden` HTML attribute from skip-to-content link in theme.liquid. `.visually-hidden` CSS already handled the correct behavior.
-2. **Mobile nav drawer focus trap** — Integrated Dawn's existing `trapFocus()`/`removeTrapFocus()` utilities into drawer-menu.js. Focus traps on open, releases on close, Escape key closes drawer.
-3. **Cart drawer aria-live region** — Added `aria-live="polite"` and `aria-atomic="true"` to all cart-count-bubble divs. Added visually-hidden translatable count text to header instances.
-4. **Variant picker swatches** — Changed picker_type from "dropdown" to "button" in product.json. Dawn's built-in swatch/pill infrastructure handles rendering.
-5. **Collection descriptions** — Flipped `show_collection_description` from false to true in all 3 collection templates. Section already had the rendering logic.
-6. **Mobile product thumbnails** — Added horizontal scroll with touch support and min-width: 6rem to thumbnail list at mobile viewport.
-7. **Duplicate SEO meta copy** — Replaced Dawn's `contains` check with explicit strip of store name suffix (hyphen and ndash variants) before always appending once.
-8. **Footer navigation links** — Already complete (COMPANY, SHOP, SUPPORT columns + newsletter + social icons). Marked done, no code change.
+1. **Collection page: empty state** — Already handled by Dawn's built-in empty state (lines 127-140 in main-collection-product-grid.liquid). No code change needed.
+2. **Product card: hover quick-view indicator** — Added CSS-only hover overlay (6% opacity darkening) on desktop product cards via `::after` pseudo-element in component-card.css.
+3. **Collection page: improve grid spacing** — Added CSS override in template-collection.css: 1.5rem gap on mobile, 2rem on desktop for product grids.
+4. **Breadcrumbs on PDP and collection pages** — Created `sections/breadcrumb.liquid` with BreadcrumbList JSON-LD schema markup. Added to all product templates (product.json, product.in-store-only.json) and all collection templates (collection.json, basic-collection, featured-collection, hero-collection). Added `general.breadcrumbs.home` translation key to all 31 locale files.
+5. **Homepage: "Why Spawn" section** — Created `sections/why-spawn.liquid` with 3-column trust section (Expert-Curated Gear, Ships from the Pacific NW, Fly Fishing Specialists) using inline SVGs. Added to index.json after hero banner. Fully editable in theme editor.
+6. **Product reviews placeholder** — Modified rating block in main-product.liquid to show 5 empty stars + "Be the first to review" when no review metafield data exists. Styled with italic/muted text in component-rating.css.
 
 ## Tasks Skipped / Blocked
-- None
+- **Install product reviews app** — Needs manual decision on Judge.me vs Okendo (blocked, flagged for Luke)
 
 ## Needs Browser Verification
-- Variant picker: CDN was still showing dropdowns after push. Need to confirm pill buttons render once CDN cache clears.
-- Mobile thumbnails: Horizontal scroll and min-width at 375px viewport
-- SEO title deduplication: Confirm "Product – Spawn Fly Fish" appears once (not twice) on product pages
-- Focus trap: Escape key close (headless browser couldn't fully verify keyup propagation)
+- Breadcrumbs render correctly on PDP and collection pages
+- "Why Spawn" section spacing and icon rendering on mobile
+- Product card hover overlay is subtle enough on actual product images
+- Review placeholder stars render at the right size with 0-fill
+- Collection grid spacing change doesn't break existing layouts
 
 ## QA Findings (unrelated to tasks)
-- Three sets of variant pickers render on the Spawn Eyes product page (main product + 2 other sections). May want to investigate if duplicate sections are intentional.
-- Pre-existing console errors: shop.app CSP frame-ancestors violation (Shopify infrastructure, not theme code)
+- None — no QA pass run in this session
 
 ## Review Findings (informational)
-- Dawn already had most features built in but disabled via template JSON settings. Tasks 4, 5, and 8 were configuration-only, not code changes.
-- The Shopify Expert sub-agent caught that Dawn has `trapFocus()` in global.js — prevented reinventing the wheel on task 2.
+- None — no /review pass run in this session
 
 ## Notes for Luke
-- 5 of 8 tasks were accessibility fixes or settings toggles. The theme's code quality is solid — most issues were config.
-- The variant picker change (task 4) might need Shopify swatch data configured in the admin for color swatches to render with actual colors. Without swatch data, they'll show as text pill buttons (which is still better than dropdowns).
-- Consider running `shopify theme pull` before verifying in browser to ensure CDN has the latest state.
-- 7 remaining backlog items (2 improvements, 4 enhancements, 1 blocked).
+- The "Why Spawn" section is positioned right after the hero banner. You can reorder it in the theme editor.
+- Breadcrumbs use `product.collections | first` to pick the collection — if a product is in multiple collections, the breadcrumb shows the first one Shopify returns (not necessarily the "best" one).
+- The hover overlay uses `rgb(var(--color-foreground))` at 6% opacity — it's intentionally very subtle. Increase to 0.08-0.10 if you want it more visible.
+- The review placeholder will automatically disappear once a reviews app populates the `reviews.rating` metafield.
+- Backlog is now fully complete (all improvements and enhancements done). Only the blocked item (reviews app install) remains.

@@ -9,6 +9,7 @@
  */
 {
   "general": {
+    "breadcrumbs": { "home": "Home" },
     "password_page": {
       "login_form_heading": "Parolayı kullanarak mağazaya girin:",
       "login_password_button": "Parola kullanarak gir",

@@ -508,6 +508,15 @@
                       </span>
                     </p>
                   </div>
+                {%- else -%}
+                  <div class="rating-wrapper rating-wrapper--placeholder">
+                    <div class="rating" role="img" aria-label="No reviews yet">
+                      <span aria-hidden="true" class="rating-star" style="--rating: 0; --rating-max: 5; --rating-decimal: 0;"></span>
+                    </div>
+                    <p class="rating-count caption">
+                      <span>Be the first to review</span>
+                    </p>
+                  </div>
                 {%- endif -%}
               {%- when 'complementary' -%}
                 <product-recommendations
