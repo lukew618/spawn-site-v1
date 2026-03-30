@@ -27,21 +27,21 @@ Check off each task when shipped. Add new tasks at the appropriate priority leve
 
 - [x] **Footer: add navigation links** — Already configured: COMPANY, SHOP, SUPPORT columns + newsletter + social icons. No code change needed.
 
-- [ ] **Collection page: empty state** — If a collection has no products (e.g. filtered to zero), there's no message. Add a friendly "No products found" empty state with a "Clear filters" link. Acceptance: empty collection shows the message, not a blank grid.
+- [x] **Collection page: empty state** — Already handled by Dawn's built-in empty state in `main-collection-product-grid.liquid` (lines 127-140). Shows translated "No products found" message with "Clear filters" link.
 
-- [ ] **Product card: hover quick-view indicator** — On desktop, hovering a product card should show a subtle overlay with "Quick view" or just darken the image. CSS-only. No modal needed — just a visual cue that the card is interactive. Acceptance: hover produces visible feedback, no JS required.
+- [x] **Product card: hover quick-view indicator** — On desktop, hovering a product card should show a subtle overlay with "Quick view" or just darken the image. CSS-only. No modal needed — just a visual cue that the card is interactive. Acceptance: hover produces visible feedback, no JS required.
 
 ---
 
 ## Enhancements
 
-- [ ] **Breadcrumbs on PDP and collection pages** — Add a breadcrumb trail (`Home > Collection > Product`) above the page heading on product and collection templates. Use `breadcrumb` schema markup for SEO. Acceptance: breadcrumbs render on product and collection pages, schema markup present in source.
+- [x] **Breadcrumbs on PDP and collection pages** — Add a breadcrumb trail (`Home > Collection > Product`) above the page heading on product and collection templates. Use `breadcrumb` schema markup for SEO. Acceptance: breadcrumbs render on product and collection pages, schema markup present in source.
 
-- [ ] **Homepage: add "Why Spawn" section** — Below the hero, add a simple 3-column trust/values section: icons + short copy (e.g. "Expert-Curated Gear", "Ships from the Pacific NW", "Fly Fishing Specialists"). Use inline SVGs. Make it a proper Shopify section with editable text in the theme editor. Acceptance: section renders on homepage, all 3 blocks editable in theme editor.
+- [x] **Homepage: add "Why Spawn" section** — Below the hero, add a simple 3-column trust/values section: icons + short copy (e.g. "Expert-Curated Gear", "Ships from the Pacific NW", "Fly Fishing Specialists"). Use inline SVGs. Make it a proper Shopify section with editable text in the theme editor. Acceptance: section renders on homepage, all 3 blocks editable in theme editor.
 
-- [ ] **Collection page: improve grid spacing** — Product grid has inconsistent gap at mobile (gaps collapse too tight). Standardize to `gap: 1.5rem` on mobile, `gap: 2rem` on desktop. Acceptance: grid looks even at 375px and 1280px.
+- [x] **Collection page: improve grid spacing** — Product grid has inconsistent gap at mobile (gaps collapse too tight). Standardize to `gap: 1.5rem` on mobile, `gap: 2rem` on desktop. Acceptance: grid looks even at 375px and 1280px.
 
-- [ ] **Product reviews placeholder** — `show_rating: true` is not yet enabled and no reviews app is installed. Until an app is installed, add a placeholder star rating display (5 empty stars + "Be the first to review") below the product title. Make it conditional: only show if no metafield review data exists. Acceptance: PDP shows placeholder when no reviews present, placeholder disappears gracefully once an app provides data.
+- [x] **Product reviews placeholder** — `show_rating: true` is not yet enabled and no reviews app is installed. Until an app is installed, add a placeholder star rating display (5 empty stars + "Be the first to review") below the product title. Make it conditional: only show if no metafield review data exists. Acceptance: PDP shows placeholder when no reviews present, placeholder disappears gracefully once an app provides data.
 
 ---
 

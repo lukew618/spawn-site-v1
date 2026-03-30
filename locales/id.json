@@ -9,6 +9,7 @@
  */
 {
   "general": {
+    "breadcrumbs": { "home": "Home" },
     "password_page": {
       "login_form_heading": "Masuki toko dengan sandi:",
       "login_password_button": "Masuk dengan sandi",

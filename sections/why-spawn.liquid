@@ -1,0 +1,130 @@
+{{ 'section-why-spawn.css' | asset_url | stylesheet_tag }}
+
+<div class="why-spawn page-width color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
+  {%- if section.settings.heading != blank -%}
+    <div class="why-spawn__section-heading">
+      <h2>{{ section.settings.heading }}</h2>
+    </div>
+  {%- endif -%}
+
+  <div class="why-spawn__grid">
+    {%- for block in section.blocks -%}
+      <div class="why-spawn__item" {{ block.shopify_attributes }}>
+        {%- if block.settings.icon == 'curated' -%}
+          <svg class="why-spawn__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+            <path d="M2 17l10 5 10-5"/>
+            <path d="M2 12l10 5 10-5"/>
+          </svg>
+        {%- elsif block.settings.icon == 'shipping' -%}
+          <svg class="why-spawn__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+        {%- elsif block.settings.icon == 'specialist' -%}
+          <svg class="why-spawn__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        {%- endif -%}
+
+        {%- if block.settings.heading != blank -%}
+          <h3 class="why-spawn__heading">{{ block.settings.heading }}</h3>
+        {%- endif -%}
+
+        {%- if block.settings.text != blank -%}
+          <p class="why-spawn__text">{{ block.settings.text }}</p>
+        {%- endif -%}
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Why Spawn",
+  "class": "section",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:sections.multicolumn.settings.title.label",
+      "default": "WHY SPAWN"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "column",
+      "name": "Column",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "curated", "label": "Curated (layers)" },
+            { "value": "shipping", "label": "Location (map pin)" },
+            { "value": "specialist", "label": "Specialist (shield)" }
+          ],
+          "default": "curated"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "t:sections.multicolumn.blocks.column.settings.title.label",
+          "default": "Column heading"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "t:sections.multicolumn.blocks.column.settings.text.label",
+          "default": "Column description"
+        }
+      ]
+    },
+    {
+      "type": "@app"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Why Spawn",
+      "blocks": [
+        {
+          "type": "column",
+          "settings": {
+            "icon": "curated",
+            "heading": "Expert-Curated Gear",
+            "text": "Every product handpicked by experienced Pacific Northwest anglers."
+          }
+        },
+        {
+          "type": "column",
+          "settings": {
+            "icon": "shipping",
+            "heading": "Ships from the Pacific NW",
+            "text": "Based in Ilwaco, WA — the heart of world-class fly fishing."
+          }
+        },
+        {
+          "type": "column",
+          "settings": {
+            "icon": "specialist",
+            "heading": "Fly Fishing Specialists",
+            "text": "Dedicated exclusively to fly fishing and fly tying since day one."
+          }
+        }
+      ]
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header", "footer", "custom.overlay"]
+  }
+}
+{% endschema %}

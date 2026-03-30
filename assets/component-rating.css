@@ -53,6 +53,11 @@
   margin: 0;
 }
 
+.rating-wrapper--placeholder .rating-count {
+  color: rgba(var(--color-foreground), 0.5);
+  font-style: italic;
+}
+
 @media (forced-colors: active) {
   .rating {
     display: none;

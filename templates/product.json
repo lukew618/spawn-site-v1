@@ -9,6 +9,10 @@
  */
 {
   "sections": {
+    "breadcrumb": {
+      "type": "breadcrumb",
+      "settings": {}
+    },
     "main": {
       "type": "main-product",
       "blocks": {
@@ -274,6 +278,7 @@
     }
   },
   "order": [
+    "breadcrumb",
     "main",
     "related-products",
     "image_banner_irBgAP",

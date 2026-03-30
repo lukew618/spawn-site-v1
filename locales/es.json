@@ -9,6 +9,7 @@
  */
 {
   "general": {
+    "breadcrumbs": { "home": "Home" },
     "password_page": {
       "login_form_heading": "Entrar a la tienda usando contraseña:",
       "login_password_button": "Entrar usando contraseña",

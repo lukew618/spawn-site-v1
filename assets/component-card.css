@@ -405,6 +405,22 @@
     text-decoration: underline;
     text-underline-offset: 0.3rem;
   }
+
+  /* Hover overlay — subtle darkening for visual feedback */
+  .card__media::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgb(var(--color-foreground));
+    opacity: 0;
+    transition: opacity var(--duration-short) ease;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .card-wrapper:hover .card__media::after {
+    opacity: 0.06;
+  }
 }
 
 .card--standard.card--media .card__inner .card__information,

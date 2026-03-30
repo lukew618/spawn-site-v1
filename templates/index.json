@@ -58,6 +58,44 @@
         "show_text_below": false
       }
     },
+    "why_spawn": {
+      "type": "why-spawn",
+      "blocks": {
+        "col_curated": {
+          "type": "column",
+          "settings": {
+            "icon": "curated",
+            "heading": "Expert-Curated Gear",
+            "text": "Every product handpicked by experienced Pacific Northwest anglers."
+          }
+        },
+        "col_shipping": {
+          "type": "column",
+          "settings": {
+            "icon": "shipping",
+            "heading": "Ships from the Pacific NW",
+            "text": "Based in Ilwaco, WA — the heart of world-class fly fishing."
+          }
+        },
+        "col_specialist": {
+          "type": "column",
+          "settings": {
+            "icon": "specialist",
+            "heading": "Fly Fishing Specialists",
+            "text": "Dedicated exclusively to fly fishing and fly tying since day one."
+          }
+        }
+      },
+      "block_order": [
+        "col_curated",
+        "col_shipping",
+        "col_specialist"
+      ],
+      "settings": {
+        "heading": "WHY SPAWN",
+        "color_scheme": "scheme-1"
+      }
+    },
     "featured_collection_UdX4CU": {
       "type": "featured-collection",
       "custom_css": [
@@ -687,6 +725,7 @@
   },
   "order": [
     "image_banner",
+    "why_spawn",
     "featured_collection_UdX4CU",
     "collection_list_QGtX47",
     "image_banner_7C3HhQ",

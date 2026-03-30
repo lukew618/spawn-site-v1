@@ -9,6 +9,7 @@
  */
 {
   "general": {
+    "breadcrumbs": { "home": "Home" },
     "password_page": {
       "login_form_heading": "Apsilankyti parduotuvėje naudojant slaptažodį:",
       "login_password_button": "Apsilankyti naudojant slaptažodį",
