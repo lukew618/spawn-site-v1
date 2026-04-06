@@ -1,0 +1,355 @@
+{{ 'river-conditions.css' | asset_url | stylesheet_tag }}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'quick-add.css' | asset_url | stylesheet_tag }}
+{{ 'component-rating.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'river-conditions.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- assign river = page.metafields.custom.river.value -%}
+
+{%- if river == blank -%}
+  <div class="river-conditions river-conditions--empty page-width section-{{ section.id }}-padding">
+    <p class="river-conditions__empty-state">{{ 'sections.river_conditions.no_river' | t: default: 'No river data configured for this page.' }}</p>
+  </div>
+{%- else -%}
+
+  {%- comment -%} River tab navigation from river_link blocks {%- endcomment -%}
+  {%- assign river_links = section.blocks | where: 'type', 'river_link' -%}
+  {%- if river_links.size > 0 -%}
+    <nav class="river-nav page-width" aria-label="{{ 'sections.river_conditions.river_navigation' | t: default: 'River navigation' }}">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'river_link' -%}
+          <a
+            href="{{ block.settings.url }}"
+            class="river-nav__link{% if block.settings.url == request.path %} river-nav__link--active{% endif %}"
+            {{ block.shopify_attributes }}
+          >
+            {{- block.settings.label | escape -}}
+          </a>
+        {%- endif -%}
+      {%- endfor -%}
+    </nav>
+  {%- endif -%}
+
+  {%- comment -%} Hero {%- endcomment -%}
+  <div class="river-hero">
+    {%- if river.hero_image != blank -%}
+      <div class="river-hero__image-wrapper">
+        {{ river.hero_image | image_url: width: 1500 | image_tag:
+          loading: 'eager',
+          fetchpriority: 'high',
+          preload: true,
+          widths: '375,750,1100,1500',
+          sizes: '100vw',
+          class: 'river-hero__image',
+          alt: river.hero_image.alt | default: river.name | escape
+        }}
+      </div>
+    {%- endif -%}
+    <div class="river-hero__overlay">
+      <div class="page-width">
+        <h1 class="river-hero__title">{{ river.name | escape }}</h1>
+        {%- if river.region != blank -%}
+          <p class="river-hero__region">{{ river.region | escape }}</p>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+
+  <div class="river-conditions page-width section-{{ section.id }}-padding">
+
+    {%- comment -%} Live conditions web component {%- endcomment -%}
+    <river-conditions class="river-conditions__component" data-section-id="{{ section.id }}">
+
+      {%- comment -%} Conditions grid: 3 live + 1 server-rendered clarity {%- endcomment -%}
+      <div class="river-conditions-grid">
+
+        <div class="river-condition-card river-condition-card--loading" data-condition="flow">
+          <span class="river-condition-card__label">{{ 'sections.river_conditions.flow' | t: default: 'Flow' }}</span>
+          <span class="river-condition-card__value" aria-live="polite">—</span>
+          <span class="river-condition-card__unit">cfs</span>
+        </div>
+
+        <div class="river-condition-card river-condition-card--loading" data-condition="temp">
+          <span class="river-condition-card__label">{{ 'sections.river_conditions.temperature' | t: default: 'Water Temp' }}</span>
+          <span class="river-condition-card__value" aria-live="polite">—</span>
+          <span class="river-condition-card__unit">°F</span>
+        </div>
+
+        <div class="river-condition-card river-condition-card--loading" data-condition="gage">
+          <span class="river-condition-card__label">{{ 'sections.river_conditions.gage_height' | t: default: 'Gage Height' }}</span>
+          <span class="river-condition-card__value" aria-live="polite">—</span>
+          <span class="river-condition-card__unit">ft</span>
+        </div>
+
+        {%- comment -%} Clarity — server-rendered from metaobject {%- endcomment -%}
+        <div class="river-condition-card river-condition-card--clarity">
+          <span class="river-condition-card__label">{{ 'sections.river_conditions.clarity' | t: default: 'Clarity' }}</span>
+          {%- if river.current_clarity != blank -%}
+            <span class="river-condition-card__value">{{ river.current_clarity | escape }}</span>
+            {%- if river.clarity_visibility != blank -%}
+              <span class="river-condition-card__unit">{{ river.clarity_visibility | escape }}</span>
+            {%- endif -%}
+          {%- else -%}
+            <span class="river-condition-card__value">{{ 'sections.river_conditions.unknown' | t: default: 'Unknown' }}</span>
+          {%- endif -%}
+        </div>
+
+      </div>
+
+      {%- comment -%} Fishability badge — hidden until JS computes {%- endcomment -%}
+      <div class="river-fishability-wrapper">
+        <span class="river-fishability-badge" hidden aria-live="polite"></span>
+        <p class="river-conditions__updated" aria-live="polite"></p>
+      </div>
+
+      {%- comment -%} Fallback — hidden until fetch fails {%- endcomment -%}
+      <p class="river-conditions__fallback" hidden>
+        {{ 'sections.river_conditions.data_unavailable' | t: default: 'Live conditions temporarily unavailable. Check back soon.' }}
+      </p>
+
+    </river-conditions>
+
+    {%- comment -%} Guide notes — server-rendered {%- endcomment -%}
+    {%- if river.guide_notes != blank -%}
+      <div class="river-guide-notes">
+        <h2 class="river-guide-notes__heading">{{ 'sections.river_conditions.guide_report' | t: default: 'Guide Report' }}</h2>
+        {%- if river.guide_notes_date != blank -%}
+          <time class="river-guide-notes__date" datetime="{{ river.guide_notes_date }}">
+            {{ river.guide_notes_date | date: '%B %d, %Y' }}
+          </time>
+        {%- endif -%}
+        <div class="river-guide-notes__content rte">{{ river.guide_notes }}</div>
+      </div>
+    {%- endif -%}
+
+    {%- comment -%} Hatch chart — server-rendered, enhanced by JS {%- endcomment -%}
+    {%- assign hatches = river.hatches.value -%}
+    {%- assign month_names = 'Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec' | split: ',' -%}
+
+    {%- if hatches != blank -%}
+      <div class="river-hatches">
+        <h2 class="river-hatches__heading">{{ 'sections.river_conditions.current_hatches' | t: default: 'Current Hatches' }}</h2>
+        <div class="river-hatches__grid">
+          {%- for hatch in hatches -%}
+            <div
+              class="river-hatch-card"
+              data-hatch-index="{{ forloop.index0 }}"
+              data-season-start="{{ hatch.season_start_month }}"
+              data-season-end="{{ hatch.season_end_month }}"
+            >
+              <h3 class="river-hatch-card__name">{{ hatch.bug_name | escape }}</h3>
+              <div class="river-hatch-card__details">
+                {%- assign start_idx = hatch.season_start_month | minus: 1 -%}
+                {%- assign end_idx = hatch.season_end_month | minus: 1 -%}
+                <span class="river-hatch-card__season">
+                  {{ month_names[start_idx] }} – {{ month_names[end_idx] }}
+                </span>
+                {%- if hatch.min_water_temp_f != blank and hatch.max_water_temp_f != blank -%}
+                  <span class="river-hatch-card__temp">{{ hatch.min_water_temp_f }}°F – {{ hatch.max_water_temp_f }}°F</span>
+                {%- endif -%}
+                {%- if hatch.peak_time_start != blank and hatch.peak_time_end != blank -%}
+                  <span class="river-hatch-card__peak">{{ hatch.peak_time_start }} – {{ hatch.peak_time_end }}</span>
+                {%- endif -%}
+                {%- if hatch.lifecycle_stage != blank -%}
+                  <span class="river-hatch-card__stage">{{ hatch.lifecycle_stage | escape }}</span>
+                {%- endif -%}
+              </div>
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+    {%- else -%}
+      <div class="river-hatches river-hatches--empty">
+        <p>{{ 'sections.river_conditions.no_hatches' | t: default: 'No active hatches right now. Check back soon or browse the full fly box below.' }}</p>
+      </div>
+    {%- endif -%}
+
+    {%- comment -%} Gear recommendations — unique products across all hatches {%- endcomment -%}
+    {%- if hatches != blank -%}
+      {%- assign seen_ids = '' -%}
+      {%- assign has_products = false -%}
+      {%- for hatch in hatches -%}
+        {%- assign hatch_products = hatch.recommended_products.value -%}
+        {%- if hatch_products != blank -%}
+          {%- for product in hatch_products -%}
+            {%- assign id_check = product.id | append: ',' -%}
+            {%- unless seen_ids contains id_check -%}
+              {%- assign has_products = true -%}
+              {%- break -%}
+            {%- endunless -%}
+          {%- endfor -%}
+          {%- if has_products -%}{%- break -%}{%- endif -%}
+        {%- endif -%}
+      {%- endfor -%}
+
+      {%- if has_products -%}
+        <div class="river-gear">
+          <h2 class="river-gear__heading">{{ 'sections.river_conditions.recommended_gear' | t: default: 'Recommended Gear' }}</h2>
+          <ul class="river-gear-grid list-unstyled" role="list">
+            {%- assign seen_ids = '' -%}
+            {%- assign skip_card_styles = false -%}
+            {%- for hatch in hatches -%}
+              {%- assign hatch_products = hatch.recommended_products.value -%}
+              {%- if hatch_products != blank -%}
+                {%- for product in hatch_products -%}
+                  {%- assign id_check = product.id | append: ',' -%}
+                  {%- unless seen_ids contains id_check -%}
+                    {%- assign seen_ids = seen_ids | append: id_check -%}
+                    <li class="river-gear-grid__item">
+                      {% render 'card-product',
+                        card_product: product,
+                        media_aspect_ratio: 'square',
+                        show_secondary_image: true,
+                        show_vendor: false,
+                        show_rating: false,
+                        skip_styles: skip_card_styles,
+                        section_id: section.id,
+                        quick_add: section.settings.quick_add
+                      %}
+                    </li>
+                    {%- assign skip_card_styles = true -%}
+                  {%- endunless -%}
+                {%- endfor -%}
+              {%- endif -%}
+            {%- endfor -%}
+          </ul>
+        </div>
+      {%- endif -%}
+    {%- endif -%}
+
+  </div>
+
+  {%- comment -%} Hatch data for JS enhancement {%- endcomment -%}
+  {%- if hatches != blank -%}
+    <script type="application/json" id="river-hatches-data-{{ section.id }}">
+      [
+        {%- for hatch in hatches -%}
+          {
+            "bug_name": {{ hatch.bug_name | json }},
+            "season_start_month": {{ hatch.season_start_month | default: 1 }},
+            "season_end_month": {{ hatch.season_end_month | default: 12 }},
+            "min_water_temp_f": {{ hatch.min_water_temp_f | default: 0 }},
+            "max_water_temp_f": {{ hatch.max_water_temp_f | default: 100 }},
+            "peak_time_start": {{ hatch.peak_time_start | json }},
+            "peak_time_end": {{ hatch.peak_time_end | json }},
+            "lifecycle_stage": {{ hatch.lifecycle_stage | json }}
+          }{%- unless forloop.last -%},{%- endunless -%}
+        {%- endfor -%}
+      ]
+    </script>
+  {%- endif -%}
+
+  {%- comment -%} River config for JS {%- endcomment -%}
+  <script type="application/json" id="river-config-data-{{ section.id }}">
+    {
+      "station_id": {{ river.usgs_station_id | json }},
+      "worker_url": "https://usgs-proxy.spawn-fly-fish.workers.dev",
+      "slug": {{ river.slug | json }}
+    }
+  </script>
+
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "t:sections.river_conditions.name",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer", "aside"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.river_conditions.settings.header_layout.content",
+      "info": "t:sections.river_conditions.settings.header_layout.info"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    },
+    {
+      "type": "header",
+      "content": "t:sections.river_conditions.settings.header_products.content"
+    },
+    {
+      "type": "select",
+      "id": "quick_add",
+      "label": "t:sections.featured_collection.settings.quick_add.label",
+      "default": "standard",
+      "options": [
+        {
+          "value": "standard",
+          "label": "t:sections.featured_collection.settings.quick_add.options__1.label"
+        },
+        {
+          "value": "none",
+          "label": "t:sections.featured_collection.settings.quick_add.options__3.label"
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "river_link",
+      "name": "t:sections.river_conditions.blocks.river_link.name",
+      "settings": [
+        {
+          "type": "url",
+          "id": "url",
+          "label": "t:sections.river_conditions.blocks.river_link.settings.url.label",
+          "default": "/"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "t:sections.river_conditions.blocks.river_link.settings.label.label",
+          "default": "River Name"
+        }
+      ]
+    },
+    {
+      "type": "@app"
+    }
+  ],
+  "max_blocks": 15,
+  "presets": [
+    {
+      "name": "t:sections.river_conditions.name"
+    }
+  ]
+}
+{% endschema %}

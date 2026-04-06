@@ -1,0 +1,7 @@
+{
+  "sections": {
+    "breadcrumb": { "type": "breadcrumb" },
+    "main": { "type": "river-conditions" }
+  },
+  "order": ["breadcrumb", "main"]
+}

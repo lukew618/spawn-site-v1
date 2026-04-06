@@ -1,0 +1,383 @@
+/* River Conditions — mobile-first, Dawn breakpoints: 750px / 990px / 1200px */
+
+/* ─── Section-scoped custom properties ─────────────────────────────────── */
+
+.river-conditions,
+river-conditions {
+  --rc-prime:    #16a34a;
+  --rc-good:     #65a30d;
+  --rc-fair:     #ca8a04;
+  --rc-marginal: #ea580c;
+  --rc-blown:    #dc2626;
+  --rc-low-flow: #2563eb;
+  --rc-white:         #ffffff;
+  --rc-white-muted:   rgba(255, 255, 255, 0.8);
+  --rc-scrim:         rgba(0, 0, 0, 0.6);
+  --rc-scrim-clear:   rgba(0, 0, 0, 0);
+
+  --rc-card-bg:      rgba(var(--color-base-background-2, 243 244 246), 1);
+  --rc-card-radius:  0.5rem;
+  --rc-gap:          1.2rem;
+  --rc-text-small:   1.2rem;
+}
+
+/* ─── River nav tab bar ─────────────────────────────────────────────────── */
+
+.river-nav {
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+  border-bottom: 0.1rem solid rgba(var(--color-foreground, 18 18 18), 0.12);
+  margin-bottom: 2.4rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.river-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.river-nav__link {
+  flex-shrink: 0;
+  padding: 1.2rem 1.6rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: rgba(var(--color-foreground, 18 18 18), 0.65);
+  text-decoration: none;
+  border-bottom: 0.2rem solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+  white-space: nowrap;
+}
+
+.river-nav__link:hover {
+  color: rgb(var(--color-foreground, 18 18 18));
+}
+
+.river-nav__link--active {
+  color: rgb(var(--color-foreground, 18 18 18));
+  border-bottom-color: rgb(var(--color-foreground, 18 18 18));
+}
+
+/* ─── Hero ──────────────────────────────────────────────────────────────── */
+
+.river-hero {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  min-height: 28rem;
+  background-color: rgba(var(--color-base-background-2, 243 244 246), 1);
+  margin-bottom: 3.2rem;
+}
+
+.river-hero__image-wrapper {
+  position: absolute;
+  inset: 0;
+}
+
+.river-hero__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.river-hero__overlay {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-end;
+  min-height: 28rem;
+  padding: 2.4rem 0;
+  background: linear-gradient(to top, var(--rc-scrim) 0%, var(--rc-scrim-clear) 60%);
+}
+
+.river-hero__title {
+  margin: 0 0 0.4rem;
+  font-size: 3.2rem;
+  color: var(--rc-white);
+  line-height: 1.1;
+}
+
+.river-hero__region {
+  margin: 0;
+  font-size: 1.4rem;
+  color: var(--rc-white-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+@media screen and (min-width: 750px) {
+  .river-hero {
+    min-height: 40rem;
+  }
+
+  .river-hero__overlay {
+    min-height: 40rem;
+  }
+
+  .river-hero__title {
+    font-size: 4.8rem;
+  }
+}
+
+/* ─── Conditions grid ───────────────────────────────────────────────────── */
+
+.river-conditions-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--rc-gap);
+  margin-bottom: 2rem;
+}
+
+@media screen and (min-width: 750px) {
+  .river-conditions-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ─── Condition card ────────────────────────────────────────────────────── */
+
+.river-condition-card {
+  background: var(--rc-card-bg);
+  border-radius: var(--rc-card-radius);
+  padding: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  min-height: 9.6rem; /* fixed height prevents CLS during skeleton state */
+}
+
+.river-condition-card__label {
+  font-size: var(--rc-text-small);
+  color: rgba(var(--color-foreground, 18 18 18), 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 500;
+}
+
+.river-condition-card__value {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: rgb(var(--color-foreground, 18 18 18));
+  line-height: 1.1;
+}
+
+.river-condition-card__unit {
+  font-size: var(--rc-text-small);
+  color: rgba(var(--color-foreground, 18 18 18), 0.5);
+}
+
+/* ─── Skeleton loading state ────────────────────────────────────────────── */
+
+@keyframes rc-pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+.river-condition-card--loading .river-condition-card__value {
+  display: inline-block;
+  width: 6rem;
+  height: 2.4rem;
+  background: rgba(var(--color-foreground, 18 18 18), 0.1);
+  border-radius: 0.4rem;
+  animation: rc-pulse 1.4s ease-in-out infinite;
+}
+
+.river-condition-card--loading .river-condition-card__unit {
+  visibility: hidden;
+}
+
+/* ─── Fishability badge ─────────────────────────────────────────────────── */
+
+.river-fishability-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-bottom: 2.8rem;
+  flex-wrap: wrap;
+}
+
+.river-fishability-badge {
+  display: inline-block;
+  padding: 0.5rem 1.4rem;
+  border-radius: 10rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--rc-white);
+  background: rgba(var(--color-foreground, 18 18 18), 0.2);
+}
+
+.river-fishability-badge[data-level="prime"]    { background: var(--rc-prime); }
+.river-fishability-badge[data-level="good"]     { background: var(--rc-good); }
+.river-fishability-badge[data-level="fair"]     { background: var(--rc-fair); }
+.river-fishability-badge[data-level="marginal"] { background: var(--rc-marginal); }
+.river-fishability-badge[data-level="blown-out"] { background: var(--rc-blown); }
+.river-fishability-badge[data-level="low-flow"] { background: var(--rc-low-flow); }
+
+/* ─── Updated timestamp ─────────────────────────────────────────────────── */
+
+.river-conditions__updated {
+  font-size: var(--rc-text-small);
+  color: rgba(var(--color-foreground, 18 18 18), 0.5);
+  margin: 0;
+}
+
+.river-conditions__updated--stale {
+  color: var(--rc-marginal);
+}
+
+/* ─── Fallback ──────────────────────────────────────────────────────────── */
+
+.river-conditions__fallback {
+  padding: 1.6rem;
+  background: var(--rc-card-bg);
+  border-radius: var(--rc-card-radius);
+  color: rgba(var(--color-foreground, 18 18 18), 0.65);
+  font-size: 1.4rem;
+  margin-bottom: 2rem;
+}
+
+/* ─── Guide notes ───────────────────────────────────────────────────────── */
+
+.river-guide-notes {
+  margin-bottom: 3.2rem;
+  padding: 2rem;
+  background: var(--rc-card-bg);
+  border-radius: var(--rc-card-radius);
+}
+
+.river-guide-notes__heading {
+  margin: 0 0 0.8rem;
+  font-size: 1.8rem;
+}
+
+.river-guide-notes__date {
+  display: block;
+  font-size: var(--rc-text-small);
+  color: rgba(var(--color-foreground, 18 18 18), 0.5);
+  margin-bottom: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.river-guide-notes__content {
+  font-size: 1.5rem;
+  line-height: 1.6;
+}
+
+/* ─── Hatch chart ───────────────────────────────────────────────────────── */
+
+.river-hatches {
+  margin-bottom: 3.2rem;
+}
+
+.river-hatches__heading {
+  margin: 0 0 1.6rem;
+  font-size: 2rem;
+}
+
+.river-hatches--empty p {
+  color: rgba(var(--color-foreground, 18 18 18), 0.6);
+  font-size: 1.4rem;
+}
+
+.river-hatches__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(24rem, 1fr));
+  gap: var(--rc-gap);
+}
+
+/* ─── Hatch card ────────────────────────────────────────────────────────── */
+
+.river-hatch-card {
+  background: var(--rc-card-bg);
+  border-radius: var(--rc-card-radius);
+  padding: 1.6rem;
+  transition: opacity 0.2s ease;
+}
+
+.river-hatch-card--active {
+  opacity: 1;
+  box-shadow: 0 0 0 0.2rem var(--rc-prime);
+}
+
+.river-hatch-card--inactive {
+  opacity: 0.5;
+}
+
+.river-hatch-card__name {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin: 0 0 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.river-hatch-card__details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.river-hatch-card__details span {
+  font-size: 1.3rem;
+  color: rgba(var(--color-foreground, 18 18 18), 0.65);
+}
+
+.river-hatch-card .river-hatch-card__season {
+  font-weight: 500;
+  color: rgb(var(--color-foreground, 18 18 18));
+}
+
+.river-hatch-card__badge {
+  display: inline-block;
+  padding: 0.2rem 0.8rem;
+  border-radius: 10rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--rc-white);
+  background: var(--rc-prime);
+}
+
+/* ─── Gear / product grid ───────────────────────────────────────────────── */
+
+.river-gear {
+  margin-bottom: 3.2rem;
+}
+
+.river-gear__heading {
+  margin: 0 0 1.6rem;
+  font-size: 2rem;
+}
+
+.river-gear-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--rc-gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media screen and (min-width: 990px) {
+  .river-gear-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ─── Empty state ───────────────────────────────────────────────────────── */
+
+.river-conditions--empty {
+  padding: 4rem 0;
+}
+
+.river-conditions__empty-state {
+  color: rgba(var(--color-foreground, 18 18 18), 0.55);
+  font-size: 1.5rem;
+}
