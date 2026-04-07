@@ -12,7 +12,7 @@ The human will review your work when they return. Make them proud.
 2. Pull latest from GitHub: `git pull origin main` — incorporates any changes from cloud sessions or other machines
 3. Pull latest from Shopify: `shopify theme pull --theme=129377796159` — incorporates any Theme Editor changes
 4. If git detects conflicts between GitHub and Shopify pulls: commit the Shopify state with message `chore: sync Shopify theme state` before proceeding
-5. Run `shopify theme check` — note any pre-existing errors (PageFly file has 3 known errors — ignore those, flag anything new)
+5. Run `shopify theme check` — must pass with zero errors, flag anything new
 6. Check git status — if there are uncommitted changes, commit them with message `chore: commit uncommitted work before agent loop`
 7. Working tree is clean. Proceed to the loop.
 
@@ -64,7 +64,7 @@ Make the changes. Follow CLAUDE.md rules without exception:
 - `image_url` + `image_tag` for all images
 - CSS custom properties, no hardcoded hex
 - `defer` on all new `<script>` tags
-- Never touch off-limits files (PageFly files, `config/settings_data.json`)
+- Never touch off-limits files (`config/settings_data.json`)
 
 ### 5.5. Code review gate (gstack /review)
 
@@ -78,7 +78,7 @@ Run `/review` on your changes before verifying. This catches structural issues t
 ### 6. Verify
 
 Run `shopify theme check`. Requirements:
-- Zero new errors beyond the 3 pre-existing PageFly ones
+- Zero errors
 - Warnings are acceptable if they're in unchanged files
 
 Go through your acceptance criteria one by one. Check each off mentally.
@@ -191,6 +191,5 @@ git commit -m "chore(agent): loop complete — write recap"
 
 - Theme ID: `129377796159` (spawn-store-v1) — always use this one
 - Store: `spawn-fly-fish.myshopify.com`
-- Off-limits files: `sections/pf-b25451ca.liquid`, `snippets/pf-b25451ca-css.liquid`, `snippets/pagefly-main-js.liquid`, `templates/product.pf-b25451ca.json`, `config/settings_data.json`
-- Pre-existing theme check errors: 3 errors in `pf-b25451ca.liquid` — ignore
+- Off-limits files: `config/settings_data.json`
 - Push command always needs `--allow-live` flag
