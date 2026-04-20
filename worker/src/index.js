@@ -53,8 +53,8 @@ function withCors(res, req) {
 }
 
 async function usgs(stationId) {
-  const url = `https://waterservices.usgs.gov/nwis/iv/?sites=${stationId}&parameterCd=00060,00010,00065&format=json&siteStatus=active`;
-  const res = await fetch(url, { signal: AbortSignal.timeout(5000) });
+  const url = `https://waterservices.usgs.gov/nwis/iv/?sites=${stationId}&parameterCd=00060,00010,00065&period=P7D&format=json&siteStatus=active`;
+  const res = await fetch(url, { signal: AbortSignal.timeout(8000) });
   if (res.status === 404) return null;
   if (!res.ok) throw new Error(`USGS ${res.status}`);
   const data = await res.json();
@@ -62,11 +62,30 @@ async function usgs(stationId) {
   return series.length ? series : null;
 }
 
+function dailyHistory(series, code) {
+  const t = series.find(s => s.variable?.variableCode?.[0]?.value === code);
+  const vals = t?.values?.[0]?.value ?? [];
+  const byDay = new Map();
+  for (const v of vals) {
+    if (!v?.dateTime || v.value === undefined || v.value === '' || v.value === '-999999') continue;
+    const n = Number(v.value);
+    if (!Number.isFinite(n)) continue;
+    const day = v.dateTime.slice(0, 10);
+    const existing = byDay.get(day);
+    if (!existing || v.dateTime > existing.dateTime) byDay.set(day, { dateTime: v.dateTime, value: n });
+  }
+  return [...byDay.entries()]
+    .sort((a, b) => a[0].localeCompare(b[0]))
+    .slice(-7)
+    .map(([date, { value }]) => ({ date, cfs: value }));
+}
+
 function shape(series, stale = false) {
   return {
     flow_cfs: latestReading(series, '00060'),
     temp_f: toF(latestReading(series, '00010')),
     gage_height_ft: latestReading(series, '00065'),
+    flow_history_7d: dailyHistory(series, '00060'),
     updated_at: latestTime(series),
     stale,
   };
