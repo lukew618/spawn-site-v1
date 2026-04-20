@@ -284,6 +284,43 @@
       "announcement": "Announcement",
       "announcement_bar": "Announcement bar"
     },
+    "river_conditions": {
+      "name": "River conditions",
+      "no_river": "No river data configured for this page.",
+      "river_navigation": "River navigation",
+      "flow": "Flow",
+      "temperature": "Water Temp",
+      "gage_height": "Gage Height",
+      "clarity": "Clarity",
+      "unknown": "Unknown",
+      "data_unavailable": "Live conditions temporarily unavailable. Check back soon.",
+      "guide_report": "Guide Report",
+      "current_hatches": "Current Hatches",
+      "no_hatches": "No active hatches right now. Check back soon or browse the full fly box below.",
+      "recommended_gear": "Recommended Gear",
+      "settings": {
+        "header_layout": {
+          "content": "Layout",
+          "info": "Controls the section padding above and below the river conditions block."
+        },
+        "header_products": {
+          "content": "Product cards"
+        }
+      },
+      "blocks": {
+        "river_link": {
+          "name": "River link",
+          "settings": {
+            "url": {
+              "label": "URL"
+            },
+            "label": {
+              "label": "Label"
+            }
+          }
+        }
+      }
+    },
     "header": {
       "announcement": "Announcement",
       "menu": "Menu",

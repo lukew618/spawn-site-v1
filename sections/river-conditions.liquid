@@ -3,6 +3,11 @@
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 {{ 'quick-add.css' | asset_url | stylesheet_tag }}
 {{ 'component-rating.css' | asset_url | stylesheet_tag }}
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
 <script src="{{ 'river-conditions.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
@@ -12,7 +17,6 @@
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
   }
-
   @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
       padding-top: {{ section.settings.padding_top }}px;
@@ -29,7 +33,35 @@
   </div>
 {%- else -%}
 
-  {%- comment -%} River tab navigation from river_link blocks {%- endcomment -%}
+  {%- comment -%} Per-river static data fallbacks (coordinates, access points, nearest).
+                 When these land as metaobject fields, prefer river.<field> over these. {%- endcomment -%}
+  {%- assign map_lat = blank -%}
+  {%- assign map_lng = blank -%}
+  {%- assign map_zoom = '12' -%}
+  {%- capture access_raw -%}{%- endcapture -%}
+  {%- capture nearest_raw -%}{%- endcapture -%}
+  {%- capture stretch_raw -%}{%- endcapture -%}
+  {%- case river.slug -%}
+    {%- when 'yakima' -%}
+      {%- assign map_lat = '46.8621' -%}
+      {%- assign map_lng = '-120.4716' -%}
+      {%- capture access_raw -%}Red's Meadow|MI 21
+Big Pines|MI 15
+Umtanum Rec. Area|MI 9
+Ringer Loop|MI 6
+Roza Dam|MI 3{%- endcapture -%}
+      {%- capture nearest_raw -%}Yakima, WA|22 mi SE
+Ellensburg, WA|18 mi NW
+SEA airport|141 mi W{%- endcapture -%}
+      {%- capture stretch_raw -%}Canyon between <strong>Big Pines</strong> and <strong>Umtanum</strong> — seams holding fish, skwalas coming off mid-day.{%- endcapture -%}
+  {%- endcase -%}
+
+  {%- assign access_lines = access_raw | split: '
+' -%}
+  {%- assign nearest_lines = nearest_raw | split: '
+' -%}
+
+  {%- comment -%} Nav tabs {%- endcomment -%}
   {%- assign river_links = section.blocks | where: 'type', 'river_link' -%}
   {%- if river_links.size > 0 -%}
     <nav class="river-nav page-width" aria-label="{{ 'sections.river_conditions.river_navigation' | t: default: 'River navigation' }}">
@@ -62,126 +94,229 @@
         }}
       </div>
     {%- endif -%}
-    <div class="river-hero__overlay">
-      <div class="page-width">
-        <h1 class="river-hero__title">{{ river.name | escape }}</h1>
-        {%- if river.region != blank -%}
-          <p class="river-hero__region">{{ river.region | escape }}</p>
-        {%- endif -%}
-      </div>
-    </div>
+    <span class="river-hero__scrim-label">{{ 'sections.river_conditions.live_label' | t: default: 'Live · USGS 15-min feed' }}</span>
+    <div class="river-hero__overlay" aria-hidden="true"></div>
   </div>
 
   <div class="river-conditions page-width section-{{ section.id }}-padding">
 
-    {%- comment -%} Live conditions web component {%- endcomment -%}
-    <river-conditions class="river-conditions__component" data-section-id="{{ section.id }}">
-
-      {%- comment -%} Conditions grid: 3 live + 1 server-rendered clarity {%- endcomment -%}
-      <div class="river-conditions-grid">
-
-        <div class="river-condition-card river-condition-card--loading" data-condition="flow">
-          <span class="river-condition-card__label">{{ 'sections.river_conditions.flow' | t: default: 'Flow' }}</span>
-          <span class="river-condition-card__value" aria-live="polite">—</span>
-          <span class="river-condition-card__unit">cfs</span>
-        </div>
-
-        <div class="river-condition-card river-condition-card--loading" data-condition="temp">
-          <span class="river-condition-card__label">{{ 'sections.river_conditions.temperature' | t: default: 'Water Temp' }}</span>
-          <span class="river-condition-card__value" aria-live="polite">—</span>
-          <span class="river-condition-card__unit">°F</span>
-        </div>
-
-        <div class="river-condition-card river-condition-card--loading" data-condition="gage">
-          <span class="river-condition-card__label">{{ 'sections.river_conditions.gage_height' | t: default: 'Gage Height' }}</span>
-          <span class="river-condition-card__value" aria-live="polite">—</span>
-          <span class="river-condition-card__unit">ft</span>
-        </div>
-
-        {%- comment -%} Clarity — server-rendered from metaobject {%- endcomment -%}
-        <div class="river-condition-card river-condition-card--clarity">
-          <span class="river-condition-card__label">{{ 'sections.river_conditions.clarity' | t: default: 'Clarity' }}</span>
-          {%- if river.current_clarity != blank -%}
-            <span class="river-condition-card__value">{{ river.current_clarity | escape }}</span>
-            {%- if river.clarity_visibility != blank -%}
-              <span class="river-condition-card__unit">{{ river.clarity_visibility | escape }}</span>
-            {%- endif -%}
-          {%- else -%}
-            <span class="river-condition-card__value">{{ 'sections.river_conditions.unknown' | t: default: 'Unknown' }}</span>
-          {%- endif -%}
-        </div>
-
+    {%- comment -%} Dateline {%- endcomment -%}
+    <header class="river-dateline">
+      <div class="river-dateline__meta">
+        {%- if river.region != blank -%}{{ river.region | escape }} · {%- endif -%}
+        {{ 'now' | date: '%m.%d.%y' }}
+        {%- if river.usgs_station_id != blank -%} · USGS {{ river.usgs_station_id | escape }}{%- endif -%}
       </div>
+      <h1 class="river-dateline__title">{{ river.name | escape }}</h1>
+      {%- if river.description != blank -%}
+        <p class="river-dateline__lede">{{ river.description | escape }}</p>
+      {%- endif -%}
+    </header>
 
-      {%- comment -%} Fishability badge — hidden until JS computes {%- endcomment -%}
-      <div class="river-fishability-wrapper">
-        <span class="river-fishability-badge" hidden aria-live="polite"></span>
-        <p class="river-conditions__updated" aria-live="polite"></p>
-      </div>
+    <river-conditions data-section-id="{{ section.id }}">
 
-      {%- comment -%} Fallback — hidden until fetch fails {%- endcomment -%}
+      {%- comment -%} Conditions: hero flow + secondary rows {%- endcomment -%}
+      <section class="river-conditions__block">
+        <div class="river-metrics">
+          <div class="river-metric--hero river-metric--loading" data-condition="flow">
+            <div class="river-metric__label">{{ 'sections.river_conditions.flow' | t: default: 'Streamflow' }}</div>
+            <div class="river-metric__value" aria-live="polite">—</div>
+            <div class="river-metric__sub">cubic feet per second</div>
+          </div>
+
+          <div class="river-secondary-rows">
+            <div class="river-secondary-row" data-condition="gage">
+              <span class="river-secondary-row__label">{{ 'sections.river_conditions.gage_height' | t: default: 'Gage height' }}</span>
+              <span class="river-secondary-row__value" aria-live="polite">—<span class="unit">ft</span></span>
+            </div>
+            <div class="river-secondary-row" data-condition="temp">
+              <span class="river-secondary-row__label">{{ 'sections.river_conditions.temperature' | t: default: 'Water temperature' }}</span>
+              <span class="river-secondary-row__value" aria-live="polite">—<span class="unit">°F</span></span>
+            </div>
+            <div class="river-secondary-row">
+              <span class="river-secondary-row__label">{{ 'sections.river_conditions.clarity' | t: default: 'Clarity' }}</span>
+              <span class="river-secondary-row__value">
+                {%- if river.current_clarity != blank -%}
+                  {{ river.current_clarity | escape }}
+                  {%- if river.clarity_visibility != blank -%}
+                    <span class="unit">{{ river.clarity_visibility | escape }}</span>
+                  {%- endif -%}
+                {%- else -%}—{%- endif -%}
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {%- comment -%} Fishability banner — hidden until JS computes {%- endcomment -%}
+      <section class="river-fishability" hidden aria-label="Fishability rating">
+        <span class="river-fishability__rating"></span>
+        <span class="river-fishability__subtitle"></span>
+        <span class="river-fishability__updated" aria-live="polite"></span>
+      </section>
+
       <p class="river-conditions__fallback" hidden>
         {{ 'sections.river_conditions.data_unavailable' | t: default: 'Live conditions temporarily unavailable. Check back soon.' }}
       </p>
 
+      {%- comment -%} Field data: flow chart + map, side by side {%- endcomment -%}
+      <div class="river-field-data">
+
+        <section class="river-flow">
+          <div class="river-field-data__header">
+            <h2 class="river-field-data__heading">{{ 'sections.river_conditions.flow_history' | t: default: '7-Day Discharge' }}</h2>
+            <span class="river-field-data__sub">
+              {%- if river.usgs_station_id != blank -%}USGS {{ river.usgs_station_id }} · {%- endif -%}
+              cfs · 15-min
+            </span>
+          </div>
+          <div class="river-flow__chart-wrap">
+            <div class="river-flow__chart river-flow__chart--loading" data-flow-chart></div>
+            <div class="river-flow__legend">
+              <span class="river-flow__legend-item"><span class="river-flow__legend-swatch river-flow__legend-swatch--line"></span>Discharge</span>
+              <span class="river-flow__legend-item"><span class="river-flow__legend-swatch river-flow__legend-swatch--prime"></span>Prime window</span>
+              <span class="river-flow__legend-item"><span class="river-flow__legend-swatch river-flow__legend-swatch--blown"></span>Blown-out</span>
+            </div>
+          </div>
+          <p class="river-flow__trend" data-flow-trend hidden></p>
+        </section>
+
+        {%- if map_lat != blank and map_lng != blank -%}
+          <section class="river-locator">
+            <div class="river-field-data__header">
+              <h2 class="river-field-data__heading">{{ 'sections.river_conditions.where' | t: default: "Where You're Fishing" }}</h2>
+              <span class="river-field-data__sub">{{ map_lat }}° N · {{ map_lng | remove: '-' }}° W</span>
+            </div>
+            <div class="river-locator__map-wrap">
+              <iframe
+                class="river-locator__map-frame"
+                src="https://maps.google.com/maps?q={{ map_lat }},{{ map_lng }}&t=p&z={{ map_zoom }}&output=embed"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="{{ river.name | escape }} location"></iframe>
+              <a class="river-locator__map-open"
+                 href="https://www.google.com/maps/search/?api=1&query={{ map_lat }},{{ map_lng }}"
+                 target="_blank" rel="noopener">Open in Google Maps ↗</a>
+            </div>
+          </section>
+        {%- endif -%}
+      </div>
+
+      {%- if access_lines.size > 0 or nearest_lines.size > 0 or stretch_raw != blank -%}
+        <section class="river-field-footer">
+          {%- if access_lines.size > 0 -%}
+            <div>
+              <div class="river-field-footer__label">{{ 'sections.river_conditions.access_points' | t: default: 'Access Points · Upstream → Down' }}</div>
+              <ul class="river-access">
+                {%- for line in access_lines -%}
+                  {%- assign parts = line | split: '|' -%}
+                  <li>
+                    <span class="river-access__marker">{{ forloop.index }}</span>
+                    <span>{{ parts[0] | strip | escape }}</span>
+                    <span class="river-access__dist">{{ parts[1] | strip | escape }}</span>
+                  </li>
+                {%- endfor -%}
+              </ul>
+            </div>
+          {%- endif -%}
+          {%- if nearest_lines.size > 0 -%}
+            <div>
+              <div class="river-field-footer__label">{{ 'sections.river_conditions.nearest' | t: default: 'Nearest' }}</div>
+              <p class="river-field-footer__meta">
+                {%- for line in nearest_lines -%}
+                  {%- assign parts = line | split: '|' -%}
+                  <strong>{{ parts[0] | strip | escape }}</strong> · {{ parts[1] | strip | escape }}{%- unless forloop.last -%}<br>{%- endunless -%}
+                {%- endfor -%}
+              </p>
+            </div>
+          {%- endif -%}
+          {%- if stretch_raw != blank -%}
+            <div>
+              <div class="river-field-footer__label">{{ 'sections.river_conditions.best_stretch' | t: default: 'Best stretch right now' }}</div>
+              <p class="river-field-footer__meta">{{ stretch_raw }}</p>
+            </div>
+          {%- endif -%}
+        </section>
+      {%- endif -%}
+
     </river-conditions>
 
-    {%- comment -%} Guide notes — server-rendered {%- endcomment -%}
+    {%- comment -%} Guide report {%- endcomment -%}
     {%- if river.guide_notes != blank -%}
-      <div class="river-guide-notes">
-        <h2 class="river-guide-notes__heading">{{ 'sections.river_conditions.guide_report' | t: default: 'Guide Report' }}</h2>
-        {%- if river.guide_notes_date != blank -%}
-          <time class="river-guide-notes__date" datetime="{{ river.guide_notes_date }}">
-            {{ river.guide_notes_date | date: '%B %d, %Y' }}
-          </time>
-        {%- endif -%}
-        <div class="river-guide-notes__content rte">{{ river.guide_notes }}</div>
-      </div>
+      <section class="river-log">
+        <div class="river-log__header">
+          <h2 class="river-log__heading">{{ 'sections.river_conditions.guide_report' | t: default: 'Guide Report' }}</h2>
+          {%- if river.guide_notes_date != blank -%}
+            <time class="river-log__date" datetime="{{ river.guide_notes_date }}">
+              Entry · {{ river.guide_notes_date | date: '%m.%d.%Y' }}
+            </time>
+          {%- endif -%}
+        </div>
+        <div class="river-log__body rte">{{ river.guide_notes }}</div>
+      </section>
     {%- endif -%}
 
-    {%- comment -%} Hatch chart — server-rendered, enhanced by JS {%- endcomment -%}
+    {%- comment -%} Hatches {%- endcomment -%}
     {%- assign hatches = river.hatches.value -%}
     {%- assign month_names = 'Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec' | split: ',' -%}
 
     {%- if hatches != blank -%}
-      <div class="river-hatches">
-        <h2 class="river-hatches__heading">{{ 'sections.river_conditions.current_hatches' | t: default: 'Current Hatches' }}</h2>
-        <div class="river-hatches__grid">
+      <section class="river-hatches">
+        <h2 class="river-hatches__heading">
+          {{ 'sections.river_conditions.on_the_water' | t: default: 'On the Water Now' }}
+          <small>{{ hatches | size }} tracked · Pacific time</small>
+        </h2>
+        <div class="river-hatch-list">
           {%- for hatch in hatches -%}
-            <div
-              class="river-hatch-card"
+            <article
+              class="river-hatch"
               data-hatch-index="{{ forloop.index0 }}"
               data-season-start="{{ hatch.season_start_month }}"
               data-season-end="{{ hatch.season_end_month }}"
             >
-              <h3 class="river-hatch-card__name">{{ hatch.bug_name | escape }}</h3>
-              <div class="river-hatch-card__details">
-                {%- assign start_idx = hatch.season_start_month | minus: 1 -%}
-                {%- assign end_idx = hatch.season_end_month | minus: 1 -%}
-                <span class="river-hatch-card__season">
-                  {{ month_names[start_idx] }} – {{ month_names[end_idx] }}
-                </span>
-                {%- if hatch.min_water_temp_f != blank and hatch.max_water_temp_f != blank -%}
-                  <span class="river-hatch-card__temp">{{ hatch.min_water_temp_f }}°F – {{ hatch.max_water_temp_f }}°F</span>
-                {%- endif -%}
-                {%- if hatch.peak_time_start != blank and hatch.peak_time_end != blank -%}
-                  <span class="river-hatch-card__peak">{{ hatch.peak_time_start }} – {{ hatch.peak_time_end }}</span>
-                {%- endif -%}
-                {%- if hatch.lifecycle_stage != blank -%}
-                  <span class="river-hatch-card__stage">{{ hatch.lifecycle_stage | escape }}</span>
-                {%- endif -%}
+              <svg class="river-hatch__silhouette" viewBox="0 0 60 30" fill="currentColor" aria-hidden="true">
+                <ellipse cx="30" cy="15" rx="8" ry="3" />
+                <path d="M 30 12 Q 20 4, 10 8 Q 18 10, 28 14" opacity="0.7" />
+                <path d="M 30 12 Q 40 4, 50 8 Q 42 10, 32 14" opacity="0.7" />
+                <path d="M 30 18 Q 22 24, 14 22 Q 22 20, 28 17" opacity="0.5" />
+                <path d="M 30 18 Q 38 24, 46 22 Q 38 20, 32 17" opacity="0.5" />
+                <line x1="38" y1="15" x2="46" y2="13" stroke="currentColor" stroke-width="0.6" />
+                <line x1="38" y1="16" x2="46" y2="17" stroke="currentColor" stroke-width="0.6" />
+              </svg>
+              <div>
+                <h3 class="river-hatch__name">
+                  {{ hatch.bug_name | escape }}
+                  {%- if hatch.latin_name != blank -%}
+                    <span class="river-hatch__latin">{{ hatch.latin_name | escape }}</span>
+                  {%- endif -%}
+                </h3>
+                <div class="river-hatch__spec">
+                  {%- assign start_idx = hatch.season_start_month | minus: 1 -%}
+                  {%- assign end_idx = hatch.season_end_month | minus: 1 -%}
+                  <span>{{ month_names[start_idx] }}–{{ month_names[end_idx] }}</span>
+                  {%- if hatch.min_water_temp_f != blank and hatch.max_water_temp_f != blank -%}
+                    <span>{{ hatch.min_water_temp_f }}–{{ hatch.max_water_temp_f }}°F</span>
+                  {%- endif -%}
+                  {%- if hatch.peak_time_start != blank and hatch.peak_time_end != blank -%}
+                    <span>{{ hatch.peak_time_start }}–{{ hatch.peak_time_end }}</span>
+                  {%- endif -%}
+                  {%- if hatch.lifecycle_stage != blank -%}
+                    <span>{{ hatch.lifecycle_stage | escape }}</span>
+                  {%- endif -%}
+                </div>
               </div>
-            </div>
+              <div class="river-hatch__status" data-hatch-status>—</div>
+            </article>
           {%- endfor -%}
         </div>
-      </div>
+      </section>
     {%- else -%}
-      <div class="river-hatches river-hatches--empty">
+      <section class="river-hatches river-hatches--empty">
         <p>{{ 'sections.river_conditions.no_hatches' | t: default: 'No active hatches right now. Check back soon or browse the full fly box below.' }}</p>
-      </div>
+      </section>
     {%- endif -%}
 
-    {%- comment -%} Gear recommendations — unique products across all hatches {%- endcomment -%}
+    {%- comment -%} Gear {%- endcomment -%}
     {%- if hatches != blank -%}
       {%- assign seen_ids = '' -%}
       {%- assign has_products = false -%}
@@ -200,8 +335,9 @@
       {%- endfor -%}
 
       {%- if has_products -%}
-        <div class="river-gear">
-          <h2 class="river-gear__heading">{{ 'sections.river_conditions.recommended_gear' | t: default: 'Recommended Gear' }}</h2>
+        <section class="river-gear">
+          <h2 class="river-gear__heading">{{ 'sections.river_conditions.recommended_gear' | t: default: 'Recommended Ties' }}</h2>
+          <p class="river-gear__lede">{{ 'sections.river_conditions.gear_lede' | t: default: "Matched to what's on the water right now." }}</p>
           <ul class="river-gear-grid list-unstyled" role="list">
             {%- assign seen_ids = '' -%}
             {%- assign skip_card_styles = false -%}
@@ -230,13 +366,12 @@
               {%- endif -%}
             {%- endfor -%}
           </ul>
-        </div>
+        </section>
       {%- endif -%}
     {%- endif -%}
 
   </div>
 
-  {%- comment -%} Hatch data for JS enhancement {%- endcomment -%}
   {%- if hatches != blank -%}
     <script type="application/json" id="river-hatches-data-{{ section.id }}">
       [
@@ -256,7 +391,6 @@
     </script>
   {%- endif -%}
 
-  {%- comment -%} River config for JS {%- endcomment -%}
   <script type="application/json" id="river-config-data-{{ section.id }}">
     {
       "station_id": {{ river.usgs_station_id | json }},
