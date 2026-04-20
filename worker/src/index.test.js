@@ -16,21 +16,32 @@ function makeRequest(path, method = 'GET', origin = 'https://spawn-fly-fish.mysh
 
 const mockCtx = { waitUntil: vi.fn() };
 
+function makeSeries(code, value, dateTime = '2026-04-04T15:30:00.000-07:00') {
+  return {
+    variable: { variableCode: [{ value: code }] },
+    values: [{ value: [{ value: String(value), dateTime }] }],
+  };
+}
+
 // Sample USGS response with all 3 parameters
 const usgsFullResponse = {
-  features: [
-    { properties: { parameterCode: '00060', result: '2430', phenomenonTime: '2026-04-04T15:30:00Z' } },
-    { properties: { parameterCode: '00010', result: '11.1', phenomenonTime: '2026-04-04T15:30:00Z' } },
-    { properties: { parameterCode: '00065', result: '3.8', phenomenonTime: '2026-04-04T15:30:00Z' } },
-  ],
+  value: {
+    timeSeries: [
+      makeSeries('00060', '2430'),
+      makeSeries('00010', '11.1'),
+      makeSeries('00065', '3.8'),
+    ],
+  },
 };
 
 // USGS response missing temp
 const usgsNoTemp = {
-  features: [
-    { properties: { parameterCode: '00060', result: '2430', phenomenonTime: '2026-04-04T15:30:00Z' } },
-    { properties: { parameterCode: '00065', result: '3.8', phenomenonTime: '2026-04-04T15:30:00Z' } },
-  ],
+  value: {
+    timeSeries: [
+      makeSeries('00060', '2430'),
+      makeSeries('00065', '3.8'),
+    ],
+  },
 };
 
 beforeEach(() => {
@@ -105,7 +116,7 @@ describe('USGS fetch', () => {
     expect(body.temp_f).toBeCloseTo(52.0, 0); // 11.1C → 51.98F
     expect(body.gage_height_ft).toBe(3.8);
     expect(body.stale).toBe(false);
-    expect(body.updated_at).toBe('2026-04-04T15:30:00Z');
+    expect(body.updated_at).toBe('2026-04-04T15:30:00.000-07:00');
   });
 
   it('returns null temp when USGS omits temperature', async () => {
@@ -117,8 +128,8 @@ describe('USGS fetch', () => {
     expect(body.flow_cfs).toBe(2430);
   });
 
-  it('returns 404 for invalid station ID (USGS 404)', async () => {
-    vi.stubGlobal('fetch', vi.fn().mockResolvedValue(new Response('Not Found', { status: 404 })));
+  it('returns 404 when USGS returns empty time series', async () => {
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue(new Response(JSON.stringify({ value: { timeSeries: [] } }), { status: 200 })));
 
     const res = await worker.fetch(makeRequest('/api/river/99999999'), {}, mockCtx);
     expect(res.status).toBe(404);
@@ -158,9 +169,7 @@ describe('Stale cache fallback', () => {
 describe('Celsius to Fahrenheit', () => {
   it('converts correctly and rounds to 1 decimal', async () => {
     const usgsData = {
-      features: [
-        { properties: { parameterCode: '00010', result: '0', phenomenonTime: '2026-04-04T15:30:00Z' } },
-      ],
+      value: { timeSeries: [makeSeries('00010', '0')] },
     };
     vi.stubGlobal('fetch', vi.fn().mockResolvedValue(new Response(JSON.stringify(usgsData), { status: 200 })));
 

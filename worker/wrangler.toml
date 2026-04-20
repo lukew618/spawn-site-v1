@@ -1,7 +1,4 @@
 name = "usgs-proxy"
 main = "src/index.js"
 compatibility_date = "2024-01-01"
-
-[[routes]]
-pattern = "usgs-proxy.spawn-fly-fish.workers.dev"
-zone_name = "spawn-fly-fish.workers.dev"
+workers_dev = true

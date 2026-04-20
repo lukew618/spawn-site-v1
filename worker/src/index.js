@@ -17,10 +17,22 @@ function cors(req) {
   };
 }
 
-function param(observations, code) {
-  const o = observations.find(o => o.properties?.parameterCode === code);
-  const v = o?.properties?.result ?? null;
-  return v !== null ? Number(v) : null;
+function latestReading(series, code) {
+  const t = series.find(s => s.variable?.variableCode?.[0]?.value === code);
+  const vals = t?.values?.[0]?.value ?? [];
+  const last = vals[vals.length - 1];
+  if (!last || last.value === undefined || last.value === '' || last.value === '-999999') return null;
+  const n = Number(last.value);
+  return Number.isFinite(n) ? n : null;
+}
+
+function latestTime(series) {
+  for (const s of series) {
+    const vals = s?.values?.[0]?.value ?? [];
+    const last = vals[vals.length - 1];
+    if (last?.dateTime) return last.dateTime;
+  }
+  return null;
 }
 
 function toF(c) {
@@ -41,21 +53,21 @@ function withCors(res, req) {
 }
 
 async function usgs(stationId) {
-  const url = `https://api.waterdata.usgs.gov/ogcapi/v0/collections/monitoring-locations/items/USGS-${stationId}/observations?limit=1&parameterCode=00060,00010,00065`;
+  const url = `https://waterservices.usgs.gov/nwis/iv/?sites=${stationId}&parameterCd=00060,00010,00065&format=json&siteStatus=active`;
   const res = await fetch(url, { signal: AbortSignal.timeout(5000) });
   if (res.status === 404) return null;
   if (!res.ok) throw new Error(`USGS ${res.status}`);
   const data = await res.json();
-  const obs = data?.features ?? data?.items ?? [];
-  return obs.length ? obs : null;
+  const series = data?.value?.timeSeries ?? [];
+  return series.length ? series : null;
 }
 
-function shape(obs, stale = false) {
+function shape(series, stale = false) {
   return {
-    flow_cfs: param(obs, '00060'),
-    temp_f: toF(param(obs, '00010')),
-    gage_height_ft: param(obs, '00065'),
-    updated_at: obs.find(o => o.properties?.phenomenonTime)?.properties?.phenomenonTime ?? null,
+    flow_cfs: latestReading(series, '00060'),
+    temp_f: toF(latestReading(series, '00010')),
+    gage_height_ft: latestReading(series, '00065'),
+    updated_at: latestTime(series),
     stale,
   };
 }
