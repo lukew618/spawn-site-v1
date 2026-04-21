@@ -103,9 +103,9 @@ SEA airport|141 mi W{%- endcapture -%}
     {%- comment -%} Dateline {%- endcomment -%}
     <header class="river-dateline">
       <div class="river-dateline__meta">
-        {%- if river.region != blank -%}{{ river.region | escape }} · {%- endif -%}
-        {{ 'now' | date: '%m.%d.%y' }}
-        {%- if river.usgs_station_id != blank -%} · USGS {{ river.usgs_station_id | escape }}{%- endif -%}
+        {%- if river.region != blank -%}{{ river.region | escape }} · {% endif -%}
+        {{- 'now' | date: '%m.%d.%y' -}}
+        {%- if river.usgs_station_id != blank %} · USGS {{ river.usgs_station_id | escape }}{% endif -%}
       </div>
       <h1 class="river-dateline__title">{{ river.name | escape }}</h1>
       {%- if river.description != blank -%}
