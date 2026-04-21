@@ -284,6 +284,51 @@
       "announcement": "Announcement",
       "announcement_bar": "Announcement bar"
     },
+    "river_conditions": {
+      "name": "River conditions",
+      "no_river": "No river data configured for this page.",
+      "river_navigation": "River navigation",
+      "live_label": "Live · USGS 15-min feed",
+      "flow": "Flow",
+      "temperature": "Water temp",
+      "gage_height": "Gage height",
+      "clarity": "Clarity",
+      "unknown": "Unknown",
+      "data_unavailable": "Live conditions temporarily unavailable. Check back soon.",
+      "flow_history": "7-Day Discharge",
+      "where": "Where You're Fishing",
+      "access_points": "Access Points · Upstream → Down",
+      "nearest": "Nearest",
+      "best_stretch": "Best stretch right now",
+      "guide_report": "Guide Report",
+      "on_the_water": "On the Water Now",
+      "current_hatches": "Current Hatches",
+      "no_hatches": "No active hatches right now. Check back soon or browse the full fly box below.",
+      "recommended_gear": "Recommended Gear",
+      "gear_lede": "Matched to what's on the water right now.",
+      "settings": {
+        "header_layout": {
+          "content": "Layout",
+          "info": "Controls the section padding above and below the river conditions block."
+        },
+        "header_products": {
+          "content": "Product cards"
+        }
+      },
+      "blocks": {
+        "river_link": {
+          "name": "River link",
+          "settings": {
+            "url": {
+              "label": "URL"
+            },
+            "label": {
+              "label": "Label"
+            }
+          }
+        }
+      }
+    },
     "header": {
       "announcement": "Announcement",
       "menu": "Menu",
