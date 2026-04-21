@@ -1,6 +1,29 @@
 /* River Conditions — Angler's Almanac aesthetic
    Mobile-first, Dawn breakpoints: 750px / 990px / 1200px */
 
+/* Page bg matches the paper tone of the river section */
+body:has(.river-conditions) { background: #F4F1EB; }
+
+/* Breadcrumb overlays the hero on river pages */
+.shopify-section:has(.breadcrumb--overlay) {
+  position: relative;
+  z-index: 5;
+  height: 0;
+  overflow: visible;
+}
+.breadcrumb--overlay { padding-top: 1.6rem; padding-bottom: 0; }
+.breadcrumb--overlay .breadcrumb__link,
+.breadcrumb--overlay .breadcrumb__current {
+  color: rgba(244, 241, 235, 0.88);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
+}
+.breadcrumb--overlay .breadcrumb__separator {
+  color: rgba(244, 241, 235, 0.5);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
+}
+.breadcrumb--overlay .breadcrumb__link:hover { color: #fff; }
+
+
 .river-conditions,
 river-conditions {
   --rc-paper:      #F4F1EB;
