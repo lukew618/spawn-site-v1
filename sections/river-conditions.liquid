@@ -95,7 +95,14 @@ SEA airport|141 mi W{%- endcapture -%}
       </div>
     {%- endif -%}
     <span class="river-hero__scrim-label">{{ 'sections.river_conditions.live_label' | t: default: 'Live · USGS 15-min feed' }}</span>
-    <div class="river-hero__overlay" aria-hidden="true"></div>
+    <div class="river-hero__overlay">
+      <div class="river-hero__overlay-inner page-width">
+        <h1 class="river-hero__title">{{ river.name | escape }}</h1>
+        {%- if river.description != blank -%}
+          <p class="river-hero__lede">{{ river.description | escape }}</p>
+        {%- endif -%}
+      </div>
+    </div>
   </div>
 
   <div class="river-conditions page-width section-{{ section.id }}-padding">
@@ -103,14 +110,10 @@ SEA airport|141 mi W{%- endcapture -%}
     {%- comment -%} Dateline {%- endcomment -%}
     <header class="river-dateline">
       <div class="river-dateline__meta">
-        {%- if river.region != blank -%}{{ river.region | escape }} · {%- endif -%}
-        {{ 'now' | date: '%m.%d.%y' }}
-        {%- if river.usgs_station_id != blank -%} · USGS {{ river.usgs_station_id | escape }}{%- endif -%}
+        {%- if river.region != blank -%}<span>{{ river.region | escape }}</span>{% endif -%}
+        <span>{{- 'now' | date: '%m.%d.%y' -}}</span>
+        {%- if river.usgs_station_id != blank -%}<span>USGS {{ river.usgs_station_id | escape }}</span>{%- endif -%}
       </div>
-      <h1 class="river-dateline__title">{{ river.name | escape }}</h1>
-      {%- if river.description != blank -%}
-        <p class="river-dateline__lede">{{ river.description | escape }}</p>
-      {%- endif -%}
     </header>
 
     <river-conditions data-section-id="{{ section.id }}">
@@ -120,7 +123,10 @@ SEA airport|141 mi W{%- endcapture -%}
         <div class="river-metrics">
           <div class="river-metric--hero river-metric--loading" data-condition="flow">
             <div class="river-metric__label">{{ 'sections.river_conditions.flow' | t: default: 'Streamflow' }}</div>
-            <div class="river-metric__value" aria-live="polite">—</div>
+            <div class="river-metric__value-row">
+              <span class="river-metric__value" aria-live="polite">—</span>
+              <span class="river-metric__unit">cfs</span>
+            </div>
             <div class="river-metric__sub">cubic feet per second</div>
           </div>
 
@@ -222,12 +228,15 @@ SEA airport|141 mi W{%- endcapture -%}
           {%- if nearest_lines.size > 0 -%}
             <div>
               <div class="river-field-footer__label">{{ 'sections.river_conditions.nearest' | t: default: 'Nearest' }}</div>
-              <p class="river-field-footer__meta">
+              <ul class="river-nearest">
                 {%- for line in nearest_lines -%}
                   {%- assign parts = line | split: '|' -%}
-                  <strong>{{ parts[0] | strip | escape }}</strong> · {{ parts[1] | strip | escape }}{%- unless forloop.last -%}<br>{%- endunless -%}
+                  <li>
+                    <span>{{ parts[0] | strip | escape }}</span>
+                    <span class="river-nearest__dist">{{ parts[1] | strip | escape }}</span>
+                  </li>
                 {%- endfor -%}
-              </p>
+              </ul>
             </div>
           {%- endif -%}
           {%- if stretch_raw != blank -%}
@@ -259,17 +268,33 @@ SEA airport|141 mi W{%- endcapture -%}
     {%- comment -%} Hatches {%- endcomment -%}
     {%- assign hatches = river.hatches.value -%}
     {%- assign month_names = 'Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec' | split: ',' -%}
+    {%- assign current_month = 'now' | date: '%-m' | plus: 0 -%}
 
     {%- if hatches != blank -%}
       <section class="river-hatches">
-        <h2 class="river-hatches__heading">
-          {{ 'sections.river_conditions.on_the_water' | t: default: 'On the Water Now' }}
-          <small>{{ hatches | size }} tracked · Pacific time</small>
-        </h2>
+        <div class="river-hatches__header">
+          <h2 class="river-hatches__heading">{{ 'sections.river_conditions.on_the_water' | t: default: 'On the Water Now' }}</h2>
+          <span class="river-hatches__sub">{{ hatches | size }} tracked · Pacific time</span>
+        </div>
         <div class="river-hatch-list">
           {%- for hatch in hatches -%}
+            {%- assign h_start = hatch.season_start_month | plus: 0 -%}
+            {%- assign h_end = hatch.season_end_month | plus: 0 -%}
+            {%- assign in_season = false -%}
+            {%- if h_start <= h_end -%}
+              {%- if current_month >= h_start and current_month <= h_end -%}{%- assign in_season = true -%}{%- endif -%}
+            {%- else -%}
+              {%- if current_month >= h_start or current_month <= h_end -%}{%- assign in_season = true -%}{%- endif -%}
+            {%- endif -%}
+            {%- if in_season -%}
+              {%- assign initial_status = 'In window' -%}
+              {%- assign hatch_class = 'river-hatch' -%}
+            {%- else -%}
+              {%- assign initial_status = 'Off-season' -%}
+              {%- assign hatch_class = 'river-hatch river-hatch--inactive' -%}
+            {%- endif -%}
             <article
-              class="river-hatch"
+              class="{{ hatch_class }}"
               data-hatch-index="{{ forloop.index0 }}"
               data-season-start="{{ hatch.season_start_month }}"
               data-season-end="{{ hatch.season_end_month }}"
@@ -305,7 +330,7 @@ SEA airport|141 mi W{%- endcapture -%}
                   {%- endif -%}
                 </div>
               </div>
-              <div class="river-hatch__status" data-hatch-status>—</div>
+              <div class="river-hatch__status" data-hatch-status>{{ initial_status }}</div>
             </article>
           {%- endfor -%}
         </div>

@@ -1,7 +1,11 @@
 {{ 'component-breadcrumb.css' | asset_url | stylesheet_tag }}
 
 {%- unless template.name == 'index' -%}
-  <nav class="breadcrumb page-width" aria-label="Breadcrumb">
+  {%- assign is_hero_overlay = false -%}
+  {%- if template.name == 'page' and page.template_suffix == 'river' -%}
+    {%- assign is_hero_overlay = true -%}
+  {%- endif -%}
+  <nav class="breadcrumb page-width{% if is_hero_overlay %} breadcrumb--overlay{% endif %}" aria-label="Breadcrumb">
     <ol class="breadcrumb__list">
       <li class="breadcrumb__item">
         <a class="breadcrumb__link" href="/">{{ 'general.breadcrumbs.home' | t: default: 'Home' }}</a>
