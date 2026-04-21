@@ -2,3 +2,5 @@ config.yml
 node_modules
 .DS_Store
 .gstack/
+.env
+.env.local
