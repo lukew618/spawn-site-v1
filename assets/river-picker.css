@@ -1,0 +1,243 @@
+/* River Picker — dropdown matches Angler's Almanac palette */
+
+river-picker {
+  --rp-paper:   #F4F1EB;
+  --rp-paper-2: #FFFFFF;
+  --rp-ink:     #1A1915;
+  --rp-ink-mut: #6B6558;
+  --rp-rule:    #D8D1BE;
+  --rp-moss:    #2D5F3F;
+  --rp-shadow:  0 12px 32px -8px rgba(26, 25, 21, 0.22), 0 2px 6px -2px rgba(26, 25, 21, 0.08);
+
+  --rp-ff-display: 'Fraunces', 'Iowan Old Style', Georgia, serif;
+  --rp-ff-body:    'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  --rp-ff-mono:    'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  position: relative;
+  display: inline-block;
+  font-family: var(--rp-ff-body);
+  color: var(--rp-ink);
+  z-index: 20;
+}
+
+.river-picker__trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.6rem;
+  min-height: 4.4rem;
+  background: var(--rp-paper-2);
+  border: 1px solid var(--rp-rule);
+  border-radius: 0.2rem;
+  color: var(--rp-ink);
+  cursor: pointer;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  font-family: var(--rp-ff-body);
+}
+
+.river-picker__trigger:hover,
+.river-picker__trigger:focus-visible {
+  border-color: var(--rp-moss);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(45, 95, 63, 0.15);
+}
+
+.river-picker__trigger-label {
+  font-family: var(--rp-ff-mono);
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--rp-ink-mut);
+  margin-right: 0.4rem;
+}
+
+.river-picker__trigger-name {
+  font-family: var(--rp-ff-display);
+  font-size: 1.7rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.river-picker__trigger-region {
+  font-family: var(--rp-ff-mono);
+  font-size: 1rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--rp-ink-mut);
+  padding-left: 1rem;
+  border-left: 1px solid var(--rp-rule);
+}
+
+.river-picker__caret {
+  width: 1.2rem;
+  height: 0.8rem;
+  color: var(--rp-ink-mut);
+  transition: transform 0.18s ease;
+  margin-left: auto;
+}
+
+.river-picker[aria-open="true"] .river-picker__caret,
+river-picker.is-open .river-picker__caret {
+  transform: rotate(180deg);
+}
+
+/* ── Dropdown panel ── */
+
+.river-picker__panel {
+  position: absolute;
+  top: calc(100% - 0.4rem);
+  left: 0;
+  right: 0;
+  margin: 0 1.5rem;
+  max-width: 44rem;
+  background: var(--rp-paper-2);
+  border: 1px solid var(--rp-rule);
+  border-radius: 0.2rem;
+  box-shadow: var(--rp-shadow);
+  max-height: 68vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.river-picker__panel[hidden] { display: none; }
+
+@media screen and (min-width: 750px) {
+  .river-picker__panel {
+    margin: 0;
+    left: auto;
+    right: 0;
+    width: 42rem;
+  }
+}
+
+.river-picker__search-wrap {
+  position: relative;
+  padding: 1.2rem 1.4rem;
+  border-bottom: 1px solid var(--rp-rule);
+  background: var(--rp-paper);
+}
+
+.river-picker__search-icon {
+  position: absolute;
+  left: 2.2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.4rem;
+  height: 1.4rem;
+  color: var(--rp-ink-mut);
+  pointer-events: none;
+}
+
+.river-picker__search {
+  width: 100%;
+  padding: 0.9rem 1rem 0.9rem 3rem;
+  border: 1px solid var(--rp-rule);
+  border-radius: 0.2rem;
+  background: var(--rp-paper-2);
+  font-family: var(--rp-ff-body);
+  font-size: 1.6rem;
+  color: var(--rp-ink);
+  -webkit-appearance: none;
+}
+
+.river-picker__search:focus-visible {
+  border-color: var(--rp-moss);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(45, 95, 63, 0.15);
+}
+
+.river-picker__results {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 0.4rem 0;
+  flex: 1 1 auto;
+}
+
+.river-picker__group + .river-picker__group {
+  border-top: 1px solid var(--rp-rule);
+  margin-top: 0.4rem;
+  padding-top: 0.4rem;
+}
+
+.river-picker__group[hidden] { display: none; }
+
+.river-picker__region-label {
+  padding: 0.8rem 1.6rem 0.4rem;
+  font-family: var(--rp-ff-mono);
+  font-size: 1rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--rp-ink-mut);
+}
+
+.river-picker__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.river-picker__item[hidden] { display: none; }
+
+.river-picker__link {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem 1.6rem;
+  color: var(--rp-ink);
+  text-decoration: none;
+  min-height: 4.4rem;
+  transition: background-color 0.1s ease;
+}
+
+.river-picker__link:hover,
+.river-picker__link:focus-visible,
+.river-picker__item--active > .river-picker__link {
+  background: var(--rp-paper);
+  outline: none;
+}
+
+.river-picker__item--current > .river-picker__link {
+  color: var(--rp-moss);
+}
+
+.river-picker__name {
+  font-family: var(--rp-ff-display);
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.river-picker__dot {
+  margin-left: auto;
+  font-size: 0.8rem;
+  color: var(--rp-moss);
+}
+
+.river-picker__empty {
+  padding: 2rem 1.6rem;
+  margin: 0;
+  font-style: italic;
+  color: var(--rp-ink-mut);
+  text-align: center;
+}
+
+.river-picker__all-link {
+  display: block;
+  padding: 1.2rem 1.6rem;
+  border-top: 1px solid var(--rp-rule);
+  background: var(--rp-paper);
+  font-family: var(--rp-ff-mono);
+  font-size: 1.1rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--rp-moss);
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.1s ease;
+}
+
+.river-picker__all-link:hover,
+.river-picker__all-link:focus-visible {
+  background: #EAE4CF;
+  outline: none;
+}

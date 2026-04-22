@@ -1,0 +1,212 @@
+{{ 'rivers-index.css' | asset_url | stylesheet_tag }}
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<script src="{{ 'river-conditions.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'rivers-index.js' | asset_url }}" defer="defer"></script>
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- assign all_rivers = shop.metaobjects.river.values -%}
+
+{%- comment -%} Collect unique regions for filter chips {%- endcomment -%}
+{%- assign regions_raw = '' -%}
+{%- assign sorted_rivers = all_rivers | sort: 'region' -%}
+{%- for r in sorted_rivers -%}
+  {%- if r.region != blank -%}
+    {%- assign marker = '||' | append: r.region | append: '||' -%}
+    {%- unless regions_raw contains marker -%}
+      {%- assign regions_raw = regions_raw | append: marker -%}
+    {%- endunless -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- assign regions_list = regions_raw | split: '||' -%}
+
+<section class="rivers-index page-width section-{{ section.id }}-padding">
+  <header class="rivers-index__hero">
+    <span class="rivers-index__eyebrow">{{ section.settings.eyebrow | default: 'Washington · Live' | escape }}</span>
+    <h1 class="rivers-index__title">{{ section.settings.heading | default: 'Find your river.' | escape }}</h1>
+    {%- if section.settings.lede != blank -%}
+      <p class="rivers-index__lede">{{ section.settings.lede | escape }}</p>
+    {%- endif -%}
+  </header>
+
+  {%- if all_rivers.size == 0 -%}
+    <p class="rivers-index__empty-state">{{ 'sections.rivers_index.empty' | t: default: 'No rivers configured yet. Run the seed script to populate river data.' }}</p>
+  {%- else -%}
+    <rivers-index class="rivers-index__app">
+      <div class="rivers-index__controls">
+        <div class="rivers-index__search-wrap">
+          <svg class="rivers-index__search-icon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.5" />
+            <path d="M11 11L14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+          </svg>
+          <input
+            type="search"
+            class="rivers-index__search"
+            placeholder="{{ 'sections.rivers_index.search_placeholder' | t: default: 'Search rivers or towns…' }}"
+            aria-label="{{ 'sections.rivers_index.search_label' | t: default: 'Search rivers' }}"
+            autocomplete="off"
+            data-rivers-search
+          />
+        </div>
+
+        <div class="rivers-index__filters" role="group" aria-label="{{ 'sections.rivers_index.filter_label' | t: default: 'Filter by region' }}">
+          <button type="button" class="rivers-index__chip rivers-index__chip--active" data-region-filter="">
+            {{ 'sections.rivers_index.all_regions' | t: default: 'All regions' }}
+          </button>
+          {%- for region in regions_list -%}
+            {%- if region != blank -%}
+              <button type="button" class="rivers-index__chip" data-region-filter="{{ region | escape | downcase }}">
+                {{ region | escape }}
+              </button>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+
+      <ul class="rivers-index__grid list-unstyled" role="list">
+        {%- for r in sorted_rivers -%}
+          {%- assign handle = r.page_handle -%}
+          {%- if handle == blank -%}
+            {%- assign handle = r.slug | replace: '_', '-' | append: '-river' -%}
+          {%- endif -%}
+          <li
+            class="rivers-index__card"
+            data-river-card
+            data-river-slug="{{ r.slug | escape }}"
+            data-river-name="{{ r.name | escape | downcase }}"
+            data-river-region="{{ r.region | escape | downcase }}"
+            data-station-id="{{ r.usgs_station_id | escape }}"
+          >
+            <a class="rivers-index__card-link" href="/pages/{{ handle | escape }}">
+              {%- if r.hero_image != blank -%}
+                <div class="rivers-index__card-image">
+                  {{ r.hero_image | image_url: width: 800 | image_tag:
+                    loading: 'lazy',
+                    widths: '300,400,600,800',
+                    sizes: '(min-width: 990px) 33vw, (min-width: 750px) 50vw, 100vw',
+                    alt: r.hero_image.alt | default: r.name | escape
+                  }}
+                </div>
+              {%- else -%}
+                <div class="rivers-index__card-image rivers-index__card-image--placeholder" aria-hidden="true">
+                  <svg viewBox="0 0 100 60" preserveAspectRatio="none">
+                    <path d="M0,45 Q25,30 50,40 T100,35 L100,60 L0,60 Z" fill="currentColor" opacity="0.35" />
+                    <path d="M0,38 Q25,50 50,30 T100,42" fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.45" />
+                  </svg>
+                </div>
+              {%- endif -%}
+
+              <div class="rivers-index__card-body">
+                <div class="rivers-index__card-head">
+                  <h2 class="rivers-index__card-name">{{ r.name | escape }}</h2>
+                  {%- if r.region != blank -%}
+                    <span class="rivers-index__card-region">{{ r.region | escape }}</span>
+                  {%- endif -%}
+                </div>
+
+                <div class="rivers-index__card-live" data-river-live>
+                  <div class="rivers-index__card-metric rivers-index__card-metric--loading">
+                    <span class="rivers-index__card-metric-label">{{ 'sections.rivers_index.flow' | t: default: 'Flow' }}</span>
+                    <span class="rivers-index__card-metric-value" data-live-flow>—</span>
+                    <span class="rivers-index__card-metric-unit">cfs</span>
+                  </div>
+                  <div class="rivers-index__card-metric rivers-index__card-metric--loading">
+                    <span class="rivers-index__card-metric-label">{{ 'sections.rivers_index.temperature' | t: default: 'Temp' }}</span>
+                    <span class="rivers-index__card-metric-value" data-live-temp>—</span>
+                    <span class="rivers-index__card-metric-unit">°F</span>
+                  </div>
+                  <span class="rivers-index__card-badge" data-fishability-badge hidden></span>
+                </div>
+
+                {%- if r.description != blank -%}
+                  <p class="rivers-index__card-desc">{{ r.description | escape | truncate: 140 }}</p>
+                {%- endif -%}
+
+                <span class="rivers-index__card-cta">{{ 'sections.rivers_index.view' | t: default: 'View conditions' }} →</span>
+              </div>
+            </a>
+          </li>
+        {%- endfor -%}
+      </ul>
+
+      <p class="rivers-index__no-results" hidden>
+        {{ 'sections.rivers_index.no_results' | t: default: 'No rivers match. Try clearing filters or searching a different name.' }}
+      </p>
+    </rivers-index>
+  {%- endif -%}
+</section>
+
+{% schema %}
+{
+  "name": "Rivers index",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer", "aside"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Washington · Live"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Find your river."
+    },
+    {
+      "type": "textarea",
+      "id": "lede",
+      "label": "Lede",
+      "default": "Live flow, temperature, and fishability for every major river in Washington. Pull from USGS every 15 minutes."
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "Rivers index"
+    }
+  ]
+}
+{% endschema %}

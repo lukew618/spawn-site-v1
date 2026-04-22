@@ -1,0 +1,375 @@
+/* Rivers Index — Angler's Almanac aesthetic */
+
+body:has(.rivers-index) { background: #F4F1EB; }
+
+.rivers-index {
+  --ri-paper:      #F4F1EB;
+  --ri-paper-2:    #FFFFFF;
+  --ri-ink:        #1A1915;
+  --ri-ink-mut:   #6B6558;
+  --ri-ink-faint: #A69F90;
+  --ri-rule:      #D8D1BE;
+  --ri-moss:      #2D5F3F;
+  --ri-water:     #2B4B6B;
+  --ri-rust:      #8B2E1F;
+  --ri-mustard:   #B8881F;
+
+  --ri-ff-display: 'Fraunces', 'Iowan Old Style', Georgia, serif;
+  --ri-ff-body:    'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  --ri-ff-mono:    'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  color: var(--ri-ink);
+  font-family: var(--ri-ff-body);
+  line-height: 1.55;
+}
+
+.rivers-index * { box-sizing: border-box; }
+
+/* ── Hero / header ── */
+
+.rivers-index__hero {
+  padding: 2rem 0 2.4rem;
+  border-bottom: 1px solid var(--ri-rule);
+  margin-bottom: 2.4rem;
+}
+
+.rivers-index__eyebrow {
+  display: inline-block;
+  font-family: var(--ri-ff-mono);
+  font-size: 1rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ri-ink-mut);
+  margin-bottom: 1rem;
+}
+
+.rivers-index__title {
+  font-family: var(--ri-ff-display);
+  font-size: clamp(3.2rem, 6vw, 5.2rem);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+  margin: 0 0 1.2rem;
+}
+
+.rivers-index__lede {
+  font-family: var(--ri-ff-display);
+  font-style: italic;
+  font-size: clamp(1.5rem, 2.2vw, 1.9rem);
+  color: var(--ri-ink-mut);
+  max-width: 56ch;
+  margin: 0;
+  line-height: 1.45;
+}
+
+.rivers-index__empty-state {
+  padding: 4rem 2rem;
+  text-align: center;
+  font-style: italic;
+  color: var(--ri-ink-mut);
+}
+
+/* ── Controls ── */
+
+.rivers-index__controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  margin-bottom: 2.4rem;
+}
+
+@media screen and (min-width: 750px) {
+  .rivers-index__controls {
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+  }
+}
+
+.rivers-index__search-wrap {
+  position: relative;
+  flex-shrink: 0;
+  width: 100%;
+}
+
+@media screen and (min-width: 750px) {
+  .rivers-index__search-wrap { max-width: 32rem; }
+}
+
+.rivers-index__search-icon {
+  position: absolute;
+  left: 1.2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.4rem;
+  height: 1.4rem;
+  color: var(--ri-ink-mut);
+  pointer-events: none;
+}
+
+.rivers-index__search {
+  width: 100%;
+  padding: 1.1rem 1.2rem 1.1rem 3.2rem;
+  border: 1px solid var(--ri-rule);
+  border-radius: 0.2rem;
+  background: var(--ri-paper-2);
+  font-family: var(--ri-ff-body);
+  font-size: 1.6rem;
+  color: var(--ri-ink);
+  -webkit-appearance: none;
+  min-height: 4.4rem;
+}
+
+.rivers-index__search:focus-visible {
+  outline: none;
+  border-color: var(--ri-moss);
+  box-shadow: 0 0 0 3px rgba(45, 95, 63, 0.15);
+}
+
+.rivers-index__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.rivers-index__chip {
+  padding: 0.8rem 1.4rem;
+  min-height: 4.4rem;
+  background: transparent;
+  border: 1px solid var(--ri-rule);
+  border-radius: 10rem;
+  font-family: var(--ri-ff-mono);
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ri-ink-mut);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.rivers-index__chip:hover {
+  border-color: var(--ri-ink);
+  color: var(--ri-ink);
+}
+
+.rivers-index__chip--active {
+  background: var(--ri-ink);
+  border-color: var(--ri-ink);
+  color: var(--ri-paper);
+}
+
+.rivers-index__chip:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(45, 95, 63, 0.2);
+}
+
+/* ── Grid ── */
+
+.rivers-index__grid {
+  display: grid;
+  gap: 1.6rem;
+  grid-template-columns: 1fr;
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (min-width: 750px) {
+  .rivers-index__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .rivers-index__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.rivers-index__card {
+  display: block;
+  list-style: none;
+}
+
+.rivers-index__card[hidden] { display: none; }
+
+.rivers-index__card-link {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--ri-paper-2);
+  border: 1px solid var(--ri-rule);
+  border-radius: 0.2rem;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.rivers-index__card-link:hover,
+.rivers-index__card-link:focus-visible {
+  border-color: var(--ri-moss);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px -10px rgba(26, 25, 21, 0.15);
+  outline: none;
+}
+
+.rivers-index__card-image {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #E6DFC7;
+}
+
+.rivers-index__card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.rivers-index__card-image--placeholder {
+  color: var(--ri-water);
+}
+
+.rivers-index__card-image--placeholder svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.rivers-index__card-body {
+  padding: 1.6rem 1.8rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  flex: 1;
+}
+
+.rivers-index__card-head {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.rivers-index__card-name {
+  font-family: var(--ri-ff-display);
+  font-size: 2.2rem;
+  font-weight: 500;
+  line-height: 1.15;
+  margin: 0;
+}
+
+.rivers-index__card-region {
+  font-family: var(--ri-ff-mono);
+  font-size: 1rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ri-ink-mut);
+}
+
+.rivers-index__card-live {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  flex-wrap: wrap;
+  padding: 1rem 1.2rem;
+  background: var(--ri-paper);
+  border-radius: 0.2rem;
+}
+
+.rivers-index__card-metric {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.2rem;
+}
+
+.rivers-index__card-metric-label {
+  font-family: var(--ri-ff-mono);
+  font-size: 0.9rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ri-ink-mut);
+}
+
+.rivers-index__card-metric-value {
+  font-family: var(--ri-ff-mono);
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: var(--ri-ink);
+  line-height: 1;
+}
+
+.rivers-index__card-metric-unit {
+  font-family: var(--ri-ff-mono);
+  font-size: 0.9rem;
+  color: var(--ri-ink-mut);
+  text-transform: lowercase;
+}
+
+.rivers-index__card-metric--loading .rivers-index__card-metric-value {
+  position: relative;
+  color: var(--ri-ink-faint);
+}
+
+.rivers-index__card-metric--loading .rivers-index__card-metric-value::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(45,95,63,0.12), transparent);
+  animation: ri-shimmer 1.5s infinite;
+}
+
+@keyframes ri-shimmer {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.rivers-index__card-metric--offline .rivers-index__card-metric-value {
+  color: var(--ri-ink-faint);
+}
+
+.rivers-index__card-badge {
+  margin-left: auto;
+  padding: 0.4rem 0.9rem;
+  border-radius: 0.2rem;
+  font-family: var(--ri-ff-mono);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: var(--ri-ink-mut);
+  color: var(--ri-paper);
+}
+
+.rivers-index__card-badge[data-level="prime"]     { background: var(--ri-moss); }
+.rivers-index__card-badge[data-level="good"]      { background: var(--ri-moss); opacity: 0.85; }
+.rivers-index__card-badge[data-level="fair"]      { background: var(--ri-mustard); }
+.rivers-index__card-badge[data-level="marginal"]  { background: var(--ri-rust); opacity: 0.85; }
+.rivers-index__card-badge[data-level="blown-out"] { background: var(--ri-rust); }
+.rivers-index__card-badge[data-level="low-flow"]  { background: var(--ri-ink-mut); }
+
+.rivers-index__card-desc {
+  margin: 0;
+  font-size: 1.45rem;
+  color: var(--ri-ink-mut);
+  line-height: 1.55;
+  flex: 1;
+}
+
+.rivers-index__card-cta {
+  font-family: var(--ri-ff-mono);
+  font-size: 1.1rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ri-moss);
+  margin-top: auto;
+}
+
+.rivers-index__no-results {
+  padding: 4rem 2rem;
+  text-align: center;
+  font-style: italic;
+  color: var(--ri-ink-mut);
+}
