@@ -91,10 +91,53 @@ async function createHatchEntryDefinition() {
   return id;
 }
 
+async function fetchRiverDefinitionFields(definitionId) {
+  const data = await gql(`
+    query($id: ID!) {
+      metaobjectDefinition(id: $id) {
+        id
+        fieldDefinitions { key }
+      }
+    }
+  `, { id: definitionId });
+  return (data.metaobjectDefinition?.fieldDefinitions || []).map(f => f.key);
+}
+
+async function addRiverDefinitionFields(definitionId, existingKeys) {
+  const desired = [
+    { key: 'description',      spec: { name: 'Description',     key: 'description',      type: 'multi_line_text_field', description: 'Hero lede text shown under the river name' } },
+    { key: 'latitude',         spec: { name: 'Latitude',        key: 'latitude',         type: 'single_line_text_field', description: 'Decimal degrees, e.g. 46.8621' } },
+    { key: 'longitude',        spec: { name: 'Longitude',       key: 'longitude',        type: 'single_line_text_field', description: 'Decimal degrees, e.g. -120.4716' } },
+    { key: 'access_points',    spec: { name: 'Access Points',   key: 'access_points',    type: 'multi_line_text_field', description: 'One per line, format: Name|MI 3' } },
+    { key: 'nearest_towns',    spec: { name: 'Nearest Towns',   key: 'nearest_towns',    type: 'multi_line_text_field', description: 'One per line, format: City, WA|22 mi SE' } },
+    { key: 'best_stretch_note',spec: { name: 'Best Stretch',    key: 'best_stretch_note',type: 'multi_line_text_field', description: 'Short narrative: "Canyon between X and Y …"' } },
+    { key: 'page_handle',      spec: { name: 'Page Handle',     key: 'page_handle',      type: 'single_line_text_field', description: 'Handle of the detail page (e.g. yakima-river) — used by the picker to link to /pages/<handle>' } },
+  ];
+  const missing = desired.filter(d => !existingKeys.includes(d.key));
+  if (missing.length === 0) {
+    console.log(`  = river definition already has all optional fields`);
+    return;
+  }
+  const creates = missing.map(m => ({ create: m.spec }));
+  const data = await gql(`
+    mutation($id: ID!, $fields: [MetaobjectFieldDefinitionOperationInput!]!) {
+      metaobjectDefinitionUpdate(id: $id, definition: { fieldDefinitions: $fields }) {
+        metaobjectDefinition { id }
+        userErrors { field message code }
+      }
+    }
+  `, { id: definitionId, fields: creates });
+  const errs = data.metaobjectDefinitionUpdate.userErrors;
+  if (errs.length) { console.error(errs); throw new Error('Definition update failed'); }
+  console.log(`  ✓ Added ${missing.length} field(s) to river definition: ${missing.map(m => m.key).join(', ')}`);
+}
+
 async function createRiverDefinition(hatchDefinitionId) {
   const existing = await findDefinition('river');
   if (existing) {
     console.log(`✓ river already exists (${existing.id})`);
+    const existingKeys = await fetchRiverDefinitionFields(existing.id);
+    await addRiverDefinitionFields(existing.id, existingKeys);
     return existing.id;
   }
   const data = await gql(`
@@ -112,6 +155,13 @@ async function createRiverDefinition(hatchDefinitionId) {
           { name: "Hero Image", key: "hero_image", type: "file_reference", validations: [{ name: "file_type_options", value: "[\\"Image\\"]" }] },
           { name: "Current Clarity", key: "current_clarity", type: "single_line_text_field", description: "e.g. Clear, Tinted, Muddy" },
           { name: "Clarity Visibility", key: "clarity_visibility", type: "single_line_text_field", description: "e.g. >6ft, 2-4ft" },
+          { name: "Description", key: "description", type: "multi_line_text_field", description: "Hero lede text shown under the river name" },
+          { name: "Latitude", key: "latitude", type: "single_line_text_field", description: "Decimal degrees, e.g. 46.8621" },
+          { name: "Longitude", key: "longitude", type: "single_line_text_field", description: "Decimal degrees, e.g. -120.4716" },
+          { name: "Access Points", key: "access_points", type: "multi_line_text_field", description: "One per line, format: Name|MI 3" },
+          { name: "Nearest Towns", key: "nearest_towns", type: "multi_line_text_field", description: "One per line, format: City, WA|22 mi SE" },
+          { name: "Best Stretch", key: "best_stretch_note", type: "multi_line_text_field", description: "Short narrative: Canyon between X and Y …" },
+          { name: "Page Handle", key: "page_handle", type: "single_line_text_field", description: "Handle of the detail page (e.g. yakima-river) — used by the picker to link" },
           { name: "Guide Notes", key: "guide_notes", type: "multi_line_text_field" },
           { name: "Guide Notes Date", key: "guide_notes_date", type: "date" },
           { name: "Hatches", key: "hatches", type: "list.metaobject_reference", validations: [{ name: "metaobject_definition_id", value: $hatchId }] }
@@ -371,6 +421,135 @@ async function enhanceYakima() {
   }
 }
 
+// ------------------------------------------------------------------
+// WA Rivers catalog — source of truth for seeding metaobjects + pages.
+// Keep slugs in sync with RIVER_CONFIG keys in assets/river-conditions.js.
+// ------------------------------------------------------------------
+const WA_RIVERS = [
+  {
+    slug: 'yakima', page_handle: 'yakima-river', page_title: 'Yakima River',
+    name: 'Yakima River', region: 'Central Washington', usgs_station_id: '12484500',
+    latitude: '46.8621', longitude: '-120.4716',
+    description: 'Tailwater trout fishery through the Yakima Canyon — wild rainbows and cutthroat below Roza Dam, year-round.'
+  },
+  {
+    slug: 'skagit', page_handle: 'skagit-river', page_title: 'Skagit River',
+    name: 'Skagit River', region: 'North Cascades', usgs_station_id: '12200500',
+    latitude: '48.5358', longitude: '-121.7466',
+    description: 'Big coastal river draining the North Cascades — wild winter steelhead, summer bull trout, and resident cutthroat through the upper reaches.'
+  },
+  {
+    slug: 'sauk', page_handle: 'sauk-river', page_title: 'Sauk River',
+    name: 'Sauk River', region: 'North Cascades', usgs_station_id: '12189500',
+    latitude: '48.4237', longitude: '-121.5679',
+    description: 'Glacier-fed Skagit tributary — one of the last wild steelhead fisheries in the Lower 48. Catch-and-release only.'
+  },
+  {
+    slug: 'skykomish', page_handle: 'skykomish-river', page_title: 'Skykomish River',
+    name: 'Skykomish River', region: 'Central Cascades', usgs_station_id: '12134500',
+    latitude: '47.8537', longitude: '-121.6957',
+    description: 'Classic Cascade freestone — summer steelhead on swung flies, wild cutthroat in the upper forks.'
+  },
+  {
+    slug: 'snoqualmie', page_handle: 'snoqualmie-river', page_title: 'Snoqualmie River',
+    name: 'Snoqualmie River', region: 'Central Cascades', usgs_station_id: '12149000',
+    latitude: '47.6650', longitude: '-121.9124',
+    description: 'Urban-accessible trout water below the Falls, with wild cutthroat and winter steelhead through the three forks.'
+  },
+  {
+    slug: 'stillaguamish', page_handle: 'stillaguamish-river', page_title: 'Stillaguamish River',
+    name: 'Stillaguamish River', region: 'Central Cascades', usgs_station_id: '12167000',
+    latitude: '48.1879', longitude: '-121.9965',
+    description: 'Birthplace of NW fly fishing — North Fork is a traditional fly-only summer steelhead stretch.'
+  },
+  {
+    slug: 'klickitat', page_handle: 'klickitat-river', page_title: 'Klickitat River',
+    name: 'Klickitat River', region: 'South Central Washington', usgs_station_id: '14113000',
+    latitude: '45.8051', longitude: '-121.1528',
+    description: 'Glacial Columbia tributary — native summer steelhead through volcanic canyons below Lyle.'
+  },
+  {
+    slug: 'cowlitz', page_handle: 'cowlitz-river', page_title: 'Cowlitz River',
+    name: 'Cowlitz River', region: 'Southwest Washington', usgs_station_id: '14243000',
+    latitude: '46.2727', longitude: '-122.9079',
+    description: 'Year-round hatchery run below Blue Creek — winter steelhead, spring chinook, summer coho.'
+  },
+  {
+    slug: 'lewis', page_handle: 'lewis-river', page_title: 'Lewis River',
+    name: 'Lewis River', region: 'Southwest Washington', usgs_station_id: '14220500',
+    latitude: '45.9551', longitude: '-122.5667',
+    description: 'Tailwater below Merwin Dam — summer steelhead, winter steelhead, and a strong resident rainbow population.'
+  },
+  {
+    slug: 'toutle', page_handle: 'toutle-river', page_title: 'Toutle River',
+    name: 'Toutle River', region: 'Southwest Washington', usgs_station_id: '14242580',
+    latitude: '46.2785', longitude: '-122.8135',
+    description: 'Recovering post–Mt. St. Helens — winter steelhead and summer runs once flows settle.'
+  },
+  {
+    slug: 'solduc', page_handle: 'sol-duc-river', page_title: 'Sol Duc River',
+    name: 'Sol Duc River', region: 'Olympic Peninsula', usgs_station_id: '12041200',
+    latitude: '47.9490', longitude: '-124.3688',
+    description: 'Olympic Peninsula wild steelhead — catch-and-release, fly-only water for native winter fish.'
+  },
+  {
+    slug: 'methow', page_handle: 'methow-river', page_title: 'Methow River',
+    name: 'Methow River', region: 'North Cascades', usgs_station_id: '12449950',
+    latitude: '48.4931', longitude: '-120.1687',
+    description: 'East-slope Cascades — wild summer steelhead, dry-fly trout above Winthrop.'
+  },
+  {
+    slug: 'wenatchee', page_handle: 'wenatchee-river', page_title: 'Wenatchee River',
+    name: 'Wenatchee River', region: 'East Cascades', usgs_station_id: '12459000',
+    latitude: '47.4432', longitude: '-120.3307',
+    description: 'High-volume summer steelhead fishery — big water below Tumwater, technical pockets above.'
+  },
+  {
+    slug: 'spokane', page_handle: 'spokane-river', page_title: 'Spokane River',
+    name: 'Spokane River', region: 'Eastern Washington', usgs_station_id: '12422500',
+    latitude: '47.6587', longitude: '-117.4199',
+    description: 'Urban redband trout fishery — wild rainbows through Riverfront Park and downstream to Nine Mile.'
+  },
+  {
+    slug: 'grande_ronde', page_handle: 'grande-ronde-river', page_title: 'Grande Ronde River',
+    name: 'Grande Ronde River', region: 'Southeast Washington', usgs_station_id: '13333000',
+    latitude: '46.0831', longitude: '-116.9762',
+    description: 'Snake tributary in the Blue Mountains — fall steelhead, dry-fly fishing on the lower river.'
+  },
+];
+
+async function seedWashingtonRivers() {
+  console.log(`Seeding ${WA_RIVERS.length} Washington rivers...\n`);
+  const results = [];
+  for (const r of WA_RIVERS) {
+    console.log(`→ ${r.name}`);
+    const existing = await findMetaobject('river', r.slug);
+    let riverId;
+    const fields = {
+      name: r.name,
+      slug: r.slug,
+      region: r.region,
+      usgs_station_id: r.usgs_station_id,
+      latitude: r.latitude,
+      longitude: r.longitude,
+      description: r.description,
+      page_handle: r.page_handle,
+    };
+    if (existing) {
+      console.log(`  = river/${r.slug} already exists (${existing.id}) — updating fields`);
+      await updateMetaobject(existing.id, fields);
+      riverId = existing.id;
+    } else {
+      riverId = await createMetaobject('river', r.slug, fields);
+    }
+    await createPage(r.page_handle, r.page_title, riverId);
+    results.push({ slug: r.slug, id: riverId, page: `/pages/${r.page_handle}` });
+  }
+  console.log('\n' + '='.repeat(60));
+  console.log(`Seeded ${results.length} river metaobjects + pages:`);
+  for (const r of results) console.log(`  ${r.slug.padEnd(18)} → ${r.page}`);
+}
+
 async function main() {
   const cmd = process.argv[2] || 'definitions';
 
@@ -378,7 +557,7 @@ async function main() {
     const hatchId = await createHatchEntryDefinition();
     const riverId = await createRiverDefinition(hatchId);
     await createPageRiverMetafield(riverId);
-    console.log('\nDone. Next: `node scripts/setup-rivers.mjs seed yakima` to seed a test river.');
+    console.log('\nDone. Next: `node scripts/setup-rivers.mjs seed yakima` or `seed-wa` to seed rivers.');
     return;
   }
 
@@ -390,6 +569,17 @@ async function main() {
     return;
   }
 
+  if (cmd === 'seed-wa') {
+    // Ensure definition has the expanded field set before seeding values for new fields.
+    const def = await findDefinition('river');
+    if (!def) throw new Error('river definition missing — run `definitions` first');
+    const existingKeys = await fetchRiverDefinitionFields(def.id);
+    await addRiverDefinitionFields(def.id, existingKeys);
+    await seedWashingtonRivers();
+    console.log('\nDone. Push theme, then preview at /pages/rivers');
+    return;
+  }
+
   if (cmd === 'enhance' && process.argv[3] === 'yakima') {
     console.log('Enhancing Yakima with hero image + product recommendations...');
     await enhanceYakima();
@@ -397,7 +587,7 @@ async function main() {
     return;
   }
 
-  console.error(`Unknown command: ${cmd}\nUsage:\n  node scripts/setup-rivers.mjs definitions\n  node scripts/setup-rivers.mjs seed yakima\n  node scripts/setup-rivers.mjs enhance yakima`);
+  console.error(`Unknown command: ${cmd}\nUsage:\n  node scripts/setup-rivers.mjs definitions\n  node scripts/setup-rivers.mjs seed yakima\n  node scripts/setup-rivers.mjs seed-wa       # seed all 14 WA rivers\n  node scripts/setup-rivers.mjs enhance yakima`);
   process.exit(1);
 }
 
