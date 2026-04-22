@@ -33,27 +33,33 @@
   </div>
 {%- else -%}
 
-  {%- comment -%} Per-river static data fallbacks (coordinates, access points, nearest).
-                 When these land as metaobject fields, prefer river.<field> over these. {%- endcomment -%}
-  {%- assign map_lat = blank -%}
-  {%- assign map_lng = blank -%}
+  {%- comment -%} Prefer metaobject fields; fall back to hardcoded per-river data. {%- endcomment -%}
+  {%- assign map_lat = river.latitude -%}
+  {%- assign map_lng = river.longitude -%}
   {%- assign map_zoom = '12' -%}
-  {%- capture access_raw -%}{%- endcapture -%}
-  {%- capture nearest_raw -%}{%- endcapture -%}
-  {%- capture stretch_raw -%}{%- endcapture -%}
+  {%- assign access_raw = river.access_points -%}
+  {%- assign nearest_raw = river.nearest_towns -%}
+  {%- assign stretch_raw = river.best_stretch_note -%}
+
   {%- case river.slug -%}
     {%- when 'yakima' -%}
-      {%- assign map_lat = '46.8621' -%}
-      {%- assign map_lng = '-120.4716' -%}
-      {%- capture access_raw -%}Red's Meadow|MI 21
+      {%- if map_lat == blank -%}{%- assign map_lat = '46.8621' -%}{%- endif -%}
+      {%- if map_lng == blank -%}{%- assign map_lng = '-120.4716' -%}{%- endif -%}
+      {%- if access_raw == blank -%}
+        {%- capture access_raw -%}Red's Meadow|MI 21
 Big Pines|MI 15
 Umtanum Rec. Area|MI 9
 Ringer Loop|MI 6
 Roza Dam|MI 3{%- endcapture -%}
-      {%- capture nearest_raw -%}Yakima, WA|22 mi SE
+      {%- endif -%}
+      {%- if nearest_raw == blank -%}
+        {%- capture nearest_raw -%}Yakima, WA|22 mi SE
 Ellensburg, WA|18 mi NW
 SEA airport|141 mi W{%- endcapture -%}
-      {%- capture stretch_raw -%}Canyon between <strong>Big Pines</strong> and <strong>Umtanum</strong> — seams holding fish, skwalas coming off mid-day.{%- endcapture -%}
+      {%- endif -%}
+      {%- if stretch_raw == blank -%}
+        {%- capture stretch_raw -%}Canyon between <strong>Big Pines</strong> and <strong>Umtanum</strong> — seams holding fish, skwalas coming off mid-day.{%- endcapture -%}
+      {%- endif -%}
   {%- endcase -%}
 
   {%- assign access_lines = access_raw | split: '
@@ -107,12 +113,15 @@ SEA airport|141 mi W{%- endcapture -%}
 
   <div class="river-conditions page-width section-{{ section.id }}-padding">
 
-    {%- comment -%} Dateline {%- endcomment -%}
+    {%- comment -%} Dateline + picker {%- endcomment -%}
     <header class="river-dateline">
-      <div class="river-dateline__meta">
-        {%- if river.region != blank -%}<span>{{ river.region | escape }}</span>{% endif -%}
-        <span>{{- 'now' | date: '%m.%d.%y' -}}</span>
-        {%- if river.usgs_station_id != blank -%}<span>USGS {{ river.usgs_station_id | escape }}</span>{%- endif -%}
+      <div class="river-dateline__row">
+        <div class="river-dateline__meta">
+          {%- if river.region != blank -%}<span>{{ river.region | escape }}</span>{% endif -%}
+          <span>{{- 'now' | date: '%m.%d.%y' -}}</span>
+          {%- if river.usgs_station_id != blank -%}<span>USGS {{ river.usgs_station_id | escape }}</span>{%- endif -%}
+        </div>
+        {% render 'river-picker', current_slug: river.slug %}
       </div>
     </header>
 
