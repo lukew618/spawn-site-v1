@@ -116,12 +116,18 @@
       {%- for block in section.blocks -%}
         {%- case block.type -%}
           {%- when 'heading' -%}
-            <h2
+            {%- liquid
+              assign heading_tag = 'h2'
+              if section.settings.use_as_page_heading
+                assign heading_tag = 'h1'
+              endif
+            -%}
+            <{{ heading_tag }}
               class="banner__heading inline-richtext {{ block.settings.heading_size }}"
               {{ block.shopify_attributes }}
             >
               {{ block.settings.heading }}
-            </h2>
+            </{{ heading_tag }}>
           {%- when 'text' -%}
             <div class="banner__text rte {{ block.settings.text_style }}" {{ block.shopify_attributes }}>
               <p>{{ block.settings.text }}</p>
@@ -186,6 +192,13 @@
       "type": "image_picker",
       "id": "image_2",
       "label": "t:sections.image-banner.settings.image_2.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_as_page_heading",
+      "label": "Use as page heading",
+      "info": "Enable for only one section per page.",
+      "default": false
     },
     {
       "type": "range",
