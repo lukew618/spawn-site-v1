@@ -46,6 +46,7 @@
       "settings": {
         "image": "shopify://shop_images/Untitled_design_1.png",
         "image_mobile": "shopify://shop_images/Todd_Moen_Coho.jpg",
+        "use_as_page_heading": true,
         "image_overlay_opacity": 0,
         "image_height": "large",
         "desktop_content_position": "middle-left",
