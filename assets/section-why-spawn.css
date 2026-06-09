@@ -44,7 +44,7 @@
 }
 
 .why-spawn__item:nth-child(
-    n + 2 of .why-spawn__item:has(> .why-spawn__icon, > .why-spawn__heading, > .why-spawn__text)
+    n + 2 of .why-spawn__item:not(:empty)
   ) {
   border-top: 0.1rem solid rgba(var(--color-foreground), 0.18);
 }
@@ -97,13 +97,13 @@
   }
 
   .why-spawn__item:nth-child(
-      2n + 1 of .why-spawn__item:has(> .why-spawn__icon, > .why-spawn__heading, > .why-spawn__text)
+      2n + 1 of .why-spawn__item:not(:empty)
     ) {
     padding-left: 0;
   }
 
   .why-spawn__item:nth-child(
-      2n of .why-spawn__item:has(> .why-spawn__icon, > .why-spawn__heading, > .why-spawn__text)
+      2n of .why-spawn__item:not(:empty)
     ) {
     border-top: 0;
     border-left: 0.1rem solid rgba(var(--color-foreground), 0.18);
@@ -111,7 +111,7 @@
   }
 
   .why-spawn__item:nth-child(
-      n + 3 of .why-spawn__item:has(> .why-spawn__icon, > .why-spawn__heading, > .why-spawn__text)
+      n + 3 of .why-spawn__item:not(:empty)
     ) {
     border-top: 0.1rem solid rgba(var(--color-foreground), 0.18);
     margin-top: 2.8rem;
@@ -119,9 +119,9 @@
   }
 
   .why-spawn__item:nth-last-child(
-      1 of .why-spawn__item:has(> .why-spawn__icon, > .why-spawn__heading, > .why-spawn__text)
+      1 of .why-spawn__item:not(:empty)
     ):nth-child(
-      2n + 1 of .why-spawn__item:has(> .why-spawn__icon, > .why-spawn__heading, > .why-spawn__text)
+      2n + 1 of .why-spawn__item:not(:empty)
     ) {
     grid-column: 1 / -1;
     padding-right: 0;
@@ -129,12 +129,12 @@
 
   .why-spawn__grid:has(
       > .why-spawn__item:nth-child(
-          3 of .why-spawn__item:has(> .why-spawn__icon, > .why-spawn__heading, > .why-spawn__text)
+          3 of .why-spawn__item:not(:empty)
         )
     ):not(
       :has(
           > .why-spawn__item:nth-child(
-              4 of .why-spawn__item:has(> .why-spawn__icon, > .why-spawn__heading, > .why-spawn__text)
+              4 of .why-spawn__item:not(:empty)
             )
         )
     ) {
@@ -143,17 +143,17 @@
 
   .why-spawn__grid:has(
       > .why-spawn__item:nth-child(
-          3 of .why-spawn__item:has(> .why-spawn__icon, > .why-spawn__heading, > .why-spawn__text)
+          3 of .why-spawn__item:not(:empty)
         )
     ):not(
       :has(
           > .why-spawn__item:nth-child(
-              4 of .why-spawn__item:has(> .why-spawn__icon, > .why-spawn__heading, > .why-spawn__text)
+              4 of .why-spawn__item:not(:empty)
             )
         )
     )
     > .why-spawn__item:nth-child(
-      3 of .why-spawn__item:has(> .why-spawn__icon, > .why-spawn__heading, > .why-spawn__text)
+      3 of .why-spawn__item:not(:empty)
     ) {
     grid-column: auto;
     border-top: 0;
