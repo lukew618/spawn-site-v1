@@ -253,7 +253,8 @@
         "full_width": true,
         "padding_top": 40,
         "padding_bottom": 72
-      }
+      },
+      "disabled": true
     },
     "image_banner_7jcGPt": {
       "type": "image-banner",
@@ -349,7 +350,8 @@
         "enable_video_looping": false,
         "padding_top": 72,
         "padding_bottom": 36
-      }
+      },
+      "disabled": true
     },
     "image_with_text_EJEVBb": {
       "type": "image-with-text",
@@ -425,7 +427,8 @@
         "swipe_on_mobile": false,
         "padding_top": 12,
         "padding_bottom": 16
-      }
+      },
+      "disabled": true
     },
     "collage_x8nznF": {
       "type": "collage",
@@ -465,7 +468,8 @@
         "color_scheme": "scheme-4",
         "padding_top": 36,
         "padding_bottom": 36
-      }
+      },
+      "disabled": true
     },
     "featured_product_j3htGa": {
       "type": "featured-product",
@@ -506,7 +510,8 @@
         "enable_video_looping": false,
         "padding_top": 40,
         "padding_bottom": 36
-      }
+      },
+      "disabled": true
     },
     "image_banner_4k67yw": {
       "type": "image-banner",
@@ -555,7 +560,8 @@
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": true,
         "show_text_below": false
-      }
+      },
+      "disabled": true
     },
     "image_with_text_bViTjP": {
       "type": "image-with-text",
@@ -602,7 +608,8 @@
         "mobile_content_alignment": "left",
         "padding_top": 36,
         "padding_bottom": 36
-      }
+      },
+      "disabled": true
     },
     "featured_blog_UaRnVq": {
       "type": "featured-blog",
@@ -619,7 +626,8 @@
         "show_view_all": true,
         "padding_top": 36,
         "padding_bottom": 36
-      }
+      },
+      "disabled": true
     },
     "image_banner_ja4xUn": {
       "type": "image-banner",
@@ -721,7 +729,8 @@
         "swipe_on_mobile": false,
         "padding_top": 36,
         "padding_bottom": 36
-      }
+      },
+      "disabled": true
     }
   },
   "order": [
