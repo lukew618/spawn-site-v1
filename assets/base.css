@@ -4314,3 +4314,226 @@ body:not(.template-index) .header__inline-menu .header__menu-button {
     stroke-opacity: 1;
   }
 }
+
+/* Homepage interaction feedback */
+body.template-index [id$="__image_banner"] .banner__buttons .button,
+body.template-index
+  [id$="__featured_collection_UdX4CU"]
+  .quick-add__submit,
+body.template-index
+  [id$="__image_banner_7C3HhQ"]
+  .banner__buttons
+  .button,
+body.template-index
+  [id$="__image_with_text_EJEVBb"]
+  .image-with-text__content
+  .button,
+body.template-index
+  [id$="__image_banner_ja4xUn"]
+  .banner__buttons
+  .button {
+  transform: translateY(0);
+  transition: box-shadow var(--duration-short) ease,
+    transform var(--duration-default) ease;
+}
+
+body.template-index
+  [id$="__collection_list_QGtX47"]
+  .collection-card-wrapper
+  .card {
+  transform: translateY(0);
+  transition: transform var(--duration-default) ease;
+}
+
+body.template-index
+  [id$="__featured_collection_UdX4CU"]
+  .product-card-wrapper
+  .card__heading
+  .full-unstyled-link:focus-visible,
+body.template-index
+  [id$="__featured_collection_UdX4CU"]
+  .product-card-wrapper
+  .card__heading
+  .full-unstyled-link:active,
+body.template-index
+  [id$="__collection_list_QGtX47"]
+  .collection-card-wrapper
+  .card__heading
+  .full-unstyled-link:focus-visible,
+body.template-index
+  [id$="__collection_list_QGtX47"]
+  .collection-card-wrapper
+  .card__heading
+  .full-unstyled-link:active {
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.3rem;
+  text-decoration-color: currentColor;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body.template-index [id$="__image_banner"] .banner__buttons .button:hover,
+  body.template-index
+    [id$="__image_banner"]
+    .banner__buttons
+    .button:focus-visible,
+  body.template-index
+    [id$="__featured_collection_UdX4CU"]
+    .quick-add__submit:hover,
+  body.template-index
+    [id$="__featured_collection_UdX4CU"]
+    .quick-add__submit:focus-visible,
+  body.template-index
+    [id$="__image_banner_7C3HhQ"]
+    .banner__buttons
+    .button:hover,
+  body.template-index
+    [id$="__image_banner_7C3HhQ"]
+    .banner__buttons
+    .button:focus-visible,
+  body.template-index
+    [id$="__image_with_text_EJEVBb"]
+    .image-with-text__content
+    .button:hover,
+  body.template-index
+    [id$="__image_with_text_EJEVBb"]
+    .image-with-text__content
+    .button:focus-visible,
+  body.template-index
+    [id$="__image_banner_ja4xUn"]
+    .banner__buttons
+    .button:hover,
+  body.template-index
+    [id$="__image_banner_ja4xUn"]
+    .banner__buttons
+    .button:focus-visible {
+    transform: translateY(-2px);
+  }
+
+  body.template-index [id$="__image_banner"] .banner__buttons .button:active,
+  body.template-index
+    [id$="__featured_collection_UdX4CU"]
+    .quick-add__submit:active,
+  body.template-index
+    [id$="__image_banner_7C3HhQ"]
+    .banner__buttons
+    .button:active,
+  body.template-index
+    [id$="__image_with_text_EJEVBb"]
+    .image-with-text__content
+    .button:active,
+  body.template-index
+    [id$="__image_banner_ja4xUn"]
+    .banner__buttons
+    .button:active {
+    transform: translateY(0);
+  }
+
+  body.template-index
+    [id$="__collection_list_QGtX47"]
+    .collection-card-wrapper
+    .card:hover {
+    transform: translateY(-2px);
+  }
+
+  body.template-index
+    [id$="__collection_list_QGtX47"]
+    .collection-card-wrapper
+    .card:active {
+    transform: translateY(0);
+  }
+
+  body.template-index
+    [id$="__featured_collection_UdX4CU"]
+    .product-card-wrapper
+    .card__heading
+    .full-unstyled-link:hover,
+  body.template-index
+    [id$="__collection_list_QGtX47"]
+    .collection-card-wrapper
+    .card__heading
+    .full-unstyled-link:hover {
+    text-decoration-line: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.3rem;
+    text-decoration-color: currentColor;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  body.template-index [id$="__image_banner"] .banner__buttons .button:active,
+  body.template-index
+    [id$="__featured_collection_UdX4CU"]
+    .quick-add__submit:active,
+  body.template-index
+    [id$="__image_banner_7C3HhQ"]
+    .banner__buttons
+    .button:active,
+  body.template-index
+    [id$="__image_with_text_EJEVBb"]
+    .image-with-text__content
+    .button:active,
+  body.template-index
+    [id$="__image_banner_ja4xUn"]
+    .banner__buttons
+    .button:active,
+  body.template-index
+    [id$="__collection_list_QGtX47"]
+    .collection-card-wrapper
+    .card:active {
+    transform: translateY(1px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.template-index [id$="__image_banner"] .banner__buttons .button,
+  body.template-index
+    [id$="__featured_collection_UdX4CU"]
+    .quick-add__submit,
+  body.template-index
+    [id$="__image_banner_7C3HhQ"]
+    .banner__buttons
+    .button,
+  body.template-index
+    [id$="__image_with_text_EJEVBb"]
+    .image-with-text__content
+    .button,
+  body.template-index
+    [id$="__image_banner_ja4xUn"]
+    .banner__buttons
+    .button,
+  body.template-index
+    [id$="__image_banner"]
+    .banner__buttons
+    .button:is(:hover, :focus-visible, :active),
+  body.template-index
+    [id$="__featured_collection_UdX4CU"]
+    .quick-add__submit:is(:hover, :focus-visible, :active),
+  body.template-index
+    [id$="__image_banner_7C3HhQ"]
+    .banner__buttons
+    .button:is(:hover, :focus-visible, :active),
+  body.template-index
+    [id$="__image_with_text_EJEVBb"]
+    .image-with-text__content
+    .button:is(:hover, :focus-visible, :active),
+  body.template-index
+    [id$="__image_banner_ja4xUn"]
+    .banner__buttons
+    .button:is(:hover, :focus-visible, :active) {
+    transform: translateY(0);
+    transition-duration: var(--duration-short), 0s;
+  }
+
+  body.template-index
+    [id$="__collection_list_QGtX47"]
+    .collection-card-wrapper
+    .card,
+  body.template-index
+    [id$="__collection_list_QGtX47"]
+    .collection-card-wrapper
+    .card:is(:hover, :active) {
+    transform: translateY(0);
+    transition-duration: 0s;
+  }
+}
