@@ -4,3 +4,9 @@ node_modules
 .gstack/
 .env
 .env.local
+
+# bootstrap-repo-agent-team:local-only:start
+/AGENTS.local.md
+/.agents
+/scripts/agents
+# bootstrap-repo-agent-team:local-only:end
