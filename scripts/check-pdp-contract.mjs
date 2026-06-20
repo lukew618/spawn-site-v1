@@ -40,6 +40,8 @@ assert(!blockTypes(inStoreBlocks).includes('buy_buttons'));
 
 for (const token of [
   'data-product-context="main-pdp"',
+  'product_color_scheme',
+  'product-color-scheme--fallback',
   'data-product-kind=',
   'data-purchase-mode=',
   'data-purchasability=',
@@ -62,6 +64,14 @@ assert(
   'Unavailable variant labels must not use whole-label strike-through',
 );
 assert(css.includes('[data-product-context="main-pdp"]'));
+for (const token of [
+  '.product-color-scheme--fallback',
+  '--color-button:',
+  '.product__purchase-region .product-form__buttons',
+  '.product__trust-row a',
+  '--pdp-tablet-media-height',
+]) assert(css.includes(token), `Missing PDP visual contract: ${token}`);
+assert(purchaseRegion.includes('use_primary_button: true'), 'Main PDP add-to-cart must use the dominant primary treatment');
 assert(js.includes("this.dataset.productContext === 'main-pdp'"));
 for (const token of ['<price-per-item', '<volume-pricing', 'quantity_price_breaks', 'Price-Per-Item-', 'Volume-']) {
   assert(quantity.includes(token), `Missing Dawn volume-pricing contract: ${token}`);

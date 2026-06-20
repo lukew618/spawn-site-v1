@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "test:pdp:fixtures": "node scripts/test-pdp-dom-fixtures.mjs && playwright test tests/pdp/product-info-component.spec.js",
+    "test:pdp:fixtures": "node scripts/test-pdp-dom-fixtures.mjs && playwright test tests/pdp/product-info-component.spec.js tests/pdp/pdp-style-fixture.spec.js",
     "test:pdp:preview": "playwright test tests/pdp/pdp-preview.spec.js"
   },
   "devDependencies": {

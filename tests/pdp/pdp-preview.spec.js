@@ -8,6 +8,7 @@ const giftPath = '/products/spawn-fly-fish-gift-card?variant=39734797434943';
 const zeroMediaPath = '/products/9ft-4wt-asquith-returned-brand-new';
 const inStorePath = '/products/70-veevus-power-thread?view=in-store-only&variant=40998159286335';
 const artifactDir = process.env.PDP_ARTIFACT_DIR || '/tmp/pdp-visuals';
+const consentResolvedPages = new WeakSet();
 
 fs.mkdirSync(artifactDir, { recursive: true });
 
@@ -31,8 +32,78 @@ async function dispatchChecked(locator) {
 }
 
 async function dismissConsent(page) {
-  const decline = page.getByRole('button', { name: 'Decline' });
-  if (await decline.count()) await decline.click({ force: true });
+  if (consentResolvedPages.has(page)) return;
+  const consentHeading = page.getByText('Cookie consent', { exact: true });
+  const decline = page.getByRole('button', { name: /^Decline$/ });
+
+  await decline.first().waitFor({ state: 'visible', timeout: 5000 }).catch(() => null);
+  if (await decline.first().isVisible().catch(() => false)) {
+    await decline.first().click({ force: true });
+  }
+  await page.waitForTimeout(500);
+  if (await decline.first().isVisible().catch(() => false)) {
+    await decline.first().click({ force: true });
+  }
+  await expect(consentHeading).toBeHidden({ timeout: 5000 });
+  consentResolvedPages.add(page);
+}
+
+async function settleVisualPage(page, route) {
+  await page.goto(route, { waitUntil: 'domcontentloaded' });
+  await dismissConsent(page);
+  await page.locator('product-info').waitFor({ state: 'visible' });
+  await page.evaluate(() => document.fonts?.ready);
+  await expect(page.getByText('Cookie consent', { exact: true })).toBeHidden();
+  await expect(page.locator('[role="dialog"]:visible').filter({ hasText: 'Cookie consent' })).toHaveCount(0);
+}
+
+async function scrollBelowHeader(page, locator) {
+  await locator.evaluate((element) => {
+    const header = document.querySelector('.header');
+    const headerBottom = header?.getBoundingClientRect().bottom || 0;
+    const top = element.getBoundingClientRect().top + window.scrollY - headerBottom - 16;
+    window.scrollTo({ top: Math.max(0, top), behavior: 'instant' });
+  });
+  await page.waitForTimeout(250);
+  const header = await page.locator('.header').boundingBox();
+  const target = await locator.boundingBox();
+  expect(target.y).toBeGreaterThanOrEqual(header.y + header.height + 8);
+}
+
+async function expectValidProductChrome(page) {
+  const productInfo = page.locator('product-info');
+  const className = await productInfo.getAttribute('class');
+  expect(className).toMatch(/(?:^|\s)color-[^\s]+/);
+  const variables = await productInfo.evaluate((element) => {
+    const styles = getComputedStyle(element);
+    return {
+      foreground: styles.getPropertyValue('--color-foreground').trim(),
+      button: styles.getPropertyValue('--color-button').trim(),
+      background: styles.getPropertyValue('--color-background').trim(),
+    };
+  });
+  expect(variables.foreground).not.toBe('');
+  expect(variables.button).not.toBe('');
+  expect(variables.background).not.toBe('');
+
+  const cta = page.locator('.product-form__submit').first();
+  await expect(cta).toBeVisible();
+  const ctaStyles = await cta.evaluate((element) => {
+    const styles = getComputedStyle(element);
+    return { background: styles.backgroundColor, width: element.getBoundingClientRect().width };
+  });
+  expect(ctaStyles.background).not.toBe('rgba(0, 0, 0, 0)');
+  const regionWidth = await page.locator('.product__purchase-region').evaluate((element) => element.getBoundingClientRect().width);
+  expect(ctaStyles.width).toBeGreaterThanOrEqual(regionWidth - 2);
+
+  const pill = page.locator('.product-form__input--pill label').first();
+  const pillBorder = await pill.evaluate((element) => {
+    const styles = getComputedStyle(element);
+    return { style: styles.borderStyle, width: parseFloat(styles.borderWidth), color: styles.borderColor };
+  });
+  expect(pillBorder.style).not.toBe('none');
+  expect(pillBorder.width).toBeGreaterThan(0);
+  expect(pillBorder.color).not.toBe('rgba(0, 0, 0, 0)');
 }
 
 async function submitAndReadCart(page, form) {
@@ -182,8 +253,8 @@ test('changed controls meet target size and screenshots are current', async ({ p
   await page.emulateMedia({ reducedMotion: 'reduce' });
   for (const width of [375, 768, 1440]) {
     await page.setViewportSize({ width, height: 1000 });
-    await page.goto(availablePath);
-    await dismissConsent(page);
+    await settleVisualPage(page, availablePath);
+    await expectValidProductChrome(page);
     const controls = page.locator('.product-form__input--pill label, .thumbnail');
     const controlCount = await controls.count();
     expect(controlCount).toBeGreaterThan(0);
@@ -192,18 +263,38 @@ test('changed controls meet target size and screenshots are current', async ({ p
       expect(box.width).toBeGreaterThanOrEqual(44);
       expect(box.height).toBeGreaterThanOrEqual(44);
     }
+    if (width === 768) {
+      for (const locator of [page.locator('.product__title'), page.locator('[id^="price-"]'), page.locator('variant-selects')]) {
+        const box = await locator.boundingBox();
+        expect(box.y).toBeLessThan(1000);
+      }
+      const stickyPositions = await page.locator('.product__column-sticky').evaluateAll((elements) =>
+        elements.map((element) => getComputedStyle(element).position),
+      );
+      expect(stickyPositions.every((position) => position === 'static')).toBe(true);
+    }
+    expect(await page.evaluate(() => window.scrollY)).toBe(0);
     await page.screenshot({ path: path.join(artifactDir, `available-${width}.png`) });
-    await page.locator('.product__info-wrapper').scrollIntoViewIfNeeded();
-    await page.waitForTimeout(500);
+    const infoEvidence = page.locator('.product__title');
+    await scrollBelowHeader(page, infoEvidence);
     await page.screenshot({ path: path.join(artifactDir, `available-${width}-info.png`) });
   }
 
   await page.setViewportSize({ width: 375, height: 1000 });
   for (const [name, route] of [['sold-out', soldPath], ['gift-card', giftPath], ['in-store', inStorePath]]) {
-    await page.goto(route);
-    await dismissConsent(page);
-    await page.locator('.product__info-wrapper').scrollIntoViewIfNeeded();
-    await page.waitForTimeout(500);
+    await settleVisualPage(page, route);
+    await scrollBelowHeader(page, page.locator('.product__title'));
+    if (name === 'sold-out') {
+      const statusBorder = await page.locator('.product__purchase-status').evaluate((element) => {
+        const styles = getComputedStyle(element);
+        return { style: styles.borderStyle, width: parseFloat(styles.borderWidth), color: styles.borderColor };
+      });
+      expect(statusBorder.style).not.toBe('none');
+      expect(statusBorder.width).toBeGreaterThan(0);
+      expect(statusBorder.color).not.toBe('rgba(0, 0, 0, 0)');
+    } else if (name === 'gift-card') {
+      await expectValidProductChrome(page);
+    }
     await page.screenshot({ path: path.join(artifactDir, `${name}-375.png`) });
   }
 });

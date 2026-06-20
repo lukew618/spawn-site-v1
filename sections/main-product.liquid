@@ -33,6 +33,19 @@
     assign physical_pickup_allowed = true
   endif
 
+  assign product_color_scheme = section.settings.color_scheme
+  assign first_color_scheme = settings.color_schemes | first
+  if product_color_scheme == blank and first_color_scheme != blank
+    assign product_color_scheme = first_color_scheme.id
+  endif
+  assign use_product_color_fallback = false
+  if product_color_scheme == blank
+    assign product_color_scheme = 'scheme-1'
+    assign use_product_color_fallback = true
+  elsif settings.color_schemes == blank
+    assign use_product_color_fallback = true
+  endif
+
   assign has_purchase_region = false
   assign has_legacy_quantity = false
   for candidate_block in section.blocks
@@ -46,7 +59,7 @@
 
 <product-info
   id="MainProduct-{{ section.id }}"
-  class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}"
+  class="section-{{ section.id }}-padding gradient color-{{ product_color_scheme }}{% if use_product_color_fallback %} product-color-scheme--fallback{% endif %}"
   data-section="{{ section.id }}"
   data-product-id="{{ product.id }}"
   data-update-url="true"
@@ -332,7 +345,8 @@
                   show_dynamic_checkout: block.settings.show_dynamic_checkout,
                   show_gift_card_recipient: block.settings.show_gift_card_recipient,
                   show_pickup_availability: block.settings.show_pickup_availability,
-                  pickup_allowed: physical_pickup_allowed
+                  pickup_allowed: physical_pickup_allowed,
+                  color_scheme: product_color_scheme
                 -%}
               {%- when 'buy_buttons' -%}
                 {%- unless has_purchase_region -%}
@@ -349,7 +363,8 @@
                     show_dynamic_checkout: block.settings.show_dynamic_checkout,
                     show_gift_card_recipient: block.settings.show_gift_card_recipient,
                     show_pickup_availability: physical_pickup_allowed,
-                    pickup_allowed: physical_pickup_allowed
+                    pickup_allowed: physical_pickup_allowed,
+                    color_scheme: product_color_scheme
                   -%}
                 {%- endunless -%}
               {%- when 'rating' -%}

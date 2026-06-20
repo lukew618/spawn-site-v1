@@ -30,6 +30,12 @@
       if dynamic_checkout_enabled and gift_card_recipient_feature_active == false
         assign show_dynamic_checkout = true
       endif
+
+      assign product_page_color_scheme = color_scheme | default: section.settings.color_scheme
+      if product_page_color_scheme == blank
+        assign first_color_scheme = settings.color_schemes | first
+        assign product_page_color_scheme = first_color_scheme.id | default: 'scheme-1'
+      endif
     -%}
 
     <product-form
@@ -82,7 +88,7 @@
             id="ProductSubmitButton-{{ section_id }}"
             type="submit"
             name="add"
-            class="product-form__submit button button--full-width {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %}"
+            class="product-form__submit button button--full-width {% if use_primary_button or show_dynamic_checkout == false %}button--primary{% else %}button--secondary{% endif %}"
             {% if product.selected_or_first_available_variant.available == false
               or quantity_rule_soldout
               or product.selected_or_first_available_variant == null
@@ -137,7 +143,7 @@
       data-root-url="{{ routes.root_url }}"
       data-variant-id="{{ product.selected_or_first_available_variant.id }}"
       data-has-only-default-variant="{{ product.has_only_default_variant }}"
-      data-product-page-color-scheme="gradient color-{{ section.settings.color_scheme }}"
+      data-product-page-color-scheme="gradient color-{{ product_page_color_scheme }}"
     >
       <template>
         <pickup-availability-preview class="pickup-availability-preview">
