@@ -40,4 +40,3 @@ if (added.length) {
   for (const tuple of added) console.error(`- ${tuple}`);
   process.exit(1);
 }
-
