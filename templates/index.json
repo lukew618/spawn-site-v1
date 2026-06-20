@@ -685,7 +685,7 @@
           "type": "column",
           "settings": {
             "title": "<strong>FREE SHIPPING</strong>",
-            "text": "<p>Free shipping on orders over $75 to the contiguous US.</p>",
+            "text": "<p>Free shipping on orders over $85 to the contiguous US.</p>",
             "link_label": "",
             "link": "shopify://policies/refund-policy"
           }

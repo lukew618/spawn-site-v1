@@ -103,7 +103,7 @@ No build step. Edit files directly — no webpack, Vite, or compilation.
 - Cart updates via Section Rendering API — not manual DOM manipulation.
 - Out-of-stock surfaced at variant selection, not at add-to-cart.
 - Errors display inline — never `alert()`.
-- Free shipping threshold bar visible in cart drawer ($49 threshold).
+- Free shipping threshold bar visible in cart drawer ($85 threshold for carts containing shippable merchandise).
 - Checkout button always visible on mobile without scrolling.
 
 ## Mobile-First

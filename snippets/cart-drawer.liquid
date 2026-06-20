@@ -75,24 +75,36 @@
           </span>
         </button>
       </div>
-      {%- assign free_shipping_threshold = 7500 -%}
+      {%- assign cart_requires_shipping = false -%}
+      {%- for item in cart.items -%}
+        {%- if item.requires_shipping -%}
+          {%- assign cart_requires_shipping = true -%}
+          {%- break -%}
+        {%- endif -%}
+      {%- endfor -%}
+      {%- capture free_shipping_threshold_output -%}
+        {%- render 'free-shipping-threshold', format: 'minor_units' -%}
+      {%- endcapture -%}
+      {%- assign free_shipping_threshold = free_shipping_threshold_output | plus: 0 -%}
       {%- assign remaining_amount = free_shipping_threshold | minus: cart.total_price -%}
       {%- assign progress_percentage = cart.total_price | times: 100.0 | divided_by: free_shipping_threshold | at_most: 100 -%}
-      
-      <div class="free-shipping-bar">
-        <div class="progress-bar-container">
-          <div class="progress-bar">
-            <div class="progress-bar-value" style="width: {{ progress_percentage }}%;"></div>
+
+      {%- if cart_requires_shipping -%}
+        <div class="free-shipping-bar">
+          <div class="progress-bar-container">
+            <div class="progress-bar">
+              <div class="progress-bar-value" style="width: {{ progress_percentage }}%;"></div>
+            </div>
+          </div>
+          <div class="free-shipping-text">
+            {%- if remaining_amount > 0 -%}
+              <p>Add <strong>{{ remaining_amount | money }}</strong> more to get <strong>free shipping</strong>.</p>
+            {%- else -%}
+              <p><strong>Your order qualifies for free shipping.</strong></p>
+            {%- endif -%}
           </div>
         </div>
-        <div class="free-shipping-text">
-          {%- if remaining_amount > 0 -%}
-            <p>Add <strong>{{ remaining_amount | money }}</strong> more to get <strong>FREE SHIPPING!</strong></p>
-          {%- else -%}
-            <p><strong>🎉 CONGRATULATIONS! YOU'VE GOT FREE SHIPPING!</strong></p>
-          {%- endif -%}
-        </div>
-      </div>
+      {%- endif -%}
 
       <cart-drawer-items
         {% if cart == empty %}
