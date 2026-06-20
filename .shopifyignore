@@ -1,0 +1,12 @@
+config/settings_data.json
+.agents/**
+.git/**
+.github/**
+.claude/**
+scripts/**
+tests/**
+worker/**
+node_modules/**
+package*.json
+README.md
+AGENTS.local.md

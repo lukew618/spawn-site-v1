@@ -1,0 +1,40 @@
+{
+  "captured_at": "2026-06-20",
+  "storefront": "https://spawnflyfish.com",
+  "proof_scope": "Immutable public Shopify routes only. DOM fixtures separately prove JavaScript transitions, not Shopify rendering.",
+  "routes": {
+    "available_multi_media": {
+      "path": "/products/70-veevus-power-thread",
+      "available_variant_id": 40998159286335,
+      "sold_out_variant_id": 40998091227199,
+      "media_count": 10
+    },
+    "wholly_sold_out_one_media": {
+      "path": "/products/loctite-super-glue-extra-time-control",
+      "variant_id": 7785293938751,
+      "media_count": 1
+    },
+    "gift_card": {
+      "path": "/products/spawn-fly-fish-gift-card",
+      "initial_variant_id": 39734797434943,
+      "alternate_variant_id": 39734797467711,
+      "media_count": 4
+    },
+    "zero_media": {
+      "path": "/products/9ft-4wt-asquith-returned-brand-new",
+      "variant_id": 43336172404799,
+      "media_count": 0
+    },
+    "one_media_available": {
+      "path": "/products/rios-knotty-hooker",
+      "media_count": 1
+    },
+    "in_store_view": {
+      "path": "/products/70-veevus-power-thread?view=in-store-only&variant=40998159286335",
+      "variant_id": 40998159286335
+    },
+    "featured_product_host": {
+      "path": "/cart"
+    }
+  }
+}

@@ -42,31 +42,11 @@
           "type": "price",
           "settings": {}
         },
-        "inventory_Q8TEkg": {
-          "type": "inventory",
-          "settings": {
-            "text_style": "body",
-            "inventory_threshold": 10,
-            "show_inventory_quantity": true
-          }
-        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
             "picker_type": "dropdown",
             "swatch_shape": "circle"
-          }
-        },
-        "icon_with_text_efeW7k": {
-          "type": "icon-with-text",
-          "settings": {
-            "layout": "horizontal",
-            "icon_1": "map_pin",
-            "heading_1": "IN-STORE ONLY: <a href=\"/pages/contact-us\" target=\"_blank\" title=\"Contact Us\">HERE</a>",
-            "icon_2": "return",
-            "heading_2": "",
-            "icon_3": "truck",
-            "heading_3": ""
           }
         },
         "collapsible_tab_knxctr": {
@@ -75,7 +55,8 @@
             "heading": "FEATURES",
             "icon": "none",
             "content": "{{ product.metafields.custom.all_product_features_bullets | metafield_tag }}",
-            "page": ""
+            "page": "",
+            "open_by_default": true
           }
         },
         "collapsible_tab_KjLei6": {
@@ -84,7 +65,15 @@
             "heading": "DESCRIPTION",
             "icon": "none",
             "content": "<p>{{ product.metafields.custom.product_description | metafield_tag }}</p>",
-            "page": ""
+            "page": "",
+            "open_by_default": true
+          }
+        },
+        "in_store_guidance": {
+          "type": "text",
+          "settings": {
+            "text": "Available for in-store purchase. <a href=\"/pages/contact-us\">Contact Spawn</a> to confirm current stock.",
+            "text_style": "body"
           }
         }
       },
@@ -94,9 +83,8 @@
         "caption",
         "rating_4VqEwi",
         "price",
-        "inventory_Q8TEkg",
         "variant_picker",
-        "icon_with_text_efeW7k",
+        "in_store_guidance",
         "collapsible_tab_knxctr",
         "collapsible_tab_KjLei6"
       ],
@@ -113,7 +101,7 @@
         "gallery_layout": "thumbnail_slider",
         "media_position": "left",
         "image_zoom": "hover",
-        "mobile_thumbnails": "hide",
+        "mobile_thumbnails": "show",
         "hide_variants": false,
         "enable_video_looping": false,
         "padding_top": 44,
@@ -140,95 +128,11 @@
         "padding_top": 100,
         "padding_bottom": 28
       }
-    },
-    "image_banner_irBgAP": {
-      "type": "image-banner",
-      "blocks": {
-        "text_67KrWV": {
-          "type": "text",
-          "settings": {
-            "text": "At Spawn Fly Fish, we’re proud to carry a handpicked selection of products for anglers of all levels. Explore top brands like <a href=\"/collections/sage-products\" title=\"Sage Products\">Sage</a>, <a href=\"/collections/redington-products\" title=\"Redington Products\">Redington</a>, <a href=\"/collections/douglas-outdoors-products\" title=\"Douglas Outdoors Products\">Douglas LRS</a>, <a href=\"/collections/ross-reels-products\" title=\"Ross Reels Products\">Ross Reels</a>, and <a href=\"/collections/all-products\" title=\"All Products\">more</a>. Whether you’re tying with <a href=\"/collections/easy-shrimp-eyes-products\" title=\"Easy Shrimp Eyes Products\">Shrimp Eyes</a>, crafting with <a href=\"/products/spawn-unreal-dub\" title=\"Spawn Unreal Dub\">Unreal Dubbing</a>, or looking for <a href=\"/products/loctite-super-glue-extra-time-control\" title=\"Loctite Super Glue - Extra Time Control\">Loctite Super Glue Extra Time Control</a> to secure your creations, you’ll find everything you need here.We also stock a wide range of <a href=\"/collections/fly-tying-products\" title=\"FLY TYING\">fly tying materials</a>, <a href=\"/collections/fly-rods\" title=\"FLY RODS\">fly rods</a>, and <a href=\"/collections/fly-reels\" title=\"FLY REELS\">fly reels</a>—including favorites like <a href=\"/collections/tibor-fly-reels\" title=\"Tibor Fly Reels\">Tibor Fly Reels</a>, <a href=\"/collections/waterworks-lamson-products\" title=\"Waterworks-Lamson Products\">Lamson Fly Reels</a>, and <a href=\"/collections/redington-fly-reels\" title=\"Redington Fly Reels\">Redington Fly Reels</a>. For complete guides on where and how to use your new gear, check out our <a href=\"/blogs/spawn-blog/sea-run-cutthroat-fishing-challenging-the-tide-rules\" title=\"Sea Run Cutthroat Fishing: Challenging the Tide Rules\">Fly Fishing Guide to Washington</a> or browse <a href=\"/blogs/spawn-blog\" title=\"Spawn Blog\">our blog</a> or <a href=\"https://www.youtube.com/c/SpawnFlyFish\" target=\"_blank\" title=\"https://www.youtube.com/c/SpawnFlyFish\">YouTube channel</a> for in-depth product tips and tutorials",
-            "text_style": "body"
-          }
-        }
-      },
-      "block_order": [
-        "text_67KrWV"
-      ],
-      "settings": {
-        "image": "shopify://shop_images/winston-bamboo-fly-rod-winston-fly-rods-859806.png",
-        "image_mobile": "shopify://shop_images/winston-bamboo-fly-rod-winston-fly-rods-859806.png",
-        "image_overlay_opacity": 30,
-        "image_height": "medium",
-        "desktop_content_position": "middle-center",
-        "show_text_box": false,
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-78823a03-0880-4c09-84ee-d09083839a52",
-        "image_behavior": "none",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": true,
-        "show_text_below": false
-      }
-    },
-    "multicolumn_frj3Ei": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_WgABGW": {
-          "type": "column",
-          "settings": {
-            "title": "FREE SHIPPING",
-            "text": "<p>\t\tFree shipping on orders over $49 to the contiguous US</p>",
-            "link_label": "",
-            "link": "shopify://policies/refund-policy"
-          }
-        },
-        "column_8kTGiw": {
-          "type": "column",
-          "settings": {
-            "title": "FREE RETURNS",
-            "text": "<p>\t\tWe stand behind our products. Return shipping is free on all returns shipped from within the United States</p>",
-            "link_label": "",
-            "link": "shopify://policies/refund-policy"
-          }
-        },
-        "column_gan6Jg": {
-          "type": "column",
-          "settings": {
-            "title": "2% PLEDGE",
-            "text": "<p>\t\t2% of all Spawn profits are donated to conservation groups. This has been true since our 1st day of business</p>",
-            "link_label": "",
-            "link": "shopify://pages/conservation"
-          }
-        }
-      },
-      "block_order": [
-        "column_WgABGW",
-        "column_8kTGiw",
-        "column_gan6Jg"
-      ],
-      "settings": {
-        "title": "",
-        "heading_size": "h1",
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "columns_desktop": 3,
-        "column_alignment": "center",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "color_scheme": "",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
     }
   },
   "order": [
     "breadcrumb",
     "main",
-    "related-products",
-    "image_banner_irBgAP",
-    "multicolumn_frj3Ei"
+    "related-products"
   ]
 }

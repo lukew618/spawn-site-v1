@@ -1872,6 +1872,9 @@
               "options__44": {
                 "label": "Tvätt"
               }
+            },
+            "open_by_default": {
+              "label": "Open by default"
             }
           },
           "name": "Rad som kan döljas"
@@ -2045,6 +2048,17 @@
             },
             "show_inventory_quantity": {
               "label": "Visa inventering"
+            }
+          }
+        },
+        "purchase_region": {
+          "name": "Purchase region",
+          "settings": {
+            "show_quantity": {
+              "label": "Show quantity selector"
+            },
+            "show_pickup_availability": {
+              "label": "Show pickup availability"
             }
           }
         }

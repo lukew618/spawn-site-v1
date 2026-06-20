@@ -8,6 +8,7 @@ if (!customElements.get('product-info')) {
       cartUpdateUnsubscriber = undefined;
       abortController = undefined;
       pendingRequestUrl = null;
+      requestToken = 0;
       preProcessHtmlCallbacks = [];
       postProcessHtmlCallbacks = [];
 
@@ -34,6 +35,7 @@ if (!customElements.get('product-info')) {
       }
 
       initQuantityHandlers() {
+        this.quantityInput = this.querySelector('.quantity__input');
         if (!this.quantityInput) return;
 
         this.quantityForm = this.querySelector('.product-form__quantity');
@@ -46,7 +48,7 @@ if (!customElements.get('product-info')) {
       }
 
       disconnectedCallback() {
-        this.onVariantChangeUnsubscriber();
+        this.onVariantChangeUnsubscriber?.();
         this.cartUpdateUnsubscriber?.();
       }
 
@@ -116,15 +118,18 @@ if (!customElements.get('product-info')) {
       renderProductInfo({ requestUrl, targetId, callback }) {
         this.abortController?.abort();
         this.abortController = new AbortController();
+        const requestToken = ++this.requestToken;
 
         fetch(requestUrl, { signal: this.abortController.signal })
           .then((response) => response.text())
           .then((responseText) => {
             this.pendingRequestUrl = null;
             const html = new DOMParser().parseFromString(responseText, 'text/html');
+            if (requestToken !== this.requestToken) return;
             callback(html);
           })
           .then(() => {
+            if (requestToken !== this.requestToken) return;
             // set focus to last clicked option value
             document.querySelector(`#${targetId}`)?.focus();
           })
@@ -143,15 +148,18 @@ if (!customElements.get('product-info')) {
       }
 
       buildRequestUrlWithParams(url, optionValues, shouldFetchFullPage = false) {
-        const params = [];
-
-        !shouldFetchFullPage && params.push(`section_id=${this.sectionId}`);
-
-        if (optionValues.length) {
-          params.push(`option_values=${optionValues.join(',')}`);
+        const requestUrl = new URL(url, window.location.origin);
+        if (this.dataset.productContext === 'main-pdp' && this.dataset.purchaseMode === 'in-store-only') {
+          requestUrl.searchParams.set('view', 'in-store-only');
+        } else if (this.dataset.productContext === 'main-pdp') {
+          requestUrl.searchParams.delete('view');
         }
-
-        return `${url}?${params.join('&')}`;
+        if (!shouldFetchFullPage) requestUrl.searchParams.set('section_id', this.sectionId);
+        else requestUrl.searchParams.delete('section_id');
+        if (optionValues.length) requestUrl.searchParams.set('option_values', optionValues.join(','));
+        else requestUrl.searchParams.delete('option_values');
+        requestUrl.searchParams.delete('variant');
+        return requestUrl.toString();
       }
 
       updateOptionValues(html) {
@@ -163,6 +171,11 @@ if (!customElements.get('product-info')) {
 
       handleUpdateProductInfo(productUrl) {
         return (html) => {
+          if (this.dataset.productContext === 'main-pdp') {
+            this.handleMainPdpUpdate(html, productUrl);
+            return;
+          }
+
           const variant = this.getSelectedVariant(html);
 
           this.pickupAvailability?.update(variant);
@@ -211,23 +224,155 @@ if (!customElements.get('product-info')) {
         };
       }
 
+      handleMainPdpUpdate(html, productUrl) {
+        const returnedInfo = html.querySelector('product-info[data-product-context="main-pdp"]');
+        if (!returnedInfo) return;
+
+        const returnedRegion = returnedInfo.querySelector('[id^="PurchaseRegion-"]');
+        const returnedSignature = returnedInfo.dataset.stateSignature;
+        if (returnedRegion && returnedRegion.dataset.stateSignature !== returnedSignature) {
+          console.error('PDP purchase state carrier mismatch');
+          return;
+        }
+
+        const variant = this.getSelectedVariant(returnedInfo);
+        this.updateMainPdpOptionValues(returnedInfo);
+        this.updateURL(productUrl, variant?.id);
+        this.updateMedia(html, variant?.featured_media?.id);
+        this.updateCommonFragments(returnedInfo);
+
+        const currentRegion = this.querySelector('[id^="PurchaseRegion-"]');
+        const signatureChanged = this.dataset.stateSignature !== returnedSignature;
+        if (signatureChanged) {
+          const freshRegion = returnedRegion ? this.createInteractiveRegion(returnedRegion) : null;
+          if (currentRegion && freshRegion) currentRegion.replaceWith(freshRegion);
+          else if (currentRegion) currentRegion.remove();
+          else if (freshRegion) this.querySelector('.product__info-container')?.append(freshRegion);
+        } else if (returnedSignature?.endsWith(':available')) {
+          this.patchAvailablePurchaseRegion(returnedInfo, variant?.id);
+        } else if (currentRegion && returnedRegion) {
+          const currentStatus = currentRegion.querySelector('.product__purchase-status');
+          const returnedStatus = returnedRegion.querySelector('.product__purchase-status');
+          if (currentStatus && returnedStatus) currentStatus.innerHTML = returnedStatus.innerHTML;
+        }
+
+        for (const key of ['productKind', 'purchaseMode', 'purchasability', 'stateSignature']) {
+          this.dataset[key] = returnedInfo.dataset[key];
+        }
+
+        this.refreshPurchaseRegion(variant?.id);
+        this.pickupAvailability?.update?.(variant);
+        this.patchVariantGuidance(returnedInfo);
+        publish(PUB_SUB_EVENTS.variantChange, {
+          data: { sectionId: this.sectionId, html, variant },
+        });
+      }
+
+      updateCommonFragments(html) {
+        const update = (id, shouldHide = () => false, allowPresenceChange = false) => {
+          const source = html.querySelector(`#${id}-${this.sectionId}`);
+          const destination = this.querySelector(`#${id}-${this.dataset.section}`);
+          if (!source && destination && allowPresenceChange) {
+            destination.remove();
+            return;
+          }
+          if (source && !destination && allowPresenceChange) {
+            const anchor = this.querySelector(`[data-dynamic-fragment-anchor="${id}"]`);
+            anchor?.after(source.cloneNode(true));
+            return;
+          }
+          if (!source || !destination) return;
+          destination.innerHTML = source.innerHTML;
+          destination.classList.toggle('hidden', shouldHide(source));
+        };
+        update('price');
+        update('Sku', ({ classList }) => classList.contains('hidden'));
+        update('Inventory', ({ innerText }) => innerText === '', true);
+        this.querySelector(`#Volume-Note-${this.dataset.section}`)?.classList.remove('hidden');
+      }
+
+      createInteractiveRegion(region) {
+        const template = document.createElement('template');
+        template.innerHTML = region.outerHTML.trim();
+        const freshRegion = template.content.firstElementChild;
+        customElements.upgrade(freshRegion);
+        return freshRegion;
+      }
+
+      updateMainPdpOptionValues(html) {
+        const current = this.variantSelectors;
+        const returned = html.querySelector('variant-selects');
+        if (!current || !returned) return;
+        current.replaceWith(returned.cloneNode(true));
+      }
+
+      patchAvailablePurchaseRegion(html, variantId) {
+        this.updateQuantityRules(this.sectionId, html);
+        this.updateVariantInputs(variantId);
+
+        const replace = (id) => {
+          const current = this.querySelector(`#${id}-${this.dataset.section}`);
+          const returned = html.querySelector(`#${id}-${this.sectionId}`);
+          if (current && returned) current.replaceWith(returned.cloneNode(true));
+          else if (current) current.remove();
+        };
+        replace('Volume');
+        replace('Price-Per-Item');
+
+        const currentTerms = this.querySelector(`#product-form-installment-${this.dataset.section}`);
+        const returnedTerms = html.querySelector(`#product-form-installment-${this.sectionId}`);
+        if (currentTerms && returnedTerms) currentTerms.innerHTML = returnedTerms.innerHTML;
+
+        const currentPickup = this.pickupAvailability;
+        const returnedPickup = html.querySelector('pickup-availability');
+        if (currentPickup && returnedPickup) currentPickup.innerHTML = returnedPickup.innerHTML;
+      }
+
+      refreshPurchaseRegion(variantId) {
+        this.cartUpdateUnsubscriber?.();
+        this.cartUpdateUnsubscriber = undefined;
+        this.quantityInput = undefined;
+        this.quantityForm = undefined;
+        this.initQuantityHandlers();
+        this.updateVariantInputs(variantId);
+        window?.Shopify?.PaymentButton?.init();
+      }
+
+      patchVariantGuidance(html) {
+        const current = this.querySelector(`#VariantGuidance-${this.dataset.section}`);
+        const returned = html.querySelector(`#VariantGuidance-${this.sectionId}`);
+        if (current && returned) current.innerHTML = returned.innerHTML;
+        else if (current) current.remove();
+        else if (returned) this.variantSelectors?.insertAdjacentElement('afterend', returned.cloneNode(true));
+      }
+
       updateVariantInputs(variantId) {
         this.querySelectorAll(
           `#product-form-${this.dataset.section}, #product-form-installment-${this.dataset.section}`
         ).forEach((productForm) => {
           const input = productForm.querySelector('input[name="id"]');
+          if (!input) return;
           input.value = variantId ?? '';
           input.dispatchEvent(new Event('change', { bubbles: true }));
         });
       }
 
       updateURL(url, variantId) {
-        this.querySelector('share-button')?.updateUrl(
-          `${window.shopUrl}${url}${variantId ? `?variant=${variantId}` : ''}`
-        );
+        const nextUrl = new URL(url, window.location.origin);
+        nextUrl.searchParams.delete('section_id');
+        nextUrl.searchParams.delete('option_values');
+        if (variantId) nextUrl.searchParams.set('variant', variantId);
+        else nextUrl.searchParams.delete('variant');
+        if (this.dataset.productContext === 'main-pdp' && this.dataset.purchaseMode === 'in-store-only') {
+          nextUrl.searchParams.set('view', 'in-store-only');
+        } else if (this.dataset.productContext === 'main-pdp') {
+          nextUrl.searchParams.delete('view');
+        }
+
+        this.querySelector('share-button')?.updateUrl(nextUrl.toString());
 
         if (this.dataset.updateUrl === 'false') return;
-        window.history.replaceState({}, '', `${url}${variantId ? `?variant=${variantId}` : ''}`);
+        window.history.replaceState({}, '', `${nextUrl.pathname}${nextUrl.search}`);
       }
 
       setUnavailable() {
@@ -244,6 +389,8 @@ if (!customElements.get('product-info')) {
 
         const mediaGallerySource = this.querySelector('media-gallery ul');
         const mediaGalleryDestination = html.querySelector(`media-gallery ul`);
+
+        if (!mediaGallerySource || !mediaGalleryDestination) return;
 
         const refreshSourceData = () => {
           if (this.hasAttribute('data-zoom-on-hover')) enableZoomOnHover(2);
@@ -339,7 +486,8 @@ if (!customElements.get('product-info')) {
         const currentVariantId = this.productForm?.variantIdInput?.value;
         if (!currentVariantId) return;
 
-        this.querySelector('.quantity__rules-cart .loading__spinner').classList.remove('hidden');
+        const spinner = this.querySelector('.quantity__rules-cart .loading__spinner');
+        spinner?.classList.remove('hidden');
         fetch(`${this.dataset.url}?variant=${currentVariantId}&section_id=${this.dataset.section}`)
           .then((response) => response.text())
           .then((responseText) => {
@@ -347,14 +495,17 @@ if (!customElements.get('product-info')) {
             this.updateQuantityRules(this.dataset.section, html);
           })
           .catch((e) => console.error(e))
-          .finally(() => this.querySelector('.quantity__rules-cart .loading__spinner').classList.add('hidden'));
+          .finally(() => spinner?.classList.add('hidden'));
       }
 
       updateQuantityRules(sectionId, html) {
         if (!this.quantityInput) return;
         this.setQuantityBoundries();
 
-        const quantityFormUpdated = html.getElementById(`Quantity-Form-${sectionId}`);
+        const quantityFormUpdated = html.getElementById
+          ? html.getElementById(`Quantity-Form-${sectionId}`)
+          : html.querySelector(`#Quantity-Form-${sectionId}`);
+        if (!this.quantityForm || !quantityFormUpdated) return;
         const selectors = ['.quantity__input', '.quantity__rules', '.quantity__label'];
         for (let selector of selectors) {
           const current = this.quantityForm.querySelector(selector);
