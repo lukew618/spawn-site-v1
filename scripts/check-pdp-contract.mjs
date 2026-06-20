@@ -11,6 +11,7 @@ const product = json('templates/product.json');
 const inStore = json('templates/product.in-store-only.json');
 const main = read('sections/main-product.liquid');
 const css = read('assets/section-main-product.css');
+const variantPickerCss = read('assets/component-product-variant-picker.css');
 const js = read('assets/product-info.js');
 const cart = read('snippets/cart-drawer.liquid');
 const threshold = read('snippets/free-shipping-threshold.liquid');
@@ -48,6 +49,16 @@ for (const token of [
 ]) assert(main.includes(token), `Missing main-product contract: ${token}`);
 
 assert(!main.includes("class: 'installment caption-large'"), 'Installment terms must not remain in the price block');
+assert(
+  main.includes("when 'text'") && main.includes('if block.settings.text != blank'),
+  'Blank text blocks must not render wrappers',
+);
+assert(!main.includes('rating-wrapper--placeholder'), 'Blank or zero ratings must not render placeholder chrome');
+assert(!main.includes('Be the first to review'), 'Blank or zero ratings must not render solicitation copy');
+assert(
+  !/input\[type='radio'\](?::disabled|\.disabled) \+ label[\s\S]*?text-decoration:\s*line-through/.test(variantPickerCss),
+  'Unavailable variant labels must not use whole-label strike-through',
+);
 assert(css.includes('[data-product-context="main-pdp"]'));
 assert(js.includes("this.dataset.productContext === 'main-pdp'"));
 assert(threshold.includes('8500') && threshold.includes('$85'));

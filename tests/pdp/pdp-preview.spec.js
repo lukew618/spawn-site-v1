@@ -35,6 +35,15 @@ async function dismissConsent(page) {
   if (await decline.count()) await decline.click({ force: true });
 }
 
+async function expectNoBlankReviewOrTextChrome(page) {
+  await expect(page.locator('.rating-wrapper, .rating-wrapper--placeholder')).toHaveCount(0);
+  await expect(page.getByText('Be the first to review', { exact: true })).toHaveCount(0);
+  const blankTextWrappers = await page.locator('.product__text').evaluateAll((elements) =>
+    elements.filter((element) => !element.textContent.trim()).length,
+  );
+  expect(blankTextWrappers).toBe(0);
+}
+
 test('server-rendered purchase matrix is truthful', async ({ page }) => {
   await page.goto(availablePath);
   await expect(page.locator('product-info')).toHaveAttribute('data-state-signature', 'physical:online:available');
@@ -58,6 +67,21 @@ test('server-rendered purchase matrix is truthful', async ({ page }) => {
   await expect(page.locator('product-info')).toHaveAttribute('data-state-signature', 'physical:in-store-only:available');
   await expect(page.getByText('Contact Spawn')).toBeVisible();
   await expect(page.locator('[id^="PurchaseRegion-"], product-form, pickup-availability')).toHaveCount(0);
+});
+
+test('blank reviews and text blocks render no chrome', async ({ page }) => {
+  for (const route of [availablePath, soldPath, giftPath, zeroMediaPath, inStorePath]) {
+    await page.goto(route);
+    await expectNoBlankReviewOrTextChrome(page);
+  }
+});
+
+test('unavailable options use visible text without whole-label strike-through', async ({ page }) => {
+  await page.goto(availablePath);
+  const unavailableLabel = page.locator('.product-form__input--pill input.disabled + label').first();
+  await expect(unavailableLabel).toBeVisible();
+  await expect(unavailableLabel.locator('.label-unavailable')).toContainText(/Unavailable|Sold out/);
+  await expect(unavailableLabel).toHaveCSS('text-decoration-line', 'none');
 });
 
 test('available to sold out to available recovers one working region', async ({ page }) => {

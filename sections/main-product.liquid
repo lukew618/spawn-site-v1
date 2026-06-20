@@ -143,12 +143,14 @@
               {%- when '@app' -%}
                 {% render block %}
               {%- when 'text' -%}
-                <p
-                  class="product__text inline-richtext{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}"
-                  {{ block.shopify_attributes }}
-                >
-                  {{- block.settings.text -}}
-                </p>
+                {%- if block.settings.text != blank -%}
+                  <p
+                    class="product__text inline-richtext{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}"
+                    {{ block.shopify_attributes }}
+                  >
+                    {{- block.settings.text -}}
+                  </p>
+                {%- endif -%}
               {%- when 'title' -%}
                 <div class="product__title" {{ block.shopify_attributes }}>
                   <h1>{{ product.title | escape }}</h1>
@@ -376,15 +378,6 @@
                         {{- product.metafields.reviews.rating_count }}
                         {{ 'accessibility.total_reviews' | t -}}
                       </span>
-                    </p>
-                  </div>
-                {%- else -%}
-                  <div class="rating-wrapper rating-wrapper--placeholder">
-                    <div class="rating" role="img" aria-label="No reviews yet">
-                      <span aria-hidden="true" class="rating-star" style="--rating: 0; --rating-max: 5; --rating-decimal: 0;"></span>
-                    </div>
-                    <p class="rating-count caption">
-                      <span>Be the first to review</span>
                     </p>
                   </div>
                 {%- endif -%}
