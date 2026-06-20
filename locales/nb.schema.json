@@ -1887,6 +1887,9 @@
               "options__44": {
                 "label": "Vasking"
               }
+            },
+            "open_by_default": {
+              "label": "Open by default"
             }
           }
         },
@@ -2044,6 +2047,17 @@
             },
             "show_inventory_quantity": {
               "label": "Vis lagerantall"
+            }
+          }
+        },
+        "purchase_region": {
+          "name": "Purchase region",
+          "settings": {
+            "show_quantity": {
+              "label": "Show quantity selector"
+            },
+            "show_pickup_availability": {
+              "label": "Show pickup availability"
             }
           }
         }

@@ -1,0 +1,61 @@
+{% comment %}
+  Atomic main-PDP purchase owner. The enclosing product-info remains the canonical state carrier.
+{% endcomment %}
+<div
+  id="PurchaseRegion-{{ section.id }}"
+  class="product__purchase-region"
+  data-product-kind="{{ product_kind }}"
+  data-purchase-mode="{{ purchase_mode }}"
+  data-purchasability="{{ purchasability }}"
+  data-state-signature="{{ state_signature }}"
+  {{ block.shopify_attributes }}
+>
+  {%- if purchase_mode == 'in-store-only' -%}
+    <p class="product__purchase-status" role="status">
+      Available for in-store purchase. <a href="{{ routes.root_url }}pages/contact-us">Contact Spawn</a> to confirm current stock.
+    </p>
+  {%- elsif purchasability == 'sold-out' -%}
+    <p class="product__purchase-status" role="status">{{ 'products.product.sold_out' | t }}</p>
+  {%- elsif purchasability == 'unavailable' -%}
+    <p class="product__purchase-status" role="status">{{ 'products.product.unavailable' | t }}</p>
+  {%- else -%}
+    {%- liquid
+      assign render_pickup = false
+      if show_pickup_availability and pickup_allowed
+        assign render_pickup = true
+      endif
+    -%}
+    {%- if show_quantity -%}
+      {%- render 'product-quantity-selector',
+        product: product,
+        selected_variant: selected_variant,
+        product_form_id: product_form_id
+      -%}
+    {%- endif -%}
+
+    {%- render 'buy-buttons',
+      block: block,
+      product: product,
+      product_form_id: product_form_id,
+      section_id: section.id,
+      show_dynamic_checkout: show_dynamic_checkout,
+      show_gift_card_recipient: show_gift_card_recipient,
+      show_pickup_availability: render_pickup,
+      render_block_attributes: false
+    -%}
+
+    {%- assign product_form_installment_id = 'product-form-installment-' | append: section.id -%}
+    {%- form 'product', product, id: product_form_installment_id, class: 'installment caption-large' -%}
+      <input type="hidden" name="id" value="{{ selected_variant.id }}" class="product-variant-id">
+      {{ form | payment_terms }}
+    {%- endform -%}
+
+    {%- if product_kind == 'physical' -%}
+      {%- capture free_shipping_threshold -%}{%- render 'free-shipping-threshold' -%}{%- endcapture -%}
+      <div class="product__trust-row" aria-label="Shipping and returns">
+        <a href="{{ routes.cart_url }}">Free shipping over {{ free_shipping_threshold }}</a>
+        <a href="{{ shop.refund_policy.url }}">Straightforward returns</a>
+      </div>
+    {%- endif -%}
+  {%- endif -%}
+</div>

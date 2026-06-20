@@ -2,6 +2,32 @@ product-info {
   display: block;
 }
 
+.product__purchase-region {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.product__purchase-status {
+  margin: 0;
+  padding: 1.2rem 1.4rem;
+  border: 0.1rem solid rgba(var(--color-foreground), 0.2);
+  border-radius: var(--buttons-radius-outset);
+  font-weight: 600;
+}
+
+.product__trust-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem 1.6rem;
+  padding-top: 0.4rem;
+  font-size: 1.3rem;
+}
+
+.product__variant-guidance > :first-child,
+.product__variant-guidance > :last-child {
+  margin-block: 0;
+}
+
 .product {
   margin: 0;
 }
@@ -86,6 +112,27 @@ product-info {
   .product--small:not(.product--no-media) .product__media-wrapper {
     max-width: 45%;
     width: calc(45% - var(--grid-desktop-horizontal-spacing) / 2);
+  }
+}
+
+@media screen and (min-width: 750px) and (max-width: 989px) {
+  [data-product-context="main-pdp"] .product.grid {
+    display: block;
+  }
+
+  [data-product-context="main-pdp"] .product__media-wrapper,
+  [data-product-context="main-pdp"] .product__info-wrapper {
+    width: 100%;
+    max-width: 100%;
+    padding-inline: 0;
+  }
+
+  [data-product-context="main-pdp"] .product__info-wrapper {
+    padding-top: 3rem;
+  }
+
+  [data-product-context="main-pdp"] .product__column-sticky {
+    position: static;
   }
 }
 
@@ -1040,6 +1087,8 @@ a.product__text {
   color: rgb(var(--color-foreground));
   cursor: pointer;
   background-color: transparent;
+  min-width: 4.4rem;
+  min-height: 4.4rem;
 }
 
 .thumbnail:hover {

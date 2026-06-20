@@ -10,16 +10,24 @@
   Usage:
   {% render 'buy-buttons', block: block, product: product, product_form_id: product_form_id, section_id: section.id, show_pickup_availability: true %}
 {% endcomment %}
-<div {{ block.shopify_attributes }}>
+<div{% if render_block_attributes != false %} {{ block.shopify_attributes }}{% endif %}>
   {%- if product != blank -%}
     {%- liquid
       assign gift_card_recipient_feature_active = false
-      if block.settings.show_gift_card_recipient and product.gift_card?
+      assign recipient_enabled = block.settings.show_gift_card_recipient
+      if show_gift_card_recipient != null
+        assign recipient_enabled = show_gift_card_recipient
+      endif
+      if recipient_enabled and product.gift_card?
         assign gift_card_recipient_feature_active = true
       endif
 
       assign show_dynamic_checkout = false
-      if block.settings.show_dynamic_checkout and gift_card_recipient_feature_active == false
+      assign dynamic_checkout_enabled = block.settings.show_dynamic_checkout
+      if show_dynamic_checkout != null
+        assign dynamic_checkout_enabled = show_dynamic_checkout
+      endif
+      if dynamic_checkout_enabled and gift_card_recipient_feature_active == false
         assign show_dynamic_checkout = true
       endif
     -%}

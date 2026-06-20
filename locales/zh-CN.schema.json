@@ -1872,6 +1872,9 @@
               "options__44": {
                 "label": "洗涤剂"
               }
+            },
+            "open_by_default": {
+              "label": "Open by default"
             }
           },
           "name": "可折叠行"
@@ -2045,6 +2048,17 @@
             },
             "show_inventory_quantity": {
               "label": "显示库存计数"
+            }
+          }
+        },
+        "purchase_region": {
+          "name": "Purchase region",
+          "settings": {
+            "show_quantity": {
+              "label": "Show quantity selector"
+            },
+            "show_pickup_availability": {
+              "label": "Show pickup availability"
             }
           }
         }

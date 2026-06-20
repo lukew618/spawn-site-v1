@@ -2248,6 +2248,9 @@
               "options__44": {
                 "label": "Washing"
               }
+            },
+            "open_by_default": {
+              "label": "Open by default"
             }
           }
         },
@@ -2364,6 +2367,17 @@
             "heading_3": {
               "label": "Third heading",
               "default": "Heading"
+            }
+          }
+        },
+        "purchase_region": {
+          "name": "Purchase region",
+          "settings": {
+            "show_quantity": {
+              "label": "Show quantity selector"
+            },
+            "show_pickup_availability": {
+              "label": "Show pickup availability"
             }
           }
         }
