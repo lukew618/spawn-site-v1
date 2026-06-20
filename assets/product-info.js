@@ -269,16 +269,25 @@ if (!customElements.get('product-info')) {
       }
 
       updateCommonFragments(html) {
-        const update = (id, shouldHide = () => false) => {
+        const update = (id, shouldHide = () => false, allowPresenceChange = false) => {
           const source = html.querySelector(`#${id}-${this.sectionId}`);
           const destination = this.querySelector(`#${id}-${this.dataset.section}`);
+          if (!source && destination && allowPresenceChange) {
+            destination.remove();
+            return;
+          }
+          if (source && !destination && allowPresenceChange) {
+            const anchor = this.querySelector(`[data-dynamic-fragment-anchor="${id}"]`);
+            anchor?.after(source.cloneNode(true));
+            return;
+          }
           if (!source || !destination) return;
           destination.innerHTML = source.innerHTML;
           destination.classList.toggle('hidden', shouldHide(source));
         };
         update('price');
         update('Sku', ({ classList }) => classList.contains('hidden'));
-        update('Inventory', ({ innerText }) => innerText === '');
+        update('Inventory', ({ innerText }) => innerText === '', true);
         this.querySelector(`#Volume-Note-${this.dataset.section}`)?.classList.remove('hidden');
       }
 
@@ -300,6 +309,15 @@ if (!customElements.get('product-info')) {
       patchAvailablePurchaseRegion(html, variantId) {
         this.updateQuantityRules(this.sectionId, html);
         this.updateVariantInputs(variantId);
+
+        const replace = (id) => {
+          const current = this.querySelector(`#${id}-${this.dataset.section}`);
+          const returned = html.querySelector(`#${id}-${this.sectionId}`);
+          if (current && returned) current.replaceWith(returned.cloneNode(true));
+          else if (current) current.remove();
+        };
+        replace('Volume');
+        replace('Price-Per-Item');
 
         const currentTerms = this.querySelector(`#product-form-installment-${this.dataset.section}`);
         const returnedTerms = html.querySelector(`#product-form-installment-${this.sectionId}`);

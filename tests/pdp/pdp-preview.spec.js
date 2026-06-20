@@ -35,6 +35,15 @@ async function dismissConsent(page) {
   if (await decline.count()) await decline.click({ force: true });
 }
 
+async function submitAndReadCart(page, form) {
+  const addResponse = page.waitForResponse((response) => response.url().includes('/cart/add'));
+  const navigation = page.waitForNavigation({ waitUntil: 'domcontentloaded', timeout: 5000 }).catch(() => null);
+  await form.evaluate((element) => element.requestSubmit());
+  expect((await addResponse).ok()).toBe(true);
+  await navigation;
+  return page.evaluate(() => fetch('/cart.js').then((response) => response.json()));
+}
+
 async function expectNoBlankReviewOrTextChrome(page) {
   await expect(page.locator('.rating-wrapper, .rating-wrapper--placeholder')).toHaveCount(0);
   await expect(page.getByText('Be the first to review', { exact: true })).toHaveCount(0);
@@ -92,6 +101,7 @@ test('available to sold out to available recovers one working region', async ({ 
   await expect(page.locator('product-info')).toHaveAttribute('data-state-signature', 'physical:online:sold-out');
   await expect(page.locator('.product__purchase-status')).toContainText('Sold out');
   await expect(page.locator('product-form, [id^="Quantity-Form-"]')).toHaveCount(0);
+  await expect(page.locator('[id^="Inventory-"]')).toHaveCount(0);
 
   const availableInput = page.locator('variant-selects input[type="radio"][value="Fl Chartreuse"]');
   await dispatchChecked(availableInput);
@@ -99,14 +109,10 @@ test('available to sold out to available recovers one working region', async ({ 
   await expect(page.locator('[id^="PurchaseRegion-"]')).toHaveCount(1);
   await expect(page.locator('product-form')).toHaveCount(1);
   await expect(page.locator('[id^="Quantity-Form-"]')).toHaveCount(1);
+  await expect(page.locator('[id^="Inventory-"]')).toHaveCount(1);
   await expect(page.locator('input.product-variant-id').first()).toHaveValue('40998159286335');
   await page.locator('.quantity__input').fill('1');
-  const addResponse = page.waitForResponse((response) => response.url().includes('/cart/add'));
-  const cartNavigation = page.waitForURL(/\/cart$/);
-  await page.locator('form[data-type="add-to-cart-form"]').evaluate((form) => form.requestSubmit());
-  await addResponse;
-  await cartNavigation;
-  const cart = await page.evaluate(() => fetch('/cart.js').then((response) => response.json()));
+  const cart = await submitAndReadCart(page, page.locator('form[data-type="add-to-cart-form"]'));
   const addedLine = cart.items.find((item) => item.id === 40998159286335);
   expect(addedLine.quantity).toBe(1);
   expect(errors).toEqual([]);
@@ -131,12 +137,7 @@ test('gift card recipient values survive an available amount change', async ({ p
   await expect(page.locator('[id^="Recipient-email-"]')).toHaveValue('angler@example.com');
   await expect(page.locator('[id^="Recipient-name-"]')).toHaveValue('Test Angler');
   await expect(page.locator('input.product-variant-id').first()).toHaveValue('39734797467711');
-  const addResponse = page.waitForResponse((response) => response.url().includes('/cart/add'));
-  const cartNavigation = page.waitForURL(/\/cart$/);
-  await page.locator('form[data-type="add-to-cart-form"]').evaluate((form) => form.requestSubmit());
-  await addResponse;
-  await cartNavigation;
-  const cart = await page.evaluate(() => fetch('/cart.js').then((response) => response.json()));
+  const cart = await submitAndReadCart(page, page.locator('form[data-type="add-to-cart-form"]'));
   const giftLine = cart.items.find((item) => item.id === 39734797467711);
   expect(giftLine.properties['Recipient email']).toBe('angler@example.com');
   expect(giftLine.properties['Recipient name']).toBe('Test Angler');
@@ -207,19 +208,32 @@ test('changed controls meet target size and screenshots are current', async ({ p
   }
 });
 
-test('enabled featured product keeps generic no-URL-update behavior', async ({ page }) => {
+test('enabled featured product adds through the generic path without URL leakage', async ({ page }) => {
   const errors = captureConsoleErrors(page);
   await page.goto('/cart');
   const featured = page.locator('product-info[data-update-url="false"]');
   await expect(featured).toHaveCount(1);
   await expect(featured).not.toHaveAttribute('data-product-context', 'main-pdp');
   const initialUrl = page.url();
+  const variantInput = featured.locator('form[data-type="add-to-cart-form"] input[name="id"]');
+  const initialVariantId = await variantInput.inputValue();
   const picker = featured.locator('variant-selects input[type="radio"], variant-selects select').first();
   if (await picker.count()) {
-    if ((await picker.getAttribute('type')) === 'radio') await picker.check();
-    else await picker.selectOption({ index: 1 });
+    if ((await picker.getAttribute('type')) === 'radio') {
+      const alternate = featured.locator('variant-selects input[type="radio"]:not(:checked)').first();
+      if (await alternate.count()) await dispatchChecked(alternate);
+    } else if ((await picker.locator('option').count()) > 1) {
+      await picker.selectOption({ index: 1 });
+    }
     await expect(page).toHaveURL(initialUrl);
   }
+  const selectedVariantId = Number(await variantInput.inputValue());
+  expect(selectedVariantId).toBeGreaterThan(0);
+  const cart = await submitAndReadCart(page, featured.locator('form[data-type="add-to-cart-form"]'));
+  expect(cart.items.some((item) => item.id === selectedVariantId)).toBe(true);
+  expect(page.url()).toBe(initialUrl);
+  expect(page.url()).not.toMatch(/[?&](view|variant|option_values)=/);
+  expect(initialVariantId).not.toBe('');
   expect(errors).toEqual([]);
 });
 

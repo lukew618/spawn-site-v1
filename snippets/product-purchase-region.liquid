@@ -53,7 +53,7 @@
     {%- if product_kind == 'physical' -%}
       {%- capture free_shipping_threshold -%}{%- render 'free-shipping-threshold' -%}{%- endcapture -%}
       <div class="product__trust-row" aria-label="Shipping and returns">
-        <a href="{{ routes.cart_url }}">Free shipping over {{ free_shipping_threshold }}</a>
+        <a href="{{ routes.cart_url }}">Free shipping on orders of {{ free_shipping_threshold }} or more</a>
         <a href="{{ shop.refund_policy.url }}">Straightforward returns</a>
       </div>
     {%- endif -%}

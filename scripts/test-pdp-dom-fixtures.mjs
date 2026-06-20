@@ -30,18 +30,4 @@ const featured = fixture('featured-product');
 assert(!featured.includes('data-product-context="main-pdp"'));
 assert(featured.includes('data-update-url="false"'));
 
-const productInfoSource = fs.readFileSync('assets/product-info.js', 'utf8');
-for (const token of [
-  'requestToken !== this.requestToken',
-  'handleMainPdpUpdate',
-  'signatureChanged',
-  'patchAvailablePurchaseRegion',
-  'refreshPurchaseRegion',
-  "this.dataset.productContext === 'main-pdp'",
-]) assert(productInfoSource.includes(token), `Missing transition implementation token: ${token}`);
-
-let appliedToken = 0;
-for (const token of [1, 3, 2]) if (token > appliedToken) appliedToken = token;
-assert.equal(appliedToken, 3, 'Final response must win rapid selection');
-
-console.log('PDP DOM fixture contracts passed.');
+console.log('PDP DOM fixture structure passed; browser tests execute the actual custom elements.');
