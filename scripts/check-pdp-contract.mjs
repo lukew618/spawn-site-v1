@@ -1,0 +1,67 @@
+#!/usr/bin/env node
+
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+
+const read = (file) => fs.readFileSync(file, 'utf8');
+const stripJsonComments = (source) => source.replace(/^\/\*[\s\S]*?\*\/\s*/, '');
+const json = (file) => JSON.parse(stripJsonComments(read(file)));
+
+const product = json('templates/product.json');
+const inStore = json('templates/product.in-store-only.json');
+const main = read('sections/main-product.liquid');
+const css = read('assets/section-main-product.css');
+const js = read('assets/product-info.js');
+const cart = read('snippets/cart-drawer.liquid');
+const header = read('sections/header-group.json');
+const home = read('templates/index.json');
+
+const productBlocks = product.sections.main.blocks;
+const inStoreBlocks = inStore.sections.main.blocks;
+const blockTypes = (blocks) => Object.values(blocks).map((block) => block.type);
+
+assert(!Object.values(product.sections).some((section) => section.type === 'image-banner'));
+assert(!Object.values(product.sections).some((section) => section.type === 'multicolumn'));
+assert(!Object.values(inStore.sections).some((section) => section.type === 'image-banner'));
+assert(!Object.values(inStore.sections).some((section) => section.type === 'multicolumn'));
+assert(!blockTypes(productBlocks).includes('icon-with-text'));
+assert(!blockTypes(productBlocks).includes('custom_liquid'));
+
+assert(blockTypes(productBlocks).includes('purchase_region'));
+assert(!blockTypes(productBlocks).includes('quantity_selector'));
+assert(!blockTypes(productBlocks).includes('buy_buttons'));
+assert(!blockTypes(inStoreBlocks).includes('purchase_region'));
+assert(!blockTypes(inStoreBlocks).includes('quantity_selector'));
+assert(!blockTypes(inStoreBlocks).includes('buy_buttons'));
+
+for (const token of [
+  'data-product-context="main-pdp"',
+  'data-product-kind=',
+  'data-purchase-mode=',
+  'data-purchasability=',
+  'data-state-signature=',
+  "when 'purchase_region'",
+  'quantity_rule_soldout',
+  'block.shopify_attributes',
+  'request.design_mode',
+]) assert(main.includes(token), `Missing main-product contract: ${token}`);
+
+assert(!main.includes("class: 'installment caption-large'"), 'Installment terms must not remain in the price block');
+assert(css.includes('[data-product-context="main-pdp"]'));
+assert(js.includes("this.dataset.productContext === 'main-pdp'"));
+assert(cart.includes('8500'));
+assert(header.includes('$85'));
+assert(home.includes('$85'));
+
+const storefrontSources = [
+  main,
+  cart,
+  header,
+  home,
+  read('templates/product.json'),
+  read('templates/product.in-store-only.json'),
+];
+assert(!storefrontSources.some((source) => source.includes('$49') || source.includes('$75')));
+
+console.log('PDP static contract passed.');
+
