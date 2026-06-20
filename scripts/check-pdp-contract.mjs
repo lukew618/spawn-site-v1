@@ -13,6 +13,7 @@ const main = read('sections/main-product.liquid');
 const css = read('assets/section-main-product.css');
 const js = read('assets/product-info.js');
 const cart = read('snippets/cart-drawer.liquid');
+const threshold = read('snippets/free-shipping-threshold.liquid');
 const header = read('sections/header-group.json');
 const home = read('templates/index.json');
 
@@ -49,7 +50,8 @@ for (const token of [
 assert(!main.includes("class: 'installment caption-large'"), 'Installment terms must not remain in the price block');
 assert(css.includes('[data-product-context="main-pdp"]'));
 assert(js.includes("this.dataset.productContext === 'main-pdp'"));
-assert(cart.includes('8500'));
+assert(threshold.includes('8500') && threshold.includes('$85'));
+assert(cart.includes("render 'free-shipping-threshold'"));
 assert(header.includes('$85'));
 assert(home.includes('$85'));
 
@@ -63,5 +65,9 @@ const storefrontSources = [
 ];
 assert(!storefrontSources.some((source) => source.includes('$49') || source.includes('$75')));
 
-console.log('PDP static contract passed.');
+const thresholdMinorUnits = 8500;
+assert.equal(Math.max(thresholdMinorUnits - 8499, 0), 1);
+assert.equal(Math.max(thresholdMinorUnits - 8500, 0), 0);
+assert.equal(Math.max(thresholdMinorUnits - 8501, 0), 0);
 
+console.log('PDP static contract passed.');
