@@ -1,0 +1,16 @@
+{
+  "sections": {
+    "breadcrumb": {
+      "type": "breadcrumb",
+      "settings": {}
+    },
+    "main": {
+      "type": "rivers-index",
+      "settings": {}
+    }
+  },
+  "order": [
+    "breadcrumb",
+    "main"
+  ]
+}

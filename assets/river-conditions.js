@@ -69,6 +69,48 @@ const RIVER_CONFIG = {
     fair:     { flow_min: 1500,  flow_max: 2500,  temp_min: 42, temp_max: 62 },
     marginal: { flow_min: 2500,  flow_max: 4000 },
     blown:    { flow_min: 4000 }
+  },
+  sauk: {
+    prime:    { flow_min: 1000,  flow_max: 4000,  temp_min: 42, temp_max: 54 },
+    good:     { flow_min: 4000,  flow_max: 8000,  temp_min: 38, temp_max: 42 },
+    fair:     { flow_min: 8000,  flow_max: 12000, temp_min: 36, temp_max: 56 },
+    marginal: { flow_min: 12000, flow_max: 18000 },
+    blown:    { flow_min: 18000 }
+  },
+  stillaguamish: {
+    prime:    { flow_min: 600,   flow_max: 2500,  temp_min: 44, temp_max: 56 },
+    good:     { flow_min: 2500,  flow_max: 5000,  temp_min: 40, temp_max: 44 },
+    fair:     { flow_min: 5000,  flow_max: 8000,  temp_min: 38, temp_max: 58 },
+    marginal: { flow_min: 8000,  flow_max: 12000 },
+    blown:    { flow_min: 12000 }
+  },
+  methow: {
+    prime:    { flow_min: 400,   flow_max: 1800,  temp_min: 46, temp_max: 58 },
+    good:     { flow_min: 1800,  flow_max: 3500,  temp_min: 42, temp_max: 46 },
+    fair:     { flow_min: 3500,  flow_max: 5000,  temp_min: 40, temp_max: 60 },
+    marginal: { flow_min: 5000,  flow_max: 7500 },
+    blown:    { flow_min: 7500 }
+  },
+  wenatchee: {
+    prime:    { flow_min: 800,   flow_max: 3000,  temp_min: 46, temp_max: 60 },
+    good:     { flow_min: 3000,  flow_max: 5500,  temp_min: 42, temp_max: 46 },
+    fair:     { flow_min: 5500,  flow_max: 8000,  temp_min: 40, temp_max: 62 },
+    marginal: { flow_min: 8000,  flow_max: 12000 },
+    blown:    { flow_min: 12000 }
+  },
+  spokane: {
+    prime:    { flow_min: 1500,  flow_max: 6000,  temp_min: 46, temp_max: 62 },
+    good:     { flow_min: 6000,  flow_max: 10000, temp_min: 42, temp_max: 46 },
+    fair:     { flow_min: 10000, flow_max: 15000, temp_min: 40, temp_max: 64 },
+    marginal: { flow_min: 15000, flow_max: 25000 },
+    blown:    { flow_min: 25000 }
+  },
+  grande_ronde: {
+    prime:    { flow_min: 500,   flow_max: 2000,  temp_min: 46, temp_max: 60 },
+    good:     { flow_min: 2000,  flow_max: 4000,  temp_min: 42, temp_max: 46 },
+    fair:     { flow_min: 4000,  flow_max: 6500,  temp_min: 40, temp_max: 62 },
+    marginal: { flow_min: 6500,  flow_max: 9000 },
+    blown:    { flow_min: 9000 }
   }
 };
 
@@ -431,3 +473,35 @@ class RiverConditions extends HTMLElement {
 if (!customElements.get('river-conditions')) {
   customElements.define('river-conditions', RiverConditions);
 }
+
+// Shared helpers for other pages (picker, rivers index)
+window.SPAWN_RIVERS = window.SPAWN_RIVERS || {
+  RIVER_CONFIG,
+  FISHABILITY_COPY,
+  computeFishability(slug, flow, temp) {
+    const c = RIVER_CONFIG[slug];
+    if (!c) return 'UNKNOWN';
+    if (flow == null) return 'UNKNOWN';
+    if (flow < c.prime.flow_min) return 'LOW_FLOW';
+    if (flow >= c.blown.flow_min) return 'BLOWN_OUT';
+    const levels = ['prime', 'good', 'fair', 'marginal'];
+    for (const level of levels) {
+      const r = c[level];
+      if (!r) continue;
+      const flowMatch = flow >= r.flow_min && flow < r.flow_max;
+      if (temp == null) {
+        if (flowMatch) return level.toUpperCase();
+        continue;
+      }
+      const hasTemp = r.temp_min != null && r.temp_max != null;
+      if (level === 'prime' || level === 'good') {
+        if (flowMatch && (!hasTemp || (temp >= r.temp_min && temp < r.temp_max))) {
+          return level.toUpperCase();
+        }
+      } else {
+        if (flowMatch) return level.toUpperCase();
+      }
+    }
+    return 'FAIR';
+  }
+};

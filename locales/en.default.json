@@ -329,6 +329,24 @@
         }
       }
     },
+    "river_picker": {
+      "current": "Current river",
+      "search_placeholder": "Search rivers…",
+      "search_label": "Search rivers",
+      "browse_all": "Browse all rivers",
+      "empty": "No rivers match."
+    },
+    "rivers_index": {
+      "empty": "No rivers configured yet. Run the seed script to populate river data.",
+      "search_placeholder": "Search rivers or towns…",
+      "search_label": "Search rivers",
+      "filter_label": "Filter by region",
+      "all_regions": "All regions",
+      "flow": "Flow",
+      "temperature": "Temp",
+      "view": "View conditions",
+      "no_results": "No rivers match. Try clearing filters or searching a different name."
+    },
     "header": {
       "announcement": "Announcement",
       "menu": "Menu",
