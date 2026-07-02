@@ -50,21 +50,24 @@ No build step. Edit files directly — no webpack, Vite, or compilation.
 **Images — non-negotiable:**
 ```liquid
 {%- # Above-the-fold / LCP image -%}
+{%- assign hero_alt = section.settings.image.alt | escape -%}
 {{ section.settings.image | image_url: width: 1500 | image_tag:
    loading: 'eager',
    fetchpriority: 'high',
    preload: true,
    widths: '375,750,1100,1500',
    sizes: '100vw',
-   alt: section.settings.image.alt | escape }}
+   alt: hero_alt }}
 
 {%- # Below-the-fold (product cards, etc.) -%}
+{%- assign card_alt = product.featured_image.alt | default: product.title | escape -%}
 {{ product.featured_image | image_url: width: 600 | image_tag:
    loading: 'lazy',
    widths: '200,300,400,600',
    sizes: '(min-width: 750px) 25vw, 50vw',
-   alt: product.featured_image.alt | default: product.title | escape }}
+   alt: card_alt }}
 ```
+- Assign `alt` to a variable first — a `| default:` or `| escape` chained inside `image_tag:` args actually applies to the whole `<img>` tag output and escapes it into literal text.
 - Always `image_url` + `image_tag` — never raw `<img src>` or hardcoded CDN URLs.
 - Always `widths:` for srcset. Always explicit `alt`. Always `width` + `height` to prevent CLS.
 - LCP images: `loading: 'eager'` + `fetchpriority: 'high'`. Everything else: `loading: 'lazy'`.
@@ -165,7 +168,9 @@ chore(snippets): migrate include to render in featured-collection
 - **`git_commit_template.md` in `/assets/`** — accidentally committed, not a theme file. Do not reference or deploy it.
 - **Theme Editor vs. code** — changes made in the Shopify Theme Editor land in `config/settings_data.json`. Always `shopify theme pull` before starting work or you'll clobber editor changes.
 - **Shopify's strict Liquid parser** — all Liquid must be syntactically valid or the theme will fail to publish. `shopify theme check` catches this.
-- **Three theme IDs exist** (main live: `128853147711`, staging: `128878903359`) — but this repo tracks spawn-store-v1 (`129377796159`) exclusively. Never push to the other IDs from this workflow.
+- **Three theme IDs exist** (main live: `128853147711`, staging: `128878903359`) — but this repo tracks spawn-store-v1 (`129377796159`) exclusively. Never push to the other IDs from this workflow. As of 2026-07, `129377796159` reports `role: "live"` on push — treat every push to it as a production deploy.
+- **Push-time schema validation goes beyond theme check** — `shopify theme check` passes but push rejects: (1) `inline_richtext`/`richtext` settings can't have `"default": ""` — omit the default instead; (2) template JSON dynamic sources are validated against an allowlist — `{{ product.type }}` is invalid in settings (use `product.vendor`, `product.title`, or metafields). Always confirm push output shows `errors: None`; a failed file silently keeps the old version live.
+- **IntersectionObserver misses jump-scrolls** — an element jumping from below-viewport to above-viewport (End key, anchor link, fast flick) never intersects, so no callback fires. For scroll-position UI (sticky bars, scroll headers), use a rAF-throttled scroll listener with `getBoundingClientRect()` like `header-scroll.js` and `sticky-atc.js` do.
 
 ## Workflow
 1. `shopify theme pull --theme=129377796159` — sync before starting

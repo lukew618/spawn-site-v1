@@ -174,6 +174,7 @@
         "from_price_html": "From {{ price }}",
         "regular_price": "Regular price",
         "sale_price": "Sale price",
+        "save_percent": "Save {{ percent }}%",
         "unit_price": "Unit price"
       },
       "share": "Share this product",

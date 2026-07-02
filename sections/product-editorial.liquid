@@ -1,0 +1,86 @@
+{{ 'section-product-editorial.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- if section.settings.content != blank -%}
+  <div class="gradient color-{{ section.settings.color_scheme }}">
+    <div class="page-width section-{{ section.id }}-padding">
+      <div class="product-editorial{% if section.settings.heading == blank %} product-editorial--no-heading{% endif %}">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="product-editorial__heading">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+        <div class="product-editorial__content rte">
+          {{ section.settings.content }}
+        </div>
+      </div>
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "t:sections.product-editorial.name",
+  "tag": "section",
+  "class": "section",
+  "enabled_on": {
+    "templates": ["product"]
+  },
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "t:sections.product-editorial.settings.heading.label",
+      "info": "t:sections.product-editorial.settings.heading.info"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "t:sections.product-editorial.settings.content.label",
+      "info": "t:sections.product-editorial.settings.content.info"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.product-editorial.settings.color_scheme.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.product-editorial.settings.padding_top.label",
+      "default": 52
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.product-editorial.settings.padding_bottom.label",
+      "default": 52
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.product-editorial.presets.name"
+    }
+  ]
+}
+{% endschema %}

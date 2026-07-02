@@ -8,6 +8,7 @@
   - show_badges: {Boolean} Renders 'Sale' and 'Sold Out' tags if the product matches the condition (optional)
   - price_class: {String} Adds a price class to the price element (optional)
   - show_compare_at_price: {Boolean} Renders the compare at price if the product matches the condition (optional)
+  - show_savings: {Boolean} Replaces the 'Sale' badge text with the percentage saved (optional)
 
   Usage:
   {% render 'price', product: product %}
@@ -37,6 +38,11 @@
 
   if target == product and product.price_varies
     assign money_price = 'products.product.price.from_price_html' | t: price: money_price
+  endif
+
+  assign savings_percent = 0
+  if show_savings and compare_at_price > price and compare_at_price > 0
+    assign savings_percent = compare_at_price | minus: price | times: 100.0 | divided_by: compare_at_price | round
   endif
 -%}
 
@@ -125,7 +131,11 @@
     </div>
     {%- if show_badges -%}
       <span class="badge price__badge-sale color-{{ settings.sale_badge_color_scheme }}">
-        {{ 'products.product.on_sale' | t }}
+        {%- if savings_percent > 0 -%}
+          {{ 'products.product.price.save_percent' | t: percent: savings_percent }}
+        {%- else -%}
+          {{ 'products.product.on_sale' | t }}
+        {%- endif -%}
       </span>
 
       <span class="badge price__badge-sold-out color-{{ settings.sold_out_badge_color_scheme }}">

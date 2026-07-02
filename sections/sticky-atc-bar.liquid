@@ -1,0 +1,74 @@
+{{ 'component-sticky-atc.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'sticky-atc.js' | asset_url }}" defer="defer"></script>
+
+{%- if product != blank -%}
+  <sticky-atc-bar class="sticky-atc gradient color-{{ section.settings.color_scheme }}" hidden>
+    <div class="page-width sticky-atc__inner">
+      <div class="sticky-atc__product">
+        {%- if product.featured_media -%}
+          {%- assign sticky_image_alt = product.featured_media.alt | default: product.title | escape -%}
+          {{
+            product.featured_media
+            | image_url: width: 120
+            | image_tag:
+              loading: 'lazy',
+              widths: '60, 120',
+              sizes: '48px',
+              class: 'sticky-atc__image',
+              alt: sticky_image_alt
+          }}
+        {%- endif -%}
+        <div class="sticky-atc__meta">
+          <span class="sticky-atc__title">{{ product.title | escape }}</span>
+          <div class="sticky-atc__price" data-sticky-price>
+            {%- render 'price', product: product, use_variant: true -%}
+          </div>
+        </div>
+      </div>
+      <button
+        type="button"
+        class="button button--primary sticky-atc__button"
+        data-sticky-submit
+        {% if product.selected_or_first_available_variant.available == false %}
+          disabled
+        {% endif %}
+      >
+        <span data-sticky-submit-text>
+          {%- if product.selected_or_first_available_variant.available -%}
+            {{ 'products.product.add_to_cart' | t }}
+          {%- else -%}
+            {{ 'products.product.sold_out' | t }}
+          {%- endif -%}
+        </span>
+      </button>
+    </div>
+  </sticky-atc-bar>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "t:sections.sticky-atc-bar.name",
+  "tag": "aside",
+  "class": "section-sticky-atc",
+  "enabled_on": {
+    "templates": ["product"]
+  },
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.sticky-atc-bar.settings.paragraph.content"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.sticky-atc-bar.settings.color_scheme.label",
+      "default": "scheme-1"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.sticky-atc-bar.presets.name"
+    }
+  ]
+}
+{% endschema %}

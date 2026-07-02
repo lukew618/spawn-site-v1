@@ -42,30 +42,10 @@
           "type": "price",
           "settings": {}
         },
-        "icon_with_text_tLpQYg": {
-          "type": "icon-with-text",
-          "settings": {
-            "layout": "horizontal",
-            "icon_1": "truck",
-            "heading_1": "Free Shipping Over $85",
-            "icon_2": "return",
-            "heading_2": "Free Returns",
-            "icon_3": "lightning_bolt",
-            "heading_3": ""
-          }
-        },
         "custom_liquid_nE4Abq": {
           "type": "custom_liquid",
           "settings": {
             "custom_liquid": "{% for variant in product.variants %}\n\n  {{ variant.metafields.custom.variant_description | metafield_tag }}\n\n{% endfor %}"
-          }
-        },
-        "inventory_Q8TEkg": {
-          "type": "inventory",
-          "settings": {
-            "text_style": "body",
-            "inventory_threshold": 10,
-            "show_inventory_quantity": true
           }
         },
         "variant_picker": {
@@ -79,11 +59,44 @@
           "type": "quantity_selector",
           "settings": {}
         },
+        "inventory_Q8TEkg": {
+          "type": "inventory",
+          "settings": {
+            "text_style": "body",
+            "inventory_threshold": 10,
+            "show_inventory_quantity": true
+          }
+        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
             "show_dynamic_checkout": true,
             "show_gift_card_recipient": true
+          }
+        },
+        "icon_with_text_tLpQYg": {
+          "type": "icon-with-text",
+          "settings": {
+            "layout": "horizontal",
+            "icon_1": "truck",
+            "heading_1": "Free Shipping Over $75",
+            "icon_2": "return",
+            "heading_2": "Free Returns",
+            "icon_3": "map_pin",
+            "heading_3": "Ships From Ilwaco, WA"
+          }
+        },
+        "complementary_worksWith": {
+          "type": "complementary",
+          "settings": {
+            "block_heading": "WORKS WITH",
+            "make_collapsible_row": false,
+            "icon": "price_tag",
+            "product_list_limit": 4,
+            "products_per_page": 2,
+            "pagination_style": "dots",
+            "image_ratio": "square",
+            "enable_quick_add": true
           }
         },
         "collapsible_tab_knxctr": {
@@ -142,12 +155,13 @@
         "caption",
         "rating_4VqEwi",
         "price",
-        "icon_with_text_tLpQYg",
         "custom_liquid_nE4Abq",
-        "inventory_Q8TEkg",
         "variant_picker",
         "quantity_selector",
+        "inventory_Q8TEkg",
         "buy_buttons",
+        "icon_with_text_tLpQYg",
+        "complementary_worksWith",
         "collapsible_tab_knxctr",
         "collapsible_tab_KjLei6",
         "collapsible-row-0",
@@ -171,6 +185,56 @@
         "enable_video_looping": false,
         "padding_top": 44,
         "padding_bottom": 12
+      }
+    },
+    "product_specs_main": {
+      "type": "product-specs",
+      "blocks": {
+        "spec_features": {
+          "type": "spec",
+          "settings": {
+            "heading": "Features",
+            "content": "{{ product.metafields.custom.all_product_features_bullets | metafield_tag }}",
+            "wide": true
+          }
+        },
+        "spec_brand": {
+          "type": "spec",
+          "settings": {
+            "heading": "Brand",
+            "content": "<p>{{ product.vendor }}</p>",
+            "wide": false
+          }
+        },
+        "spec_shipping": {
+          "type": "spec",
+          "settings": {
+            "heading": "Shipping & Returns",
+            "content": "<p>Free shipping on US orders over $75. Free return shipping within the US.</p>",
+            "wide": false
+          }
+        }
+      },
+      "block_order": [
+        "spec_features",
+        "spec_brand",
+        "spec_shipping"
+      ],
+      "settings": {
+        "heading": "",
+        "color_scheme": "scheme-1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "product_editorial_main": {
+      "type": "product-editorial",
+      "settings": {
+        "heading": "{{ product.metafields.descriptors.subtitle.value }}",
+        "content": "{{ product.metafields.custom.product_description | metafield_tag }}",
+        "color_scheme": "scheme-1",
+        "padding_top": 52,
+        "padding_bottom": 52
       }
     },
     "related-products": {
@@ -275,13 +339,22 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "sticky_atc_main": {
+      "type": "sticky-atc-bar",
+      "settings": {
+        "color_scheme": "scheme-1"
+      }
     }
   },
   "order": [
     "breadcrumb",
     "main",
+    "product_specs_main",
+    "product_editorial_main",
     "related-products",
     "image_banner_irBgAP",
-    "multicolumn_frj3Ei"
+    "multicolumn_frj3Ei",
+    "sticky_atc_main"
   ]
 }

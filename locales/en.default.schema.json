@@ -680,6 +680,84 @@
         }
       }
     },
+    "product-specs": {
+      "name": "Product specs",
+      "settings": {
+        "heading": {
+          "label": "Heading"
+        },
+        "color_scheme": {
+          "label": "Color scheme"
+        },
+        "padding_top": {
+          "label": "Top padding"
+        },
+        "padding_bottom": {
+          "label": "Bottom padding"
+        }
+      },
+      "blocks": {
+        "spec": {
+          "name": "Spec column",
+          "settings": {
+            "heading": {
+              "label": "Heading",
+              "default": "Features"
+            },
+            "content": {
+              "label": "Content",
+              "info": "Connect a product metafield with a dynamic source, or leave blank to hide this column."
+            },
+            "wide": {
+              "label": "Wide column",
+              "info": "Give this column double width, like a features list."
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Product specs"
+      }
+    },
+    "product-editorial": {
+      "name": "Product editorial",
+      "settings": {
+        "heading": {
+          "label": "Heading",
+          "info": "Connect a product metafield with a dynamic source for a per-product headline."
+        },
+        "content": {
+          "label": "Content",
+          "info": "Connect a product metafield with a dynamic source. Section is hidden when empty."
+        },
+        "color_scheme": {
+          "label": "Color scheme"
+        },
+        "padding_top": {
+          "label": "Top padding"
+        },
+        "padding_bottom": {
+          "label": "Bottom padding"
+        }
+      },
+      "presets": {
+        "name": "Product editorial"
+      }
+    },
+    "sticky-atc-bar": {
+      "name": "Sticky add-to-cart bar",
+      "settings": {
+        "paragraph": {
+          "content": "Shows a bar with price and add-to-cart button once the shopper scrolls past the main buy buttons."
+        },
+        "color_scheme": {
+          "label": "Color scheme"
+        }
+      },
+      "presets": {
+        "name": "Sticky add-to-cart bar"
+      }
+    },
     "custom-liquid": {
       "name": "Custom Liquid",
       "settings": {
