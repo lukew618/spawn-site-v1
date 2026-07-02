@@ -739,6 +739,18 @@
           "info": "Used when no per-product heading is connected.",
           "default": "Description & Features"
         },
+        "brand_heading": {
+          "label": "Brand column heading",
+          "default": "Brand"
+        },
+        "shipping_heading": {
+          "label": "Shipping column heading",
+          "default": "Shipping & Returns"
+        },
+        "shipping_text": {
+          "label": "Shipping column text",
+          "default": "<p>Free shipping on US orders over $75. Free return shipping within the US.</p>"
+        },
         "color_scheme": {
           "label": "Color scheme"
         },

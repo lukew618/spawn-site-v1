@@ -188,53 +188,16 @@
         "padding_bottom": 12
       }
     },
-    "product_specs_main": {
-      "type": "product-specs",
-      "blocks": {
-        "spec_features": {
-          "type": "spec",
-          "settings": {
-            "heading": "Features",
-            "content": "{{ product.metafields.custom.all_product_features_bullets | metafield_tag }}",
-            "wide": true
-          }
-        },
-        "spec_brand": {
-          "type": "spec",
-          "settings": {
-            "heading": "Brand",
-            "content": "<p>{{ product.vendor }}</p>",
-            "wide": false
-          }
-        },
-        "spec_shipping": {
-          "type": "spec",
-          "settings": {
-            "heading": "Shipping & Returns",
-            "content": "<p>Free shipping on US orders over $75. Free return shipping within the US.</p>",
-            "wide": false
-          }
-        }
-      },
-      "block_order": [
-        "spec_features",
-        "spec_brand",
-        "spec_shipping"
-      ],
-      "settings": {
-        "heading": "",
-        "color_scheme": "scheme-1",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
     "product_editorial_main": {
       "type": "product-editorial",
       "settings": {
-        "heading": "{{ product.metafields.descriptors.subtitle.value }}",
-        "content": "{{ product.metafields.custom.product_description | metafield_tag }}",
+        "heading": "",
+        "content": "",
         "use_description_fallback": true,
         "fallback_heading": "Description & Features",
+        "brand_heading": "Brand",
+        "shipping_heading": "Shipping & Returns",
+        "shipping_text": "<p>Free shipping on US orders over $75. Free return shipping within the US.</p>",
         "color_scheme": "scheme-1",
         "padding_top": 52,
         "padding_bottom": 52
@@ -353,7 +316,6 @@
   "order": [
     "breadcrumb",
     "main",
-    "product_specs_main",
     "product_editorial_main",
     "related-products",
     "image_banner_irBgAP",

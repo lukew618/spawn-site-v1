@@ -24,18 +24,80 @@
   if editorial_heading == blank
     assign editorial_heading = section.settings.fallback_heading
   endif
+
+  comment
+    Split the description into an intro row and per-heading columns.
+    Descriptions follow the house structure: intro paragraphs, then
+    '<h2>Key Features</h2><ul>…' and '<h2>Product Details</h2><ul>…'.
+    Unrecognized <h2> segments stay with the intro row.
+  endcomment
+  assign intro_html = editorial_content
+  assign key_features_html = ''
+  assign product_details_html = ''
+  if editorial_content contains '<h2'
+    assign parts = editorial_content | split: '<h2'
+    assign intro_html = parts[0]
+    for part in parts offset: 1
+      assign segment = '<h2' | append: part
+      assign segment_head = part | split: '</h2>' | first | downcase
+      if segment_head contains 'key features'
+        assign key_features_html = segment
+      elsif segment_head contains 'product details'
+        assign product_details_html = segment
+      else
+        assign intro_html = intro_html | append: segment
+      endif
+    endfor
+  endif
+
+  assign intro_text = intro_html | strip_html | strip
+  assign shipping_text = section.settings.shipping_text
 -%}
 
 {%- if editorial_content != blank -%}
   <div class="gradient color-{{ section.settings.color_scheme }}">
     <div class="page-width section-{{ section.id }}-padding">
-      <div class="product-editorial{% if editorial_heading == blank %} product-editorial--no-heading{% endif %}">
+      <div class="product-editorial">
         {%- if editorial_heading != blank -%}
           <h2 class="product-editorial__heading">{{ editorial_heading }}</h2>
         {%- endif -%}
-        <div class="product-editorial__content rte">
-          {{ editorial_content }}
-        </div>
+
+        {%- if intro_text != blank -%}
+          <div class="product-editorial__body rte">
+            {{ intro_html }}
+          </div>
+        {%- endif -%}
+
+        {%- if key_features_html != blank or product_details_html != blank or product.vendor != blank or shipping_text != blank -%}
+          <div class="product-editorial__columns">
+            {%- if key_features_html != blank -%}
+              <div class="product-editorial__column rte">
+                {{ key_features_html }}
+              </div>
+            {%- endif -%}
+            {%- if product_details_html != blank -%}
+              <div class="product-editorial__column rte">
+                {{ product_details_html }}
+              </div>
+            {%- endif -%}
+            {%- if product.vendor != blank or shipping_text != blank -%}
+              <div class="product-editorial__column product-editorial__column--stacked">
+                {%- if product.vendor != blank -%}
+                  <div class="product-editorial__stack-item rte">
+                    <h2>{{ section.settings.brand_heading | escape }}</h2>
+                    <p>{{ product.vendor }}</p>
+                  </div>
+                {%- endif -%}
+                {%- if shipping_text != blank -%}
+                  <div class="product-editorial__stack-item rte">
+                    <h2>{{ section.settings.shipping_heading | escape }}</h2>
+                    {{ shipping_text }}
+                  </div>
+                {%- endif -%}
+              </div>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
       </div>
     </div>
   </div>
@@ -75,6 +137,24 @@
       "default": "t:sections.product-editorial.settings.fallback_heading.default",
       "label": "t:sections.product-editorial.settings.fallback_heading.label",
       "info": "t:sections.product-editorial.settings.fallback_heading.info"
+    },
+    {
+      "type": "text",
+      "id": "brand_heading",
+      "default": "t:sections.product-editorial.settings.brand_heading.default",
+      "label": "t:sections.product-editorial.settings.brand_heading.label"
+    },
+    {
+      "type": "text",
+      "id": "shipping_heading",
+      "default": "t:sections.product-editorial.settings.shipping_heading.default",
+      "label": "t:sections.product-editorial.settings.shipping_heading.label"
+    },
+    {
+      "type": "richtext",
+      "id": "shipping_text",
+      "default": "t:sections.product-editorial.settings.shipping_text.default",
+      "label": "t:sections.product-editorial.settings.shipping_text.label"
     },
     {
       "type": "color_scheme",
