@@ -1,3 +1,8 @@
+.product-editorial {
+  border-top: 0.1rem solid rgba(var(--color-foreground), 0.12);
+  padding-top: 3.2rem;
+}
+
 .product-editorial__heading {
   margin: 0 0 2rem;
   font-size: 2rem;
@@ -26,7 +31,9 @@
   gap: 2.8rem 4rem;
   margin-top: 3.2rem;
   padding-top: 3.2rem;
+  padding-bottom: 3.2rem;
   border-top: 0.1rem solid rgba(var(--color-foreground), 0.12);
+  border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.12);
 }
 
 .product-editorial__body + .product-editorial__columns {
