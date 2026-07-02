@@ -3,6 +3,8 @@
 ## Project
 Fly fishing retailer (Ilwaco, WA). Dawn v15.2.0 base theme with custom header scroll behavior, free shipping bar, and in-store-only template. Store: spawn-fly-fish.myshopify.com. `SHOPIFY_FLAG_STORE` is already exported in `~/.zshrc`.
 
+Open product-page work is tracked in `docs/pdp-improvement-backlog.md` — check it before starting PDP changes.
+
 ## Commands
 ```bash
 shopify theme dev --theme=129377796159       # local dev with hot reload
