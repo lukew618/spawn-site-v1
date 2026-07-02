@@ -44,7 +44,7 @@
         "button"
       ],
       "settings": {
-        "image": "shopify://shop_images/Untitled_design_1.png",
+        "image": "shopify://shop_images/Blog_Banner_for_Website_Content_1.png",
         "image_mobile": "shopify://shop_images/Todd_Moen_Coho.jpg",
         "image_overlay_opacity": 0,
         "image_height": "large",
@@ -336,7 +336,7 @@
         "buy_buttons_wGwfgW"
       ],
       "settings": {
-        "product": "spawn-fathom-beads",
+        "product": "hareline-spawns-super-tungsten-slotted-beads",
         "color_scheme": "scheme-1",
         "secondary_background": false,
         "media_size": "medium",
@@ -356,7 +356,7 @@
         "heading_L9rKYc": {
           "type": "heading",
           "settings": {
-            "heading": "<strong>THE CHANNEL</strong>",
+            "heading": "<strong>FLY OF THE MONTH!</strong>",
             "heading_size": "h0"
           }
         },
@@ -370,8 +370,8 @@
         "button_Ca4tef": {
           "type": "button",
           "settings": {
-            "button_label": "WATCH NOW",
-            "button_link": "https://www.youtube.com/@SpawnFlyFish",
+            "button_label": "Fly of the Month",
+            "button_link": "shopify://collections/fly-of-the-month",
             "button_style_secondary": true
           }
         }
@@ -382,8 +382,8 @@
         "button_Ca4tef"
       ],
       "settings": {
-        "image": "shopify://shop_images/1_a46b1817-2f04-44c4-9a20-ba962b6fb92f.png",
-        "height": "large",
+        "image": "shopify://shop_images/002_4.jpg",
+        "height": "medium",
         "desktop_image_width": "medium",
         "layout": "image_first",
         "desktop_content_position": "top",
@@ -676,7 +676,7 @@
           "type": "column",
           "settings": {
             "title": "<strong>FREE SHIPPING</strong>",
-            "text": "<p>Free shipping on orders over $75 to the contiguous US.</p>",
+            "text": "<p>Free shipping on orders over $85 to the contiguous US.</p>",
             "link_label": "",
             "link": "shopify://policies/refund-policy"
           }
@@ -721,6 +721,10 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "1777666874e27876d8": {
+      "type": "_blocks",
+      "settings": {}
     }
   },
   "order": [
@@ -740,6 +744,7 @@
     "image_with_text_bViTjP",
     "featured_blog_UaRnVq",
     "image_banner_ja4xUn",
-    "multicolumn_78HbFk"
+    "multicolumn_78HbFk",
+    "1777666874e27876d8"
   ]
 }

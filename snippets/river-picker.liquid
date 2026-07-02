@@ -1,0 +1,144 @@
+{%- comment -%}
+  river-picker.liquid — dropdown picker of all river metaobjects.
+  Usage: {% render 'river-picker', current_slug: river.slug %}
+{%- endcomment -%}
+
+{%- assign all_rivers = shop.metaobjects.river.values -%}
+{%- if all_rivers.size > 0 -%}
+  {{ 'river-picker.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'river-picker.js' | asset_url }}" defer="defer"></script>
+
+  {%- assign current_name = 'Switch river' -%}
+  {%- assign current_region = '' -%}
+  {%- for r in all_rivers -%}
+    {%- if r.slug == current_slug -%}
+      {%- assign current_name = r.name -%}
+      {%- assign current_region = r.region -%}
+    {%- endif -%}
+  {%- endfor -%}
+
+  {%- comment -%} Build unique region list preserving a stable order {%- endcomment -%}
+  {%- assign regions_raw = '' -%}
+  {%- assign sorted_rivers = all_rivers | sort: 'region' -%}
+  {%- for r in sorted_rivers -%}
+    {%- if r.region != blank -%}
+      {%- assign marker = '||' | append: r.region | append: '||' -%}
+      {%- unless regions_raw contains marker -%}
+        {%- assign regions_raw = regions_raw | append: marker -%}
+      {%- endunless -%}
+    {%- endif -%}
+  {%- endfor -%}
+  {%- assign regions_list = regions_raw | split: '||' -%}
+
+  <river-picker class="river-picker" data-current-slug="{{ current_slug | default: '' | escape }}">
+    <button
+      type="button"
+      class="river-picker__trigger"
+      aria-haspopup="listbox"
+      aria-expanded="false"
+      aria-controls="river-picker-panel"
+    >
+      <span class="river-picker__trigger-label">{{ 'sections.river_picker.current' | t: default: 'Current river' }}</span>
+      <span class="river-picker__trigger-name">{{ current_name | escape }}</span>
+      {%- if current_region != blank -%}
+        <span class="river-picker__trigger-region">{{ current_region | escape }}</span>
+      {%- endif -%}
+      <svg class="river-picker__caret" viewBox="0 0 12 8" fill="none" aria-hidden="true">
+        <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </button>
+
+    <div class="river-picker__panel" id="river-picker-panel" role="listbox" hidden>
+      <div class="river-picker__search-wrap">
+        <svg class="river-picker__search-icon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.5" />
+          <path d="M11 11L14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+        </svg>
+        <input
+          type="search"
+          class="river-picker__search"
+          placeholder="{{ 'sections.river_picker.search_placeholder' | t: default: 'Search rivers…' }}"
+          aria-label="{{ 'sections.river_picker.search_label' | t: default: 'Search rivers' }}"
+          autocomplete="off"
+        />
+      </div>
+
+      <div class="river-picker__results" data-picker-results>
+        {%- for region in regions_list -%}
+          {%- if region != blank -%}
+            <div class="river-picker__group" data-picker-group>
+              <div class="river-picker__region-label">{{ region | escape }}</div>
+              <ul class="river-picker__list">
+                {%- for r in all_rivers -%}
+                  {%- if r.region == region -%}
+                    {%- assign handle = r.page_handle -%}
+                    {%- if handle == blank -%}
+                      {%- assign handle = r.slug | replace: '_', '-' | append: '-river' -%}
+                    {%- endif -%}
+                    {%- assign is_current = false -%}
+                    {%- if r.slug == current_slug -%}{%- assign is_current = true -%}{%- endif -%}
+                    <li
+                      class="river-picker__item{% if is_current %} river-picker__item--current{% endif %}"
+                      data-picker-item
+                      data-river-slug="{{ r.slug | escape }}"
+                      data-river-name="{{ r.name | escape | downcase }}"
+                      data-river-region="{{ r.region | escape | downcase }}"
+                    >
+                      <a
+                        class="river-picker__link"
+                        href="/pages/{{ handle | escape }}"
+                        role="option"
+                        aria-selected="{% if is_current %}true{% else %}false{% endif %}"
+                        tabindex="-1"
+                      >
+                        <span class="river-picker__name">{{ r.name | escape }}</span>
+                        {%- if is_current -%}
+                          <span class="river-picker__dot" aria-label="{{ 'sections.river_picker.current' | t: default: 'Current' }}">●</span>
+                        {%- endif -%}
+                      </a>
+                    </li>
+                  {%- endif -%}
+                {%- endfor -%}
+              </ul>
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+
+        {%- comment -%} Rivers without a region fall here {%- endcomment -%}
+        {%- assign unregioned_count = 0 -%}
+        {%- for r in all_rivers -%}{%- if r.region == blank -%}{%- assign unregioned_count = unregioned_count | plus: 1 -%}{%- endif -%}{%- endfor -%}
+        {%- if unregioned_count > 0 -%}
+          <div class="river-picker__group" data-picker-group>
+            <ul class="river-picker__list">
+              {%- for r in all_rivers -%}
+                {%- if r.region == blank -%}
+                  {%- assign handle = r.page_handle -%}
+                  {%- if handle == blank -%}
+                    {%- assign handle = r.slug | replace: '_', '-' | append: '-river' -%}
+                  {%- endif -%}
+                  <li
+                    class="river-picker__item"
+                    data-picker-item
+                    data-river-slug="{{ r.slug | escape }}"
+                    data-river-name="{{ r.name | escape | downcase }}"
+                    data-river-region=""
+                  >
+                    <a class="river-picker__link" href="/pages/{{ handle | escape }}" role="option" tabindex="-1">
+                      <span class="river-picker__name">{{ r.name | escape }}</span>
+                    </a>
+                  </li>
+                {%- endif -%}
+              {%- endfor -%}
+            </ul>
+          </div>
+        {%- endif -%}
+      </div>
+
+      <p class="river-picker__empty" hidden>{{ 'sections.river_picker.empty' | t: default: 'No rivers match.' }}</p>
+
+      <a class="river-picker__all-link" href="/pages/rivers">
+        {{ 'sections.river_picker.browse_all' | t: default: 'Browse all rivers' }} →
+      </a>
+    </div>
+  </river-picker>
+{%- endif -%}

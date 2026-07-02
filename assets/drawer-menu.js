@@ -33,7 +33,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (mobileMenuToggle) {
       mobileMenuToggle.classList.remove("is-open");
       mobileMenuToggle.setAttribute("aria-label", "Open Navigation");
-      mobileMenuToggle.setAttribute("aria-expanded", "false");
     }
     activeTrigger = null;
   }

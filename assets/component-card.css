@@ -305,18 +305,6 @@
   margin-bottom: 0;
 }
 
-.product-card-wrapper .card__heading {
-  font-size: 1.4rem;
-  line-height: 1.4;
-  letter-spacing: 0.03rem;
-}
-
-@media only screen and (min-width: 750px) {
-  .product-card-wrapper .card__heading {
-    font-size: 1.5rem;
-  }
-}
-
 .card__heading:last-child {
   margin-bottom: 0;
 }
