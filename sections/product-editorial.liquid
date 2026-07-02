@@ -14,15 +14,27 @@
   }
 {%- endstyle -%}
 
-{%- if section.settings.content != blank -%}
+{%- liquid
+  assign editorial_content = section.settings.content
+  if editorial_content == blank and section.settings.use_description_fallback
+    assign editorial_content = product.description
+  endif
+
+  assign editorial_heading = section.settings.heading
+  if editorial_heading == blank
+    assign editorial_heading = section.settings.fallback_heading
+  endif
+-%}
+
+{%- if editorial_content != blank -%}
   <div class="gradient color-{{ section.settings.color_scheme }}">
     <div class="page-width section-{{ section.id }}-padding">
-      <div class="product-editorial{% if section.settings.heading == blank %} product-editorial--no-heading{% endif %}">
-        {%- if section.settings.heading != blank -%}
-          <h2 class="product-editorial__heading">{{ section.settings.heading }}</h2>
+      <div class="product-editorial{% if editorial_heading == blank %} product-editorial--no-heading{% endif %}">
+        {%- if editorial_heading != blank -%}
+          <h2 class="product-editorial__heading">{{ editorial_heading }}</h2>
         {%- endif -%}
         <div class="product-editorial__content rte">
-          {{ section.settings.content }}
+          {{ editorial_content }}
         </div>
       </div>
     </div>
@@ -49,6 +61,20 @@
       "id": "content",
       "label": "t:sections.product-editorial.settings.content.label",
       "info": "t:sections.product-editorial.settings.content.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_description_fallback",
+      "default": true,
+      "label": "t:sections.product-editorial.settings.use_description_fallback.label",
+      "info": "t:sections.product-editorial.settings.use_description_fallback.info"
+    },
+    {
+      "type": "text",
+      "id": "fallback_heading",
+      "default": "t:sections.product-editorial.settings.fallback_heading.default",
+      "label": "t:sections.product-editorial.settings.fallback_heading.label",
+      "info": "t:sections.product-editorial.settings.fallback_heading.info"
     },
     {
       "type": "color_scheme",

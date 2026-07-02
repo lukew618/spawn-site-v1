@@ -111,6 +111,7 @@
         },
         "collapsible_tab_KjLei6": {
           "type": "collapsible_tab",
+          "disabled": true,
           "settings": {
             "heading": "DESCRIPTION & FEATURES",
             "icon": "none",
@@ -232,6 +233,8 @@
       "settings": {
         "heading": "{{ product.metafields.descriptors.subtitle.value }}",
         "content": "{{ product.metafields.custom.product_description | metafield_tag }}",
+        "use_description_fallback": true,
+        "fallback_heading": "Description & Features",
         "color_scheme": "scheme-1",
         "padding_top": 52,
         "padding_bottom": 52

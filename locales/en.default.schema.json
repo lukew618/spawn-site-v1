@@ -730,6 +730,15 @@
           "label": "Content",
           "info": "Connect a product metafield with a dynamic source. Section is hidden when empty."
         },
+        "use_description_fallback": {
+          "label": "Fall back to product description",
+          "info": "When no content is connected, show the product description instead."
+        },
+        "fallback_heading": {
+          "label": "Fallback heading",
+          "info": "Used when no per-product heading is connected.",
+          "default": "Description & Features"
+        },
         "color_scheme": {
           "label": "Color scheme"
         },
