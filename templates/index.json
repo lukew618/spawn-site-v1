@@ -29,7 +29,7 @@
         "button": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "SHOP SPAWN",
+            "button_label_1": "SHOP NOW",
             "button_link_1": "shopify://pages/fly-tying-deals",
             "button_style_secondary_1": true,
             "button_label_2": "",
