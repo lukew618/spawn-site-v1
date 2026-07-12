@@ -58,6 +58,29 @@
         "show_text_below": false
       }
     },
+    "final_test_text_block": {
+      "type": "rich-text",
+      "blocks": {
+        "text_final_test": {
+          "type": "text",
+          "settings": {
+            "text": "<p>this is the final test.</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "text_final_test"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-1",
+        "full_width": true,
+        "padding_top": 24,
+        "padding_bottom": 24
+      }
+    },
     "why_spawn": {
       "type": "why-spawn",
       "blocks": {
