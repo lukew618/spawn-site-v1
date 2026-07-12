@@ -36,12 +36,20 @@
             "button_link_2": "",
             "button_style_secondary_2": true
           }
+        },
+        "test_verification_text": {
+          "type": "text",
+          "settings": {
+            "text": "This is a test.",
+            "text_style": "body"
+          }
         }
       },
       "block_order": [
         "text",
         "heading",
-        "button"
+        "button",
+        "test_verification_text"
       ],
       "settings": {
         "image": "shopify://shop_images/Blog_Banner_for_Website_Content_1.png",
