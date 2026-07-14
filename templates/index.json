@@ -727,7 +727,13 @@
       "settings": {}
     }
   },
-  "order": [
+  "test_block_beneath_hero": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<div class=\"page-width\" style=\"text-align:center; padding:24px 0;\"><p>This is a test.</p></div>"
+      }
+    },
+    "order": [
     "image_banner",
     "why_spawn",
     "featured_collection_UdX4CU",
