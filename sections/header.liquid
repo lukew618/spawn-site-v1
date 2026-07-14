@@ -16,13 +16,15 @@
     justify-content: space-between;
     align-items: center;
     height: var(--header-height);
-    transition: all 0.1s ease;
+    transition: background-color 0.15s ease, box-shadow 0.15s ease;
     position: fixed;
     top: var(--announcement-bar-height);
     left: 0;
     z-index: 90;
     overflow: visible;
     background-color: {% if is_homepage %}transparent{% else %}black{% endif %};
+    background-image: {% if is_homepage %}linear-gradient(180deg, rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.58)){% else %}none{% endif %};
+    box-shadow: {% if is_homepage %}0 1px 0 rgba(255, 255, 255, 0.1){% else %}none{% endif %};
   }
 
   /* Add padding to body to account for header height */
@@ -51,6 +53,35 @@
       top: {% if is_homepage %}var(--announcement-bar-height){% else %}var(--announcement-bar-height){% endif %};
     }
 
+    .header__inline-menu--mobile {
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      padding: 0 1.25rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .mobile-left-group,
+    .mobile-right-group {
+      top: 50%;
+      align-items: center;
+      transform: translateY(-50%);
+    }
+
+    .mobile-left-group {
+      left: 1.25rem;
+    }
+
+    .mobile-right-group {
+      right: 1.25rem;
+    }
+
+    .header > .header__heading {
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
     /* Ensure mobile menu elements have white text */
     .header__inline-menu--mobile .header__menu-button,
     .mobile-left-group .header__hamburger,
@@ -61,6 +92,25 @@
     
     .header__hamburger svg path {
       stroke: white;
+    }
+
+    @media screen and (max-width: 390px) {
+      .mobile-left-group,
+      .mobile-right-group {
+        gap: 0.8rem;
+      }
+
+      .mobile-left-group {
+        left: 0.5rem;
+      }
+
+      .mobile-right-group {
+        right: 0.5rem;
+      }
+
+      .header__heading-link .h2 {
+        font-size: 1.4rem;
+      }
     }
   }
 
@@ -78,9 +128,33 @@
   /* Set text/icon color to white for all pages */
   .header__heading-link,
   .header__icon,
-  .header__menu-item {
+  .header__menu-item,
+  .header__menu-button {
     color: white;
     transition: color 0.1s ease;
+  }
+
+  .header__heading-link,
+  .header__icon,
+  .header__menu-button,
+  .header__hamburger {
+    min-width: 4.5rem;
+    min-height: 4.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .header__menu-button {
+    padding: 0 0.8rem;
+  }
+
+  .header__heading-link:focus-visible,
+  .header__icon:focus-visible,
+  .header__menu-button:focus-visible,
+  .header__hamburger:focus-visible {
+    outline: 0.2rem solid currentColor;
+    outline-offset: 0.2rem;
   }
 
   /* Homepage-specific styles */
@@ -94,6 +168,8 @@
     /* Scrolled state */
     body.scrolled-past-header .header {
       background-color: black;
+      background-image: none;
+      box-shadow: none;
     }
 
     body.scrolled-past-header .header__heading-link,
@@ -105,6 +181,8 @@
     /* Hover state for header */
     .header:hover {
       background-color: black;
+      background-image: none;
+      box-shadow: none;
     }
 
     .header:hover .header__heading-link,
@@ -431,7 +509,15 @@
     <!-- Mobile header -->
     <div class="header__inline-menu--mobile">
       <div class="mobile-left-group">
-        <button type="button" class="header__hamburger" id="mobile-menu-toggle" aria-label="Open Navigation">
+        <button
+          type="button"
+          class="header__hamburger"
+          id="mobile-menu-toggle"
+          aria-label="{{ 'sections.header.menu' | t | escape }}"
+          aria-expanded="false"
+          data-menu-label="{{ 'sections.header.menu' | t | escape }}"
+          data-close-label="{{ 'accessibility.close' | t | escape }}"
+        >
           <svg class="icon-hamburger" width="24" height="24" viewBox="0 0 24 24">
             <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2"/>
           </svg>
@@ -446,12 +532,18 @@
       <div class="mobile-right-group">
         {%- if shop.customer_accounts_enabled -%}
           <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
-            class="header__icon header__icon--account">
+            class="header__icon header__icon--account"
+            aria-label="{{ 'customer.account_fallback' | t | escape }}">
             <span class="svg-wrapper">{{ 'icon-account.svg' | inline_asset_content }}</span>
           </a>
         {%- endif -%}
 
-        <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart" id="cart-icon-bubble-mobile">
+        <a
+          href="{{ routes.cart_url }}"
+          class="header__icon header__icon--cart"
+          id="cart-icon-bubble-mobile"
+          aria-label="{% if cart == empty %}{{ 'general.cart.view_empty_cart' | t | escape }}{% else %}{{ 'general.cart.view' | t: count: cart.item_count | escape }}{% endif %}"
+        >
           <span class="svg-wrapper">{{ 'icon-cart.svg' | inline_asset_content }}</span>
           {%- if cart != empty -%}
             <div class="cart-count-bubble" aria-live="polite" aria-atomic="true">
@@ -478,12 +570,18 @@
       
       {%- if shop.customer_accounts_enabled -%}
         <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
-          class="header__icon header__icon--account">
+          class="header__icon header__icon--account"
+          aria-label="{{ 'customer.account_fallback' | t | escape }}">
           <span class="svg-wrapper">{{ 'icon-account.svg' | inline_asset_content }}</span>
         </a>
       {%- endif -%}
 
-      <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart" id="cart-icon-bubble">
+      <a
+        href="{{ routes.cart_url }}"
+        class="header__icon header__icon--cart"
+        id="cart-icon-bubble"
+        aria-label="{% if cart == empty %}{{ 'general.cart.view_empty_cart' | t | escape }}{% else %}{{ 'general.cart.view' | t: count: cart.item_count | escape }}{% endif %}"
+      >
         <span class="svg-wrapper">{{ 'icon-cart.svg' | inline_asset_content }}</span>
         {%- if cart != empty -%}
           <div class="cart-count-bubble" aria-live="polite" aria-atomic="true">
