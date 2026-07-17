@@ -60,6 +60,7 @@
     },
     "image_banner": {
       "type": "image-banner",
+      "disabled": true,
       "blocks": {
         "text": {
           "type": "text",
