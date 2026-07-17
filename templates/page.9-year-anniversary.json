@@ -1,0 +1,193 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_banner_promo": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_promo": {
+          "type": "heading",
+          "settings": {
+            "heading": "9 YEAR ANNIVERSARY SALE",
+            "heading_size": "h1"
+          }
+        },
+        "text_promo": {
+          "type": "text",
+          "settings": {
+            "text": "20% OFF FLY TYING · 30% OFF SPAWN · 40% OFF SPAWN FLIES · JULY 17–28",
+            "text_style": "subtitle"
+          }
+        },
+        "buttons_promo": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "SHOP TOP DEALS",
+            "button_link_1": "shopify://collections/top-deals",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_promo",
+        "text_promo",
+        "buttons_promo"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/DSC_0675_253a0b8c-4404-41ee-bd0e-3431911907e2.jpg",
+        "image_mobile": "shopify://shop_images/DSC_0675_253a0b8c-4404-41ee-bd0e-3431911907e2.jpg",
+        "image_overlay_opacity": 10,
+        "image_height": "large",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "scheme-4",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": false
+      }
+    },
+    "featured_flies_40": {
+      "type": "featured-collection",
+      "custom_css": [
+        "h2 {text-align: center;}"
+      ],
+      "settings": {
+        "title": "40% OFF SPAWN FLIES",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "9-year-spawn-flies",
+        "products_to_show": 10,
+        "columns_desktop": 5,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": true,
+        "color_scheme": "",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 40,
+        "padding_bottom": 24
+      }
+    },
+    "featured_spawn_30": {
+      "type": "featured-collection",
+      "custom_css": [
+        "h2 {text-align: center;}"
+      ],
+      "settings": {
+        "title": "30% OFF SPAWN PRODUCTS",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "9-year-spawn-products",
+        "products_to_show": 10,
+        "columns_desktop": 5,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": true,
+        "color_scheme": "",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 24,
+        "padding_bottom": 24
+      }
+    },
+    "featured_tying_20": {
+      "type": "featured-collection",
+      "custom_css": [
+        "h2 {text-align: center;}"
+      ],
+      "settings": {
+        "title": "20% OFF FLY TYING, TOOLS, VISES & BOXES",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "9-year-anniversary-20",
+        "products_to_show": 10,
+        "columns_desktop": 5,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": true,
+        "color_scheme": "",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 24,
+        "padding_bottom": 24
+      }
+    },
+    "featured_collection_top_deals": {
+      "type": "featured-collection",
+      "custom_css": [
+        "h2 {text-align: center;}"
+      ],
+      "settings": {
+        "title": "ALL TOP DEALS",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "top-deals",
+        "products_to_show": 12,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": true,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 24,
+        "padding_bottom": 100
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_banner_promo",
+    "featured_flies_40",
+    "featured_spawn_30",
+    "featured_tying_20",
+    "featured_collection_top_deals"
+  ]
+}

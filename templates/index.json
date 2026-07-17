@@ -9,8 +9,58 @@
  */
 {
   "sections": {
+    "image_banner_anniversary": {
+      "type": "image-banner",
+      "blocks": {
+        "text_anniversary": {
+          "type": "text",
+          "settings": {
+            "text": "20–40% OFF STOREWIDE · JULY 17–28",
+            "text_style": "subtitle"
+          }
+        },
+        "heading_anniversary": {
+          "type": "heading",
+          "settings": {
+            "heading": "9 YEAR ANNIVERSARY SALE",
+            "heading_size": "h1"
+          }
+        },
+        "button_anniversary": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "SHOP THE SALE",
+            "button_link_1": "shopify://pages/9-year-anniversary-sale",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": true
+          }
+        }
+      },
+      "block_order": [
+        "text_anniversary",
+        "heading_anniversary",
+        "button_anniversary"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/IMG_5842.jpg",
+        "image_mobile": "shopify://shop_images/IMG_5842.jpg",
+        "image_overlay_opacity": 10,
+        "image_height": "large",
+        "desktop_content_position": "middle-left",
+        "show_text_box": false,
+        "desktop_content_alignment": "left",
+        "color_scheme": "scheme-3",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      }
+    },
     "image_banner": {
       "type": "image-banner",
+      "disabled": true,
       "blocks": {
         "text": {
           "type": "text",
@@ -728,6 +778,7 @@
     }
   },
   "order": [
+    "image_banner_anniversary",
     "image_banner",
     "why_spawn",
     "featured_collection_UdX4CU",
