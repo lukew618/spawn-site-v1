@@ -79,7 +79,7 @@
           "settings": {
             "layout": "horizontal",
             "icon_1": "truck",
-            "heading_1": "Free Shipping Over $75",
+            "heading_1": "Free Shipping Over $85",
             "icon_2": "return",
             "heading_2": "Free Returns",
             "icon_3": "map_pin",
@@ -197,7 +197,7 @@
         "fallback_heading": "Description & Features",
         "brand_heading": "Brand",
         "shipping_heading": "Shipping & Returns",
-        "shipping_text": "<p>Free shipping on US orders over $75. Free return shipping within the US.</p>",
+        "shipping_text": "<p>Free shipping on US orders over $85. Free return shipping within the US.</p>",
         "color_scheme": "scheme-1",
         "padding_top": 52,
         "padding_bottom": 52
