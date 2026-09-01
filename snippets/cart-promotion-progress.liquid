@@ -1,0 +1,84 @@
+{% comment %}
+  Renders progress for the three permanent automatic discount offers.
+  Shopify evaluates each offer separately at checkout.
+{% endcomment %}
+
+{%- liquid
+  assign shank_skus = 'SHNK-9-20,SHNKVRTY-60,SHNK-9-50,SHNK-20-50,SHNKVRTY-180,SHNK60-30-20,SHNK60-40-20,SHNK90-30-20,SHNK-15-50,SHNK-19-20,SHNK90-40-20,SHNK90-20-20,SHNK-18-20,SHNK-17-20' | split: ','
+  assign shank_quantity = 0
+  assign has_qualifying_item = false
+
+  for item in cart.items
+    if shank_skus contains item.sku
+      assign shank_quantity = shank_quantity | plus: item.quantity
+    endif
+    if item.original_price >= 15000
+      assign has_qualifying_item = true
+    endif
+  endfor
+
+  assign shank_remainder = shank_quantity | modulo: 5
+  assign shanks_needed = 5 | minus: shank_remainder
+  assign shank_progress = shank_remainder | times: 20
+  if shank_quantity > 0 and shank_remainder == 0
+    assign shank_progress = 100
+    assign shanks_needed = 0
+  endif
+
+  assign gift_threshold = 10000
+  assign gift_progress = cart.original_total_price | times: 100.0 | divided_by: gift_threshold | at_most: 100
+  assign gift_remaining = gift_threshold | minus: cart.original_total_price | at_least: 0
+-%}
+
+<aside class="cart-promotions" aria-labelledby="CartPromotions-{{ context }}-Title">
+  <h2 id="CartPromotions-{{ context }}-Title" class="cart-promotions__title">Your cart offers</h2>
+  <div class="cart-promotions__list">
+    <section class="cart-promotion{% if shank_quantity >= 5 %} cart-promotion--qualified{% endif %}" data-discount-id="1371809251391">
+      <div class="cart-promotion__heading">
+        <h3>5 for 2 on select shanks</h3>
+        {%- if shank_quantity >= 5 -%}<span>Qualified</span>{%- endif -%}
+      </div>
+      <p>
+        {%- if shank_quantity >= 5 and shank_remainder == 0 -%}
+          5 of 5 · offer unlocked
+        {%- elsif shank_quantity >= 5 -%}
+          {{ shank_remainder }} of 5 toward another offer · add {{ shanks_needed }} more
+        {%- else -%}
+          {{ shank_quantity }} of 5 · add {{ shanks_needed }} more
+        {%- endif -%}
+      </p>
+      <span class="cart-promotion__track" aria-hidden="true"><span style="--promotion-progress: {{ shank_progress }}%;"></span></span>
+    </section>
+
+    <section class="cart-promotion{% if gift_remaining == 0 %} cart-promotion--qualified{% endif %}" data-discount-id="1371809447999">
+      <div class="cart-promotion__heading">
+        <h3>$100+ cart → 2 free SHNK-9-20</h3>
+        {%- if gift_remaining == 0 -%}<span>Qualified</span>{%- endif -%}
+      </div>
+      <p>
+        {%- if gift_remaining == 0 -%}
+          Qualified for 2 free 9mm shanks
+        {%- else -%}
+          Spend {{ gift_remaining | money }} more
+        {%- endif -%}
+      </p>
+      <span class="cart-promotion__track" aria-hidden="true"><span style="--promotion-progress: {{ gift_progress }}%;"></span></span>
+    </section>
+
+    <section class="cart-promotion{% if has_qualifying_item %} cart-promotion--qualified{% endif %}" data-discount-id="1371809480767">
+      <div class="cart-promotion__heading">
+        <h3>25% off select shanks</h3>
+        {%- if has_qualifying_item -%}<span>Qualified</span>{%- endif -%}
+      </div>
+      <p>
+        {%- if has_qualifying_item -%}
+          Your cart has a $150+ item
+        {%- else -%}
+          Add one $150+ item to qualify
+        {%- endif -%}
+      </p>
+      <span class="cart-promotion__track" aria-hidden="true"><span style="--promotion-progress: {% if has_qualifying_item %}100{% else %}0{% endif %}%;"></span></span>
+    </section>
+  </div>
+  <p class="cart-promotions__note">Offers are checked separately. Some discounts cannot combine.</p>
+</aside>

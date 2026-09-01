@@ -1,0 +1,126 @@
+.promotion-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.promotion-badges:empty {
+  display: none;
+}
+
+promotion-schedule {
+  display: contents;
+}
+
+.promotion-badges--pdp {
+  margin-top: 0.8rem;
+}
+
+.promotion-badges--card {
+  align-items: flex-start;
+  flex-direction: column;
+  max-width: calc(100% - 2.6rem);
+}
+
+.promotion-badge {
+  font-size: 1rem;
+  line-height: 1.2;
+  padding: 0.5rem 0.8rem;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.promotion-badge--scheduled {
+  background: rgb(var(--color-background));
+  color: rgb(var(--color-foreground));
+}
+
+.cart-promotions {
+  border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.2);
+  border-top: 0.1rem solid rgba(var(--color-foreground), 0.2);
+  margin: 0 0 1.6rem;
+  padding: 1.6rem 0;
+}
+
+.cart-promotions__title {
+  font-size: 1.4rem;
+  letter-spacing: 0.08rem;
+  margin: 0 0 1.2rem;
+  text-transform: uppercase;
+}
+
+.cart-promotions__list {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.cart-promotion h3,
+.cart-promotion p {
+  margin: 0;
+}
+
+.cart-promotion h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.04rem;
+  text-transform: uppercase;
+}
+
+.cart-promotion p {
+  color: rgba(var(--color-foreground), 0.75);
+  font-size: 1.2rem;
+  margin-top: 0.3rem;
+}
+
+.cart-promotion__heading {
+  align-items: baseline;
+  display: flex;
+  gap: 0.8rem;
+  justify-content: space-between;
+}
+
+.cart-promotion__heading > span {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.08rem;
+  text-transform: uppercase;
+}
+
+.cart-promotion__track {
+  background: rgba(var(--color-foreground), 0.12);
+  display: block;
+  height: 0.3rem;
+  margin-top: 0.7rem;
+  overflow: hidden;
+  width: 100%;
+}
+
+.cart-promotion__track > span {
+  background: rgb(var(--color-foreground));
+  display: block;
+  height: 100%;
+  transition: width 180ms ease;
+  width: var(--promotion-progress);
+}
+
+.cart-promotion--qualified .cart-promotion__track > span {
+  background: rgb(var(--color-button));
+}
+
+.cart-promotions__note {
+  color: rgba(var(--color-foreground), 0.65);
+  font-size: 1.1rem;
+  line-height: 1.4;
+  margin: 1.2rem 0 0;
+}
+
+.cart-drawer .cart-promotions {
+  margin-bottom: 1.2rem;
+  padding: 1.2rem 0;
+}
+
+@media screen and (min-width: 750px) {
+  .cart__items .cart-promotions {
+    max-width: 70rem;
+  }
+}
