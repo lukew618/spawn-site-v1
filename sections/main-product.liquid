@@ -114,6 +114,9 @@
                     show_savings: true,
                     price_class: 'price--large'
                   -%}
+                  <div class="promotion-badges promotion-badges--pdp" aria-label="Current product offers">
+                    {%- render 'promotion-badges', product: product, context: 'pdp', current_collection: collection -%}
+                  </div>
                 </div>
                 {%- if product.quantity_price_breaks_configured? -%}
                   <div class="volume-pricing-note" id="Volume-Note-{{ section.id }}">

@@ -1,0 +1,99 @@
+{% comment %}
+  Renders product-level promotion badges for active Shopify automatic discounts.
+
+  Accepts:
+  - product: {Object} Product Liquid object
+  - context: {String} "card" or "pdp"
+  - current_collection: {Object} Current collection when available
+{% endcomment %}
+
+{%- liquid
+  assign shank_skus = 'SHNK-9-20,SHNKVRTY-60,SHNK-9-50,SHNK-20-50,SHNKVRTY-180,SHNK60-30-20,SHNK60-40-20,SHNK90-30-20,SHNK-15-50,SHNK-19-20,SHNK90-40-20,SHNK90-20-20,SHNK-18-20,SHNK-17-20' | split: ','
+  assign is_shank_offer = false
+  assign is_gift_shank = false
+  assign promotion_available = product.available
+
+  if context == 'card'
+    for variant in product.variants
+      if shank_skus contains variant.sku and variant.available
+        assign is_shank_offer = true
+      endif
+      if variant.sku == 'SHNK-9-20' and variant.available
+        assign is_gift_shank = true
+      endif
+    endfor
+  else
+    assign selected_variant = product.selected_or_first_available_variant
+    assign selected_sku = selected_variant.sku
+    assign promotion_available = selected_variant.available
+    if shank_skus contains selected_sku and selected_variant.available
+      assign is_shank_offer = true
+    endif
+    if selected_sku == 'SHNK-9-20' and selected_variant.available
+      assign is_gift_shank = true
+    endif
+  endif
+
+  assign is_clearance = false
+  if current_collection.handle == 'tying-room-clearance'
+    assign is_clearance = true
+  else
+    for product_collection in product.collections
+      if product_collection.handle == 'tying-room-clearance'
+        assign is_clearance = true
+        break
+      endif
+    endfor
+  endif
+
+  assign clearance_state = 'inactive'
+  assign promotion_clock = 'now' | date: '%Y%m%d%H%M' | plus: 0
+  if is_clearance and promotion_clock < 202609020000
+    assign clearance_state = 'scheduled'
+  elsif is_clearance and promotion_clock <= 202609222359
+    assign clearance_state = 'active'
+  endif
+-%}
+
+{%- if promotion_available -%}
+  {%- if is_clearance -%}
+    <promotion-schedule
+      data-starts-at="2026-09-02T07:00:00Z"
+      data-ends-at="2026-09-23T06:59:00Z"
+      data-discount-id="1371809218623"
+    >
+      <span
+        class="badge promotion-badge promotion-badge--scheduled color-{{ settings.sale_badge_color_scheme }}"
+        data-promotion-scheduled
+        {% unless clearance_state == 'scheduled' %}hidden{% endunless %}
+      >
+        50% off · starts 9/2
+      </span>
+      <span
+        class="badge promotion-badge promotion-badge--sale color-{{ settings.sale_badge_color_scheme }}"
+        data-promotion-active
+        {% unless clearance_state == 'active' %}hidden{% endunless %}
+      >
+        50% off
+      </span>
+    </promotion-schedule>
+  {%- endif -%}
+
+  {%- if is_shank_offer -%}
+    <span class="badge promotion-badge color-{{ settings.sale_badge_color_scheme }}" data-discount-id="1371809251391">
+      {%- if context == 'card' -%}Select shanks · 5 for 2{%- else -%}Buy 5 shanks · pay for 2{%- endif -%}
+    </span>
+  {%- endif -%}
+
+  {%- if is_gift_shank -%}
+    <span class="badge promotion-badge promotion-badge--gift color-{{ settings.sale_badge_color_scheme }}" data-discount-id="1371809447999">
+      {%- if context == 'card' -%}$100+ gift · select 9mm{%- else -%}$100+ cart gift · 2 free{%- endif -%}
+    </span>
+  {%- endif -%}
+
+  {%- if is_shank_offer -%}
+    <span class="badge promotion-badge promotion-badge--conditional color-{{ settings.sale_badge_color_scheme }}" data-discount-id="1371809480767">
+      {%- if context == 'card' -%}Select shanks · 25% with $150+ item{%- else -%}25% off shanks with a $150+ item{%- endif -%}
+    </span>
+  {%- endif -%}
+{%- endif -%}

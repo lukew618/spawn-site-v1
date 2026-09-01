@@ -66,7 +66,7 @@
           "settings": {
             "icon": "curated",
             "heading": "Expert-Curated Gear",
-            "text": "Every product handpicked by experienced Pacific Northwest anglers."
+            "text": "Every product handpicked and designed by expert Pacific Northwest anglers."
           }
         },
         "col_shipping": {
@@ -74,7 +74,7 @@
           "settings": {
             "icon": "shipping",
             "heading": "Ships from the Pacific NW",
-            "text": "Based in Ilwaco, WA — the heart of world-class fly fishing."
+            "text": "Based in Ilwaco, WA — Getting products out the door and to your vise asap!"
           }
         },
         "col_specialist": {
@@ -82,7 +82,7 @@
           "settings": {
             "icon": "specialist",
             "heading": "Fly Fishing Specialists",
-            "text": "Dedicated exclusively to fly fishing and fly tying since day one."
+            "text": "Dedicated exclusively to fly fishing and fly tying since day one. Everyone here is ready to help you."
           }
         }
       },
@@ -236,7 +236,7 @@
         "text_Bit8nz": {
           "type": "text",
           "settings": {
-            "text": "<p>At Spawn Fly Fish your leading expert in fly tying and fly fishing, we’re proud to carry a handpicked selection of products for anglers of all levels. Explore top brands like <a href=\"/collections/sage-products\" title=\"Sage Products\">Sage</a>, <a href=\"/collections/redington-products\" title=\"Redington Products\">Redington</a>, <a href=\"/collections/douglas-outdoors-products\" title=\"Douglas Outdoors Products\">Douglas </a>, <a href=\"/collections/ross-reels-products\" title=\"Ross Reels Products\">Ross Reels</a>, and <a href=\"/collections/all-products\" title=\"All Products\">more</a>. Whether you’re tying with <a href=\"/collections/easy-shrimp-eyes-products\" title=\"Easy Shrimp Eyes Products\">Shrimp Eyes</a>, crafting with <a href=\"/products/spawn-unreal-dub\" title=\"Spawn Unreal Dub\">Unreal Dubbing</a>, or looking for <a href=\"/products/loctite-super-glue-extra-time-control\" title=\"Loctite Super Glue - Extra Time Control\">Loctite Super Glue Extra Time Control</a> to secure your creations, you’ll find everything you need here.We also stock a wide range of <a href=\"/collections/fly-tying-products\" title=\"FLY TYING\">fly tying materials</a>, <a href=\"/collections/fly-rods\" title=\"FLY RODS\">fly rods</a>, and <a href=\"/collections/fly-reels\" title=\"FLY REELS\">fly reels</a>—including favorites like <a href=\"/collections/tibor-fly-reels\" title=\"Tibor Fly Reels\">Tibor Fly Reels</a>, <a href=\"/collections/waterworks-lamson-products\" title=\"Waterworks-Lamson Products\">Lamson Fly Reels</a>, and <a href=\"/collections/redington-fly-reels\" title=\"Redington Fly Reels\">Redington Fly Reels</a>. For complete guides on where and how to use your new gear, check out our <a href=\"/blogs/spawn-blog/sea-run-cutthroat-fishing-challenging-the-tide-rules\" title=\"Sea Run Cutthroat Fishing: Challenging the Tide Rules\">Fly Fishing Guide to Washington</a> or browse <a href=\"/blogs/spawn-blog\" title=\"Spawn Blog\">our blog</a> or <a href=\"https://www.youtube.com/c/SpawnFlyFish\" target=\"_blank\" title=\"https://www.youtube.com/c/SpawnFlyFish\">YouTube channel</a> for in-depth product tips and tutorials. </p>"
+            "text": "<p>At Spawn Fly Fish your leading expert in fly tying and fly fishing, we’re proud to carry a handpicked selection of products for anglers of all levels. Explore top brands like <a href=\"/collections/sage-products\" title=\"Sage Products\">Sage</a>, <a href=\"/collections/redington-products\" title=\"Redington Products\">Redington</a>, <a href=\"/collections/douglas-outdoors-products\" title=\"Douglas Outdoors Products\">Douglas </a>, and <a href=\"/collections/all-products\" title=\"All Products\">more</a>. Whether you’re tying with <a href=\"/collections/easy-shrimp-eyes-products\" title=\"Easy Shrimp Eyes Products\">Shrimp Eyes</a>, crafting with <a href=\"/products/spawn-unreal-dub\" title=\"Spawn Unreal Dub\">Unreal Dubbing</a>, or looking for something you cant find anywhere else. Spawn has you covered. We stock the largest selection of <a href=\"/collections/fly-tying-products\" title=\"FLY TYING\">fly tying materials</a>, anywhere in the region. For complete guides on where and how to use your new gear, check out our <a href=\"/blogs/spawn-blog/sea-run-cutthroat-fishing-challenging-the-tide-rules\" title=\"Sea Run Cutthroat Fishing: Challenging the Tide Rules\">Fly Fishing Guide to Washington</a> or browse <a href=\"/blogs/spawn-blog\" title=\"Spawn Blog\">our blog</a> or <a href=\"https://www.youtube.com/c/SpawnFlyFish\" target=\"_blank\" title=\"https://www.youtube.com/c/SpawnFlyFish\">YouTube channel</a> for in-depth product tips and tutorials. </p>"
           }
         }
       },
@@ -302,7 +302,7 @@
         "text_t3DQaf": {
           "type": "text",
           "settings": {
-            "text": "<strong>Worlds Largest Slotted Beads</strong>",
+            "text": "<strong>Built  with Purpose</strong>",
             "text_style": "subtitle"
           }
         },
@@ -336,7 +336,7 @@
         "buy_buttons_wGwfgW"
       ],
       "settings": {
-        "product": "hareline-spawns-super-tungsten-slotted-beads",
+        "product": "spawn-alaskan-intruder-shanks",
         "color_scheme": "scheme-1",
         "secondary_background": false,
         "media_size": "medium",
@@ -346,8 +346,8 @@
         "image_zoom": "hover",
         "hide_variants": false,
         "enable_video_looping": false,
-        "padding_top": 72,
-        "padding_bottom": 36
+        "padding_top": 36,
+        "padding_bottom": 0
       }
     },
     "image_with_text_EJEVBb": {
@@ -363,7 +363,7 @@
         "text_6paNG8": {
           "type": "text",
           "settings": {
-            "text": "<p>Want to learn from the fly fishing authority of the Pacific Northwest? Check out the Spawn Fly Fish YouTube channel—where expert insight, innovative gear, and proven tactics come together. From step-by-step fly tying tutorials featuring patterns like the Peach Bum and Steamboat Island Leech, to in-depth breakdowns of the best fisheries in the region, our channel is built for anglers who want to level up. Whether you're just getting started or chasing your hundredth cutthroat, this is your source.<strong>Subscribe now and fish with the future.</strong></p>",
+            "text": "<p>Want to learn from the fly fishing authority of the Pacific Northwest? Pete one of Spawn's owners ties flies every single day. Check out the Spawn Fly Fish YouTube channel and see him in action—where expert insight, innovative gear, and proven tactics come together. From step-by-step fly tying tutorials featuring patterns like the Peach Bum and Steamboat Island Leech, to in-depth breakdowns of the best fisheries in the region, our channel is built for anglers who want to level up and learn more. Whether you're just getting started or chasing your hundredth cutthroat, this is your source.<strong>Subscribe now and fish with the future.</strong></p>",
             "text_style": "body"
           }
         },
@@ -382,7 +382,7 @@
         "button_Ca4tef"
       ],
       "settings": {
-        "image": "shopify://shop_images/002_4.jpg",
+        "image": "shopify://shop_images/001_11_54487531-e049-4b31-b9f1-182cc098f282.jpg",
         "height": "medium",
         "desktop_image_width": "medium",
         "layout": "image_first",
@@ -725,10 +725,42 @@
     "1777666874e27876d8": {
       "type": "_blocks",
       "settings": {}
+    },
+    "featured_collection_tying_room_clearance": {
+      "type": "featured-collection",
+      "custom_css": [
+        "h3 {text-transform: uppercase;}"
+      ],
+      "settings": {
+        "title": "<strong>TYING ROOM CLEARANCE</strong>",
+        "heading_size": "h2",
+        "description": "<p>BEST FLY TYING MATERIALS</p>",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "tying-room-clearance",
+        "products_to_show": 15,
+        "columns_desktop": 3,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "link",
+        "enable_desktop_slider": true,
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": true,
+        "show_rating": false,
+        "quick_add": "standard",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 56,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
     "image_banner",
+    "featured_collection_tying_room_clearance",
     "why_spawn",
     "featured_collection_UdX4CU",
     "collection_list_QGtX47",
