@@ -15,7 +15,6 @@
   assign is_sixty_offer = false
   assign is_feather_offer = false
   assign is_shank_offer = false
-  assign is_gift_shank = false
   assign promotion_available = product.available
 
   if context == 'card'
@@ -32,9 +31,6 @@
         endif
         if shank_skus contains variant.sku
           assign is_shank_offer = true
-        endif
-        if shank_skus contains variant.sku
-          assign is_gift_shank = true
         endif
       endif
     endfor
@@ -54,9 +50,6 @@
       endif
       if shank_skus contains selected_sku
         assign is_shank_offer = true
-      endif
-      if shank_skus contains selected_sku
-        assign is_gift_shank = true
       endif
     endif
   endif
@@ -126,15 +119,6 @@
   {%- if is_feather_offer -%}
     <span class="badge promotion-badge color-{{ settings.sale_badge_color_scheme }}" data-discount-id="1371851325503">
       {%- if context == 'card' -%}Select feathers · 2 for 1{%- else -%}Mix feathers · buy 1, get 1 free{%- endif -%}
-    </span>
-  {%- endif -%}
-
-  {%- if is_gift_shank -%}
-    <span
-      class="badge promotion-badge promotion-badge--gift color-{{ settings.sale_badge_color_scheme }}"
-      data-discount-ids="1371851358271,1371851391039"
-    >
-      {%- if context == 'card' -%}Pick any overstock shank · $100 → 1 · $175 → 2{%- else -%}Pick any overstock shank · $100+ cart → 1 free · $175+ → 2 free{%- endif -%}
     </span>
   {%- endif -%}
 {%- endif -%}

@@ -34,13 +34,6 @@
     assign feathers_needed = 0
   endif
 
-  assign gift_one_threshold = 10000
-  assign gift_two_threshold = 17500
-  assign gift_total = cart.original_total_price
-  assign gift_progress = gift_total | times: 100.0 | divided_by: gift_one_threshold | at_most: 100
-  assign gift_remaining = gift_one_threshold | minus: gift_total | at_least: 0
-  assign next_gift_progress = gift_total | times: 100.0 | divided_by: gift_two_threshold | at_most: 100
-  assign next_gift_remaining = gift_two_threshold | minus: gift_total | at_least: 0
 -%}
 
 <aside class="cart-promotions" aria-labelledby="CartPromotions-{{ context }}-Title">
@@ -80,27 +73,6 @@
       <span class="cart-promotion__track" aria-hidden="true"><span style="--promotion-progress: {{ feather_progress }}%;"></span></span>
     </section>
 
-    <section class="cart-promotion{% if gift_total >= gift_one_threshold %} cart-promotion--qualified{% endif %}" data-discount-ids="1371851358271,1371851391039">
-      <div class="cart-promotion__heading">
-        <h3>Pick any overstock shank</h3>
-        {%- if gift_total >= gift_two_threshold -%}
-          <span>2 free</span>
-        {%- elsif gift_total >= gift_one_threshold -%}
-          <span>1 free</span>
-        {%- endif -%}
-      </div>
-      <p>
-        {%- if gift_total >= gift_two_threshold -%}
-          Add 2 eligible shanks and Shopify discounts them to $0
-        {%- elsif gift_total >= gift_one_threshold -%}
-          Add 1 eligible shank free · spend {{ next_gift_remaining | money }} more to unlock 2
-        {%- else -%}
-          Spend {{ gift_remaining | money }} more to unlock 1 free shank
-        {%- endif -%}
-        · <a href="/collections/overstock-shanks">choose shanks</a>
-      </p>
-      <span class="cart-promotion__track" aria-hidden="true"><span style="--promotion-progress: {% if gift_total >= gift_one_threshold %}{{ next_gift_progress }}{% else %}{{ gift_progress }}{% endif %}%;"></span></span>
-    </section>
   </div>
   <p class="cart-promotions__note">Automatic product offers do not stack. Shopify applies the best eligible offer.</p>
 </aside>
