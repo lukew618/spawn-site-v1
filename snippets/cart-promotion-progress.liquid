@@ -1,84 +1,106 @@
 {% comment %}
-  Renders progress for the three permanent automatic discount offers.
-  Shopify evaluates each offer separately at checkout.
+  Renders progress for permanent automatic offers.
+  Shopify chooses the best eligible product discount when offers overlap.
 {% endcomment %}
 
 {%- liquid
   assign shank_skus = 'SHNK-9-20,SHNKVRTY-60,SHNK-9-50,SHNK-20-50,SHNKVRTY-180,SHNK60-30-20,SHNK60-40-20,SHNK90-30-20,SHNK-15-50,SHNK-19-20,SHNK90-40-20,SHNK90-20-20,SHNK-18-20,SHNK-17-20' | split: ','
+  assign feather_skus = 'SPAWNWIDGEON-1,SPAWNPINTAIL-6,SPAWNWOODDUCK,SPAWNGADWALL-2,SPAWNGWT-4' | split: ','
   assign shank_quantity = 0
-  assign has_qualifying_item = false
+  assign feather_quantity = 0
 
   for item in cart.items
     if shank_skus contains item.sku
       assign shank_quantity = shank_quantity | plus: item.quantity
     endif
-    if item.original_price >= 15000
-      assign has_qualifying_item = true
+    if feather_skus contains item.sku
+      assign feather_quantity = feather_quantity | plus: item.quantity
     endif
   endfor
 
-  assign shank_remainder = shank_quantity | modulo: 5
-  assign shanks_needed = 5 | minus: shank_remainder
-  assign shank_progress = shank_remainder | times: 20
+  assign shank_remainder = shank_quantity | modulo: 2
+  assign shank_progress = shank_remainder | times: 50
+  assign shanks_needed = 2 | minus: shank_remainder
   if shank_quantity > 0 and shank_remainder == 0
     assign shank_progress = 100
     assign shanks_needed = 0
   endif
 
-  assign gift_threshold = 10000
-  assign gift_progress = cart.original_total_price | times: 100.0 | divided_by: gift_threshold | at_most: 100
-  assign gift_remaining = gift_threshold | minus: cart.original_total_price | at_least: 0
+  assign feather_remainder = feather_quantity | modulo: 2
+  assign feather_progress = feather_remainder | times: 50
+  assign feathers_needed = 2 | minus: feather_remainder
+  if feather_quantity > 0 and feather_remainder == 0
+    assign feather_progress = 100
+    assign feathers_needed = 0
+  endif
+
+  assign gift_one_threshold = 10000
+  assign gift_two_threshold = 17500
+  assign gift_total = cart.original_total_price
+  assign gift_progress = gift_total | times: 100.0 | divided_by: gift_one_threshold | at_most: 100
+  assign gift_remaining = gift_one_threshold | minus: gift_total | at_least: 0
+  assign next_gift_progress = gift_total | times: 100.0 | divided_by: gift_two_threshold | at_most: 100
+  assign next_gift_remaining = gift_two_threshold | minus: gift_total | at_least: 0
 -%}
 
 <aside class="cart-promotions" aria-labelledby="CartPromotions-{{ context }}-Title">
   <h2 id="CartPromotions-{{ context }}-Title" class="cart-promotions__title">Your cart offers</h2>
   <div class="cart-promotions__list">
-    <section class="cart-promotion{% if shank_quantity >= 5 %} cart-promotion--qualified{% endif %}" data-discount-id="1371809251391">
+    <section class="cart-promotion{% if shank_quantity >= 2 %} cart-promotion--qualified{% endif %}" data-discount-id="1371851292735">
       <div class="cart-promotion__heading">
-        <h3>5 for 2 on select shanks</h3>
-        {%- if shank_quantity >= 5 -%}<span>Qualified</span>{%- endif -%}
+        <h3>Mix shanks · 2 for 1</h3>
+        {%- if shank_quantity >= 2 -%}<span>Qualified</span>{%- endif -%}
       </div>
       <p>
-        {%- if shank_quantity >= 5 and shank_remainder == 0 -%}
-          5 of 5 · offer unlocked
-        {%- elsif shank_quantity >= 5 -%}
-          {{ shank_remainder }} of 5 toward another offer · add {{ shanks_needed }} more
+        {%- if shank_quantity >= 2 and shank_remainder == 0 -%}
+          {{ shank_quantity }} eligible shanks · offer repeats for every pair
+        {%- elsif shank_quantity >= 2 -%}
+          {{ shank_quantity }} eligible shanks · add 1 for another pair
         {%- else -%}
-          {{ shank_quantity }} of 5 · add {{ shanks_needed }} more
+          {{ shank_quantity }} of 2 · add {{ shanks_needed }} eligible shanks
         {%- endif -%}
       </p>
       <span class="cart-promotion__track" aria-hidden="true"><span style="--promotion-progress: {{ shank_progress }}%;"></span></span>
     </section>
 
-    <section class="cart-promotion{% if gift_remaining == 0 %} cart-promotion--qualified{% endif %}" data-discount-id="1371809447999">
+    <section class="cart-promotion{% if feather_quantity >= 2 %} cart-promotion--qualified{% endif %}" data-discount-id="1371851325503">
       <div class="cart-promotion__heading">
-        <h3>$100+ cart → 2 free SHNK-9-20</h3>
-        {%- if gift_remaining == 0 -%}<span>Qualified</span>{%- endif -%}
+        <h3>Mix feathers · 2 for 1</h3>
+        {%- if feather_quantity >= 2 -%}<span>Qualified</span>{%- endif -%}
       </div>
       <p>
-        {%- if gift_remaining == 0 -%}
-          Qualified for 2 free 9mm shanks
+        {%- if feather_quantity >= 2 and feather_remainder == 0 -%}
+          {{ feather_quantity }} eligible feathers · offer repeats for every pair
+        {%- elsif feather_quantity >= 2 -%}
+          {{ feather_quantity }} eligible feathers · add 1 for another pair
         {%- else -%}
-          Spend {{ gift_remaining | money }} more
+          {{ feather_quantity }} of 2 · add {{ feathers_needed }} eligible feathers
         {%- endif -%}
       </p>
-      <span class="cart-promotion__track" aria-hidden="true"><span style="--promotion-progress: {{ gift_progress }}%;"></span></span>
+      <span class="cart-promotion__track" aria-hidden="true"><span style="--promotion-progress: {{ feather_progress }}%;"></span></span>
     </section>
 
-    <section class="cart-promotion{% if has_qualifying_item %} cart-promotion--qualified{% endif %}" data-discount-id="1371809480767">
+    <section class="cart-promotion{% if gift_total >= gift_one_threshold %} cart-promotion--qualified{% endif %}" data-discount-ids="1371851358271,1371851391039">
       <div class="cart-promotion__heading">
-        <h3>25% off select shanks</h3>
-        {%- if has_qualifying_item -%}<span>Qualified</span>{%- endif -%}
+        <h3>Pick any overstock shank</h3>
+        {%- if gift_total >= gift_two_threshold -%}
+          <span>2 free</span>
+        {%- elsif gift_total >= gift_one_threshold -%}
+          <span>1 free</span>
+        {%- endif -%}
       </div>
       <p>
-        {%- if has_qualifying_item -%}
-          Your cart has a $150+ item
+        {%- if gift_total >= gift_two_threshold -%}
+          Add 2 eligible shanks and Shopify discounts them to $0
+        {%- elsif gift_total >= gift_one_threshold -%}
+          Add 1 eligible shank free · spend {{ next_gift_remaining | money }} more to unlock 2
         {%- else -%}
-          Add one $150+ item to qualify
+          Spend {{ gift_remaining | money }} more to unlock 1 free shank
         {%- endif -%}
+        · <a href="/collections/overstock-shanks">choose shanks</a>
       </p>
-      <span class="cart-promotion__track" aria-hidden="true"><span style="--promotion-progress: {% if has_qualifying_item %}100{% else %}0{% endif %}%;"></span></span>
+      <span class="cart-promotion__track" aria-hidden="true"><span style="--promotion-progress: {% if gift_total >= gift_one_threshold %}{{ next_gift_progress }}{% else %}{{ gift_progress }}{% endif %}%;"></span></span>
     </section>
   </div>
-  <p class="cart-promotions__note">Offers are checked separately. Some discounts cannot combine.</p>
+  <p class="cart-promotions__note">Automatic product offers do not stack. Shopify applies the best eligible offer.</p>
 </aside>

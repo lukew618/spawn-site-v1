@@ -1,99 +1,140 @@
 {% comment %}
-  Renders product-level promotion badges for active Shopify automatic discounts.
+  Renders variant-exact promotion badges for Shopify automatic discounts.
 
   Accepts:
   - product: {Object} Product Liquid object
   - context: {String} "card" or "pdp"
-  - current_collection: {Object} Current collection when available
 {% endcomment %}
 
 {%- liquid
+  assign seventy_skus = 'SPAWNWIDGEON-1,SPAWNPINTAIL-6,SPAWNGADWALL-2' | split: ','
+  assign sixty_skus = 'SPAWNWOODDUCK,SPAWNGWT-4,FB-5.5-KG-OLV,FB-5.5-BLK,FB-7-KG-OLV' | split: ','
+  assign feather_skus = 'SPAWNWIDGEON-1,SPAWNPINTAIL-6,SPAWNWOODDUCK,SPAWNGADWALL-2,SPAWNGWT-4' | split: ','
   assign shank_skus = 'SHNK-9-20,SHNKVRTY-60,SHNK-9-50,SHNK-20-50,SHNKVRTY-180,SHNK60-30-20,SHNK60-40-20,SHNK90-30-20,SHNK-15-50,SHNK-19-20,SHNK90-40-20,SHNK90-20-20,SHNK-18-20,SHNK-17-20' | split: ','
+  assign is_seventy_offer = false
+  assign is_sixty_offer = false
+  assign is_feather_offer = false
   assign is_shank_offer = false
   assign is_gift_shank = false
   assign promotion_available = product.available
 
   if context == 'card'
     for variant in product.variants
-      if shank_skus contains variant.sku and variant.available
-        assign is_shank_offer = true
-      endif
-      if variant.sku == 'SHNK-9-20' and variant.available
-        assign is_gift_shank = true
+      if variant.available
+        if seventy_skus contains variant.sku
+          assign is_seventy_offer = true
+        endif
+        if sixty_skus contains variant.sku
+          assign is_sixty_offer = true
+        endif
+        if feather_skus contains variant.sku
+          assign is_feather_offer = true
+        endif
+        if shank_skus contains variant.sku
+          assign is_shank_offer = true
+        endif
+        if shank_skus contains variant.sku
+          assign is_gift_shank = true
+        endif
       endif
     endfor
   else
     assign selected_variant = product.selected_or_first_available_variant
     assign selected_sku = selected_variant.sku
     assign promotion_available = selected_variant.available
-    if shank_skus contains selected_sku and selected_variant.available
-      assign is_shank_offer = true
-    endif
-    if selected_sku == 'SHNK-9-20' and selected_variant.available
-      assign is_gift_shank = true
-    endif
-  endif
-
-  assign is_clearance = false
-  if current_collection.handle == 'tying-room-clearance'
-    assign is_clearance = true
-  else
-    for product_collection in product.collections
-      if product_collection.handle == 'tying-room-clearance'
-        assign is_clearance = true
-        break
+    if selected_variant.available
+      if seventy_skus contains selected_sku
+        assign is_seventy_offer = true
       endif
-    endfor
+      if sixty_skus contains selected_sku
+        assign is_sixty_offer = true
+      endif
+      if feather_skus contains selected_sku
+        assign is_feather_offer = true
+      endif
+      if shank_skus contains selected_sku
+        assign is_shank_offer = true
+      endif
+      if shank_skus contains selected_sku
+        assign is_gift_shank = true
+      endif
+    endif
   endif
 
-  assign clearance_state = 'inactive'
+  assign timed_state = 'inactive'
   assign promotion_clock = 'now' | date: '%Y%m%d%H%M' | plus: 0
-  if is_clearance and promotion_clock < 202609020000
-    assign clearance_state = 'scheduled'
-  elsif is_clearance and promotion_clock <= 202609222359
-    assign clearance_state = 'active'
+  if promotion_clock < 202609020000
+    assign timed_state = 'scheduled'
+  elsif promotion_clock <= 202609222359
+    assign timed_state = 'active'
   endif
 -%}
 
 {%- if promotion_available -%}
-  {%- if is_clearance -%}
+  {%- if is_seventy_offer -%}
     <promotion-schedule
       data-starts-at="2026-09-02T07:00:00Z"
       data-ends-at="2026-09-23T06:59:00Z"
-      data-discount-id="1371809218623"
+      data-discount-id="1371851227199"
     >
       <span
         class="badge promotion-badge promotion-badge--scheduled color-{{ settings.sale_badge_color_scheme }}"
         data-promotion-scheduled
-        {% unless clearance_state == 'scheduled' %}hidden{% endunless %}
+        {% unless timed_state == 'scheduled' %}hidden{% endunless %}
       >
-        50% off · starts 9/2
+        70% off · starts 9/2
       </span>
       <span
         class="badge promotion-badge promotion-badge--sale color-{{ settings.sale_badge_color_scheme }}"
         data-promotion-active
-        {% unless clearance_state == 'active' %}hidden{% endunless %}
+        {% unless timed_state == 'active' %}hidden{% endunless %}
       >
-        50% off
+        70% off
+      </span>
+    </promotion-schedule>
+  {%- endif -%}
+
+  {%- if is_sixty_offer -%}
+    <promotion-schedule
+      data-starts-at="2026-09-02T07:00:00Z"
+      data-ends-at="2026-09-23T06:59:00Z"
+      data-discount-id="1371851259967"
+    >
+      <span
+        class="badge promotion-badge promotion-badge--scheduled color-{{ settings.sale_badge_color_scheme }}"
+        data-promotion-scheduled
+        {% unless timed_state == 'scheduled' %}hidden{% endunless %}
+      >
+        60% off · starts 9/2
+      </span>
+      <span
+        class="badge promotion-badge promotion-badge--sale color-{{ settings.sale_badge_color_scheme }}"
+        data-promotion-active
+        {% unless timed_state == 'active' %}hidden{% endunless %}
+      >
+        60% off
       </span>
     </promotion-schedule>
   {%- endif -%}
 
   {%- if is_shank_offer -%}
-    <span class="badge promotion-badge color-{{ settings.sale_badge_color_scheme }}" data-discount-id="1371809251391">
-      {%- if context == 'card' -%}Select shanks · 5 for 2{%- else -%}Buy 5 shanks · pay for 2{%- endif -%}
+    <span class="badge promotion-badge color-{{ settings.sale_badge_color_scheme }}" data-discount-id="1371851292735">
+      {%- if context == 'card' -%}Select shanks · 2 for 1{%- else -%}Mix shanks · buy 1, get 1 free{%- endif -%}
+    </span>
+  {%- endif -%}
+
+  {%- if is_feather_offer -%}
+    <span class="badge promotion-badge color-{{ settings.sale_badge_color_scheme }}" data-discount-id="1371851325503">
+      {%- if context == 'card' -%}Select feathers · 2 for 1{%- else -%}Mix feathers · buy 1, get 1 free{%- endif -%}
     </span>
   {%- endif -%}
 
   {%- if is_gift_shank -%}
-    <span class="badge promotion-badge promotion-badge--gift color-{{ settings.sale_badge_color_scheme }}" data-discount-id="1371809447999">
-      {%- if context == 'card' -%}$100+ gift · select 9mm{%- else -%}$100+ cart gift · 2 free{%- endif -%}
-    </span>
-  {%- endif -%}
-
-  {%- if is_shank_offer -%}
-    <span class="badge promotion-badge promotion-badge--conditional color-{{ settings.sale_badge_color_scheme }}" data-discount-id="1371809480767">
-      {%- if context == 'card' -%}Select shanks · 25% with $150+ item{%- else -%}25% off shanks with a $150+ item{%- endif -%}
+    <span
+      class="badge promotion-badge promotion-badge--gift color-{{ settings.sale_badge_color_scheme }}"
+      data-discount-ids="1371851358271,1371851391039"
+    >
+      {%- if context == 'card' -%}Pick any overstock shank · $100 → 1 · $175 → 2{%- else -%}Pick any overstock shank · $100+ cart → 1 free · $175+ → 2 free{%- endif -%}
     </span>
   {%- endif -%}
 {%- endif -%}
