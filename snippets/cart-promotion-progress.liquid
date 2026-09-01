@@ -37,9 +37,9 @@
 -%}
 
 <aside class="cart-promotions" aria-labelledby="CartPromotions-{{ context }}-Title">
-  <h2 id="CartPromotions-{{ context }}-Title" class="cart-promotions__title">Your cart offers</h2>
+  <h2 id="CartPromotions-{{ context }}-Title" class="cart-promotions__title">Labor Day Sale offers</h2>
   <div class="cart-promotions__list">
-    <section class="cart-promotion{% if shank_quantity >= 2 %} cart-promotion--qualified{% endif %}" data-discount-id="1371851292735">
+    <section class="cart-promotion{% if shank_quantity >= 2 %} cart-promotion--qualified{% endif %}" data-discount-id="1371867250751">
       <div class="cart-promotion__heading">
         <h3>Mix shanks · 2 for 1</h3>
         {%- if shank_quantity >= 2 -%}<span>Qualified</span>{%- endif -%}
@@ -56,7 +56,7 @@
       <span class="cart-promotion__track" aria-hidden="true"><span style="--promotion-progress: {{ shank_progress }}%;"></span></span>
     </section>
 
-    <section class="cart-promotion{% if feather_quantity >= 2 %} cart-promotion--qualified{% endif %}" data-discount-id="1371851325503">
+    <section class="cart-promotion{% if feather_quantity >= 2 %} cart-promotion--qualified{% endif %}" data-discount-id="1371867283519">
       <div class="cart-promotion__heading">
         <h3>Mix feathers · 2 for 1</h3>
         {%- if feather_quantity >= 2 -%}<span>Qualified</span>{%- endif -%}
