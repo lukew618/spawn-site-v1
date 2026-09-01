@@ -75,14 +75,14 @@
         data-promotion-scheduled
         {% unless timed_state == 'scheduled' %}hidden{% endunless %}
       >
-        Labor Day Sale · 70% off · starts 9/2
+        Labor Day Sale · Select 70% off · starts 9/2
       </span>
       <span
         class="badge promotion-badge promotion-badge--sale color-{{ settings.sale_badge_color_scheme }}"
         data-promotion-active
         {% unless timed_state == 'active' %}hidden{% endunless %}
       >
-        Labor Day Sale · 70% off
+        Labor Day Sale · Select 70% off
       </span>
     </promotion-schedule>
   {%- endif -%}
@@ -98,27 +98,27 @@
         data-promotion-scheduled
         {% unless timed_state == 'scheduled' %}hidden{% endunless %}
       >
-        Labor Day Sale · 60% off · starts 9/2
+        Labor Day Sale · Select 60% off · starts 9/2
       </span>
       <span
         class="badge promotion-badge promotion-badge--sale color-{{ settings.sale_badge_color_scheme }}"
         data-promotion-active
         {% unless timed_state == 'active' %}hidden{% endunless %}
       >
-        Labor Day Sale · 60% off
+        Labor Day Sale · Select 60% off
       </span>
     </promotion-schedule>
   {%- endif -%}
 
   {%- if is_shank_offer -%}
     <span class="badge promotion-badge color-{{ settings.sale_badge_color_scheme }}" data-discount-id="1371867250751">
-      {%- if context == 'card' -%}Labor Day Sale · shanks 2 for 1{%- else -%}Labor Day Sale · mix shanks · buy 1, get 1 free{%- endif -%}
+      {%- if context == 'card' -%}Labor Day Sale · Select 2 for 1{%- else -%}Labor Day Sale · Select mix shanks · buy 1, get 1 free{%- endif -%}
     </span>
   {%- endif -%}
 
   {%- if is_feather_offer -%}
     <span class="badge promotion-badge color-{{ settings.sale_badge_color_scheme }}" data-discount-id="1371867283519">
-      {%- if context == 'card' -%}Labor Day Sale · feathers 2 for 1{%- else -%}Labor Day Sale · mix feathers · buy 1, get 1 free{%- endif -%}
+      {%- if context == 'card' -%}Labor Day Sale · Select 2 for 1{%- else -%}Labor Day Sale · Select mix feathers · buy 1, get 1 free{%- endif -%}
     </span>
   {%- endif -%}
 {%- endif -%}
