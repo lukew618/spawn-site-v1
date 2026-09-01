@@ -12,6 +12,10 @@ promotion-schedule {
   display: contents;
 }
 
+promotion-schedule [hidden] {
+  display: none;
+}
+
 .promotion-badges--pdp {
   margin-top: 0.8rem;
 }
