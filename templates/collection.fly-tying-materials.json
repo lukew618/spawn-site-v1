@@ -1,0 +1,286 @@
+{
+  "sections": {
+    "breadcrumb": {
+      "type": "breadcrumb",
+      "settings": {}
+    },
+    "collection_hero": {
+      "type": "collection-hero-banner",
+      "settings": {
+        "image_height": "medium",
+        "image_overlay_opacity": 0,
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "heading_size": "h1",
+        "show_text_box": false,
+        "color_scheme": "scheme-78823a03-0880-4c09-84ee-d09083839a52"
+      }
+    },
+    "intro_richtext": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Fly Tying Materials for PNW & Steelhead Patterns",
+            "heading_size": "h2"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Curated specialty bench in Ilwaco\u2014not a warehouse dump. Spawn Select waterfowl, tungsten beads, articulated shanks, and trusted brands for PNW trout, steelhead, and salt. Full-price hub; timed Select-feather sale stays on its own collection.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "full_width": false,
+        "color_scheme": "scheme-1",
+        "padding_top": 28,
+        "padding_bottom": 12
+      }
+    },
+    "category_rail": {
+      "type": "collection-list",
+      "blocks": {
+        "feathers": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "fly-tying-feathers"
+          }
+        },
+        "beads": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "fly-tying-beads"
+          }
+        },
+        "shanks": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "fly-tying-shanks"
+          }
+        },
+        "tools": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "fly-tying-tools"
+          }
+        }
+      },
+      "block_order": [
+        "feathers",
+        "beads",
+        "shanks",
+        "tools"
+      ],
+      "settings": {
+        "title": "Shop by category",
+        "heading_size": "h2",
+        "image_ratio": "square",
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "show_view_all": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 24,
+        "padding_bottom": 24
+      }
+    },
+    "picks": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Spawn bestsellers",
+        "heading_size": "h2",
+        "description": "<p>Select waterfowl, football beads, and shanks we actually tie with.</p>",
+        "show_description": true,
+        "description_style": "body",
+        "collection": "spawn-materials-picks",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": true,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "howto": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "How to choose",
+            "heading_size": "h2"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Fresh vs salt.</strong> Naturals and tungsten for trout/steelhead; synthetics and larger shanks for baitfish.</p><p><strong>Weight vs float.</strong> Slotted tungsten gets nymphs down; unweighted shanks and soft materials swim higher.</p><p>Jump to <a href=\"/collections/fly-tying-feathers\">feathers</a>, <a href=\"/collections/fly-tying-beads\">beads</a>, or <a href=\"/collections/fly-tying-shanks\">shanks</a> when you know the category.</p>"
+          }
+        },
+        "button": {
+          "type": "button",
+          "settings": {
+            "button_label": "Select feathers on sale (timed)",
+            "button_link": "shopify://collections/tying-room-clearance",
+            "button_style_secondary": true
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text",
+        "button"
+      ],
+      "settings": {
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "scheme-1",
+        "color_scheme": "scheme-1",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "pnw": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "PNW trout & steelhead bench",
+            "heading_size": "h2"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Intruders and game-changers on <a href=\"/collections/fly-tying-shanks\">articulated shanks</a>, collars and wings from <a href=\"/products/spawn-super-select-barred-wood-duck\">barred wood duck</a> and Select waterfowl, winter nymphs with slotted tungsten. Ships from Washington nationwide. Pair a <a href=\"/products/stonfo-elite-vise\">Stonfo Elite vise</a> when you are building out the bench.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "full_width": false,
+        "color_scheme": "scheme-1",
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    },
+    "faq": {
+      "type": "collapsible-content",
+      "blocks": {
+        "q1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What\u2019s the difference between fly tying materials and supplies?",
+            "row_content": "<p>Materials are what go on the hook\u2014feathers, beads, shanks, dubbing, flash. Supplies and tools (vises, scissors, adhesives) help you put them there. This hub focuses on materials; tools live in their own collection.</p>",
+            "icon": "none"
+          }
+        },
+        "q2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What should I buy for freshwater vs saltwater?",
+            "row_content": "<p>Freshwater trout and steelhead: waterfowl feathers, dubbing, tungsten beads, jig and articulated shanks. Salt and baitfish: more synthetics, flash, larger shanks, and eyes.</p>",
+            "icon": "none"
+          }
+        },
+        "q3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Where do you ship from?",
+            "row_content": "<p>We ship nationwide from our Ilwaco, Washington shop. In-store inventory and web catalog overlap on core Spawn materials; some apparel ships via Printful.</p>",
+            "icon": "none"
+          }
+        },
+        "q4": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Are these materials on sale?",
+            "row_content": "<p>This materials hub is full-price editorial. Timed Select-feather discounts (when running) live on the <a href=\"/collections/tying-room-clearance\">Labor Day Sale</a> collection\u2014not on this page.</p>",
+            "icon": "none"
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ],
+      "settings": {
+        "caption": "",
+        "heading": "Fly tying materials FAQ",
+        "heading_size": "h2",
+        "color_scheme": "scheme-1",
+        "container_color_scheme": "scheme-1",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 28,
+        "padding_bottom": 36
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "products_per_page": 36,
+        "columns_desktop": 4,
+        "color_scheme": "",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": true,
+        "show_rating": false,
+        "quick_add": "bulk",
+        "enable_filtering": true,
+        "filter_type": "vertical",
+        "enable_sorting": true,
+        "columns_mobile": "2",
+        "padding_top": 40,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "breadcrumb",
+    "collection_hero",
+    "intro_richtext",
+    "category_rail",
+    "picks",
+    "howto",
+    "pnw",
+    "faq",
+    "product-grid"
+  ]
+}
