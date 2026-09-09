@@ -13,8 +13,32 @@
       </li>
 
       {%- if template.name == 'product' -%}
-        {%- if product.collections.size > 0 -%}
+        {%- comment -%} Prefer SEO/category hubs over sale/deal collections (product.collections | first is alphabetical). {%- endcomment -%}
+        {%- assign breadcrumb_collection = nil -%}
+        {%- assign preferred_handles = 'fly-tying-feathers,feathers,spawn-feathers,fly-tying-beads,fly-tying-shanks,fly-tying-materials,fly-tying-products' | split: ',' -%}
+        {%- for handle in preferred_handles -%}
+          {%- if breadcrumb_collection == nil -%}
+            {%- for collection in product.collections -%}
+              {%- if collection.handle == handle -%}
+                {%- assign breadcrumb_collection = collection -%}
+                {%- break -%}
+              {%- endif -%}
+            {%- endfor -%}
+          {%- endif -%}
+        {%- endfor -%}
+        {%- if breadcrumb_collection == nil -%}
+          {%- for collection in product.collections -%}
+            {%- assign h = collection.handle -%}
+            {%- unless h contains 'black-friday' or h contains 'bfcm' or h contains 'cyber' or h contains 'clearance' or h == 'deals' or h == 'top-deals' or h contains 'percent' or h contains '9-year' or h contains 'labor' -%}
+              {%- assign breadcrumb_collection = collection -%}
+              {%- break -%}
+            {%- endunless -%}
+          {%- endfor -%}
+        {%- endif -%}
+        {%- if breadcrumb_collection == nil and product.collections.size > 0 -%}
           {%- assign breadcrumb_collection = product.collections | first -%}
+        {%- endif -%}
+        {%- if breadcrumb_collection -%}
           <li class="breadcrumb__item">
             <a class="breadcrumb__link" href="{{ breadcrumb_collection.url }}">{{ breadcrumb_collection.title }}</a>
             <span class="breadcrumb__separator" aria-hidden="true">/</span>
@@ -64,8 +88,32 @@
           "item": "{{ shop.url }}"
         }
         {%- if template.name == 'product' -%}
-          {%- if product.collections.size > 0 -%}
+          {%- comment -%} Mirror nav breadcrumb collection selection for JSON-LD. {%- endcomment -%}
+          {%- assign breadcrumb_collection = nil -%}
+          {%- assign preferred_handles = 'fly-tying-feathers,feathers,spawn-feathers,fly-tying-beads,fly-tying-shanks,fly-tying-materials,fly-tying-products' | split: ',' -%}
+          {%- for handle in preferred_handles -%}
+            {%- if breadcrumb_collection == nil -%}
+              {%- for collection in product.collections -%}
+                {%- if collection.handle == handle -%}
+                  {%- assign breadcrumb_collection = collection -%}
+                  {%- break -%}
+                {%- endif -%}
+              {%- endfor -%}
+            {%- endif -%}
+          {%- endfor -%}
+          {%- if breadcrumb_collection == nil -%}
+            {%- for collection in product.collections -%}
+              {%- assign h = collection.handle -%}
+              {%- unless h contains 'black-friday' or h contains 'bfcm' or h contains 'cyber' or h contains 'clearance' or h == 'deals' or h == 'top-deals' or h contains 'percent' or h contains '9-year' or h contains 'labor' -%}
+                {%- assign breadcrumb_collection = collection -%}
+                {%- break -%}
+              {%- endunless -%}
+            {%- endfor -%}
+          {%- endif -%}
+          {%- if breadcrumb_collection == nil and product.collections.size > 0 -%}
             {%- assign breadcrumb_collection = product.collections | first -%}
+          {%- endif -%}
+          {%- if breadcrumb_collection -%}
             ,{
               "@type": "ListItem",
               "position": 2,
