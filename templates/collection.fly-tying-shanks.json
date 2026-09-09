@@ -1,0 +1,195 @@
+{
+  "sections": {
+    "breadcrumb": {
+      "type": "breadcrumb",
+      "settings": {}
+    },
+    "collection_hero": {
+      "type": "collection-hero-banner",
+      "settings": {
+        "image_height": "medium",
+        "image_overlay_opacity": 0,
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "heading_size": "h1",
+        "show_text_box": false,
+        "color_scheme": "scheme-78823a03-0880-4c09-84ee-d09083839a52"
+      }
+    },
+    "intro_richtext": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Fly Tying Shanks",
+            "heading_size": "h2"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Shanks are the backbone for articulated streamers and steelhead Intruders—not a hook. Spawn house shanks are sized for PNW builds. Standing 2-for-1 (when live) is evergreen, not Labor Day.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "full_width": false,
+        "color_scheme": "scheme-1",
+        "padding_top": 28,
+        "padding_bottom": 16
+      }
+    },
+    "category_rail": {
+      "type": "collection-list",
+      "blocks": {
+        "materials": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "fly-tying-materials"
+          }
+        },
+        "beads": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "fly-tying-beads"
+          }
+        }
+      },
+      "block_order": [
+        "materials",
+        "beads"
+      ],
+      "settings": {
+        "title": "Shop related",
+        "heading_size": "h2",
+        "image_ratio": "square",
+        "columns_desktop": 2,
+        "color_scheme": "scheme-1",
+        "show_view_all": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    },
+    "howto": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "How to choose",
+            "heading_size": "h2"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Shank vs hook.</strong> The hook holds the fish; the shank builds length and articulation. Pick length and wire for Intruders vs smaller streamers.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/spawn-articulated-shanks-howto.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "scheme-1",
+        "color_scheme": "scheme-1",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "faq": {
+      "type": "collapsible-content",
+      "blocks": {
+        "q1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What’s the difference between a shank and a hook?",
+            "icon": "none",
+            "row_content": "<p>A hook has a point and bend to hold fish. A shank is wire used to build articulated bodies—often paired with a trailing hook.</p>"
+          }
+        },
+        "q2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Which flies use shanks?",
+            "icon": "none",
+            "row_content": "<p>Steelhead Intruders, articulated streamers, and multi-section baitfish patterns.</p>"
+          }
+        },
+        "q3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I pick shank length?",
+            "icon": "none",
+            "row_content": "<p>Match overall fly length to the forage. Shorter for compact Intruders; longer for extended streamers.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3"
+      ],
+      "settings": {
+        "caption": "",
+        "heading": "Fly tying shanks FAQ",
+        "heading_size": "h2",
+        "color_scheme": "scheme-1",
+        "container_color_scheme": "scheme-1",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 28,
+        "padding_bottom": 36
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "products_per_page": 36,
+        "columns_desktop": 4,
+        "color_scheme": "",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": true,
+        "show_rating": false,
+        "quick_add": "bulk",
+        "enable_filtering": true,
+        "filter_type": "vertical",
+        "enable_sorting": true,
+        "columns_mobile": "2",
+        "padding_top": 40,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "breadcrumb",
+    "collection_hero",
+    "intro_richtext",
+    "category_rail",
+    "howto",
+    "faq",
+    "product-grid"
+  ]
+}
