@@ -1511,3 +1511,19 @@ a.product__text {
     border: none;
   }
 }
+
+
+/* spawn-merch aesthetic: PDP title density */
+.product__title {
+  margin-bottom: 1rem;
+}
+.product__title h1 {
+  font-size: calc(var(--font-heading-scale) * 2.6rem);
+  line-height: calc(1 + 0.2 / max(1, var(--font-heading-scale)));
+  letter-spacing: 0.02em;
+}
+@media screen and (min-width: 750px) {
+  .product__title h1 {
+    font-size: calc(var(--font-heading-scale) * 3rem);
+  }
+}
