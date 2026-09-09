@@ -591,3 +591,13 @@
   width: 100%;
   object-fit: cover;
 }
+
+
+/* spawn-merch aesthetic: collection hero always visible */
+.banner__media-image-always {
+  display: block !important;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
