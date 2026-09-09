@@ -7,13 +7,43 @@
     "collection_hero": {
       "type": "collection-hero-banner",
       "settings": {
-        "image_height": "small",
-        "image_overlay_opacity": 30,
-        "desktop_content_position": "middle-left",
-        "desktop_content_alignment": "left",
+        "image_height": "medium",
+        "image_overlay_opacity": 0,
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
         "heading_size": "h1",
-        "show_text_box": true,
+        "show_text_box": false,
         "color_scheme": "scheme-78823a03-0880-4c09-84ee-d09083839a52"
+      }
+    },
+    "intro_richtext": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Fly Tying Materials for PNW & Steelhead Patterns",
+            "heading_size": "h2"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We stock what we tie with in Ilwaco. Waterfowl, beads, house shanks, and tools. Curated shop list, not a 15,000-SKU dump. Naturals for taper and movement. Synthetics for color that lasts. Full price here. Timed Select feather deals sit on the Labor Day sale collection.</p><p>Need weight? <a href=\"/collections/fly-tying-beads\">Bead sizing lives on the beads page</a>.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text"
+      ],
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "full_width": false,
+        "color_scheme": "scheme-1",
+        "padding_top": 20,
+        "padding_bottom": 8
       }
     },
     "category_rail": {
@@ -51,7 +81,7 @@
         "tools"
       ],
       "settings": {
-        "title": "Shop by type",
+        "title": "Shop related",
         "heading_size": "h2",
         "image_ratio": "square",
         "columns_desktop": 4,
@@ -59,16 +89,16 @@
         "show_view_all": false,
         "columns_mobile": "2",
         "swipe_on_mobile": true,
-        "padding_top": 28,
-        "padding_bottom": 8
+        "padding_top": 12,
+        "padding_bottom": 12
       }
     },
     "picks": {
       "type": "featured-collection",
       "settings": {
-        "title": "Bench favorites",
+        "title": "Spawn picks",
         "heading_size": "h2",
-        "description": "<p>What we reach for in Ilwaco.</p>",
+        "description": "<p>What we reach for on the bench.</p>",
         "show_description": true,
         "description_style": "body",
         "collection": "spawn-materials-picks",
@@ -82,13 +112,13 @@
         "image_ratio": "square",
         "image_shape": "default",
         "show_secondary_image": false,
-        "show_vendor": false,
+        "show_vendor": true,
         "show_rating": false,
         "quick_add": "none",
         "columns_mobile": "2",
         "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 28
+        "padding_top": 16,
+        "padding_bottom": 16
       }
     },
     "howto": {
@@ -97,7 +127,7 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Bench notes",
+            "heading": "How to choose",
             "heading_size": "h2"
           }
         },
@@ -133,8 +163,8 @@
         "color_scheme": "scheme-1",
         "image_behavior": "none",
         "mobile_content_alignment": "left",
-        "padding_top": 28,
-        "padding_bottom": 28
+        "padding_top": 20,
+        "padding_bottom": 20
       }
     },
     "faq": {
@@ -190,7 +220,7 @@
       ],
       "settings": {
         "caption": "",
-        "heading": "Materials FAQ",
+        "heading": "Fly tying materials FAQ",
         "heading_size": "h2",
         "color_scheme": "scheme-1",
         "container_color_scheme": "scheme-1",
@@ -198,7 +228,7 @@
         "image_ratio": "adapt",
         "desktop_layout": "image_second",
         "padding_top": 20,
-        "padding_bottom": 40
+        "padding_bottom": 24
       }
     },
     "product-grid": {
@@ -210,25 +240,57 @@
         "image_ratio": "square",
         "image_shape": "default",
         "show_secondary_image": false,
-        "show_vendor": false,
+        "show_vendor": true,
         "show_rating": false,
         "quick_add": "bulk",
         "enable_filtering": true,
         "filter_type": "vertical",
         "enable_sorting": true,
         "columns_mobile": "2",
-        "padding_top": 16,
+        "padding_top": 28,
         "padding_bottom": 36
+      }
+    },
+    "tips": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Tips for every skill level",
+            "heading_size": "h2"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>New to the vise: start with feathers, beads, or a solid vise. Mid-bench: match bead weight to water speed. Deep end: articulated Intruders on house shanks.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "full_width": false,
+        "color_scheme": "scheme-1",
+        "padding_top": 12,
+        "padding_bottom": 12
       }
     }
   },
   "order": [
     "breadcrumb",
     "collection_hero",
+    "intro_richtext",
     "category_rail",
-    "product-grid",
     "picks",
+    "product-grid",
     "howto",
+    "tips",
     "faq"
   ]
 }
