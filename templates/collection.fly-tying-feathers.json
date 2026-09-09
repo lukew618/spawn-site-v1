@@ -29,7 +29,7 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>Spawn Select waterfowl for mottling and movement.</p><ul><li><strong>Soft hackle</strong> — soft, webby feathers</li><li><strong>Wings</strong> — cleaner barred fibers (<a href=\"/products/spawn-super-select-barred-wood-duck\">barred wood duck</a>)</li><li><strong>Collars / cheeks</strong> — shorter barred or soft tips</li></ul>"
+            "text": "<p>We sell waterfowl we actually sort. Spawn Select means usable barred and soft fibers, not a mystery bag.</p><ul><li>Soft hackle: soft, webby feathers</li><li>Wings: cleaner barring (<a href=\"/products/spawn-super-select-barred-wood-duck\">barred wood duck</a>)</li><li>Collars and cheeks: shorter tips</li></ul><p>Labor Day Select cuts are on the sale collection. This page is full price.</p>"
           }
         }
       },
@@ -92,7 +92,7 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>Soft-hackle patterns lean on soft webby feathers; wings and cheeks want cleaner barred fibers. This hub stays full-price.</p>"
+            "text": "<p>Soft hackle wants webby feathers. Wings want cleaner barring. Collars and cheeks take shorter tips.</p>"
           }
         },
         "button": {
@@ -133,7 +133,7 @@
           "settings": {
             "heading": "Natural vs dyed feathers?",
             "icon": "none",
-            "row_content": "<p>Natural barred feathers show mottling as the bird grew them. Dyed feathers add color consistency while keeping soft or barred structure.</p>"
+            "row_content": "<p>Natural barring is how the bird grew. Dyed stock keeps structure and locks in a color.</p>"
           }
         },
         "q2": {
@@ -141,7 +141,7 @@
           "settings": {
             "heading": "How should I store waterfowl feathers?",
             "icon": "none",
-            "row_content": "<p>Keep them dry, flat or loosely sleeved, away from moths and crushing.</p>"
+            "row_content": "<p>Dry, flat or loosely sleeved. Keep moths and moisture out.</p>"
           }
         },
         "q3": {
@@ -149,7 +149,7 @@
           "settings": {
             "heading": "Which feathers for soft hackles?",
             "icon": "none",
-            "row_content": "<p>Soft, webby waterfowl feathers. For barred accents, wood duck and teal work well.</p>"
+            "row_content": "<p>Soft, webby waterfowl. For barred accents, wood duck and teal.</p>"
           }
         }
       },

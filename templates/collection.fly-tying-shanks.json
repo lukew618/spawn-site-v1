@@ -29,7 +29,7 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>Shanks are the backbone for articulated streamers and steelhead Intruders—not a hook. Spawn house shanks are sized for PNW builds. Standing 2-for-1 (when live) is evergreen, not Labor Day.</p>"
+            "text": "<p>A shank is not a hook. It is the backbone for articulated streamers and steelhead Intruders. Our house shanks are what we size for Columbia and coast-style builds.</p><p>Pick length and wire for the pattern. Evergreen 2-for-1, when live, is not Labor Day.</p>"
           }
         }
       },
@@ -92,7 +92,7 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p><strong>Shank vs hook.</strong> The hook holds the fish; the shank builds length and articulation. Pick length and wire for Intruders vs smaller streamers.</p>"
+            "text": "<p>The hook holds the fish. The shank builds length and articulation. Shorter for compact Intruders. Longer for extended streamers.</p>"
           }
         }
       },
@@ -124,7 +124,7 @@
           "settings": {
             "heading": "What’s the difference between a shank and a hook?",
             "icon": "none",
-            "row_content": "<p>A hook has a point and bend to hold fish. A shank is wire used to build articulated bodies—often paired with a trailing hook.</p>"
+            "row_content": "<p>A hook has a point and bend. A shank is wire for articulated bodies, usually with a trailing hook.</p>"
           }
         },
         "q2": {
@@ -132,7 +132,7 @@
           "settings": {
             "heading": "Which flies use shanks?",
             "icon": "none",
-            "row_content": "<p>Steelhead Intruders, articulated streamers, and multi-section baitfish patterns.</p>"
+            "row_content": "<p>Steelhead Intruders, articulated streamers, multi-section baitfish patterns.</p>"
           }
         },
         "q3": {
@@ -140,7 +140,7 @@
           "settings": {
             "heading": "How do I pick shank length?",
             "icon": "none",
-            "row_content": "<p>Match overall fly length to the forage. Shorter for compact Intruders; longer for extended streamers.</p>"
+            "row_content": "<p>Match overall fly length to the forage. Wire should carry the dressing without folding.</p>"
           }
         }
       },

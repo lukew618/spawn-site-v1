@@ -29,7 +29,7 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>Beads set weight and head profile. Tungsten sinks faster in a smaller size; brass is moderate; glass stays light. Slotted beads fit jig hooks and straight shanks. Heads stay out of this collection. Not a sale page.</p><h3>Bead size to hook size</h3><ul><li>~1.5–2.0 mm (1/16\") — midges and light nymphs</li><li>~2.4–2.8 mm — standard nymphs</li><li>~3.3–3.8 mm (1/8\") — larger nymphs and small streamers</li><li>~5.5 mm — Spawn football beads</li><li>~8–9 mm — Spawn Fathom beads for heavy steelhead builds</li></ul>"
+            "text": "<p>Beads add weight and a clean head. Tungsten sinks faster in a smaller size than brass. Brass is middle ground for slower water. Glass is light when you want a bit of translucence without much sink.</p><p>Slotted beads fit jig hooks and straight shanks. Beads only here. Fly heads live elsewhere. Football beads are not on the Labor Day cut.</p><h3>Sizing we stock</h3><ul><li>1.5-2.0 mm: small midges, light nymphs</li><li>2.4-2.8 mm: standard nymphs</li><li>3.3-3.8 mm: bigger nymphs, small streamers</li><li>5.5 mm: Spawn football beads</li><li>8-9 mm: Spawn Fathom beads</li></ul>"
           }
         }
       },
@@ -99,7 +99,7 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p><strong>Sink rate.</strong> Tungsten is denser/faster; brass moderate; glass light. <strong>Slotted fit.</strong> Use slotted beads on jig hooks and straight shanks so the bead seats cleanly.</p>"
+            "text": "<p>Tungsten sinks faster at a smaller size. Brass is the middle. Glass stays light. Slotted beads seat on jig hooks and straight shanks.</p>"
           }
         }
       },
@@ -131,7 +131,7 @@
           "settings": {
             "heading": "Slotted vs non-slotted beads?",
             "icon": "none",
-            "row_content": "<p>Slotted beads open to the side so they seat on jig hooks and straight shanks. Standard through-hole beads slide over the hook eye.</p>"
+            "row_content": "<p>Slotted beads open to the side so they seat on jig hooks and straight shanks. Through-hole beads slide over a conventional eye.</p>"
           }
         },
         "q2": {
@@ -139,7 +139,7 @@
           "settings": {
             "heading": "Tungsten vs brass or glass — sink rate?",
             "icon": "none",
-            "row_content": "<p>Tungsten is denser, so it sinks faster at a smaller diameter. Brass is a moderate sink. Glass is light and translucent when you want a visible head without much weight.</p>"
+            "row_content": "<p>Tungsten is denser, so it sinks faster at a smaller diameter. Brass is moderate. Glass is light and a bit translucent.</p>"
           }
         },
         "q3": {
@@ -147,7 +147,7 @@
           "settings": {
             "heading": "How do I match bead size to hook?",
             "icon": "none",
-            "row_content": "<p>Use the sizing list on this page (~1.5 mm midges through ~8–9 mm Fathom). Size the bead so it sits flush behind the eye without crowding the thorax.</p>"
+            "row_content": "<p>Use the sizing list on this page. Seat the bead flush behind the eye without crowding the thorax.</p>"
           }
         }
       },

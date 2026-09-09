@@ -29,7 +29,7 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>Curated specialty bench in Ilwaco—not a warehouse dump. Natural materials give mottling and movement; synthetics add durability and consistent color. Full-price hub—timed Select-feather deals stay on the Labor Day sale collection.</p><p>Need weight? See <a href=\"/collections/fly-tying-beads#bead-sizing\">bead↔hook sizing on the beads page</a>.</p>"
+            "text": "<p>We stock what we tie with in Ilwaco. Waterfowl, beads, house shanks, and tools. Curated shop list, not a 15,000-SKU dump. Naturals for taper and movement. Synthetics for color that lasts. Full price here. Timed Select feather deals sit on the Labor Day sale collection.</p><p>Need weight? <a href=\"/collections/fly-tying-beads\">Bead sizing lives on the beads page</a>.</p>"
           }
         }
       },
@@ -96,9 +96,9 @@
     "picks": {
       "type": "featured-collection",
       "settings": {
-        "title": "Featured picks",
+        "title": "Spawn picks",
         "heading_size": "h2",
-        "description": "<p>Curated from this collection.</p>",
+        "description": "<p>What we reach for on the bench.</p>",
         "show_description": true,
         "description_style": "body",
         "collection": "spawn-materials-picks",
@@ -134,7 +134,7 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p><strong>Natural vs synthetic.</strong> Naturals (wood duck, widgeon, fur) give life and taper; synthetics and flash hold color and take a beating in steelhead and salt.</p><p><strong>Fresh vs salt / weight vs float.</strong> Trout and steelhead lean on waterfowl and tungsten; baitfish builds pull flash and larger shanks. Slotted tungsten gets nymphs down—see <a href=\"/collections/fly-tying-beads#bead-sizing\">bead sizing</a>.</p>"
+            "text": "<p>Feathers for wings, collars, soft hackles. Beads for weight and a clean head. Shanks when the fly is articulated. Trout: lighter hooks, softer fiber. Steelhead and salt: stronger wire, flash, materials that survive abrasive mouths.</p>"
           }
         },
         "button": {
@@ -175,7 +175,7 @@
           "settings": {
             "heading": "What’s the difference between fly tying materials and supplies?",
             "icon": "none",
-            "row_content": "<p>Materials go on the hook—feathers, beads, shanks, dubbing, flash. Supplies and tools (vises, scissors, adhesives) help you put them there.</p>"
+            "row_content": "<p>Materials go on the hook. Feathers, beads, shanks, dubbing, flash. Tools and adhesives are supplies. Different aisle.</p>"
           }
         },
         "q2": {
@@ -183,7 +183,7 @@
           "settings": {
             "heading": "What should I buy for freshwater vs saltwater or steelhead?",
             "icon": "none",
-            "row_content": "<p>Freshwater trout: softer fibers, dubbing, lighter beads. Steelhead and salt: stronger wire, flash, articulated shanks, and materials that survive abrasive mouths.</p>"
+            "row_content": "<p>Trout: softer fiber, dubbing, lighter beads. Steelhead and salt: stronger wire, flash, articulated shanks.</p>"
           }
         },
         "q3": {
@@ -191,7 +191,7 @@
           "settings": {
             "heading": "Where should a beginner start?",
             "icon": "none",
-            "row_content": "<p>Pick a vise, then one category rail—feathers or beads—and a few Spawn Select or house SKUs before expanding the bench.</p>"
+            "row_content": "<p>Grab a vise, then one category from the rail. Feathers or beads. Expand after you know what you burn through.</p>"
           }
         },
         "q4": {
@@ -199,7 +199,7 @@
           "settings": {
             "heading": "Where do you ship from?",
             "icon": "none",
-            "row_content": "<p>Nationwide from our Ilwaco, Washington shop.</p>"
+            "row_content": "<p>From the Ilwaco, Washington shop. Nationwide.</p>"
           }
         },
         "q5": {
@@ -207,7 +207,7 @@
           "settings": {
             "heading": "Are sale items on this hub?",
             "icon": "none",
-            "row_content": "<p>No. This hub is full-price. Timed Select-feather discounts live on the <a href=\"/collections/tying-room-clearance\">Labor Day Sale</a> collection.</p>"
+            "row_content": "<p>No. This hub is full price. Timed Select feather deals live on the <a href=\"/collections/tying-room-clearance\">Labor Day Sale</a> collection.</p>"
           }
         }
       },
@@ -264,7 +264,7 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p><strong>Beginners:</strong> vise + one category from the rail. <strong>Intermediate:</strong> match bead weight and soft-hackle feathers. <strong>Advanced:</strong> Intruder shanks and Select waterfowl for steelhead. Tyers at every level shop this hub.</p>"
+            "text": "<p>New to the vise: start with feathers, beads, or a solid vise. Mid-bench: match bead weight to water speed. Deep end: articulated Intruders on house shanks.</p>"
           }
         }
       },
