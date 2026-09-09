@@ -74,7 +74,7 @@
           "settings": {
             "icon": "shipping",
             "heading": "Ships from the Pacific NW",
-            "text": "Based in Ilwaco, WA — Getting products out the door and to your vise asap!"
+            "text": "Based in Ilwaco, WA \u2014 Getting products out the door and to your vise asap!"
           }
         },
         "col_specialist": {
@@ -123,8 +123,8 @@
         "quick_add": "standard",
         "columns_mobile": "1",
         "swipe_on_mobile": true,
-        "padding_top": 56,
-        "padding_bottom": 36
+        "padding_top": 36,
+        "padding_bottom": 28
       }
     },
     "collection_list_QGtX47": {
@@ -170,8 +170,8 @@
         "show_view_all": false,
         "columns_mobile": "1",
         "swipe_on_mobile": true,
-        "padding_top": 80,
-        "padding_bottom": 36
+        "padding_top": 36,
+        "padding_bottom": 28
       }
     },
     "image_banner_7C3HhQ": {
@@ -204,7 +204,7 @@
         "image": "shopify://shop_images/1EFC119C-22B9-4169-9306-EF58F861E4F4.jpg",
         "image_mobile": "shopify://shop_images/Todd_Moen_Aerial_Idaho.jpg",
         "image_overlay_opacity": 0,
-        "image_height": "large",
+        "image_height": "medium",
         "desktop_content_position": "middle-left",
         "show_text_box": false,
         "desktop_content_alignment": "left",
@@ -236,7 +236,7 @@
         "text_Bit8nz": {
           "type": "text",
           "settings": {
-            "text": "<p>At Spawn Fly Fish your leading expert in fly tying and fly fishing, we’re proud to carry a handpicked selection of products for anglers of all levels. Explore top brands like <a href=\"/collections/sage-products\" title=\"Sage Products\">Sage</a>, <a href=\"/collections/redington-products\" title=\"Redington Products\">Redington</a>, <a href=\"/collections/douglas-outdoors-products\" title=\"Douglas Outdoors Products\">Douglas </a>, and <a href=\"/collections/all-products\" title=\"All Products\">more</a>. Whether you’re tying with <a href=\"/collections/easy-shrimp-eyes-products\" title=\"Easy Shrimp Eyes Products\">Shrimp Eyes</a>, crafting with <a href=\"/products/spawn-unreal-dub\" title=\"Spawn Unreal Dub\">Unreal Dubbing</a>, or looking for something you cant find anywhere else. Spawn has you covered. We stock the largest selection of <a href=\"/collections/fly-tying-products\" title=\"FLY TYING\">fly tying materials</a>, anywhere in the region. For complete guides on where and how to use your new gear, check out our <a href=\"/blogs/spawn-blog/sea-run-cutthroat-fishing-challenging-the-tide-rules\" title=\"Sea Run Cutthroat Fishing: Challenging the Tide Rules\">Fly Fishing Guide to Washington</a> or browse <a href=\"/blogs/spawn-blog\" title=\"Spawn Blog\">our blog</a> or <a href=\"https://www.youtube.com/c/SpawnFlyFish\" target=\"_blank\" title=\"https://www.youtube.com/c/SpawnFlyFish\">YouTube channel</a> for in-depth product tips and tutorials. </p>"
+            "text": "<p>At Spawn Fly Fish your leading expert in fly tying and fly fishing, we\u2019re proud to carry a handpicked selection of products for anglers of all levels. Explore top brands like <a href=\"/collections/sage-products\" title=\"Sage Products\">Sage</a>, <a href=\"/collections/redington-products\" title=\"Redington Products\">Redington</a>, <a href=\"/collections/douglas-outdoors-products\" title=\"Douglas Outdoors Products\">Douglas </a>, and <a href=\"/collections/all-products\" title=\"All Products\">more</a>. Whether you\u2019re tying with <a href=\"/collections/easy-shrimp-eyes-products\" title=\"Easy Shrimp Eyes Products\">Shrimp Eyes</a>, crafting with <a href=\"/products/spawn-unreal-dub\" title=\"Spawn Unreal Dub\">Unreal Dubbing</a>, or looking for something you cant find anywhere else. Spawn has you covered. We stock the largest selection of <a href=\"/collections/fly-tying-products\" title=\"FLY TYING\">fly tying materials</a>, anywhere in the region. For complete guides on where and how to use your new gear, check out our <a href=\"/blogs/spawn-blog/sea-run-cutthroat-fishing-challenging-the-tide-rules\" title=\"Sea Run Cutthroat Fishing: Challenging the Tide Rules\">Fly Fishing Guide to Washington</a> or browse <a href=\"/blogs/spawn-blog\" title=\"Spawn Blog\">our blog</a> or <a href=\"https://www.youtube.com/c/SpawnFlyFish\" target=\"_blank\" title=\"https://www.youtube.com/c/SpawnFlyFish\">YouTube channel</a> for in-depth product tips and tutorials. </p>"
           }
         }
       },
@@ -250,8 +250,8 @@
         "content_alignment": "center",
         "color_scheme": "scheme-1",
         "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 72
+        "padding_top": 28,
+        "padding_bottom": 36
       }
     },
     "image_banner_7jcGPt": {
@@ -260,8 +260,8 @@
         "heading_EmPh4J": {
           "type": "heading",
           "settings": {
-            "heading": "F",
-            "heading_size": "h0"
+            "heading": "How to Fly Fish Puget Sound",
+            "heading_size": "h1"
           }
         },
         "buttons_HaUDUM": {
@@ -285,7 +285,7 @@
         "image": "shopify://shop_images/DSC_8769-2_d6c830c3-f5d0-4599-9c14-2d969a34ce92.jpg",
         "image_mobile": "shopify://shop_images/new-arrivals-banner-mobile.png",
         "image_overlay_opacity": 0,
-        "image_height": "large",
+        "image_height": "medium",
         "desktop_content_position": "middle-left",
         "show_text_box": false,
         "desktop_content_alignment": "left",
@@ -346,7 +346,7 @@
         "image_zoom": "hover",
         "hide_variants": false,
         "enable_video_looping": false,
-        "padding_top": 36,
+        "padding_top": 28,
         "padding_bottom": 0
       }
     },
@@ -363,7 +363,7 @@
         "text_6paNG8": {
           "type": "text",
           "settings": {
-            "text": "<p>Want to learn from the fly fishing authority of the Pacific Northwest? Pete one of Spawn's owners ties flies every single day. Check out the Spawn Fly Fish YouTube channel and see him in action—where expert insight, innovative gear, and proven tactics come together. From step-by-step fly tying tutorials featuring patterns like the Peach Bum and Steamboat Island Leech, to in-depth breakdowns of the best fisheries in the region, our channel is built for anglers who want to level up and learn more. Whether you're just getting started or chasing your hundredth cutthroat, this is your source.<strong>Subscribe now and fish with the future.</strong></p>",
+            "text": "<p>Want to learn from the fly fishing authority of the Pacific Northwest? Pete one of Spawn's owners ties flies every single day. Check out the Spawn Fly Fish YouTube channel and see him in action\u2014where expert insight, innovative gear, and proven tactics come together. From step-by-step fly tying tutorials featuring patterns like the Peach Bum and Steamboat Island Leech, to in-depth breakdowns of the best fisheries in the region, our channel is built for anglers who want to level up and learn more. Whether you're just getting started or chasing your hundredth cutthroat, this is your source.<strong>Subscribe now and fish with the future.</strong></p>",
             "text_style": "body"
           }
         },
@@ -393,15 +393,15 @@
         "color_scheme": "scheme-4",
         "image_behavior": "none",
         "mobile_content_alignment": "left",
-        "padding_top": 52,
-        "padding_bottom": 36
+        "padding_top": 28,
+        "padding_bottom": 28
       }
     },
     "featured_collection_tXX8gN": {
       "type": "featured-collection",
       "name": "t:sections.featured-collection.presets.name",
       "settings": {
-        "title": "<a href=\"/collections/spawn-flies\" title=\"Spawn Flies\">Featured collection Spawn Signature Flies</a>",
+        "title": "Spawn Signature Flies",
         "heading_size": "h2",
         "description": "",
         "show_description": false,
@@ -422,8 +422,8 @@
         "quick_add": "none",
         "columns_mobile": "2",
         "swipe_on_mobile": false,
-        "padding_top": 12,
-        "padding_bottom": 16
+        "padding_top": 28,
+        "padding_bottom": 28
       }
     },
     "collage_x8nznF": {
@@ -462,8 +462,8 @@
         "mobile_layout": "collage",
         "card_styles": "none",
         "color_scheme": "scheme-4",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 28,
+        "padding_bottom": 28
       }
     },
     "featured_product_j3htGa": {
@@ -503,8 +503,8 @@
         "image_zoom": "hover",
         "hide_variants": false,
         "enable_video_looping": false,
-        "padding_top": 40,
-        "padding_bottom": 36
+        "padding_top": 28,
+        "padding_bottom": 28
       }
     },
     "image_banner_4k67yw": {
@@ -599,8 +599,8 @@
         "color_scheme": "scheme-1",
         "image_behavior": "none",
         "mobile_content_alignment": "left",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 28,
+        "padding_bottom": 28
       }
     },
     "featured_blog_UaRnVq": {
@@ -616,8 +616,8 @@
         "show_date": true,
         "show_author": false,
         "show_view_all": true,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 28,
+        "padding_bottom": 28
       }
     },
     "image_banner_ja4xUn": {
@@ -718,8 +718,8 @@
         "color_scheme": "",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 28,
+        "padding_bottom": 28
       }
     },
     "1777666874e27876d8": {
@@ -753,8 +753,8 @@
         "quick_add": "standard",
         "columns_mobile": "1",
         "swipe_on_mobile": true,
-        "padding_top": 56,
-        "padding_bottom": 36
+        "padding_top": 36,
+        "padding_bottom": 28
       }
     }
   },
