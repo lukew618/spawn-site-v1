@@ -38,12 +38,12 @@
         "text"
       ],
       "settings": {
-        "desktop_content_position": "center",
+        "desktop_content_position": "left",
         "content_alignment": "left",
         "full_width": false,
         "color_scheme": "scheme-1",
-        "padding_top": 28,
-        "padding_bottom": 16
+        "padding_top": 20,
+        "padding_bottom": 8
       }
     },
     "category_rail": {
@@ -89,8 +89,8 @@
         "show_view_all": false,
         "columns_mobile": "2",
         "swipe_on_mobile": true,
-        "padding_top": 20,
-        "padding_bottom": 20
+        "padding_top": 12,
+        "padding_bottom": 12
       }
     },
     "picks": {
@@ -117,8 +117,8 @@
         "quick_add": "none",
         "columns_mobile": "2",
         "swipe_on_mobile": false,
-        "padding_top": 24,
-        "padding_bottom": 24
+        "padding_top": 16,
+        "padding_bottom": 16
       }
     },
     "howto": {
@@ -163,8 +163,8 @@
         "color_scheme": "scheme-1",
         "image_behavior": "none",
         "mobile_content_alignment": "left",
-        "padding_top": 28,
-        "padding_bottom": 28
+        "padding_top": 20,
+        "padding_bottom": 20
       }
     },
     "faq": {
@@ -173,7 +173,7 @@
         "q1": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "What’s the difference between fly tying materials and supplies?",
+            "heading": "What\u2019s the difference between fly tying materials and supplies?",
             "icon": "none",
             "row_content": "<p>Materials go on the hook. Feathers, beads, shanks, dubbing, flash. Tools and adhesives are supplies. Different aisle.</p>"
           }
@@ -227,8 +227,8 @@
         "open_first_collapsible_row": false,
         "image_ratio": "adapt",
         "desktop_layout": "image_second",
-        "padding_top": 28,
-        "padding_bottom": 36
+        "padding_top": 20,
+        "padding_bottom": 24
       }
     },
     "product-grid": {
@@ -247,7 +247,7 @@
         "filter_type": "vertical",
         "enable_sorting": true,
         "columns_mobile": "2",
-        "padding_top": 40,
+        "padding_top": 28,
         "padding_bottom": 36
       }
     },
@@ -277,8 +277,8 @@
         "content_alignment": "left",
         "full_width": false,
         "color_scheme": "scheme-1",
-        "padding_top": 16,
-        "padding_bottom": 16
+        "padding_top": 12,
+        "padding_bottom": 12
       }
     }
   },
@@ -288,9 +288,9 @@
     "intro_richtext",
     "category_rail",
     "picks",
+    "product-grid",
     "howto",
     "tips",
-    "faq",
-    "product-grid"
+    "faq"
   ]
 }
