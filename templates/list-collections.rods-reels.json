@@ -1,0 +1,15 @@
+{
+  "sections": {
+    "main": {
+      "type": "spawn-rods-reels",
+      "settings": {
+        "title": "Rods & Reels",
+        "intro": "For the cast. For the run. Find your next connection to the water.",
+        "rods": "fly-rods",
+        "reels": "fly-reels",
+        "brand_menu": "main-menu-2"
+      }
+    }
+  },
+  "order": ["main"]
+}

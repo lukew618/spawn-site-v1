@@ -22,6 +22,8 @@ class CartDrawer extends HTMLElement {
 
       cartLink.setAttribute("role", "button");
       cartLink.setAttribute("aria-haspopup", "dialog");
+      cartLink.setAttribute("aria-controls", "CartDrawer");
+      cartLink.setAttribute("aria-expanded", "false");
       cartLink.addEventListener("click", (event) => {
         event.preventDefault();
         this.open(cartLink);
@@ -40,30 +42,27 @@ class CartDrawer extends HTMLElement {
     const cartDrawerNote = this.querySelector('[id^="Details-"] summary');
     if (cartDrawerNote && !cartDrawerNote.hasAttribute("role"))
       this.setSummaryAccessibility(cartDrawerNote);
-    // here the animation doesn't seem to always get triggered. A timeout seem to help
-    setTimeout(() => {
+    // Give the drawer a visible frame before focusing its controls, including with reduced motion.
+    clearTimeout(this.openTimer);
+    cancelAnimationFrame(this.focusFrame);
+    this.openTimer = setTimeout(() => {
       this.classList.add("animate", "active");
+      this.focusFrame = requestAnimationFrame(() => {
+        this.focusFrame = requestAnimationFrame(() => {
+          if (this.classList.contains('active')) trapFocus(this.querySelector(".drawer__inner"), this.querySelector(".drawer__close"));
+        });
+      });
     });
-
-    this.addEventListener(
-      "transitionend",
-      () => {
-        const containerToTrapFocusOn = this.classList.contains("is-empty")
-          ? this.querySelector(".drawer__inner-empty")
-          : document.getElementById("CartDrawer");
-        const focusElement =
-          this.querySelector(".drawer__inner") ||
-          this.querySelector(".drawer__close");
-        trapFocus(containerToTrapFocusOn, focusElement);
-      },
-      { once: true }
-    );
+    document.querySelectorAll('#cart-icon-bubble, #cart-icon-bubble-mobile').forEach(link => link.setAttribute('aria-expanded', 'true'));
 
     document.body.classList.add("overflow-hidden");
   }
 
   close() {
+    clearTimeout(this.openTimer);
+    cancelAnimationFrame(this.focusFrame);
     this.classList.remove("active");
+    document.querySelectorAll('#cart-icon-bubble, #cart-icon-bubble-mobile').forEach(link => link.setAttribute('aria-expanded', 'false'));
     removeTrapFocus(this.activeElement);
     document.body.classList.remove("overflow-hidden");
   }
@@ -105,6 +104,7 @@ class CartDrawer extends HTMLElement {
       );
     });
 
+    this.classList.toggle("is-empty", Boolean(this.querySelector(".drawer__inner-empty")));
     setTimeout(() => {
       this.querySelector("#CartDrawer-Overlay").addEventListener(
         "click",

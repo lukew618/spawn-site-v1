@@ -26,8 +26,30 @@
             assign picker_type = 'swatch'
           endif
         endif
+
+        assign option_name = option.name | downcase
+        if request.page_type == 'product' and picker_type == 'button'
+          if option_name == 'color' or option_name == 'colour'
+            assign all_values_have_images = true
+            for value in option.values
+              if value.variant.featured_media.preview_image == blank
+                assign all_values_have_images = false
+              endif
+            endfor
+            if all_values_have_images
+              assign picker_type = 'image'
+            endif
+          endif
+        endif
       -%}
-      {%- if picker_type == 'swatch' -%}
+      {%- if picker_type == 'image' -%}
+        <fieldset class="js product-form__input product-form__input--pill product-form__input--image">
+          <legend class="form__label">{{ option.name }}: <span data-selected-value>{{ option.selected_value }}</span></legend>
+          <div class="sp-image-options">
+            {% render 'product-variant-options', product: product, option: option, block: block, picker_type: picker_type %}
+          </div>
+        </fieldset>
+      {%- elsif picker_type == 'swatch' -%}
         <fieldset class="js product-form__input product-form__input--swatch">
           <legend class="form__label">
             {{ option.name }}:
@@ -87,8 +109,19 @@
       {%- endif -%}
     {%- endfor -%}
 
+    {%- if request.page_type == 'product' and product.selected_or_first_available_variant.metafields.custom.variant_description != blank -%}
+      <div class="sp-variant-note rte" role="status">
+        {{ product.selected_or_first_available_variant.metafields.custom.variant_description | metafield_tag }}
+      </div>
+    {%- endif -%}
+
     <script type="application/json" data-selected-variant>
       {{ product.selected_or_first_available_variant | json }}
     </script>
   </variant-selects>
 {%- endunless -%}
+{%- if request.page_type == 'product' and product.has_only_default_variant and product.selected_or_first_available_variant.metafields.custom.variant_description != blank -%}
+  <div class="sp-variant-note rte">
+    {{ product.selected_or_first_available_variant.metafields.custom.variant_description | metafield_tag }}
+  </div>
+{%- endif -%}

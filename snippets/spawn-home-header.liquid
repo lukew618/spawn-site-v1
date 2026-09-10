@@ -1,0 +1,48 @@
+<script src="{{ 'spawn-home.js' | asset_url }}" defer></script>
+<spawn-home-header class="sh-masthead">
+  <header class="sh-header" aria-label="Main header">
+    <button class="sh-icon sh-menu-toggle" id="mobile-menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="drawer-menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="1.5"/></svg>
+    </button>
+    <a class="sh-brand" href="{{ routes.root_url }}" aria-label="Spawn Fly Fish home">SPAWN FLY FISH</a>
+    <nav class="sh-nav" aria-label="Main navigation">
+      <details class="sh-shop-menu">
+        <summary>Shop</summary>
+        <div class="sh-mega">
+          {%- assign highlighted_collection = collections['spawn-fly-fish-products'] -%}
+          <a class="sh-mega__feature" href="{{ highlighted_collection.url }}">
+            <span class="sh-eyebrow">Spawn originals</span>
+            {% if highlighted_collection.featured_image %}{{ highlighted_collection.featured_image | image_url: width: 650 | image_tag: widths: '450, 650', sizes: '600px', loading: 'lazy', alt: 'Original fly tying materials from Spawn' }}{% endif %}
+            <span class="sh-mega__feature-title">From our bench.<br>To your next fly.</span>
+            <span class="sh-mega__feature-link">Shop Spawn products</span>
+          </a>
+          <div class="sh-mega__links">
+          {%- for category in section.settings.drawer_menu.links -%}
+            <div class="sh-mega__column">
+              <a class="sh-mega__title" href="{{ category.url }}">{{ category.title | escape }}</a>
+              {%- for sublink in category.links -%}{%- unless sublink.url == category.url -%}<a href="{{ sublink.url }}">{{ sublink.title | escape }}</a>{%- endunless -%}{%- endfor -%}
+            </div>
+          {%- endfor -%}
+          </div>
+        </div>
+      </details>
+      <a href="{{ collections['fly-tying-products'].url }}">Fly tying</a>
+      <a href="{{ collections['flies'].url }}">Flies</a>
+      <a href="{{ routes.collections_url }}?view=rods-reels"{% if template.suffix == 'rods-reels' %} aria-current="page"{% endif %}>Rods &amp; reels</a>
+      <a href="{{ collections['spawn-apparel'].url }}">Apparel</a>
+      <a href="{{ blogs['spawn-blog'].url }}">Learn</a>
+    </nav>
+    <div class="sh-utilities">
+      {% render 'header-search', input_id: 'Spawn-Home-Search' %}
+      {%- if shop.customer_accounts_enabled -%}
+        <a class="sh-icon sh-account" href="{{ routes.account_login_url }}" aria-label="Your account"><span class="svg-wrapper">{{ 'icon-account.svg' | inline_asset_content }}</span></a>
+      {%- endif -%}
+      <a class="sh-icon sh-cart" href="{{ routes.cart_url }}" id="cart-icon-bubble" aria-label="{{ 'sections.header.cart_count' | t: count: cart.item_count }}">
+        <span class="svg-wrapper">{{ 'icon-cart.svg' | inline_asset_content }}</span>
+        <span class="sh-cart-label">Bag</span>
+        {%- if cart != empty -%}<span class="cart-count-bubble"><span aria-hidden="true">{{ cart.item_count }}</span></span>{%- endif -%}
+      </a>
+    </div>
+    {% render 'drawer-menu', menu: section.settings.drawer_menu, rods_reels_landing: true %}
+  </header>
+</spawn-home-header>

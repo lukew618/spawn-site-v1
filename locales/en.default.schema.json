@@ -3515,6 +3515,38 @@
       "presets": {
         "name": "Collapsible content"
       }
+    },
+    "spawn_rods_reels": {
+      "name": "Rods & Reels landing",
+      "title": "Page title",
+      "intro": "Introduction",
+      "rods": "Fly rods collection",
+      "reels": "Fly reels collection",
+      "rods_image": "Fly rods image override",
+      "reels_image": "Fly reels image override",
+      "brand_menu": "Menu with rod and reel brands"
+    },
+    "spawn_home": {
+      "name": "Spawn premium homepage",
+      "hero_image": "Hero image",
+      "eyebrow": "Eyebrow",
+      "hero_title": "Hero title",
+      "hero_text": "Hero description",
+      "tying_collection": "Fly tying collection",
+      "materials_collection": "Featured materials collection",
+      "flies_collection": "Signature flies collection",
+      "feature_image": "Featured fly image",
+      "feature_title": "Featured fly title",
+      "feature_text": "Featured fly description",
+      "feature_collection": "Featured fly collection",
+      "store_image": "Store image",
+      "store_text": "Store description",
+      "blog": "Journal blog",
+      "category": "Category",
+      "category_title": "Category title",
+      "category_image": "Category image override",
+      "category_subtitle": "Category subtitle",
+      "category_cta": "Category button label"
     }
   }
 }

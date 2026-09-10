@@ -6,6 +6,7 @@
   if hero_image == blank
     assign hero_image = collection.image
   endif
+  assign hero_alt = hero_image.alt | default: collection.title
 -%}
 
 {%- style -%}
@@ -16,6 +17,7 @@
 
 <div
   id="CollectionHero-{{ section.id }}"
+  {% if hero_image != blank %}data-header-overlay{% endif %}
   class="banner banner--content-align-{{ section.settings.desktop_content_alignment }} banner--content-align-mobile-center banner--{{ section.settings.image_height }}{% if section.settings.show_text_box == false %} banner--desktop-transparent{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
 >
   {%- if hero_image != blank -%}
@@ -29,7 +31,7 @@
           class: 'banner__media-image-always',
           sizes: '100vw',
           widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840',
-          alt: hero_image.alt | default: collection.title | escape
+          alt: hero_alt
       }}
     </div>
   {%- else -%}

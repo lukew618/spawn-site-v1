@@ -76,7 +76,7 @@
       help_text: help_text,
       additional_props: input_dataset
     %}
-  {%- elsif picker_type == 'button' -%}
+  {%- elsif picker_type == 'button' or picker_type == 'image' -%}
     <input
       type="radio"
       id="{{ input_id }}"
@@ -91,8 +91,13 @@
       {% endif %}
       {{ input_dataset }}
     >
-    <label for="{{ input_id }}">
-      {{ value -}}
+    <label for="{{ input_id }}"{% if picker_type == 'image' %} title="{{ value | escape }}"{% endif %}>
+      {%- if picker_type == 'image' -%}
+        {{ value.variant.featured_media.preview_image | image_url: width: 120 | image_tag: loading: 'lazy', widths: '60, 120', sizes: '52px', alt: '' }}
+        <span class="visually-hidden">{{ value | escape }}</span>
+      {%- else -%}
+        {{ value -}}
+      {%- endif -%}
       {{ label_unavailable }}
     </label>
   {%- elsif picker_type == 'dropdown' or picker_type == 'swatch_dropdown' -%}

@@ -15,6 +15,7 @@
   {{ 'component-slider.css' | asset_url | stylesheet_tag }}
   {{ 'component-rating.css' | asset_url | stylesheet_tag }}
   {{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
+  {{ 'spawn-product.css' | asset_url | stylesheet_tag }}
 
   {% unless product.has_only_default_variant %}
     {{ 'component-product-variant-picker.css' | asset_url | stylesheet_tag }}
@@ -84,18 +85,21 @@
           class="product__info-container{% if section.settings.enable_sticky_info %} product__column-sticky{% endif %}"
         >
           {%- assign product_form_id = 'product-form-' | append: section.id -%}
+          {%- assign purchase_block = section.blocks | where: 'type', 'buy_buttons' | first -%}
 
           {%- for block in section.blocks -%}
             {%- case block.type -%}
               {%- when '@app' -%}
                 {% render block %}
               {%- when 'text' -%}
+                {%- if block.settings.text != blank -%}
                 <p
                   class="product__text inline-richtext{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}"
                   {{ block.shopify_attributes }}
                 >
                   {{- block.settings.text -}}
                 </p>
+                {%- endif -%}
               {%- when 'title' -%}
                 <div class="product__title" {{ block.shopify_attributes }}>
                   <h1>{{ product.title | escape }}</h1>
@@ -137,13 +141,15 @@
                     {%- endif -%}
                   </div>
                 {%- endif -%}
-                <div {{ block.shopify_attributes }}>
+                {%- if product.price_max >= 3500 and product.gift_card? == false and purchase_block != blank and product.available -%}
+                <div class="sp-payment-terms" {{ block.shopify_attributes }}>
                   {%- assign product_form_installment_id = 'product-form-installment-' | append: section.id -%}
                   {%- form 'product', product, id: product_form_installment_id, class: 'installment caption-large' -%}
                     <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
                     {{ form | payment_terms }}
                   {%- endform -%}
                 </div>
+                {%- endif -%}
               {%- when 'inventory' -%}
                 <p
                   class="product__inventory{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.inventory_management != 'shopify' %} visibility-hidden{% endif %}"
@@ -214,8 +220,11 @@
               {%- when 'custom_liquid' -%}
                 {{ block.settings.custom_liquid }}
               {%- when 'collapsible_tab' -%}
+                {%- capture accordion_content -%}{{ block.settings.content }}{{ block.settings.page.content }}{%- endcapture -%}
+                {%- assign accordion_text = accordion_content | strip_html | strip -%}
+                {%- if accordion_text != blank or accordion_content contains '<img' or accordion_content contains '<video' or request.design_mode -%}
                 <div class="product__accordion accordion quick-add-hidden" {{ block.shopify_attributes }}>
-                  <details id="Details-{{ block.id }}-{{ section.id }}">
+                  <details id="Details-{{ block.id }}-{{ section.id }}"{% if template.suffix == 'in-store-only' %} open{% endif %}>
                     <summary>
                       <div class="summary__title">
                         {% render 'icon-accordion', icon: block.settings.icon %}
@@ -226,11 +235,11 @@
                       {{- 'icon-caret.svg' | inline_asset_content -}}
                     </summary>
                     <div class="accordion__content rte" id="ProductAccordion-{{ block.id }}-{{ section.id }}">
-                      {{ block.settings.content }}
-                      {{ block.settings.page.content }}
+                      {{ accordion_content }}
                     </div>
                   </details>
                 </div>
+                {%- endif -%}
               {%- when 'quantity_selector' -%}
                 <div
                   id="Quantity-Form-{{ section.id }}"
@@ -512,15 +521,6 @@
                       </span>
                     </p>
                   </div>
-                {%- else -%}
-                  <div class="rating-wrapper rating-wrapper--placeholder">
-                    <div class="rating" role="img" aria-label="No reviews yet">
-                      <span aria-hidden="true" class="rating-star" style="--rating: 0; --rating-max: 5; --rating-decimal: 0;"></span>
-                    </div>
-                    <p class="rating-count caption">
-                      <span>Be the first to review</span>
-                    </p>
-                  </div>
                 {%- endif -%}
               {%- when 'complementary' -%}
                 <product-recommendations
@@ -672,7 +672,14 @@
                   {%- endif -%}
                 </product-recommendations>
               {%- when 'icon-with-text' -%}
+                {%- unless product.gift_card? -%}
                 {% render 'icon-with-text', block: block %}
+                {%- endunless -%}
+                {%- if product.description != blank -%}
+                {%- if template.suffix == blank or template.suffix == 'in-store-only' -%}
+                  <a class="sp-details-link" href="#ProductDetails-{{ product.id }}">{{ 'products.product.view_full_details' | t }}</a>
+                {%- endif -%}
+                {%- endif -%}
             {%- endcase -%}
           {%- endfor -%}
           <a href="{{ product.url }}" class="link product__view-details animate-arrow">

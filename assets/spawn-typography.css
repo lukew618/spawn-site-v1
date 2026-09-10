@@ -1,0 +1,191 @@
+/* Spawn type system: Jost in three real weights.
+   400: reading and prices. 500: controls, labels, product names. 700: headings.
+   Uppercase belongs to navigation, eyebrows, badges, and campaign hero titles.
+   Product names, prose, and actions retain their source case. */
+:root {
+  --sf-font-body: var(--font-body-family);
+  --sf-font-heading: var(--font-heading-family);
+  --sf-weight-regular: 400;
+  --sf-weight-medium: 500;
+  --sf-weight-bold: 700;
+  --sf-type-micro: 11px;
+  --sf-type-meta: 12px;
+  --sf-type-label: 13px;
+  --sf-type-control: 14px;
+  --sf-type-card: 15px;
+  --sf-type-body: 16px;
+  --sf-type-lead: 18px;
+  --sf-type-page: clamp(32px, 4vw, 52px);
+  --sf-type-section: clamp(30px, 3.2vw, 46px);
+  --sf-type-subsection: clamp(22px, 2.2vw, 28px);
+  --sf-leading-body: 1.6;
+  --sf-leading-heading: 1.12;
+  --sf-tracking-label: .09em;
+  --sf-tracking-heading: -.025em;
+}
+body.spawn-type {
+  font-family: var(--sf-font-body);
+  font-size: var(--sf-type-body);
+  font-weight: var(--sf-weight-regular);
+  line-height: var(--sf-leading-body);
+  letter-spacing: 0;
+}
+.spawn-type :is(button, input, select, textarea) { font-family: var(--sf-font-body); }
+.spawn-type :is(h1, h2, h3, h4, h5, h6, .h0, .h1, .h2, .h3, .h4, .h5) {
+  font-family: var(--sf-font-heading);
+  font-weight: var(--sf-weight-bold);
+  letter-spacing: var(--sf-tracking-heading);
+  line-height: var(--sf-leading-heading);
+  text-transform: none;
+}
+.spawn-type :where(#MainContent) :is(h1, .h0, .h1) { font-size: var(--sf-type-page); }
+.spawn-type :where(#MainContent) :is(h2, .h2) { font-size: var(--sf-type-section); }
+.spawn-type :where(#MainContent) :is(h3, .h3) { font-size: var(--sf-type-subsection); }
+.spawn-type :where(#MainContent) :is(h4, .h4) { font-size: var(--sf-type-lead); }
+.spawn-type :where(#MainContent) :is(h5, h6, .h5) { font-size: var(--sf-type-body); }
+.spawn-type :is(.rte, .product-editorial__body, .product-specs__content, .article-template__content) {
+  font-family: var(--sf-font-body);
+  font-size: var(--sf-type-body);
+  font-weight: var(--sf-weight-regular);
+  line-height: var(--sf-leading-body);
+  letter-spacing: 0;
+}
+.spawn-type .rte :is(h2, h3), .spawn-type :is(.product-editorial__heading, .product-specs__title) {
+  font-size: var(--sf-type-subsection);
+  text-transform: none;
+  letter-spacing: var(--sf-tracking-heading);
+}
+.spawn-type :is(.button, .shopify-challenge__button, .customer button, .shopify-payment-button__button--unbranded, .sh-button, .sh-text-link) {
+  font-family: var(--sf-font-body);
+  font-size: var(--sf-type-control);
+  font-weight: var(--sf-weight-medium);
+  line-height: 1.35;
+  letter-spacing: .015em;
+  text-transform: none;
+}
+.spawn-type :is(.field__input, .select__select, .customer input, .customer select) {
+  font-family: var(--sf-font-body);
+  font-size: var(--sf-type-body);
+  font-weight: var(--sf-weight-regular);
+  letter-spacing: 0;
+}
+.spawn-type :is(.form__label, .field__label, .product-form__input legend, .product-form__input input[type='radio'] + label) {
+  font-family: var(--sf-font-body);
+  font-size: var(--sf-type-label);
+  font-weight: var(--sf-weight-medium);
+  letter-spacing: .01em;
+  text-transform: none;
+}
+.spawn-type :is(.caption, .product__tax, .product__sku, .tax-note, .cart__note label, .article-card__info) {
+  font-size: var(--sf-type-meta);
+  font-weight: var(--sf-weight-regular);
+  line-height: 1.45;
+  letter-spacing: .015em;
+}
+.spawn-type :is(.caption-with-letter-spacing, .sh-eyebrow, .collection-premium__eyebrow, .product-editorial__label, .product-specs__label) {
+  font-family: var(--sf-font-body);
+  font-size: var(--sf-type-micro);
+  font-weight: var(--sf-weight-medium);
+  line-height: 1.4;
+  letter-spacing: var(--sf-tracking-label);
+  text-transform: uppercase;
+}
+/* Product names and prices use the same treatment in every shopping surface. */
+body.spawn-type #MainContent :is(.card__heading, .cp-card__title), .spawn-type .sh-product h3, .spawn-type :is(.cart-item__name, .predictive-search__item-heading) {
+  font-family: var(--sf-font-body);
+  font-size: var(--sf-type-card);
+  font-weight: var(--sf-weight-medium);
+  line-height: 1.4;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.spawn-type :is(.price, .price-item, .sh-product__price, .cp-card__price, .cp-card__price .price, .cp-card__price .price-item) {
+  font-family: var(--sf-font-body);
+  font-size: var(--sf-type-control);
+  font-weight: var(--sf-weight-regular);
+  line-height: 1.4;
+  letter-spacing: 0;
+  font-variant-numeric: tabular-nums;
+}
+#MainContent .product__title h1 {
+  font-size: clamp(28px, 3vw, 38px);
+  line-height: 1.15;
+  letter-spacing: var(--sf-tracking-heading);
+  text-transform: none;
+}
+.spawn-type .product__info-container .price :is(.price-item, .price-item--regular) { font-size: 20px; }
+.spawn-type :is(.badge, .sh-badge, .cp-card__badge) {
+  font-family: var(--sf-font-body);
+  font-size: var(--sf-type-micro);
+  font-weight: var(--sf-weight-medium);
+  line-height: 1.2;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+/* Campaign titles stay uppercase. Filter and sort controls stay compact. */
+.spawn-type .collection-premium__title {
+  font-size: clamp(32px, 4.4vw, 52px);
+  font-weight: var(--sf-weight-bold);
+  line-height: 1.05;
+  letter-spacing: var(--sf-tracking-heading);
+  text-transform: uppercase;
+}
+.spawn-type .sh-hero h1 { font-size: clamp(39px, 5.35vw, 80px); line-height: 1.02; text-transform: uppercase; }
+.spawn-type :is(.collection-premium__subtitle, .collection-premium__desc) { font-size: var(--sf-type-body); line-height: 1.6; letter-spacing: 0; }
+.spawn-type :is(.collection-premium__filters-toggle, .collection-premium__filters-close, .collection-premium__sort-label) {
+  font-family: var(--sf-font-body);
+  font-size: var(--sf-type-label);
+  font-weight: var(--sf-weight-medium);
+  line-height: 1.35;
+  letter-spacing: .015em;
+  text-transform: none;
+}
+.spawn-type .collection-premium .collection-premium__sort :is(.select__select, .facet-filters__sort) { font-size: var(--sf-type-control); font-weight: var(--sf-weight-regular); letter-spacing: 0; }
+.spawn-type .collection-premium__filters :is(.facets__heading, .facets__summary, .facets__summary-label) {
+  font-family: var(--sf-font-body);
+  font-size: var(--sf-type-control);
+  font-weight: var(--sf-weight-medium);
+  letter-spacing: .01em;
+  text-transform: none;
+}
+.spawn-type :is(.facets__label, .facet-checkbox, .collection-premium__count, .facets__selected) { font-size: var(--sf-type-label); letter-spacing: 0; }
+.spawn-type :is(.facets__heading, .facet-filters__label, .product-count__text, .mobile-facets__heading, .mobile-facets__summary, .facets__summary) {
+  font-family: var(--sf-font-body);
+  font-size: var(--sf-type-control);
+  font-weight: var(--sf-weight-medium);
+  line-height: 1.4;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.spawn-type .template-search__header h1 { font-size: var(--sf-type-page); }
+.spawn-type .collection-premium__filters-title { font-size: var(--sf-type-lead); letter-spacing: 0; text-transform: none; }
+.spawn-type .collection-premium__breadcrumb-list { font-family: var(--sf-font-body); font-size: var(--sf-type-micro); font-weight: var(--sf-weight-medium); letter-spacing: .06em; }
+.spawn-type .collection-premium__breadcrumb-current { font-weight: var(--sf-weight-medium); }
+.spawn-type .collection-premium__chip { font-family: var(--sf-font-body); font-size: var(--sf-type-micro); font-weight: var(--sf-weight-medium); letter-spacing: .04em; }
+/* Navigation is compact and uppercase; dropdown links use their source case. */
+.spawn-type .header__heading .h2 { font-family: var(--sf-font-heading); font-size: 26px; font-weight: var(--sf-weight-bold); letter-spacing: .015em; }
+.spawn-type :is(.header__menu-button, .header__icons .header__icon--search::after, .nav-megamenu__heading, .sh-nav > a, .sh-nav summary) {
+  font-family: var(--sf-font-body);
+  font-size: var(--sf-type-meta);
+  font-weight: var(--sf-weight-medium);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.spawn-type :is(.nav-megamenu__item, .nav-dropdown__item, .drawer-menu__sublink) { font-family: var(--sf-font-body); font-size: var(--sf-type-label); font-weight: var(--sf-weight-regular); line-height: 1.45; text-transform: none; letter-spacing: 0; }
+.spawn-type .header :is(.header__menu-button, .nav-megamenu__heading), .spawn-type .header__icons .header__icon--search::after { font-family: var(--sf-font-body); font-size: var(--sf-type-meta); font-weight: var(--sf-weight-medium); letter-spacing: .06em; }
+.spawn-type .drawer-menu__link { font-family: var(--sf-font-body); font-size: var(--sf-type-control); font-weight: var(--sf-weight-medium); letter-spacing: .04em; }
+.spawn-type .footer-block__heading { font-size: var(--sf-type-meta); font-weight: var(--sf-weight-medium); text-transform: uppercase; letter-spacing: var(--sf-tracking-label); }
+.spawn-type .footer-block--newsletter .footer-block__heading { font-size: var(--sf-type-subsection); font-weight: var(--sf-weight-bold); text-transform: none; letter-spacing: var(--sf-tracking-heading); }
+.spawn-type :is(.footer-block__details-content .list-menu__item--link, .sh-footer-menu li a) { font-family: var(--sf-font-body); font-size: var(--sf-type-control); font-weight: var(--sf-weight-regular); letter-spacing: 0; text-transform: none; }
+.spawn-type .drawer__heading { font-size: var(--sf-type-subsection); text-transform: none; }
+.spawn-type :is(.accordion__title, .totals__total, .totals__total-value) { font-size: var(--sf-type-body); font-weight: var(--sf-weight-medium); letter-spacing: 0; }
+@media (max-width: 749px) {
+  body.spawn-type #MainContent :is(.card__heading, .cp-card__title), .spawn-type .sh-product h3 { font-size: var(--sf-type-control); }
+  .spawn-type .header__heading .h2 { font-size: 19px; }
+}
+@media (min-width: 1100px) and (max-width: 1299px) {
+  .spawn-type :is(.sh-nav > a, .sh-nav summary) { font-size: var(--sf-type-micro); }
+}
+@media (max-height: 740px) {
+  .spawn-type .sh-hero h1 { font-size: clamp(32px, 4.5vw, 66px); }
+}

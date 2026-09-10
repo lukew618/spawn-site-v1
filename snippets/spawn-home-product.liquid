@@ -1,0 +1,30 @@
+{%- liquid
+  assign image_alt = product.featured_image.alt | default: product.title
+  assign color_count = 0
+  for option in product.options_with_values
+    assign option_name = option.name | downcase
+    if option_name == 'color' or option_name == 'colour'
+      assign color_count = option.values.size
+    endif
+  endfor
+-%}
+<li class="sh-product" role="listitem">
+  <a href="{{ product.url }}" class="sh-product__link">
+    <div class="sh-product__image">
+      {%- if product.featured_image -%}
+        {{ product.featured_image | image_url: width: 800 | image_tag: widths: '240, 360, 540, 800', sizes: '(min-width: 990px) 25vw, 48vw', loading: 'lazy', alt: image_alt }}
+      {%- else -%}{{ 'product-1' | placeholder_svg_tag: 'sh-placeholder' }}{%- endif -%}
+      {%- if product.available == false -%}<span class="sh-badge">Sold out</span>
+      {%- elsif product.compare_at_price > product.price -%}<span class="sh-badge sh-badge--sale">Sale</span>{%- endif -%}
+      <span class="sh-product__reveal" aria-hidden="true">View product</span>
+    </div>
+    <div class="sh-product__info">
+      <h3>{{ product.title | escape }}</h3>
+      <p class="sh-product__price">{%- if product.price_varies -%}From {% endif %}{{ product.price | money }}{% if product.compare_at_price > product.price and product.price_varies == false %} <s>{{ product.compare_at_price | money }}</s>{% endif %}</p>
+      {%- if color_count > 1 -%}<p class="sh-product__options">{{ color_count }} colors available</p>{%- endif -%}
+      {%- if product.metafields.reviews.rating.value != blank -%}
+        <p class="sh-product__rating"><span aria-hidden="true">★</span> {{ product.metafields.reviews.rating.value.rating | round: 1 }} <span>({{ product.metafields.reviews.rating_count.value }})</span></p>
+      {%- endif -%}
+    </div>
+  </a>
+</li>

@@ -25,7 +25,7 @@
 -%}
 
 <div class="color-{{ section.settings.color_scheme }} gradient">
-  <div class="collection-list-wrapper page-width isolate{% if show_mobile_slider %} page-width-desktop{% endif %}{% if section.settings.title == blank %} no-heading{% endif %}{% if section.settings.show_view_all == false or section.blocks.size > collections.size %} no-mobile-link{% endif %} section-{{ section.id }}-padding">
+  <div class="collection-list-wrapper page-width isolate{% if section.settings.category_grid %} collection-list-wrapper--category-grid{% endif %}{% if show_mobile_slider %} page-width-desktop{% endif %}{% if section.settings.title == blank %} no-heading{% endif %}{% if section.settings.show_view_all == false or section.blocks.size > collections.size %} no-mobile-link{% endif %} section-{{ section.id }}-padding">
     {%- unless section.settings.title == blank -%}
       <div class="title-wrapper-with-link{% if show_mobile_slider %} title-wrapper--self-padded-tablet-down{% else %} title-wrapper--self-padded-mobile{% endif %} title-wrapper--no-top-margin">
         <h2
@@ -74,6 +74,7 @@
             {%- assign placeholder_image = 'collection-apparel-' | append: placeholder_image_index -%}
             {% render 'card-collection',
               card_collection: block.settings.collection,
+              custom_title: block.settings.custom_title,
               media_aspect_ratio: section.settings.image_ratio,
               columns: columns,
               placeholder_image: placeholder_image
@@ -221,6 +222,12 @@
       "label": "t:sections.collection-list.settings.show_view_all.label"
     },
     {
+      "type": "checkbox",
+      "id": "category_grid",
+      "default": false,
+      "label": "Use compact category grid"
+    },
+    {
       "type": "header",
       "content": "t:sections.collection-list.settings.header_mobile.content"
     },
@@ -276,6 +283,11 @@
       "type": "featured_collection",
       "name": "t:sections.collection-list.blocks.featured_collection.name",
       "settings": [
+        {
+          "type": "text",
+          "id": "custom_title",
+          "label": "Custom title"
+        },
         {
           "type": "collection",
           "id": "collection",

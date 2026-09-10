@@ -59,3 +59,38 @@
 .collection-list-view-all {
   margin-top: 2rem;
 }
+
+.collection-list-wrapper--category-grid .collection-list {
+  row-gap: 3rem;
+}
+
+.collection-list-wrapper--category-grid .card__heading {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.collection-list-wrapper--category-grid .card__information {
+  padding-top: 1.4rem;
+  padding-bottom: 0;
+}
+
+@media screen and (max-width: 749px) {
+  .collection-list-wrapper--category-grid .collection-list {
+    column-gap: 1.2rem;
+    row-gap: 2.4rem;
+  }
+
+  .collection-list-wrapper--category-grid .card__heading {
+    font-size: 1.25rem;
+  }
+
+  .collection-list-wrapper--category-grid .card__information {
+    padding-top: 1rem;
+  }
+
+  .collection-list-wrapper--category-grid .icon-wrap {
+    display: none;
+  }
+}
