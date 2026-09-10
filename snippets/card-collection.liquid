@@ -3,6 +3,7 @@
 
   Accepts:
   - card_collection: {Object} Collection Liquid object
+  - custom_title: {String} Optional card title override
   - media_aspect_ratio: {String} Size of the product image card. Values are "square" and "portrait". Default is "square" (optional)
   - columns: {Number}
   - extend_height: {Boolean} Card height extends to available container space. Default: false (optional)
@@ -25,6 +26,8 @@
   endif
   assign card_color_scheme = settings.card_color_scheme
   assign card_style = settings.card_style
+  assign card_title = custom_title | default: card_collection.title
+  assign card_image_alt = card_collection.featured_image.alt | default: card_title
   if wrapper_class == null or wrapper_class == 'none'
     assign card_color_scheme = settings.collection_card_color_scheme
     assign card_style = settings.collection_card_style
@@ -67,7 +70,7 @@
                 (min-width: 750px) {% if columns > 1 %}calc((100vw - 10rem) / 2){% else %}calc(100vw - 10rem){% endif %},
                 calc(100vw - 3rem)
               "
-              alt="{{ card_collection.featured_image.alt | escape }}"
+              alt="{{ card_image_alt | escape }}"
               height="{{ card_collection.featured_image.height }}"
               width="{{ card_collection.featured_image.width }}"
               loading="lazy"
@@ -92,8 +95,8 @@
                 {% endif %}
                 class="full-unstyled-link"
               >
-                {%- if card_collection.title != blank -%}
-                  {{- card_collection.title | escape -}}
+                {%- if card_title != blank -%}
+                  {{- card_title | escape -}}
                 {%- else -%}
                   {{ 'onboarding.collection_title' | t }}
                 {%- endif -%}
@@ -128,8 +131,8 @@
               {% endif %}
               class="full-unstyled-link"
             >
-              {%- if card_collection.title != blank -%}
-                {{- card_collection.title | escape -}}
+              {%- if card_title != blank -%}
+                {{- card_title | escape -}}
               {%- else -%}
                 {{ 'onboarding.collection_title' | t }}
               {%- endif -%}

@@ -24,6 +24,12 @@
       <!-- Example: Using Shopify's navigation for "main-menu-2" with sub-menu items expanded -->
       <div class="drawer-menu__grid">
       {% for link in menu.links %}
+        {%- if rods_reels_landing and link.url == collections['fly-rods'].url -%}
+          <div class="drawer-menu__item"><a href="{{ routes.collections_url }}?view=rods-reels" class="drawer-menu__link">Rods &amp; Reels</a></div>
+          {%- continue -%}
+        {%- elsif rods_reels_landing and link.url == collections['fly-reels'].url -%}
+          {%- continue -%}
+        {%- endif -%}
         <div class="drawer-menu__item">
           {% if link.links.size > 0 %}
             <button 
@@ -49,6 +55,10 @@
           {% endif %}
         </div>
       {% endfor %}
+      <div class="drawer-menu__item"><a href="{{ blogs['spawn-blog'].url }}" class="drawer-menu__link">Learn</a></div>
+      {%- if shop.customer_accounts_enabled -%}
+        <div class="drawer-menu__item"><a href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}" class="drawer-menu__link">{{ 'customer.account.title' | t }}</a></div>
+      {%- endif -%}
       </div>
     </div>
   </div>

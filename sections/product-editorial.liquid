@@ -52,10 +52,13 @@
 
   assign intro_text = intro_html | strip_html | strip
   assign shipping_text = section.settings.shipping_text
+  if product.gift_card? or template.suffix == 'in-store-only'
+    assign shipping_text = ''
+  endif
 -%}
 
 {%- if editorial_content != blank -%}
-  <div class="gradient color-{{ section.settings.color_scheme }}">
+  <div id="ProductDetails-{{ product.id }}" class="sp-editorial-section gradient color-{{ section.settings.color_scheme }}">
     <div class="page-width section-{{ section.id }}-padding">
       <div class="product-editorial">
         {%- if editorial_heading != blank -%}
@@ -98,6 +101,10 @@
             {%- endif -%}
           </div>
         {%- endif -%}
+        <div class="sp-product-help">
+          <p>Need a hand choosing? Talk to the team at Spawn.</p>
+          <a href="/pages/contact-us">Ask us about this product</a>
+        </div>
       </div>
     </div>
   </div>

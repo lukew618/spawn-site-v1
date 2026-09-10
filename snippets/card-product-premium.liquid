@@ -1,0 +1,185 @@
+{% comment %}
+  Premium BD-style product card for collection-premium.
+  Self-contained — does not alter global card-product.
+
+  Accepts:
+  - card_product: {Object} Product Liquid object
+  - media_aspect_ratio: {String} adapt | portrait | square (default: square)
+  - lazy_load: {Boolean}
+  - show_rating: {Boolean} Default: true
+  - section_id: {String}
+{% endcomment %}
+{%- if card_product and card_product != empty -%}
+  {%- liquid
+    assign ratio = 1
+    if card_product.featured_media and media_aspect_ratio == 'portrait'
+      assign ratio = 0.8
+    elsif card_product.featured_media and media_aspect_ratio == 'adapt'
+      assign ratio = card_product.featured_media.aspect_ratio
+    endif
+    if ratio == 0 or ratio == null
+      assign ratio = 1
+    endif
+    if show_rating == nil
+      assign show_rating = true
+    endif
+    if lazy_load == nil
+      assign lazy_load = true
+    endif
+    assign featured = card_product.featured_media
+    if featured == blank
+      assign featured = card_product.featured_image
+    endif
+  -%}
+
+  <article class="cp-card" data-cp-card>
+    <div class="cp-card__plate" style="--ratio: {{ ratio }}">
+      {%- if featured != blank -%}
+        <a
+          class="cp-card__media-link"
+          href="{{ card_product.url }}"
+          aria-label="{{ card_product.title | escape }}"
+        >
+          <img
+            class="cp-card__img"
+            src="{{ featured | image_url: width: 800 }}"
+            srcset="
+              {%- if featured.width >= 360 -%}{{ featured | image_url: width: 360 }} 360w,{%- endif -%}
+              {%- if featured.width >= 533 -%}{{ featured | image_url: width: 533 }} 533w,{%- endif -%}
+              {%- if featured.width >= 720 -%}{{ featured | image_url: width: 720 }} 720w,{%- endif -%}
+              {%- if featured.width >= 900 -%}{{ featured | image_url: width: 900 }} 900w,{%- endif -%}
+              {{ featured | image_url: width: 1200 }} 1200w
+            "
+            sizes="(min-width: 990px) 25vw, (min-width: 750px) 33vw, 50vw"
+            alt="{{ featured.alt | default: card_product.title | escape }}"
+            width="{{ featured.width }}"
+            height="{{ featured.height }}"
+            {% if lazy_load %}loading="lazy"{% else %}loading="eager"{% endif %}
+            data-cp-main
+          >
+        </a>
+      {%- else -%}
+        <a class="cp-card__media-link cp-card__media-link--empty" href="{{ card_product.url }}">
+          {{ 'product-apparel-2' | placeholder_svg_tag: 'placeholder-svg' }}
+        </a>
+      {%- endif -%}
+
+      <div class="cp-card__badge promotion-badges promotion-badges--card">
+        {%- if card_product.available == false -%}
+          <span class="badge badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}">
+            {{- 'products.product.sold_out' | t -}}
+          </span>
+        {%- elsif card_product.compare_at_price > card_product.price and card_product.available -%}
+          <span class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}">
+            {{- 'products.product.on_sale' | t -}}
+          </span>
+        {%- endif -%}
+        {%- render 'promotion-badges', product: card_product, context: 'card', current_collection: collection -%}
+      </div>
+    </div>
+
+    {%- if card_product.media.size > 1 -%}
+      <div class="cp-card__thumbs" role="list" data-cp-thumbs>
+        {%- for media in card_product.media limit: 5 -%}
+          {%- if media.media_type == 'image' -%}
+            <button
+              type="button"
+              class="cp-card__thumb{% if forloop.first %} is-selected{% endif %}"
+              role="listitem"
+              aria-label="View image {{ forloop.index }}"
+              data-cp-thumb
+              data-src="{{ media | image_url: width: 800 }}"
+              data-srcset="
+                {%- if media.width >= 360 -%}{{ media | image_url: width: 360 }} 360w,{%- endif -%}
+                {%- if media.width >= 533 -%}{{ media | image_url: width: 533 }} 533w,{%- endif -%}
+                {%- if media.width >= 720 -%}{{ media | image_url: width: 720 }} 720w,{%- endif -%}
+                {%- if media.width >= 900 -%}{{ media | image_url: width: 900 }} 900w,{%- endif -%}
+                {{ media | image_url: width: 1200 }} 1200w
+              "
+              data-alt="{{ media.alt | default: card_product.title | escape }}"
+            >
+              <img
+                src="{{ media | image_url: width: 120 }}"
+                alt=""
+                width="60"
+                height="60"
+                loading="lazy"
+              >
+            </button>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    <div class="cp-card__info">
+      <h3 class="cp-card__title">
+        <a href="{{ card_product.url }}" class="full-unstyled-link">
+          {{ card_product.title | escape }}
+        </a>
+      </h3>
+
+      <div class="cp-card__price">
+        {%- liquid
+          assign cp_display_price = card_product.price_min
+          if settings.currency_code_enabled
+            assign cp_money = cp_display_price | money_with_currency
+            assign cp_compare_money = card_product.compare_at_price | money_with_currency
+          else
+            assign cp_money = cp_display_price | money
+            assign cp_compare_money = card_product.compare_at_price | money
+          endif
+        -%}
+        <div class="price cp-card__price-inner{% if card_product.compare_at_price > card_product.price %} price--on-sale{% endif %}">
+          <div class="price__container">
+            {%- if card_product.compare_at_price > card_product.price -%}
+              <div class="price__sale">
+                <span>
+                  <s class="price-item price-item--regular">{{ cp_compare_money }}</s>
+                </span>
+                <span class="price-item price-item--sale price-item--last">{{ cp_money }}</span>
+              </div>
+            {%- else -%}
+              <div class="price__regular">
+                <span class="price-item price-item--regular">{{ cp_money }}</span>
+              </div>
+            {%- endif -%}
+          </div>
+        </div>
+      </div>
+
+      {%- if show_rating and card_product.metafields.reviews.rating.value != blank -%}
+        {% liquid
+          assign rating_decimal = 0
+          assign decimal = card_product.metafields.reviews.rating.value.rating | modulo: 1
+          if decimal >= 0.3 and decimal <= 0.7
+            assign rating_decimal = 0.5
+          elsif decimal > 0.7
+            assign rating_decimal = 1
+          endif
+        %}
+        <div class="cp-card__rating">
+          <div
+            class="rating"
+            role="img"
+            aria-label="{{ 'accessibility.star_reviews_info' | t: rating_value: card_product.metafields.reviews.rating.value, rating_max: card_product.metafields.reviews.rating.value.scale_max }}"
+          >
+            <span
+              aria-hidden="true"
+              class="rating-star"
+              style="--rating: {{ card_product.metafields.reviews.rating.value.rating | floor }}; --rating-max: {{ card_product.metafields.reviews.rating.value.scale_max }}; --rating-decimal: {{ rating_decimal }};"
+            ></span>
+          </div>
+        </div>
+      {%- endif -%}
+    </div>
+  </article>
+{%- else -%}
+  <article class="cp-card cp-card--placeholder">
+    <div class="cp-card__plate" style="--ratio: 1">
+      {{ 'product-apparel-2' | placeholder_svg_tag: 'placeholder-svg' }}
+    </div>
+    <div class="cp-card__info">
+      <h3 class="cp-card__title">{{ 'onboarding.product_title' | t }}</h3>
+    </div>
+  </article>
+{%- endif -%}

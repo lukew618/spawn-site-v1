@@ -1,0 +1,115 @@
+{%- liquid
+  assign hero_alt = section.settings.hero_image.alt | default: 'Original Spawn flies, tied for days on the water'
+  assign feature_alt = section.settings.feature_image.alt | default: 'A fly from the Spawn tying bench'
+  assign store_alt = section.settings.store_image.alt | default: 'The Spawn Fly Fish shop in Ilwaco, Washington'
+  assign best_id = section.id | append: '-materials'
+  assign flies_id = section.id | append: '-flies'
+-%}
+<div class="sh-home">
+  <section class="sh-hero" aria-labelledby="SpawnHomeTitle">
+    {%- if section.settings.hero_image -%}
+      {{ section.settings.hero_image | image_url: width: 2400 | image_tag: class: 'sh-hero__image', widths: '550, 750, 1100, 1500, 2000, 2400', sizes: '100vw', loading: 'eager', fetchpriority: 'high', alt: hero_alt }}
+    {%- endif -%}
+    <div class="sh-hero__content sh-shell">
+      <p class="sh-eyebrow">{{ section.settings.hero_eyebrow | escape }}</p>
+      <h1 id="SpawnHomeTitle">{{ section.settings.hero_title | escape | newline_to_br }}</h1>
+      <p class="sh-hero__description">{{ section.settings.hero_text | escape }}</p>
+      <div class="sh-actions"><a class="sh-button sh-button--accent" href="{{ section.settings.tying_collection.url }}">Shop fly tying</a><a class="sh-button sh-button--outline" href="{{ section.settings.flies_collection.url }}">Shop Spawn flies</a></div>
+    </div>
+    <div class="sh-hero__bottom sh-shell">
+      <div class="sh-benefits" aria-label="The Spawn promise">
+        <a href="{{ routes.root_url }}policies/shipping-policy"><strong>Free shipping</strong><span>$85+ · Contiguous U.S.</span></a>
+        <a href="{{ shop.refund_policy.url }}"><strong>Free return shipping</strong><span>On U.S. orders</span></a>
+        <a href="{{ pages['conservation'].url }}"><strong>2% for conservation</strong><span>Of profits, since day one</span></a>
+      </div>
+      <a class="sh-hero__scroll" href="#SpawnCategories"><span>Explore the shop</span><span aria-hidden="true">↓</span></a>
+    </div>
+  </section>
+
+  <section class="sh-section sh-shell" id="SpawnCategories" aria-labelledby="SpawnCategoriesTitle">
+    <div class="sh-section-head"><div><p class="sh-eyebrow">Shop by category</p><h2 id="SpawnCategoriesTitle">From vise to water.</h2><p class="sh-category-intro">Stock the bench. Chase the next good day.</p></div></div>
+    <div class="sh-categories">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'category' -%}
+          {%- liquid
+            assign category = block.settings.collection
+            assign category_image = block.settings.image | default: category.featured_image
+            assign category_title = block.settings.title | default: category.title
+            assign category_sizes = '(min-width: 1100px) 55vw, (min-width: 750px) 85vw, 100vw'
+            if forloop.index == 1 or forloop.index == 4
+              assign category_sizes = '(min-width: 1100px) 110vw, (min-width: 750px) 160vw, 250vw'
+            endif
+          -%}
+          {%- if category != blank -%}
+            <a class="sh-category" href="{{ category.url }}" aria-label="{{ category_title | escape }}" {{ block.shopify_attributes }}>
+              {%- if category_image -%}{{ category_image | image_url: width: 1700 | image_tag: widths: '500, 750, 1000, 1400, 1700', sizes: category_sizes, loading: 'lazy', alt: category_title }}{%- endif -%}
+              <span class="sh-category__copy"><span class="sh-category__title">{{ category_title | escape }}</span>{% if block.settings.subtitle != blank %}<span class="sh-category__subtitle">{{ block.settings.subtitle | escape }}</span>{% endif %}<span class="sh-category__cta">{{ block.settings.cta | default: 'Shop the collection' | escape }}</span></span>
+            </a>
+          {%- endif -%}
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </section>
+
+  {% render 'spawn-home-rail', rail_collection: section.settings.materials_collection, rail_id: best_id, eyebrow: 'Original materials. Endless possibilities.', heading: 'Bench favorites.', link_label: 'Shop Spawn products' %}
+
+  <section class="sh-feature" aria-labelledby="SpawnFeatureTitle">
+    <div class="sh-feature__image">{% if section.settings.feature_image %}{{ section.settings.feature_image | image_url: width: 1400 | image_tag: widths: '550, 750, 1100, 1400', sizes: '(min-width: 750px) 55vw, 100vw', loading: 'lazy', alt: feature_alt }}{% endif %}<span class="sh-image-caption">The Spawn tying bench / Ilwaco, WA</span></div>
+    <div class="sh-feature__copy"><p class="sh-eyebrow">Fly of the month</p><h2 id="SpawnFeatureTitle">{{ section.settings.feature_title | escape | newline_to_br }}</h2><p>{{ section.settings.feature_text | escape }}</p><a class="sh-button sh-button--light" href="{{ section.settings.feature_collection.url }}">Shop the featured fly</a>{% if settings.social_youtube_link != blank %}<a class="sh-text-link" href="{{ settings.social_youtube_link }}">Watch us tie</a>{% endif %}</div>
+  </section>
+
+  {% render 'spawn-home-rail', rail_collection: section.settings.flies_collection, rail_id: flies_id, eyebrow: 'Patterns from our own waters', heading: 'Spawn signature flies.', link_label: 'Shop all Spawn flies' %}
+
+  <section class="sh-store sh-shell" aria-labelledby="SpawnStoreTitle">
+    <div class="sh-store__copy"><p class="sh-eyebrow">Our home on the coast</p><h2 id="SpawnStoreTitle">Small town.<br>Endless water.</h2><p>{{ section.settings.store_text | escape }}</p><a class="sh-text-link" href="{{ pages['contact-us'].url }}">Visit the Ilwaco shop</a><span class="sh-store__location">ILWACO, WASHINGTON · PACIFIC NORTHWEST</span></div>
+    <div class="sh-store__image">{% if section.settings.store_image %}{{ section.settings.store_image | image_url: width: 1400 | image_tag: widths: '550, 750, 1100, 1400', sizes: '(min-width: 750px) 60vw, 100vw', loading: 'lazy', alt: store_alt }}{% endif %}</div>
+  </section>
+
+  {%- if section.settings.blog.articles_count > 0 -%}
+    <section class="sh-journal sh-section sh-shell" aria-labelledby="SpawnJournalTitle">
+      <div class="sh-section-head"><div><p class="sh-eyebrow">Stories, knowledge &amp; a little obsession</p><h2 id="SpawnJournalTitle">Notes from the water.</h2></div><a class="sh-text-link" href="{{ section.settings.blog.url }}">Read the journal</a></div>
+      <div class="sh-journal__grid">
+        {%- for article in section.settings.blog.articles limit: 3 -%}
+          <article class="sh-story"><a href="{{ article.url }}">
+            <div class="sh-story__image">{%- if article.image -%}{% assign article_alt = article.image.alt | default: article.title %}{{ article.image | image_url: width: 900 | image_tag: widths: '360, 550, 750, 900', sizes: '(min-width: 750px) 32vw, 80vw', loading: 'lazy', alt: article_alt }}{%- else -%}<div class="sh-story__type"><span>FIELD NOTES</span><span>SPAWN<br>FLY FISH.</span></div>{%- endif -%}</div>
+            <p class="sh-story__date">{{ article.published_at | date: '%b %d, %Y' }}</p><h3>{{ article.title | escape }}</h3><span class="sh-story__link">Read story</span>
+          </a></article>
+        {%- endfor -%}
+      </div>
+    </section>
+  {%- endif -%}
+</div>
+{% schema %}
+{
+  "name": "t:sections.spawn_home.name",
+  "tag": "section",
+  "class": "spawn-home-section",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    { "type": "image_picker", "id": "hero_image", "label": "t:sections.spawn_home.hero_image" },
+    { "type": "text", "id": "hero_eyebrow", "label": "t:sections.spawn_home.eyebrow", "default": "SPAWN FLY FISH / ILWACO, WA" },
+    { "type": "textarea", "id": "hero_title", "label": "t:sections.spawn_home.hero_title", "default": "TIED HERE.\nFISHED EVERYWHERE." },
+    { "type": "textarea", "id": "hero_text", "label": "t:sections.spawn_home.hero_text", "default": "Original flies, proven materials, and a lifetime of looking forward to the next cast." },
+    { "type": "collection", "id": "tying_collection", "label": "t:sections.spawn_home.tying_collection" },
+    { "type": "collection", "id": "materials_collection", "label": "t:sections.spawn_home.materials_collection" },
+    { "type": "collection", "id": "flies_collection", "label": "t:sections.spawn_home.flies_collection" },
+    { "type": "image_picker", "id": "feature_image", "label": "t:sections.spawn_home.feature_image" },
+    { "type": "text", "id": "feature_title", "label": "t:sections.spawn_home.feature_title", "default": "One fly.\nA hundred possibilities." },
+    { "type": "textarea", "id": "feature_text", "label": "t:sections.spawn_home.feature_text", "default": "Pull up a chair at the vise. Discover our featured pattern and the materials that bring it to life." },
+    { "type": "collection", "id": "feature_collection", "label": "t:sections.spawn_home.feature_collection" },
+    { "type": "image_picker", "id": "store_image", "label": "t:sections.spawn_home.store_image" },
+    { "type": "textarea", "id": "store_text", "label": "t:sections.spawn_home.store_text", "default": "Where the Columbia meets the Pacific, you'll find our shop. Stop in for a handful of materials, a little local knowledge, or a conversation about your next day out." },
+    { "type": "blog", "id": "blog", "label": "t:sections.spawn_home.blog" }
+  ],
+  "blocks": [
+    { "type": "category", "name": "t:sections.spawn_home.category", "limit": 6, "settings": [
+      { "type": "collection", "id": "collection", "label": "t:sections.collection-list.blocks.featured_collection.settings.collection.label" },
+      { "type": "text", "id": "title", "label": "t:sections.spawn_home.category_title" },
+      { "type": "text", "id": "subtitle", "label": "t:sections.spawn_home.category_subtitle", "default": "Your next good day starts here." },
+      { "type": "text", "id": "cta", "label": "t:sections.spawn_home.category_cta", "default": "Shop the collection" },
+      { "type": "image_picker", "id": "image", "label": "t:sections.spawn_home.category_image" }
+    ] }
+  ],
+  "presets": [{ "name": "t:sections.spawn_home.name" }]
+}
+{% endschema %}

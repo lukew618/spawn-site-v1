@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "image_banner": {
@@ -15,48 +6,50 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "",
-            "text_style": "subtitle"
+            "text": "Original flies, proven materials, and expert-picked gear for Pacific Northwest anglers.",
+            "text_style": "body"
           }
         },
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "TIE. CAST. CATCH. REPEAT.",
-            "heading_size": "h2"
+            "heading": "TIED HERE. FISHED EVERYWHERE.",
+            "heading_size": "h1"
           }
         },
         "button": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "SHOP NOW",
-            "button_link_1": "shopify://pages/fly-tying-deals",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
+            "button_label_1": "SHOP FLY TYING",
+            "button_link_1": "shopify://collections/fly-tying-products",
+            "button_style_secondary_1": false,
+            "button_label_2": "SHOP SPAWN FLIES",
+            "button_link_2": "shopify://collections/spawn-flies",
             "button_style_secondary_2": true
           }
         }
       },
       "block_order": [
-        "text",
         "heading",
+        "text",
         "button"
       ],
       "settings": {
         "image": "shopify://shop_images/Blog_Banner_for_Website_Content_1.png",
         "image_mobile": "shopify://shop_images/Todd_Moen_Coho.jpg",
-        "image_overlay_opacity": 0,
+        "image_overlay_opacity": 20,
         "image_height": "large",
         "desktop_content_position": "middle-left",
         "show_text_box": false,
         "desktop_content_alignment": "left",
         "color_scheme": "scheme-4",
         "image_behavior": "none",
-        "mobile_content_alignment": "center",
+        "mobile_content_alignment": "left",
         "stack_images_on_mobile": false,
-        "show_text_below": false
-      }
+        "show_text_below": false,
+        "eyebrow": "SPAWN FLY FISH · ILWACO, WA"
+      },
+      "disabled": true
     },
     "why_spawn": {
       "type": "why-spawn",
@@ -65,16 +58,16 @@
           "type": "column",
           "settings": {
             "icon": "curated",
-            "heading": "Expert-Curated Gear",
-            "text": "Every product handpicked and designed by expert Pacific Northwest anglers."
+            "heading": "Expert Picked",
+            "text": "Gear and materials selected by Pacific Northwest anglers."
           }
         },
         "col_shipping": {
           "type": "column",
           "settings": {
-            "icon": "shipping",
-            "heading": "Ships from the Pacific NW",
-            "text": "Based in Ilwaco, WA \u2014 Getting products out the door and to your vise asap!"
+            "icon": "location",
+            "heading": "Ships from Ilwaco",
+            "text": "Your order leaves our Washington coast shop."
           }
         },
         "col_specialist": {
@@ -82,50 +75,76 @@
           "settings": {
             "icon": "specialist",
             "heading": "Fly Fishing Specialists",
-            "text": "Dedicated exclusively to fly fishing and fly tying since day one. Everyone here is ready to help you."
+            "text": "Focused on fly fishing and fly tying since day one."
+          }
+        },
+        "col_free_shipping": {
+          "type": "column",
+          "settings": {
+            "icon": "shipping",
+            "heading": "Free Shipping",
+            "text": "Free contiguous U.S. shipping over $85."
+          }
+        },
+        "col_returns": {
+          "type": "column",
+          "settings": {
+            "icon": "returns",
+            "heading": "Free Returns",
+            "text": "Free return shipping within the United States."
+          }
+        },
+        "col_pledge": {
+          "type": "column",
+          "settings": {
+            "icon": "pledge",
+            "heading": "2% Pledge",
+            "text": "We give 2% of profits to conservation groups."
           }
         }
       },
       "block_order": [
         "col_curated",
         "col_shipping",
-        "col_specialist"
+        "col_specialist",
+        "col_free_shipping",
+        "col_returns",
+        "col_pledge"
       ],
       "settings": {
         "heading": "WHY SPAWN",
         "color_scheme": "scheme-1"
-      }
+      },
+      "disabled": true
     },
     "featured_collection_UdX4CU": {
       "type": "featured-collection",
-      "custom_css": [
-        "h3 {text-transform: uppercase;}"
-      ],
       "settings": {
-        "title": "<strong>SPAWN FLY FISH PRODUCTS</strong>",
+        "title": "<strong>BEST SELLERS</strong>",
         "heading_size": "h2",
-        "description": "<p>BEST FLY TYING MATERIALS</p>",
+        "description": "",
         "show_description": false,
         "description_style": "body",
         "collection": "spawn-fly-fish-products",
-        "products_to_show": 15,
-        "columns_desktop": 3,
+        "products_to_show": 8,
+        "columns_desktop": 4,
         "full_width": false,
         "show_view_all": true,
         "view_all_style": "link",
-        "enable_desktop_slider": true,
+        "enable_desktop_slider": false,
         "color_scheme": "scheme-1",
         "image_ratio": "square",
         "image_shape": "default",
         "show_secondary_image": false,
-        "show_vendor": true,
+        "show_vendor": false,
         "show_rating": false,
-        "quick_add": "standard",
-        "columns_mobile": "1",
+        "quick_add": "none",
+        "columns_mobile": "2",
         "swipe_on_mobile": true,
         "padding_top": 36,
         "padding_bottom": 28
-      }
+      },
+      "disabled": true
     },
     "collection_list_QGtX47": {
       "type": "collection-list",
@@ -133,46 +152,68 @@
         "featured_collection_xtfYnQ": {
           "type": "featured_collection",
           "settings": {
+            "custom_title": "Fly Tying Materials",
             "collection": "fly-tying-products"
+          }
+        },
+        "featured_collection_nQwnKi": {
+          "type": "featured_collection",
+          "settings": {
+            "custom_title": "Flies",
+            "collection": "flies"
           }
         },
         "featured_collection_iXjiXn": {
           "type": "featured_collection",
           "settings": {
+            "custom_title": "Rods",
             "collection": "fly-rods"
           }
         },
         "featured_collection_GAdW8E": {
           "type": "featured_collection",
           "settings": {
+            "custom_title": "Reels",
             "collection": "fly-reels"
           }
         },
-        "featured_collection_nQwnKi": {
+        "featured_collection_spawn": {
           "type": "featured_collection",
           "settings": {
-            "collection": "flies"
+            "custom_title": "Spawn Products",
+            "collection": "spawn-fly-fish-products"
+          }
+        },
+        "featured_collection_new": {
+          "type": "featured_collection",
+          "settings": {
+            "custom_title": "New Arrivals",
+            "collection": "new-arrivals"
           }
         }
       },
       "block_order": [
         "featured_collection_xtfYnQ",
+        "featured_collection_nQwnKi",
         "featured_collection_iXjiXn",
         "featured_collection_GAdW8E",
-        "featured_collection_nQwnKi"
+        "featured_collection_spawn",
+        "featured_collection_new"
       ],
       "settings": {
-        "title": "<strong>TOP CATEGORIES</strong>",
+        "title": "<strong>SHOP BY CATEGORY</strong>",
         "heading_size": "h2",
-        "image_ratio": "adapt",
-        "columns_desktop": 2,
+        "image_ratio": "square",
+        "columns_desktop": 3,
         "color_scheme": "scheme-1",
         "show_view_all": false,
-        "columns_mobile": "1",
-        "swipe_on_mobile": true,
-        "padding_top": 36,
-        "padding_bottom": 28
-      }
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 48,
+        "padding_bottom": 28,
+        "category_grid": true
+      },
+      "disabled": true
     },
     "image_banner_7C3HhQ": {
       "type": "image-banner",
@@ -213,142 +254,8 @@
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": true,
         "show_text_below": false
-      }
-    },
-    "rich_text_f99xiG": {
-      "type": "rich-text",
-      "blocks": {
-        "caption_qHAWbk": {
-          "type": "caption",
-          "settings": {
-            "caption": "ABOUT SPAWN",
-            "text_style": "caption-with-letter-spacing",
-            "text_size": "large"
-          }
-        },
-        "heading_qJPCk4": {
-          "type": "heading",
-          "settings": {
-            "heading": "<strong>THE SPAWN DIFFERENCE</strong>",
-            "heading_size": "h1"
-          }
-        },
-        "text_Bit8nz": {
-          "type": "text",
-          "settings": {
-            "text": "<p>At Spawn Fly Fish your leading expert in fly tying and fly fishing, we\u2019re proud to carry a handpicked selection of products for anglers of all levels. Explore top brands like <a href=\"/collections/sage-products\" title=\"Sage Products\">Sage</a>, <a href=\"/collections/redington-products\" title=\"Redington Products\">Redington</a>, <a href=\"/collections/douglas-outdoors-products\" title=\"Douglas Outdoors Products\">Douglas </a>, and <a href=\"/collections/all-products\" title=\"All Products\">more</a>. Whether you\u2019re tying with <a href=\"/collections/easy-shrimp-eyes-products\" title=\"Easy Shrimp Eyes Products\">Shrimp Eyes</a>, crafting with <a href=\"/products/spawn-unreal-dub\" title=\"Spawn Unreal Dub\">Unreal Dubbing</a>, or looking for something you cant find anywhere else. Spawn has you covered. We stock the largest selection of <a href=\"/collections/fly-tying-products\" title=\"FLY TYING\">fly tying materials</a>, anywhere in the region. For complete guides on where and how to use your new gear, check out our <a href=\"/blogs/spawn-blog/sea-run-cutthroat-fishing-challenging-the-tide-rules\" title=\"Sea Run Cutthroat Fishing: Challenging the Tide Rules\">Fly Fishing Guide to Washington</a> or browse <a href=\"/blogs/spawn-blog\" title=\"Spawn Blog\">our blog</a> or <a href=\"https://www.youtube.com/c/SpawnFlyFish\" target=\"_blank\" title=\"https://www.youtube.com/c/SpawnFlyFish\">YouTube channel</a> for in-depth product tips and tutorials. </p>"
-          }
-        }
       },
-      "block_order": [
-        "caption_qHAWbk",
-        "heading_qJPCk4",
-        "text_Bit8nz"
-      ],
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "scheme-1",
-        "full_width": true,
-        "padding_top": 28,
-        "padding_bottom": 36
-      }
-    },
-    "image_banner_7jcGPt": {
-      "type": "image-banner",
-      "blocks": {
-        "heading_EmPh4J": {
-          "type": "heading",
-          "settings": {
-            "heading": "How to Fly Fish Puget Sound",
-            "heading_size": "h1"
-          }
-        },
-        "buttons_HaUDUM": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Learn More",
-            "button_link_1": "shopify://pages/how-to-fly-fish-puget-sound",
-            "button_style_secondary_1": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_EmPh4J",
-        "buttons_HaUDUM"
-      ],
-      "disabled": true,
-      "settings": {
-        "image": "shopify://shop_images/DSC_8769-2_d6c830c3-f5d0-4599-9c14-2d969a34ce92.jpg",
-        "image_mobile": "shopify://shop_images/new-arrivals-banner-mobile.png",
-        "image_overlay_opacity": 0,
-        "image_height": "medium",
-        "desktop_content_position": "middle-left",
-        "show_text_box": false,
-        "desktop_content_alignment": "left",
-        "color_scheme": "scheme-3",
-        "image_behavior": "ambient",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": true,
-        "show_text_below": false
-      }
-    },
-    "featured_product_HHeNBg": {
-      "type": "featured-product",
-      "blocks": {
-        "text_t3DQaf": {
-          "type": "text",
-          "settings": {
-            "text": "<strong>Built  with Purpose</strong>",
-            "text_style": "subtitle"
-          }
-        },
-        "title_PamCAd": {
-          "type": "title",
-          "settings": {
-            "heading_size": "h2"
-          }
-        },
-        "rating_txbMB9": {
-          "type": "rating",
-          "settings": {}
-        },
-        "price_LRCkUh": {
-          "type": "price",
-          "settings": {}
-        },
-        "buy_buttons_wGwfgW": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_dynamic_checkout": false,
-            "show_gift_card_recipient": true
-          }
-        }
-      },
-      "block_order": [
-        "text_t3DQaf",
-        "title_PamCAd",
-        "rating_txbMB9",
-        "price_LRCkUh",
-        "buy_buttons_wGwfgW"
-      ],
-      "settings": {
-        "product": "spawn-alaskan-intruder-shanks",
-        "color_scheme": "scheme-1",
-        "secondary_background": false,
-        "media_size": "medium",
-        "constrain_to_viewport": true,
-        "media_fit": "cover",
-        "media_position": "right",
-        "image_zoom": "hover",
-        "hide_variants": false,
-        "enable_video_looping": false,
-        "padding_top": 28,
-        "padding_bottom": 0
-      }
+      "disabled": true
     },
     "image_with_text_EJEVBb": {
       "type": "image-with-text",
@@ -356,21 +263,21 @@
         "heading_L9rKYc": {
           "type": "heading",
           "settings": {
-            "heading": "<strong>FLY OF THE MONTH!</strong>",
-            "heading_size": "h0"
+            "heading": "<strong>FLY OF THE MONTH</strong>",
+            "heading_size": "h2"
           }
         },
         "text_6paNG8": {
           "type": "text",
           "settings": {
-            "text": "<p>Want to learn from the fly fishing authority of the Pacific Northwest? Pete one of Spawn's owners ties flies every single day. Check out the Spawn Fly Fish YouTube channel and see him in action\u2014where expert insight, innovative gear, and proven tactics come together. From step-by-step fly tying tutorials featuring patterns like the Peach Bum and Steamboat Island Leech, to in-depth breakdowns of the best fisheries in the region, our channel is built for anglers who want to level up and learn more. Whether you're just getting started or chasing your hundredth cutthroat, this is your source.<strong>Subscribe now and fish with the future.</strong></p>",
+            "text": "<p>Each month, Pete ties one proven pattern from the Spawn bench. Shop the featured fly, watch the tutorial, and learn the choices behind it.</p>",
             "text_style": "body"
           }
         },
         "button_Ca4tef": {
           "type": "button",
           "settings": {
-            "button_label": "Fly of the Month",
+            "button_label": "SHOP THE FLY",
             "button_link": "shopify://collections/fly-of-the-month",
             "button_style_secondary": true
           }
@@ -386,175 +293,47 @@
         "height": "medium",
         "desktop_image_width": "medium",
         "layout": "image_first",
-        "desktop_content_position": "top",
+        "desktop_content_position": "middle",
         "desktop_content_alignment": "left",
         "content_layout": "no-overlap",
         "section_color_scheme": "scheme-4",
         "color_scheme": "scheme-4",
         "image_behavior": "none",
         "mobile_content_alignment": "left",
-        "padding_top": 28,
+        "padding_top": 36,
         "padding_bottom": 28
-      }
+      },
+      "disabled": true
     },
     "featured_collection_tXX8gN": {
       "type": "featured-collection",
       "name": "t:sections.featured-collection.presets.name",
       "settings": {
-        "title": "Spawn Signature Flies",
+        "title": "<strong>SPAWN SIGNATURE FLIES</strong>",
         "heading_size": "h2",
         "description": "",
         "show_description": false,
         "description_style": "body",
         "collection": "spawn-flies",
-        "products_to_show": 16,
-        "columns_desktop": 5,
+        "products_to_show": 8,
+        "columns_desktop": 4,
         "full_width": false,
         "show_view_all": true,
-        "view_all_style": "solid",
+        "view_all_style": "link",
         "enable_desktop_slider": false,
         "color_scheme": "",
-        "image_ratio": "adapt",
+        "image_ratio": "square",
         "image_shape": "default",
         "show_secondary_image": false,
         "show_vendor": false,
         "show_rating": false,
         "quick_add": "none",
         "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 28,
+        "swipe_on_mobile": true,
+        "padding_top": 36,
         "padding_bottom": 28
-      }
-    },
-    "collage_x8nznF": {
-      "type": "collage",
-      "blocks": {
-        "image_qbJpzt": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/dubm-br-but-spawn-mega-dub-spawn-fly-fish-220914.jpg"
-          }
-        },
-        "product_ExgDa8": {
-          "type": "product",
-          "settings": {
-            "product": "spawn-dubbing",
-            "second_image": false
-          }
-        },
-        "product_48A3jd": {
-          "type": "product",
-          "settings": {
-            "product": "spawn-uv-simi-seal-dubbing",
-            "second_image": true
-          }
-        }
       },
-      "block_order": [
-        "image_qbJpzt",
-        "product_ExgDa8",
-        "product_48A3jd"
-      ],
-      "settings": {
-        "heading": "Spawn Dub - Best Fly Tying Dubbing",
-        "heading_size": "h2",
-        "desktop_layout": "right",
-        "mobile_layout": "collage",
-        "card_styles": "none",
-        "color_scheme": "scheme-4",
-        "padding_top": 28,
-        "padding_bottom": 28
-      }
-    },
-    "featured_product_j3htGa": {
-      "type": "featured-product",
-      "blocks": {
-        "title_bHbHR7": {
-          "type": "title",
-          "settings": {
-            "heading_size": "h1"
-          }
-        },
-        "price_64tb3t": {
-          "type": "price",
-          "settings": {}
-        },
-        "buy_buttons_mtDYeD": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_dynamic_checkout": false,
-            "show_gift_card_recipient": true
-          }
-        }
-      },
-      "block_order": [
-        "title_bHbHR7",
-        "price_64tb3t",
-        "buy_buttons_mtDYeD"
-      ],
-      "settings": {
-        "product": "spawn-eyes",
-        "color_scheme": "scheme-1",
-        "secondary_background": false,
-        "media_size": "small",
-        "constrain_to_viewport": true,
-        "media_fit": "cover",
-        "media_position": "left",
-        "image_zoom": "hover",
-        "hide_variants": false,
-        "enable_video_looping": false,
-        "padding_top": 28,
-        "padding_bottom": 28
-      }
-    },
-    "image_banner_4k67yw": {
-      "type": "image-banner",
-      "blocks": {
-        "text_R8rV8b": {
-          "type": "text",
-          "settings": {
-            "text": "",
-            "text_style": "body"
-          }
-        },
-        "heading_9jDz8k": {
-          "type": "heading",
-          "settings": {
-            "heading": "<strong>HOW TO FISH PUGET SOUND</strong>",
-            "heading_size": "h1"
-          }
-        },
-        "buttons_PaxakW": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "LEARN MORE",
-            "button_link_1": "shopify://pages/how-to-fly-fish-puget-sound",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "text_R8rV8b",
-        "heading_9jDz8k",
-        "buttons_PaxakW"
-      ],
-      "settings": {
-        "image": "shopify://shop_images/41.png",
-        "image_mobile": "shopify://shop_images/Full_Bleed_Mobile_Hero_Banner_2.png",
-        "image_overlay_opacity": 0,
-        "image_height": "medium",
-        "desktop_content_position": "middle-left",
-        "show_text_box": false,
-        "desktop_content_alignment": "left",
-        "color_scheme": "scheme-3",
-        "image_behavior": "none",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": true,
-        "show_text_below": false
-      }
+      "disabled": true
     },
     "image_with_text_bViTjP": {
       "type": "image-with-text",
@@ -600,14 +379,15 @@
         "image_behavior": "none",
         "mobile_content_alignment": "left",
         "padding_top": 28,
-        "padding_bottom": 28
-      }
+        "padding_bottom": 20
+      },
+      "disabled": true
     },
     "featured_blog_UaRnVq": {
       "type": "featured-blog",
       "settings": {
-        "heading": "<strong>THE BLOG</strong>",
-        "heading_size": "h0",
+        "heading": "<strong>FROM THE BLOG</strong>",
+        "heading_size": "h2",
         "blog": "spawn-blog",
         "post_limit": 3,
         "columns_desktop": 3,
@@ -616,9 +396,10 @@
         "show_date": true,
         "show_author": false,
         "show_view_all": true,
-        "padding_top": 28,
+        "padding_top": 36,
         "padding_bottom": 28
-      }
+      },
+      "disabled": true
     },
     "image_banner_ja4xUn": {
       "type": "image-banner",
@@ -657,7 +438,7 @@
       "settings": {
         "image": "shopify://shop_images/homepage-ilwaco.png",
         "image_mobile": "shopify://shop_images/ilwaco_shop_mobile.png",
-        "image_overlay_opacity": 0,
+        "image_overlay_opacity": 30,
         "image_height": "medium",
         "desktop_content_position": "middle-center",
         "show_text_box": false,
@@ -667,7 +448,8 @@
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": true,
         "show_text_below": false
-      }
+      },
+      "disabled": true
     },
     "multicolumn_78HbFk": {
       "type": "multicolumn",
@@ -719,8 +501,9 @@
         "columns_mobile": "1",
         "swipe_on_mobile": false,
         "padding_top": 28,
-        "padding_bottom": 28
-      }
+        "padding_bottom": 20
+      },
+      "disabled": true
     },
     "1777666874e27876d8": {
       "type": "_blocks",
@@ -753,29 +536,108 @@
         "quick_add": "standard",
         "columns_mobile": "1",
         "swipe_on_mobile": true,
-        "padding_top": 36,
-        "padding_bottom": 28
-      }
+        "padding_top": 28,
+        "padding_bottom": 20
+      },
+      "disabled": true
+    },
+    "premium_home": {
+      "type": "spawn-home",
+      "settings": {
+        "hero_image": "shopify://shop_images/Blog_Banner_for_Website_Content_1.png",
+        "hero_eyebrow": "SPAWN FLY FISH / ILWACO, WA",
+        "hero_title": "TIED HERE.\nFISHED EVERYWHERE.",
+        "hero_text": "Original flies, proven materials, and a lifetime of looking forward to the next cast.",
+        "tying_collection": "fly-tying-products",
+        "materials_collection": "spawn-fly-fish-products",
+        "flies_collection": "spawn-flies",
+        "feature_image": "shopify://shop_images/001_11_54487531-e049-4b31-b9f1-182cc098f282.jpg",
+        "feature_title": "One fly.\nA hundred possibilities.",
+        "feature_text": "Pull up a chair at the vise. Discover our featured pattern and the materials that bring it to life.",
+        "feature_collection": "fly-of-the-month",
+        "store_image": "shopify://shop_images/homepage-ilwaco.png",
+        "store_text": "Where the Columbia meets the Pacific, you'll find our shop. Stop in for a handful of materials, a little local knowledge, or a conversation about your next day out.",
+        "blog": "spawn-blog"
+      },
+      "blocks": {
+        "category_1": {
+          "type": "category",
+          "settings": {
+            "collection": "fly-tying-products",
+            "title": "Fly Tying Materials",
+            "subtitle": "Small stuff. Big possibilities.",
+            "cta": "Shop materials"
+          }
+        },
+        "category_2": {
+          "type": "category",
+          "settings": {
+            "collection": "flies",
+            "title": "Flies",
+            "subtitle": "Good things come with hooks.",
+            "cta": "Shop flies"
+          }
+        },
+        "category_3": {
+          "type": "category",
+          "settings": {
+            "collection": "fly-rods",
+            "title": "Rods",
+            "subtitle": "For the casts you remember.",
+            "cta": "Shop rods"
+          }
+        },
+        "category_4": {
+          "type": "category",
+          "settings": {
+            "collection": "fly-reels",
+            "title": "Reels",
+            "subtitle": "Let the good runs roll.",
+            "cta": "Shop reels"
+          }
+        },
+        "category_5": {
+          "type": "category",
+          "settings": {
+            "collection": "spawn-fly-fish-products",
+            "title": "Spawn Products",
+            "subtitle": "Straight from our tying bench.",
+            "cta": "Shop Spawn"
+          }
+        },
+        "category_6": {
+          "type": "category",
+          "settings": {
+            "collection": "new-arrivals",
+            "title": "New Arrivals",
+            "subtitle": "Fresh reasons to get out there.",
+            "cta": "Shop new arrivals"
+          }
+        }
+      },
+      "block_order": [
+        "category_1",
+        "category_2",
+        "category_3",
+        "category_4",
+        "category_5",
+        "category_6"
+      ]
     }
   },
   "order": [
+    "premium_home",
     "image_banner",
-    "featured_collection_tying_room_clearance",
+    "collection_list_QGtX47",
     "why_spawn",
     "featured_collection_UdX4CU",
-    "collection_list_QGtX47",
-    "image_banner_7C3HhQ",
-    "rich_text_f99xiG",
-    "image_banner_7jcGPt",
-    "featured_product_HHeNBg",
     "image_with_text_EJEVBb",
     "featured_collection_tXX8gN",
-    "collage_x8nznF",
-    "featured_product_j3htGa",
-    "image_banner_4k67yw",
-    "image_with_text_bViTjP",
-    "featured_blog_UaRnVq",
     "image_banner_ja4xUn",
+    "featured_blog_UaRnVq",
+    "featured_collection_tying_room_clearance",
+    "image_banner_7C3HhQ",
+    "image_with_text_bViTjP",
     "multicolumn_78HbFk",
     "1777666874e27876d8"
   ]

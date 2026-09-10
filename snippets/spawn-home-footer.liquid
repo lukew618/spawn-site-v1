@@ -1,0 +1,27 @@
+<footer class="sh-footer">
+  <div class="sh-footer__top sh-shell">
+    <div class="sh-newsletter">
+      <p class="sh-eyebrow">From our bench to your inbox</p><h2>Stay in the current.</h2>
+      <p>New materials, tying tutorials, and stories from Ilwaco.<br>The good stuff, straight to your inbox.</p>
+      {%- form 'customer', id: 'SpawnHomeNewsletter', class: 'sh-newsletter__form' -%}
+        <input type="hidden" name="contact[tags]" value="newsletter">
+        <label for="SpawnHomeEmail">Email address</label>
+        <div class="sh-newsletter__field"><input id="SpawnHomeEmail" type="email" name="contact[email]" autocomplete="email" autocorrect="off" autocapitalize="off" required placeholder="Your email address" {% if form.errors %}aria-invalid="true" aria-describedby="SpawnHomeEmailError"{% endif %}><button type="submit" name="commit" aria-label="Subscribe to the Spawn newsletter">Sign me up</button></div>
+        {%- if form.errors -%}<p id="SpawnHomeEmailError" class="sh-form-message" role="alert">{{ form.errors.translated_fields.email | capitalize }} {{ form.errors.messages.email }}</p>{%- endif -%}
+        {%- if form.posted_successfully? -%}<p class="sh-form-message" role="status" tabindex="-1">You're on the list. See you on the water.</p>{%- endif -%}
+      {%- endform -%}
+    </div>
+    <div class="sh-footer__menus">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'link_list' -%}
+          <details class="sh-footer-menu" open {{ block.shopify_attributes }}>
+            <summary>{{ block.settings.heading | strip_html | escape }} <span aria-hidden="true">+</span></summary>
+            <ul>{%- for link in block.settings.menu.links -%}<li><a href="{{ link.url }}">{{ link.title | escape }}</a></li>{%- endfor -%}</ul>
+          </details>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+  <div class="sh-footer__signature sh-shell"><a href="{{ routes.root_url }}">SPAWN FLY FISH.</a><span>Tied here. Fished everywhere.</span></div>
+  <div class="sh-footer__bottom sh-shell"><span>© {{ 'now' | date: '%Y' }} Spawn Fly Fish</span><div>{%- for policy in shop.policies -%}{%- if policy != blank -%}<a href="{{ policy.url }}">{{ policy.title | escape }}</a>{%- endif -%}{%- endfor -%}</div><div>{%- if settings.social_instagram_link != blank -%}<a href="{{ settings.social_instagram_link }}">Instagram</a>{%- endif -%}{%- if settings.social_youtube_link != blank -%}<a href="{{ settings.social_youtube_link }}">YouTube</a>{%- endif -%}</div></div>
+</footer>

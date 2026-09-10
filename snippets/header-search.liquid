@@ -8,7 +8,7 @@
   {% render 'header-search', input_id: 'My-Id'%}
 {% endcomment %}
 
-<details-modal class="header__search">
+<details-modal class="header__search spawn-header-search">
   <details>
     <summary
       class="header__icon header__icon--search header__icon--summary link focus-inset modal__toggle"
@@ -48,7 +48,7 @@
               type="search"
               name="q"
               value="{{ search.terms | escape }}"
-              placeholder="{{ 'general.search.search' | t }}"
+              placeholder="{{ 'general.search.placeholder' | t }}"
               {%- if settings.predictive_search_enabled -%}
                 role="combobox"
                 aria-expanded="false"

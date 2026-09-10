@@ -44,6 +44,7 @@
         },
         "custom_liquid_nE4Abq": {
           "type": "custom_liquid",
+          "disabled": true,
           "settings": {
             "custom_liquid": "{% for variant in product.variants %}\n\n  {{ variant.metafields.custom.variant_description | metafield_tag }}\n\n{% endfor %}"
           }
@@ -158,8 +159,8 @@
         "price",
         "custom_liquid_nE4Abq",
         "variant_picker",
-        "quantity_selector",
         "inventory_Q8TEkg",
+        "quantity_selector",
         "buy_buttons",
         "icon_with_text_tLpQYg",
         "complementary_worksWith",
@@ -169,9 +170,6 @@
         "collapsible-row-2",
         "collapsible-row-3"
       ],
-      "custom_css": [
-        "h1 {font-size: 2.8rem; text-transform: uppercase;}"
-      ],
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "scheme-1",
@@ -180,7 +178,7 @@
         "media_fit": "contain",
         "gallery_layout": "thumbnail_slider",
         "media_position": "left",
-        "image_zoom": "hover",
+        "image_zoom": "lightbox",
         "mobile_thumbnails": "hide",
         "hide_variants": false,
         "enable_video_looping": false,
@@ -194,7 +192,7 @@
         "heading": "",
         "content": "",
         "use_description_fallback": true,
-        "fallback_heading": "Description & Features",
+        "fallback_heading": "Details that matter",
         "brand_heading": "Brand",
         "shipping_heading": "Shipping & Returns",
         "shipping_text": "<p>Free shipping on US orders over $85. Free return shipping within the US.</p>",
@@ -209,7 +207,7 @@
         "h3 {text-transform: uppercase;}"
       ],
       "settings": {
-        "heading": "YOU MAY ALSO LIKE",
+        "heading": "More for the water",
         "heading_size": "h2",
         "products_to_show": 4,
         "columns_desktop": 4,
@@ -226,6 +224,7 @@
     },
     "image_banner_irBgAP": {
       "type": "image-banner",
+      "disabled": true,
       "blocks": {
         "text_67KrWV": {
           "type": "text",
@@ -255,6 +254,7 @@
     },
     "multicolumn_frj3Ei": {
       "type": "multicolumn",
+      "disabled": true,
       "blocks": {
         "column_WgABGW": {
           "type": "column",

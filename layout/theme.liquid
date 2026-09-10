@@ -21,6 +21,9 @@
         assign clean_title = page_title | replace: title_separator, '' | strip
         assign title_ndash = ' – ' | append: shop.name
         assign clean_title = clean_title | replace: title_ndash, '' | strip
+        if template.suffix == 'rods-reels'
+          assign clean_title = 'Rods & Reels'
+        endif
       -%}
       {{- clean_title -}}
       {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
@@ -49,6 +52,7 @@
 
     {%- liquid
       assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
+      assign body_font_medium = settings.type_body_font | font_modify: 'weight', '500'
       assign body_font_italic = settings.type_body_font | font_modify: 'style', 'italic'
       assign body_font_bold_italic = body_font_bold | font_modify: 'style', 'italic'
     %}
@@ -56,6 +60,7 @@
     {% style %}
       {{ settings.type_body_font | font_face: font_display: 'swap' }}
       {{ body_font_bold | font_face: font_display: 'swap' }}
+      {{ body_font_medium | font_face: font_display: 'swap' }}
       {{ body_font_italic | font_face: font_display: 'swap' }}
       {{ body_font_bold_italic | font_face: font_display: 'swap' }}
       {{ settings.type_header_font | font_face: font_display: 'swap' }}
@@ -322,9 +327,13 @@
         document.documentElement.classList.add('shopify-design-mode');
       }
     </script>
+    {{ 'spawn-typography.css' | asset_url | stylesheet_tag }}
+    {{ 'spawn-home.css' | asset_url | stylesheet_tag }}
+    {{ 'spawn-header-search.css' | asset_url | stylesheet_tag }}
+    {{ 'spawn-storefront.css' | asset_url | stylesheet_tag }}
   </head>
 
-  <body class="gradient{% if request.page_type contains 'index' %} template-index{% endif %}">
+  <body class="spawn-type spawn-storefront gradient template-{{ request.page_type | handleize }}{% if template.suffix != blank %} template-{{ template.suffix | handleize }}{% endif %}">
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ 'accessibility.skip_to_text' | t }}
     </a>

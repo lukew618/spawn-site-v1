@@ -1,94 +1,61 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
-    "breadcrumb": {
-      "type": "breadcrumb",
-      "settings": {}
-    },
-    "collection_hero": {
-      "type": "collection-hero-banner",
-      "settings": {
-        "image_height": "small",
-        "image_overlay_opacity": 30,
-        "desktop_content_position": "middle-left",
-        "desktop_content_alignment": "left",
-        "heading_size": "h1",
-        "show_text_box": true,
-        "color_scheme": "scheme-78823a03-0880-4c09-84ee-d09083839a52"
-      }
-    },
-    "category_rail": {
-      "type": "collection-list",
+    "collection_premium": {
+      "type": "collection-premium",
       "blocks": {
-        "feathers": {
-          "type": "featured_collection",
+        "chip_feathers": {
+          "type": "chip",
           "settings": {
+            "label": "Feathers",
             "collection": "fly-tying-feathers"
           }
         },
-        "beads": {
-          "type": "featured_collection",
+        "chip_beads": {
+          "type": "chip",
           "settings": {
+            "label": "Beads",
             "collection": "fly-tying-beads"
           }
         },
-        "shanks": {
-          "type": "featured_collection",
+        "chip_shanks": {
+          "type": "chip",
           "settings": {
+            "label": "Shanks",
             "collection": "fly-tying-shanks"
           }
         },
-        "tools": {
-          "type": "featured_collection",
+        "chip_tools": {
+          "type": "chip",
           "settings": {
+            "label": "Tools",
             "collection": "fly-tying-tools"
           }
         }
       },
       "block_order": [
-        "feathers",
-        "beads",
-        "shanks",
-        "tools"
+        "chip_feathers",
+        "chip_beads",
+        "chip_shanks",
+        "chip_tools"
       ],
       "settings": {
-        "title": "Shop by type",
-        "heading_size": "h2",
-        "image_ratio": "square",
+        "overlay_opacity": 45,
+        "products_per_page": 36,
         "columns_desktop": 4,
-        "color_scheme": "scheme-1",
-        "show_view_all": false,
         "columns_mobile": "2",
-        "swipe_on_mobile": true,
-        "padding_top": 28,
-        "padding_bottom": 8
-      }
-    },
-    "picks": {
-      "type": "featured-collection",
-      "settings": {
-        "title": "Bench favorites",
-        "heading_size": "h2",
-        "description": "<p>What we reach for in Ilwaco.</p>",
-        "show_description": true,
-        "description_style": "body",
-        "collection": "spawn-materials-picks",
-        "products_to_show": 8,
-        "columns_desktop": 4,
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "color_scheme": "",
         "image_ratio": "square",
-        "image_shape": "default",
-        "show_secondary_image": false,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 28
+        "enable_filtering": true,
+        "enable_sorting": true,
+        "padding_top": 0,
+        "padding_bottom": 36
       }
     },
     "howto": {
@@ -143,7 +110,7 @@
         "q1": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "What\u2019s the difference between fly tying materials and supplies?",
+            "heading": "What's the difference between fly tying materials and supplies?",
             "icon": "none",
             "row_content": "<p>Materials go on the hook. Feathers, beads, shanks, dubbing, flash. Tools and adhesives are supplies. Different aisle.</p>"
           }
@@ -161,7 +128,7 @@
           "settings": {
             "heading": "Where should a beginner start?",
             "icon": "none",
-            "row_content": "<p>Grab a vise, then one category from the rail. Feathers or beads. Expand after you know what you burn through.</p>"
+            "row_content": "<p>Grab a vise, then one category from the chips. Feathers or beads. Expand after you know what you burn through.</p>"
           }
         },
         "q4": {
@@ -200,34 +167,10 @@
         "padding_top": 20,
         "padding_bottom": 40
       }
-    },
-    "product-grid": {
-      "type": "main-collection-product-grid",
-      "settings": {
-        "products_per_page": 36,
-        "columns_desktop": 4,
-        "color_scheme": "",
-        "image_ratio": "square",
-        "image_shape": "default",
-        "show_secondary_image": false,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "bulk",
-        "enable_filtering": true,
-        "filter_type": "vertical",
-        "enable_sorting": true,
-        "columns_mobile": "2",
-        "padding_top": 16,
-        "padding_bottom": 36
-      }
     }
   },
   "order": [
-    "breadcrumb",
-    "collection_hero",
-    "category_rail",
-    "product-grid",
-    "picks",
+    "collection_premium",
     "howto",
     "faq"
   ]

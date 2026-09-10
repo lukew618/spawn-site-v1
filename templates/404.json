@@ -40,7 +40,6 @@
     },
     "main": {
       "type": "main-404",
-      "disabled": true,
       "settings": {}
     },
     "image_banner_JeGbRk": {
@@ -90,8 +89,8 @@
     }
   },
   "order": [
-    "featured_collection_XCerHn",
     "main",
+    "featured_collection_XCerHn",
     "image_banner_JeGbRk",
     "featured_collection_XXQaVN"
   ]

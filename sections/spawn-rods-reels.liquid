@@ -1,0 +1,73 @@
+{{ 'spawn-rods-reels.css' | asset_url | stylesheet_tag }}
+{%- liquid
+  assign rods = section.settings.rods | default: collections['fly-rods']
+  assign reels = section.settings.reels | default: collections['fly-reels']
+  assign category_menu = section.settings.brand_menu
+-%}
+<div class="sh-home sr-landing sh-shell">
+  <nav class="sr-breadcrumb" aria-label="Breadcrumb"><a href="{{ routes.root_url }}">Home</a><span aria-hidden="true">/</span><span aria-current="page">Rods &amp; Reels</span></nav>
+  <div class="sr-intro">
+    <h1>{{ section.settings.title | escape }}</h1>
+    <p>{{ section.settings.intro | escape }}</p>
+  </div>
+  <div class="sr-categories">
+    {%- for category_index in (1..2) -%}
+      {%- liquid
+        if category_index == 1
+          assign category = rods
+          assign category_image = section.settings.rods_image | default: rods.featured_image
+          assign title = 'Fly rods'
+          assign subtitle = 'For the casts you remember.'
+          assign cta = 'Shop fly rods'
+          assign priority = 'high'
+        else
+          assign category = reels
+          assign category_image = section.settings.reels_image | default: reels.featured_image
+          assign title = 'Fly reels'
+          assign subtitle = 'Let the good runs roll.'
+          assign cta = 'Shop fly reels'
+          assign priority = 'auto'
+        endif
+      -%}
+      <section class="sr-category" aria-labelledby="RodsReels-{{ section.id }}-{{ category_index }}">
+        <a class="sr-card" href="{{ category.url }}">
+          {% if category_image %}{{ category_image | image_url: width: 2000 | image_tag: widths: '550, 900, 1300, 1700, 2000', sizes: '(min-width: 750px) 90vw, 160vw', loading: 'eager', fetchpriority: priority, alt: title }}{% endif %}
+          <div class="sr-card__copy">
+            <h2 id="RodsReels-{{ section.id }}-{{ category_index }}">{{ title }}</h2>
+            <p>{{ subtitle }}</p>
+            <span class="sh-category__cta">{{ cta }}</span>
+          </div>
+        </a>
+        {%- for menu_category in category_menu.links -%}
+          {%- if menu_category.url == category.url and menu_category.links.size > 0 -%}
+            <div class="sr-brands">
+              <h3>Shop {{ title | downcase }} by brand</h3>
+              <ul>
+                {%- for brand in menu_category.links -%}
+                  {%- unless brand.url == category.url -%}
+                    <li><a href="{{ brand.url }}">{{ brand.title | remove: ' Fly Rods' | remove: ' Fly Reels' | escape }}</a></li>
+                  {%- endunless -%}
+                {%- endfor -%}
+              </ul>
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </section>
+    {%- endfor -%}
+  </div>
+  <div class="sr-help"><div><h2>Find your next setup.</h2><p>Talk rods, reels, and your next day on the water with the Spawn crew.</p></div><a class="sh-text-link" href="{{ pages['contact-us'].url }}">Talk to the shop</a></div>
+</div>
+{% schema %}
+{
+  "name": "t:sections.spawn_rods_reels.name",
+  "settings": [
+    { "type": "text", "id": "title", "label": "t:sections.spawn_rods_reels.title", "default": "Rods & Reels" },
+    { "type": "text", "id": "intro", "label": "t:sections.spawn_rods_reels.intro", "default": "For the cast. For the run. Find your next connection to the water." },
+    { "type": "collection", "id": "rods", "label": "t:sections.spawn_rods_reels.rods" },
+    { "type": "collection", "id": "reels", "label": "t:sections.spawn_rods_reels.reels" },
+    { "type": "image_picker", "id": "rods_image", "label": "t:sections.spawn_rods_reels.rods_image" },
+    { "type": "image_picker", "id": "reels_image", "label": "t:sections.spawn_rods_reels.reels_image" },
+    { "type": "link_list", "id": "brand_menu", "label": "t:sections.spawn_rods_reels.brand_menu" }
+  ]
+}
+{% endschema %}

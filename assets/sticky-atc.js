@@ -28,7 +28,7 @@ if (!customElements.get('sticky-atc-bar')) {
         this.mutationObserver = new MutationObserver(this.syncFromMainProduct.bind(this));
         this.mutationObserver.observe(this.mainSubmit, {
           attributes: true,
-          attributeFilter: ['disabled'],
+          attributeFilter: ['disabled', 'aria-disabled'],
           childList: true,
           subtree: true,
           characterData: true,
@@ -55,17 +55,29 @@ if (!customElements.get('sticky-atc-bar')) {
       }
 
       updateVisibility() {
-        const scrolledPast = this.mainButtons.getBoundingClientRect().bottom < 0;
+        const headerBottom = document.querySelector('.sh-masthead')?.getBoundingClientRect().bottom || 0;
+        const scrolledPast = this.mainButtons.getBoundingClientRect().bottom < headerBottom;
         this.toggleAttribute('hidden', !scrolledPast);
       }
 
       syncFromMainProduct() {
-        this.button.toggleAttribute('disabled', this.mainSubmit.hasAttribute('disabled'));
+        this.button.toggleAttribute('disabled', this.mainSubmit.hasAttribute('disabled') || this.mainSubmit.getAttribute('aria-disabled') === 'true');
         const mainLabel = this.mainSubmit.querySelector('span');
         if (mainLabel && this.buttonText) this.buttonText.textContent = mainLabel.textContent.trim();
         if (this.priceContainer && this.price) {
           const mainPrice = this.priceContainer.querySelector('.price');
           if (mainPrice) this.price.innerHTML = mainPrice.outerHTML;
+        }
+        const selectedVariant = this.mainProduct.querySelector('[data-selected-variant]');
+        const variantLabel = this.querySelector('[data-sticky-variant]');
+        if (selectedVariant && variantLabel) {
+          const variant = JSON.parse(selectedVariant.textContent);
+          variantLabel.textContent = variant?.title || '';
+          const image = this.querySelector('.sticky-atc__image');
+          if (image && variant?.featured_image?.src) {
+            image.removeAttribute('srcset');
+            image.src = `${variant.featured_image.src}${variant.featured_image.src.includes('?') ? '&' : '?'}width=120`;
+          }
         }
       }
 
