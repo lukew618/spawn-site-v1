@@ -171,8 +171,9 @@ chore(snippets): migrate include to render in featured-collection
 - **`git_commit_template.md` in `/assets/`** — accidentally committed, not a theme file. Do not reference or deploy it.
 - **Theme Editor vs. code** — editor changes can affect `config/settings_data.json` and template JSON. Inspect live changes before a planned settings edit. Never pull the live theme directly into a working branch.
 - **Shopify's strict Liquid parser** — all Liquid must be syntactically valid or the theme will fail to publish. `shopify theme check` catches this.
-- **Live theme** — `129377796159` is the live `spawn-store-v1` theme. Any upload to it is a production change. Verify theme identity before any approved publishing operation.
+- **Theme IDs** — `129377796159` is the live `spawn-store-v1` theme. Historical IDs `128853147711` and `128878903359` also exist in old instructions. Never target them from this workflow. Verify current theme identity before any approved publishing operation.
 - **Shopify schema validation goes beyond theme check** — (1) `inline_richtext`/`richtext` settings cannot have `"default": ""`; omit that default. (2) Template JSON dynamic sources use an allowlist; `{{ product.type }}` is invalid in settings.
+- **Approved upload result** — if Luke separately authorizes a theme upload, confirm its output shows `errors: None`. A rejected file can leave the old version live.
 - **IntersectionObserver misses jump-scrolls** — an element jumping from below-viewport to above-viewport (End key, anchor link, fast flick) never intersects, so no callback fires. For scroll-position UI (sticky bars, scroll headers), use a rAF-throttled scroll listener with `getBoundingClientRect()` like `header-scroll.js` and `sticky-atc.js` do.
 
 ## Workflow
