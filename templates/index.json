@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "image_banner": {
@@ -47,7 +56,7 @@
         "mobile_content_alignment": "left",
         "stack_images_on_mobile": false,
         "show_text_below": false,
-        "eyebrow": "SPAWN FLY FISH · ILWACO, WA"
+        "eyebrow": "SPAWN FLY FISH \u00b7 ILWACO, WA"
       },
       "disabled": true
     },
@@ -557,13 +566,19 @@
         "feature_collection": "fly-of-the-month",
         "store_image": "shopify://shop_images/homepage-ilwaco.png",
         "store_text": "Where the Columbia meets the Pacific, you'll find our shop. Stop in for a handful of materials, a little local knowledge, or a conversation about your next day out.",
-        "blog": "spawn-blog"
+        "blog": "spawn-blog",
+        "library_enabled": true,
+        "library_image": "shopify://shop_images/IMG_0385.jpg",
+        "library_eyebrow": "Fly Library",
+        "library_title": "Watch tying recipes.",
+        "library_text": "Shoppable recipes from our tying videos, built at the Ilwaco vise.",
+        "library_cta": "Open Fly Library"
       },
       "blocks": {
         "category_1": {
           "type": "category",
           "settings": {
-            "collection": "fly-tying-products",
+            "collection": "fly-tying-materials",
             "title": "Fly Tying Materials",
             "subtitle": "Small stuff. Big possibilities.",
             "cta": "Shop materials"

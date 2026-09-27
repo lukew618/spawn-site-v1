@@ -7,12 +7,8 @@
 {% endcomment %}
 
 {%- liquid
-  assign seventy_skus = 'SPAWNWIDGEON-1,SPAWNPINTAIL-6,SPAWNGADWALL-2' | split: ','
-  assign sixty_skus = 'SPAWNWOODDUCK,SPAWNGWT-4' | split: ','
   assign feather_skus = 'SPAWNWIDGEON-1,SPAWNPINTAIL-6,SPAWNWOODDUCK,SPAWNGADWALL-2,SPAWNGWT-4' | split: ','
   assign shank_skus = 'SHNK-9-20,SHNKVRTY-60,SHNK-9-50,SHNK-20-50,SHNKVRTY-180,SHNK60-30-20,SHNK60-40-20,SHNK90-30-20,SHNK-15-50,SHNK-19-20,SHNK90-40-20,SHNK90-20-20,SHNK-18-20,SHNK-17-20' | split: ','
-  assign is_seventy_offer = false
-  assign is_sixty_offer = false
   assign is_feather_offer = false
   assign is_shank_offer = false
   assign promotion_available = product.available
@@ -20,12 +16,6 @@
   if context == 'card'
     for variant in product.variants
       if variant.available
-        if seventy_skus contains variant.sku
-          assign is_seventy_offer = true
-        endif
-        if sixty_skus contains variant.sku
-          assign is_sixty_offer = true
-        endif
         if feather_skus contains variant.sku
           assign is_feather_offer = true
         endif
@@ -39,12 +29,6 @@
     assign selected_sku = selected_variant.sku
     assign promotion_available = selected_variant.available
     if selected_variant.available
-      if seventy_skus contains selected_sku
-        assign is_seventy_offer = true
-      endif
-      if sixty_skus contains selected_sku
-        assign is_sixty_offer = true
-      endif
       if feather_skus contains selected_sku
         assign is_feather_offer = true
       endif
@@ -53,63 +37,9 @@
       endif
     endif
   endif
-
-  assign timed_state = 'inactive'
-  assign promotion_clock = 'now' | date: '%Y%m%d%H%M' | plus: 0
-  if promotion_clock < 202609020000
-    assign timed_state = 'scheduled'
-  elsif promotion_clock <= 202609222359
-    assign timed_state = 'active'
-  endif
 -%}
 
 {%- if promotion_available -%}
-  {%- if is_seventy_offer -%}
-    <promotion-schedule
-      data-starts-at="2026-09-02T07:00:00Z"
-      data-ends-at="2026-09-23T06:59:00Z"
-      data-discount-id="1371867185215"
-    >
-      <span
-        class="badge promotion-badge promotion-badge--scheduled color-{{ settings.sale_badge_color_scheme }}"
-        data-promotion-scheduled
-        {% unless timed_state == 'scheduled' %}hidden{% endunless %}
-      >
-        Labor Day Sale · Select 70% off · starts 9/2
-      </span>
-      <span
-        class="badge promotion-badge promotion-badge--sale color-{{ settings.sale_badge_color_scheme }}"
-        data-promotion-active
-        {% unless timed_state == 'active' %}hidden{% endunless %}
-      >
-        Labor Day Sale · Select 70% off
-      </span>
-    </promotion-schedule>
-  {%- endif -%}
-
-  {%- if is_sixty_offer -%}
-    <promotion-schedule
-      data-starts-at="2026-09-02T07:00:00Z"
-      data-ends-at="2026-09-23T06:59:00Z"
-      data-discount-id="1371867217983"
-    >
-      <span
-        class="badge promotion-badge promotion-badge--scheduled color-{{ settings.sale_badge_color_scheme }}"
-        data-promotion-scheduled
-        {% unless timed_state == 'scheduled' %}hidden{% endunless %}
-      >
-        Labor Day Sale · Select 60% off · starts 9/2
-      </span>
-      <span
-        class="badge promotion-badge promotion-badge--sale color-{{ settings.sale_badge_color_scheme }}"
-        data-promotion-active
-        {% unless timed_state == 'active' %}hidden{% endunless %}
-      >
-        Labor Day Sale · Select 60% off
-      </span>
-    </promotion-schedule>
-  {%- endif -%}
-
   {%- if is_shank_offer -%}
     <span class="badge promotion-badge color-{{ settings.sale_badge_color_scheme }}" data-discount-id="1371867250751">
       {%- if context == 'card' -%}Select 2 for 1{%- else -%}Select mix shanks · buy 1, get 1 free{%- endif -%}

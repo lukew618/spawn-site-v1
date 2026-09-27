@@ -1,89 +1,63 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
-    "breadcrumb": {
-      "type": "breadcrumb",
-      "settings": {}
-    },
-    "collection_hero": {
-      "type": "collection-hero-banner",
-      "settings": {
-        "image_height": "medium",
-        "image_overlay_opacity": 0,
-        "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "center",
-        "heading_size": "h1",
-        "show_text_box": false,
-        "color_scheme": "scheme-78823a03-0880-4c09-84ee-d09083839a52"
-      }
-    },
-    "intro_richtext": {
-      "type": "rich-text",
+    "collection_premium": {
+      "type": "collection-premium",
       "blocks": {
-        "heading": {
-          "type": "heading",
+        "chip_materials": {
+          "type": "chip",
           "settings": {
-            "heading": "Fly Tying Beads (Including Tungsten)",
-            "heading_size": "h2"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Beads add weight and a clean head. Tungsten sinks faster in a smaller size than brass. Brass is middle ground for slower water. Glass is light when you want a bit of translucence without much sink.</p><p>Slotted beads fit jig hooks and straight shanks. Beads only here. Fly heads live elsewhere. Football beads are not on the Labor Day cut.</p><h3>Sizing we stock</h3><ul><li>1.5-2.0 mm: small midges, light nymphs</li><li>2.4-2.8 mm: standard nymphs</li><li>3.3-3.8 mm: bigger nymphs, small streamers</li><li>5.5 mm: Spawn football beads</li><li>8-9 mm: Spawn Fathom beads</li></ul>"
-          }
-        }
-      },
-      "block_order": [
-        "heading",
-        "text"
-      ],
-      "settings": {
-        "desktop_content_position": "left",
-        "content_alignment": "left",
-        "full_width": false,
-        "color_scheme": "scheme-1",
-        "padding_top": 20,
-        "padding_bottom": 8
-      }
-    },
-    "category_rail": {
-      "type": "collection-list",
-      "blocks": {
-        "materials": {
-          "type": "featured_collection",
-          "settings": {
+            "label": "All materials",
             "collection": "fly-tying-materials"
           }
         },
-        "shanks": {
-          "type": "featured_collection",
+        "chip_feathers": {
+          "type": "chip",
           "settings": {
+            "label": "Feathers",
+            "collection": "fly-tying-feathers"
+          }
+        },
+        "chip_shanks": {
+          "type": "chip",
+          "settings": {
+            "label": "Shanks",
             "collection": "fly-tying-shanks"
           }
         },
-        "feathers": {
-          "type": "featured_collection",
+        "chip_tools": {
+          "type": "chip",
           "settings": {
-            "collection": "fly-tying-feathers"
+            "label": "Tools",
+            "collection": "fly-tying-tools"
           }
         }
       },
       "block_order": [
-        "materials",
-        "shanks",
-        "feathers"
+        "chip_materials",
+        "chip_feathers",
+        "chip_shanks",
+        "chip_tools"
       ],
       "settings": {
-        "title": "Shop related",
-        "heading_size": "h2",
-        "image_ratio": "square",
-        "columns_desktop": 3,
-        "color_scheme": "scheme-1",
-        "show_view_all": false,
+        "subtitle": "Match the right weight, profile, and finish to the water you fish.",
+        "overlay_opacity": 45,
+        "products_per_page": 36,
+        "columns_desktop": 4,
         "columns_mobile": "2",
-        "swipe_on_mobile": true,
-        "padding_top": 12,
-        "padding_bottom": 12
+        "image_ratio": "square",
+        "enable_filtering": true,
+        "enable_sorting": true,
+        "padding_top": 0,
+        "padding_bottom": 36
       }
     },
     "howto": {
@@ -92,22 +66,34 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "How to choose",
+            "heading": "Choose bead weight, size, and shape",
             "heading_size": "h2"
           }
         },
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>Tungsten sinks faster at a smaller size. Brass is the middle. Glass stays light. Slotted beads seat on jig hooks and straight shanks.</p>"
+            "text": "<p>Beads add weight and a clean head. Material decides how fast the fly gets down. Shape and hole style decide how it seats on the hook.</p><h3>Materials and sink rate</h3><ul><li><strong>Tungsten:</strong> denser. Same size sinks faster than brass, so you can stay compact in deeper or faster water.</li><li><strong>Brass:</strong> moderate sink. Useful when you want depth control without a heavy head.</li><li><strong>Glass:</strong> light, a bit of translucence. Good when you want color more than weight.</li></ul><h3>Tungsten vs brass</h3><p>Tungsten is denser, so a smaller bead gets down faster. Brass is lighter and gives a slower fall in shallow or soft water. Football and slotted shapes change how the bead seats on jig hooks. Buy the density for the seam, not the shinier bag.</p><h3>Hole style</h3><p>Slotted beads open to the side so they seat on jig hooks and straight shanks. Through-hole beads slide over a conventional eye. Seat the bead flush behind the eye without crowding the thorax.</p><h3>Sizing we stock</h3><ul><li>1.5-2.0 mm: small midges and light nymphs</li><li>2.4-2.8 mm: standard nymphs</li><li>3.3-3.8 mm: bigger nymphs and small streamers</li><li>5.5 mm: Spawn football beads</li><li>8-9 mm: Spawn Fathom beads</li></ul><h3>Shapes beyond the round head</h3><p>Cyclops and painted beads for classic nymphs. Lead and dumbbell eyes when you want a streamer to ride correctly. Football and Fathom profiles when you want a different silhouette than a plain ball. Match the head to the pattern, not the other way around.</p><p>Pair beads with <a href=\"/collections/fly-tying-materials\">Fly Tying Materials</a> and <a href=\"/collections/fly-tying-tools\">Fly Tying Tools</a>.</p>"
+          }
+        },
+        "button": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop fly tying materials",
+            "button_link": "shopify://collections/fly-tying-materials",
+            "button_style_secondary": false
           }
         }
       },
       "block_order": [
         "heading",
-        "text"
+        "text",
+        "button"
       ],
       "settings": {
+        "premium_seo_style": true,
+        "premium_eyebrow": "Tying guide",
+        "use_collection_image": false,
         "image": "shopify://shop_images/spawn-football-beads-howto.jpg",
         "height": "adapt",
         "desktop_image_width": "medium",
@@ -119,8 +105,8 @@
         "color_scheme": "scheme-1",
         "image_behavior": "none",
         "mobile_content_alignment": "left",
-        "padding_top": 20,
-        "padding_bottom": 20
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     },
     "faq": {
@@ -131,7 +117,7 @@
           "settings": {
             "heading": "Slotted vs non-slotted beads?",
             "icon": "none",
-            "row_content": "<p>Slotted beads open to the side so they seat on jig hooks and straight shanks. Through-hole beads slide over a conventional eye.</p>"
+            "row_content": "<p>Slotted beads open to the side for jig hooks and straight shanks. Through-hole beads slide over a conventional eye. If the bead will not seat without forcing the hook, you have the wrong hole style. Full guide: <a href=\"/blogs/guides/slotted-vs-through-hole-beads\">Slotted vs Through-Hole Beads</a>.</p>"
           }
         },
         "q2": {
@@ -139,7 +125,7 @@
           "settings": {
             "heading": "Tungsten vs brass or glass: sink rate?",
             "icon": "none",
-            "row_content": "<p>Tungsten is denser, so it sinks faster at a smaller diameter. Brass is moderate. Glass is light and a bit translucent.</p>"
+            "row_content": "<p>Tungsten sinks faster at a smaller diameter. Brass is moderate. Glass is light. In fast or deep water, tungsten usually gets you to the zone with less bulk.</p>"
           }
         },
         "q3": {
@@ -147,16 +133,54 @@
           "settings": {
             "heading": "How do I match bead size to hook?",
             "icon": "none",
-            "row_content": "<p>Use the sizing list on this page. Seat the bead flush behind the eye without crowding the thorax.</p>"
+            "row_content": "<p>Use the sizing list on this page. The bead should sit flush behind the eye without swallowing the thorax. If the head looks oversized for the hook, drop a size.</p>"
+          }
+        },
+        "q4": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "When do I use eyes or cones instead of a round bead?",
+            "icon": "none",
+            "row_content": "<p>Dumbbell and lead eyes help streamers track and show a face. Cones and specialty heads change profile and weight distribution. Round beads are the default for most nymphs.</p>"
+          }
+        },
+        "q5": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Will a heavier bead ruin the drift?",
+            "icon": "none",
+            "row_content": "<p>Too heavy and the fly digs or hangs. Too light and it never reaches fish. Start with the size chart for the pattern, then step tungsten up or down one size based on depth and current.</p>"
+          }
+        },
+        "q6": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What is the difference between tungsten and brass beads?",
+            "icon": "none",
+            "row_content": "<p>Tungsten sinks faster at a smaller size. Brass sinks slower and suits shallower water. Same outer size does not mean the same weight.</p>"
+          }
+        },
+        "q7": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Where is the tungsten vs brass guide?",
+            "icon": "none",
+            "row_content": "<p>Cite page for tungsten vs brass is on HOLD. Until it ships, use the Tungsten vs brass notes on this collection. Materials and tools live next door under <a href=\"/collections/fly-tying-materials\">Fly Tying Materials</a> and <a href=\"/collections/fly-tying-tools\">Fly Tying Tools</a>.</p>"
           }
         }
       },
       "block_order": [
         "q1",
         "q2",
-        "q3"
+        "q3",
+        "q4",
+        "q5",
+        "q6",
+        "q7"
       ],
       "settings": {
+        "premium_seo_style": true,
+        "premium_eyebrow": "Common questions",
         "caption": "",
         "heading": "Fly tying beads FAQ",
         "heading_size": "h2",
@@ -165,37 +189,13 @@
         "open_first_collapsible_row": false,
         "image_ratio": "adapt",
         "desktop_layout": "image_second",
-        "padding_top": 20,
-        "padding_bottom": 24
-      }
-    },
-    "product-grid": {
-      "type": "main-collection-product-grid",
-      "settings": {
-        "products_per_page": 36,
-        "columns_desktop": 4,
-        "color_scheme": "",
-        "image_ratio": "square",
-        "image_shape": "default",
-        "show_secondary_image": false,
-        "show_vendor": true,
-        "show_rating": false,
-        "quick_add": "bulk",
-        "enable_filtering": true,
-        "filter_type": "vertical",
-        "enable_sorting": true,
-        "columns_mobile": "2",
-        "padding_top": 28,
-        "padding_bottom": 36
+        "padding_top": 80,
+        "padding_bottom": 96
       }
     }
   },
   "order": [
-    "breadcrumb",
-    "collection_hero",
-    "intro_richtext",
-    "category_rail",
-    "product-grid",
+    "collection_premium",
     "howto",
     "faq"
   ]

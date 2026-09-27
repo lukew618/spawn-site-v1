@@ -1,3 +1,4 @@
+/* spawn-merch-bot W2 theme PREVIEW 2026-09-14: dubbing pick guide + FAQ + chips; Cite/Archive HOLD; no Admin SEO; no MAIN; no suffix assign */
 /*
  * ------------------------------------------------------------
  * IMPORTANT: The contents of this file are auto-generated.
@@ -14,7 +15,7 @@
         "chip_materials": {
           "type": "chip",
           "settings": {
-            "label": "All materials",
+            "label": "Materials",
             "collection": "fly-tying-materials"
           }
         },
@@ -23,13 +24,6 @@
           "settings": {
             "label": "Beads",
             "collection": "fly-tying-beads"
-          }
-        },
-        "chip_shanks": {
-          "type": "chip",
-          "settings": {
-            "label": "Shanks",
-            "collection": "fly-tying-shanks"
           }
         },
         "chip_tools": {
@@ -43,11 +37,10 @@
       "block_order": [
         "chip_materials",
         "chip_beads",
-        "chip_shanks",
         "chip_tools"
       ],
       "settings": {
-        "subtitle": "Natural and dyed feathers for wings, collars, soft hackles, and precise accents.",
+        "subtitle": "Dubbing builds bodies. Chenille builds segmented bodies and bigger profiles. Pick fiber length and texture for the hook size, then buy the color the pattern actually needs.",
         "overlay_opacity": 45,
         "products_per_page": 36,
         "columns_desktop": 4,
@@ -65,22 +58,22 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Choose feathers by use",
+            "heading": "Pick dubbing and chenille",
             "heading_size": "h2"
           }
         },
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>We sell waterfowl we actually sort. Spawn Select means usable barred and soft fibers, not a mystery bag.</p><h3>Match the feather to the job</h3><ul><li><strong>Soft hackle:</strong> soft, webby feathers that breathe in the water</li><li><strong>Wings:</strong> cleaner barring (barred wood duck and similar)</li><li><strong>Collars and cheeks:</strong> shorter tips that frame the head without bulk</li></ul><h3>Types you will see here</h3><p>Waterfowl for wings, collars, and soft hackles. Pintail, wood duck, and related Select packs when you want consistent barring. We are not pretending to be a full genetic-hackle catalog. If you need rooster saddles and graded dry-fly hackle, that is a different aisle than this collection.</p><h3>Natural vs dyed</h3><p>Natural barring comes from the bird. Dyed stock keeps the feather structure and locks a color so packs match across flies.</p>"
+            "text": "<p>Match fiber to the fly. Fine for small dries, coarse for buggy nymphs, chenille when you want segments without a fat noodle.</p><h3>Natural vs synthetic</h3><p>Natural fur dubbing gives organic, spiky texture and can drink water on nymphs. Synthetic stays consistent in color, can add flash, and holds up when you want a clean, repeatable body.</p><h3>Fine vs coarse</h3><p>Fine dubbing for small dries and neat thoraxes. Coarser blends for nymphs, scuds, and streamers where buggy silhouette matters more than polish.</p><h3>Chenille</h3><p>Use when you want segments and bulk without spinning a fat dubbing noodle. Match diameter to hook size so the body does not look stuffed.</p><h3>UV / ice / sparkle</h3><p>A little goes a long way. Use for flash in the thorax or a hint in the blend, not a glitter bomb unless the pattern calls for it.</p><h3>How much</h3><p>Start with half of what you think you need. Thick noodles hide thread control and kill taper.</p>"
           }
         },
         "button": {
           "type": "button",
           "settings": {
-            "button_label": "Select feathers on sale (timed)",
-            "button_link": "shopify://collections/tying-room-clearance",
-            "button_style_secondary": true
+            "button_label": "Shop fly tying materials",
+            "button_link": "shopify://collections/fly-tying-materials",
+            "button_style_secondary": false
           }
         }
       },
@@ -93,7 +86,7 @@
         "premium_seo_style": true,
         "premium_eyebrow": "Tying guide",
         "use_collection_image": false,
-        "image": "shopify://shop_images/spawn-wood-duck-howto.jpg",
+        "image": "shopify://shop_images/unrl-chart-spawn-unreal-dub-spawn-fly-fish-930402.jpg",
         "height": "adapt",
         "desktop_image_width": "medium",
         "layout": "image_first",
@@ -114,47 +107,38 @@
         "q1": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Natural vs dyed feathers?",
+            "heading": "What is the difference between natural and synthetic dubbing?",
             "icon": "none",
-            "row_content": "<p>Natural shows how the bird grew. Dyed keeps structure and gives a consistent color. Use natural when barring is the point. Use dyed when you need a specific shade across a batch.</p>"
+            "row_content": "<p>Natural brings texture and absorbency. Synthetic brings color consistency and often flash or water resistance. Many benches keep both.</p>"
           }
         },
         "q2": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "How should I store waterfowl feathers?",
+            "heading": "When should I use a dubbing loop?",
             "icon": "none",
-            "row_content": "<p>Dry, flat or loosely sleeved. Keep moths and moisture out. Crushed packs waste the tips you paid for.</p>"
+            "row_content": "<p>When you want a buggy, spun body or to trap longer fibers. For thin dry-fly bodies, twist sparingly on the thread instead.</p>"
           }
         },
         "q3": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Which feathers for soft hackles?",
+            "heading": "Do I need every color?",
             "icon": "none",
-            "row_content": "<p>Soft, webby waterfowl. For barred accents, wood duck and teal-style fibers. Stiff dry-fly hackle is the wrong tool for a soft-hackle collar.</p>"
-          }
-        },
-        "q4": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "Why buy Select packs instead of random bulk?",
-            "icon": "none",
-            "row_content": "<p>Sorting takes time. Select packs favor usable length and barring so you spend less of the bag in the trash. That matters when you are tying for the shop and for yourself.</p>"
+            "row_content": "<p>No. Build around the patterns you fish. Add a bag when you empty one.</p>"
           }
         }
       },
       "block_order": [
         "q1",
         "q2",
-        "q3",
-        "q4"
+        "q3"
       ],
       "settings": {
         "premium_seo_style": true,
         "premium_eyebrow": "Common questions",
         "caption": "",
-        "heading": "Fly tying feathers FAQ",
+        "heading": "Dubbing FAQ",
         "heading_size": "h2",
         "color_scheme": "scheme-1",
         "container_color_scheme": "scheme-1",

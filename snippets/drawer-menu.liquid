@@ -1,3 +1,4 @@
+{% comment %} spawn-merch-bot fly-library-traffic PREVIEW 2026-09-15: Fly Library under Fly Tying {% endcomment %}
 <!-- snippets/drawer-menu.liquid -->
 {%- unless menu -%}
   {%- assign menu = linklists['main-menu-2'] -%}
@@ -47,6 +48,11 @@
                   </a>
                 </li>
               {% endfor %}
+              {%- if link.title == 'Fly Tying' -%}
+                <li class="drawer-menu__submenu-item">
+                  <a href="{{ pages['fly-library'].url }}" class="drawer-menu__sublink">Fly Library</a>
+                </li>
+              {%- endif -%}
             </ul>
           {% else %}
             <a href="{{ link.url }}" class="drawer-menu__link">

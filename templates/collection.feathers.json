@@ -1,0 +1,257 @@
+/* spawn-merch-bot fly-library-traffic PREVIEW 2026-09-15: Fly Library CTA (handle fallback + chip); Cite/Archive HOLD */
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "collection_premium": {
+      "type": "collection-premium",
+      "blocks": {
+        "chip_materials": {
+          "type": "chip",
+          "settings": {
+            "label": "All materials",
+            "collection": "fly-tying-materials"
+          }
+        },
+        "chip_beads": {
+          "type": "chip",
+          "settings": {
+            "label": "Beads",
+            "collection": "fly-tying-beads"
+          }
+        },
+        "chip_shanks": {
+          "type": "chip",
+          "settings": {
+            "label": "Shanks",
+            "collection": "fly-tying-shanks"
+          }
+        },
+        "chip_tools": {
+          "type": "chip",
+          "settings": {
+            "label": "Tools",
+            "collection": "fly-tying-tools"
+          }
+        },
+        "chip_select": {
+          "type": "chip",
+          "settings": {
+            "label": "Spawn Select feathers",
+            "collection": "fly-tying-feathers"
+          }
+        },
+        "chip_tails": {
+          "type": "chip",
+          "settings": {
+            "label": "Tails and fins",
+            "collection": "tails-fins-claws-more"
+          }
+        },
+        "chip_fly_library": {
+          "type": "chip",
+          "settings": {
+            "label": "Fly Library",
+            "collection": "",
+            "link": "shopify://pages/fly-library"
+          }
+        }
+      },
+      "block_order": [
+        "chip_materials",
+        "chip_select",
+        "chip_tails",
+        "chip_beads",
+        "chip_shanks",
+        "chip_tools",
+        "chip_fly_library"
+      ],
+      "settings": {
+        "subtitle": "Browse the full feather aisle: marabou, hackle, CDC, waterfowl, and more. Spawn Select packs sit alongside feathers from other brands. Start with the material named in your pattern, then compare length, color, and pack size on the PDP.",
+        "overlay_opacity": 45,
+        "products_per_page": 36,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "image_ratio": "square",
+        "enable_filtering": true,
+        "enable_sorting": true,
+        "padding_top": 0,
+        "padding_bottom": 36,
+        "fly_library_cta_label": "Fly Library: shoppable recipes from our tying videos",
+        "fly_library_cta_link": "shopify://pages/fly-library",
+        "fly_library_secondary_label": "",
+        "fly_library_secondary_link": ""
+      },
+      "custom_css": [
+        "@media screen and (max-width: 749px) {.collection-premium__hero .collection-premium__breadcrumb {top: 20px;}}"
+      ]
+    },
+    "howto": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Choose feathers by use",
+            "heading_size": "h2"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Explore our full feather range, from marabou and saddle hackle to CDC, waterfowl, and ostrich herl. Spawn Select packs sit alongside feathers from other brands.</p><h3>Find feathers for your pattern</h3><p>Start with the material named in your pattern. Compare feather length, color, and pack size on each product page.</p><h3>Browse the full aisle or shop Select</h3><p>This collection brings our feather range together. For our curated waterfowl packs, open the Spawn Select feathers collection.</p>"
+          }
+        },
+        "button": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop Spawn Select feathers",
+            "button_link": "shopify://collections/fly-tying-feathers",
+            "button_style_secondary": true
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text",
+        "button"
+      ],
+      "settings": {
+        "premium_seo_style": true,
+        "premium_eyebrow": "Tying guide",
+        "use_collection_image": false,
+        "image": "shopify://shop_images/spawn-wood-duck-howto.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "scheme-1",
+        "color_scheme": "scheme-1",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "types": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Feather types on this aisle",
+            "heading_size": "h2"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Name the feather type before you fill another drawer. This aisle holds the wide shelf: marabou, hackle, CDC, waterfowl, and specialty accents from Spawn Select and other brands.</p><h3>Marabou</h3><p>Soft, mobile fiber for tails, wings, and streamer movement.</p><h3>Saddle / neck hackle</h3><p>Dry-fly float and legs, or soft hackle wraps when the feather is webby enough. Match stem and fiber length to the hook.</p><h3>CDC</h3><p>Light, trap-air fiber for dry flies and emergers. Keep it clean; oil kills the loft.</p><h3>Waterfowl</h3><p>Wings, collars, soft hackles. Barred wood duck and similar packs when the pattern shows the feather.</p><h3>Specialty</h3><p>Ostrich herl, peacock, guinea, and other accents. Buy for the pattern, not to fill every empty bin.</p><h3>Select vs the rest of this aisle</h3><p>This page is the wide shelf. Spawn Select waterfowl (curated grading) lives on <a href=\"/collections/fly-tying-feathers\">Fly Tying Feathers Select</a>. Use Select when the fly shows the feather. Use this aisle when you need brand breadth or a specific SKU.</p><h3>Spawn Super Select barred wood duck</h3><p>When you need clean barring for wings and accents, start with our wood duck pack. More bench stock sits under <a href=\"/collections/fly-tying-materials\">Fly Tying Materials</a> and <a href=\"/collections/tails-fins-claws-more\">Tails, Fins, Claws &amp; More</a>.</p>"
+          }
+        },
+        "button": {
+          "type": "button",
+          "settings": {
+            "button_label": "Spawn Super Select barred wood duck",
+            "button_link": "shopify://products/spawn-super-select-barred-wood-duck",
+            "button_style_secondary": true
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text",
+        "button"
+      ],
+      "settings": {
+        "premium_seo_style": true,
+        "premium_eyebrow": "Aisle guide",
+        "use_collection_image": false,
+        "image": "shopify://shop_images/spawn-wood-duck-howto.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "scheme-1",
+        "color_scheme": "scheme-1",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "faq": {
+      "type": "collapsible-content",
+      "blocks": {
+        "q1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Natural vs dyed feathers?",
+            "icon": "none",
+            "row_content": "<p>Natural shows how the bird grew. Dyed keeps structure and gives a consistent color. Use natural when barring is the point. Use dyed when you need a specific shade across a batch.</p>"
+          }
+        },
+        "q2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How should I store feathers?",
+            "icon": "none",
+            "row_content": "<p>Dry, flat or loosely sleeved. Keep moths and moisture out. Crushed packs waste the tips you paid for.</p>"
+          }
+        },
+        "q3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Which feathers for soft hackles?",
+            "icon": "none",
+            "row_content": "<p>Soft, webby waterfowl. For barred accents, wood duck and teal-style fibers. Stiff dry-fly hackle is the wrong tool for a soft-hackle collar.</p>"
+          }
+        },
+        "q4": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What is the difference between Feathers and Fly Tying Feathers (Select)?",
+            "icon": "none",
+            "row_content": "<p>Feathers is the full aisle (marabou, hackle, CDC, waterfowl, other brands). Fly Tying Feathers is the Select curated waterfowl hub. Keep both. Start on <a href=\"/collections/fly-tying-feathers\">Select</a> for graded soft hackle and wing packs. Stay here for the wide shelf.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ],
+      "settings": {
+        "premium_seo_style": true,
+        "premium_eyebrow": "Common questions",
+        "caption": "",
+        "heading": "Fly tying feathers FAQ",
+        "heading_size": "h2",
+        "color_scheme": "scheme-1",
+        "container_color_scheme": "scheme-1",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 80,
+        "padding_bottom": 96
+      }
+    }
+  },
+  "order": [
+    "collection_premium",
+    "howto",
+    "types",
+    "faq"
+  ]
+}

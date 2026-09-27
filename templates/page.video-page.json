@@ -7,17 +7,25 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
+/* spawn-merch-bot fly-library-traffic PREVIEW 2026-09-15: videos page + Fly Library pointer; Cite/Archive HOLD */
 {
   "sections": {
     "main": {
       "type": "main-page",
       "settings": {
-        "padding_top": 28,
+        "padding_top": 36,
         "padding_bottom": 28
+      }
+    },
+    "fly_library_pointer": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<div class=\"page-width\" style=\"padding:0 0 2rem;\"><p><a href=\"/pages/fly-library\">Fly Library: shoppable recipes from our tying videos</a></p></div>"
       }
     }
   },
   "order": [
-    "main"
+    "main",
+    "fly_library_pointer"
   ]
 }

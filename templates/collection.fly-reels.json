@@ -1,0 +1,194 @@
+/* spawn-merch-bot W2 theme PREVIEW 2026-09-15: fly-reels deepen Match size/arbor/fresh/salt/brands + FAQ keep/add; Cite/Archive HOLD; no Admin SEO; no MAIN */
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "collection_premium": {
+      "type": "collection-premium",
+      "blocks": {
+        "chip_1": {
+          "type": "chip",
+          "settings": {
+            "label": "Echo",
+            "collection": "echo-fly-reels"
+          }
+        },
+        "chip_2": {
+          "type": "chip",
+          "settings": {
+            "label": "Redington",
+            "collection": "redington-fly-reels"
+          }
+        },
+        "chip_3": {
+          "type": "chip",
+          "settings": {
+            "label": "Ross",
+            "collection": "ross-fly-reels"
+          }
+        },
+        "chip_4": {
+          "type": "chip",
+          "settings": {
+            "label": "Sage",
+            "collection": "sage-fly-reels"
+          }
+        },
+        "chip_5": {
+          "type": "chip",
+          "settings": {
+            "label": "Lamson",
+            "collection": "waterworks-lamson-fly-reels"
+          }
+        }
+      },
+      "block_order": [
+        "chip_1",
+        "chip_2",
+        "chip_3",
+        "chip_4",
+        "chip_5"
+      ],
+      "settings": {
+        "subtitle": "Fly reels that let the good runs roll. Pair reel size to rod weight, then choose drag and arbor for the water you fish.",
+        "overlay_opacity": 45,
+        "products_per_page": 36,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "image_ratio": "square",
+        "enable_filtering": true,
+        "enable_sorting": true,
+        "padding_top": 0,
+        "padding_bottom": 36
+      },
+      "custom_css": [
+        "@media screen and (max-width: 749px) {.collection-premium__hero .collection-premium__breadcrumb {top: 20px;}}"
+      ]
+    },
+    "howto": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Match reel to rod",
+            "heading_size": "h2"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Size</strong><br>Match the reel to your rod weight. Product pages list compatible line weights. A 5/6 reel sits on a 5- or 6-weight rod.</p><h3>Large arbor</h3><p>Faster retrieve, room for backing, fewer coils on the ground. Standard arbors still work on small water if you like the feel.</p><h3>Freshwater trout and bass</h3><p>Balance and reliability matter more than max drag. Click-and-pawl is fine on light rods if that is your style.</p><h3>Salt</h3><p>Stronger drag, corrosion resistance, and often a sealed drag. Rinse after salt. Oversizing a half step helps backing capacity.</p><h3>Brand aisles</h3><p>Use the chips for Echo, Redington, Ross, Sage, Lamson, and related shelves like <a href=\"/collections/hatch-fly-reels\">Hatch</a> and <a href=\"/collections/ross-fly-reels\">Ross</a>. Compare weight, arbor, and drag on each product page. Shop <a href=\"/collections/fly-rods\">fly rods</a> when you need the blank side of the pair.</p>"
+          }
+        },
+        "button": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop fly rods",
+            "button_link": "shopify://collections/fly-rods",
+            "button_style_secondary": true
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text",
+        "button"
+      ],
+      "settings": {
+        "premium_seo_style": true,
+        "premium_eyebrow": "Reel guide",
+        "use_collection_image": true,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "scheme-1",
+        "color_scheme": "scheme-1",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "faq": {
+      "type": "collapsible-content",
+      "blocks": {
+        "q1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I size a reel?",
+            "icon": "none",
+            "row_content": "<p>Match the reel to your rod weight. Product pages list compatible line weights.</p>"
+          }
+        },
+        "q2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Large arbor or standard?",
+            "icon": "none",
+            "row_content": "<p>Large arbor picks up line faster and holds more backing. Standard is fine on small trout water if you prefer it.</p>"
+          }
+        },
+        "q3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Sealed drag?",
+            "icon": "none",
+            "row_content": "<p>Sealed drags stay smoother when sand and water show up. Open designs can be lighter and simpler to service.</p>"
+          }
+        },
+        "q4": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I shop by brand?",
+            "icon": "none",
+            "row_content": "<p>Yes. Use the brand chips, then sort and filter inside each aisle.</p>"
+          }
+        },
+        "q5": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Do I need a sealed drag for salt?",
+            "icon": "none",
+            "row_content": "<p>Yes if you fish salt often. Freshwater trout reels can skip sealed drag.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5"
+      ],
+      "settings": {
+        "premium_seo_style": true,
+        "premium_eyebrow": "Common questions",
+        "caption": "",
+        "heading": "Fly reels FAQ",
+        "heading_size": "h2",
+        "color_scheme": "scheme-1",
+        "container_color_scheme": "scheme-1",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 80,
+        "padding_bottom": 96
+      }
+    }
+  },
+  "order": [
+    "collection_premium",
+    "howto",
+    "faq"
+  ]
+}

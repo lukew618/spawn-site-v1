@@ -1,0 +1,175 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "collection_premium": {
+      "type": "collection-premium",
+      "blocks": {
+        "chip_tools": {
+          "type": "chip",
+          "settings": {
+            "label": "Tools",
+            "collection": "fly-tying-tools"
+          }
+        },
+        "chip_materials": {
+          "type": "chip",
+          "settings": {
+            "label": "Materials",
+            "collection": "fly-tying-materials"
+          }
+        },
+        "chip_feathers": {
+          "type": "chip",
+          "settings": {
+            "label": "Feathers",
+            "collection": "fly-tying-feathers"
+          }
+        },
+        "chip_beads": {
+          "type": "chip",
+          "settings": {
+            "label": "Beads",
+            "collection": "fly-tying-beads"
+          }
+        }
+      },
+      "block_order": [
+        "chip_tools",
+        "chip_materials",
+        "chip_feathers",
+        "chip_beads"
+      ],
+      "settings": {
+        "subtitle": "The vise is the foundation of the bench. Pick the head and base for how you actually tie, not for a catalog photo. Rotary and fixed heads, C-clamp and pedestal bases, jaws for midges through salt and streamers. Brands we will put in front of a customer without hedging.",
+        "overlay_opacity": 45,
+        "products_per_page": 36,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "image_ratio": "square",
+        "enable_filtering": true,
+        "enable_sorting": true,
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
+    },
+    "howto": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "How to choose a fly tying vise",
+            "heading_size": "h2"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Match the head and base to how you tie. The grid below is the stock we keep on the Ilwaco bench.<\/p><h3>Rotary vs fixed<\/h3><p>True rotary helps with palmering hackle, checking symmetry, and dubbing loops. A solid fixed head is enough if you mostly wrap in place and want fewer moving parts. Neither is &quot;better.&quot; It is how you tie.<\/p><h3>Jaws<\/h3><p>Midge jaws matter if you live on #18-#24. Streamer and salt hooks need a wider, stronger bite. If hooks spit out of the jaws, change jaws or vise before you change your whole pattern list.<\/p><h3>C-clamp vs pedestal<\/h3><p>C-clamp saves space and travels well if you have a desk edge. Pedestal stays put, moves around the bench, and gives you a place to park beads and hooks. Match the base to the room you tie in.<\/p><h3>Budget tiers<\/h3><p><strong>Starter:<\/strong> a vise that holds hooks securely and does not wobble. You can upgrade later. <strong>Mid:<\/strong> smoother rotary, better jaws, less fuss on long sessions. <strong>Premium:<\/strong> the vise you stop thinking about. Buy once if you already know you will keep tying.<\/p><h3>What we stock<\/h3><p>Look for Stonfo, Peak, Regal, Renzetti, and related bench brands in the grid below (availability moves). If you already know you want a Stonfo Elite, open that PDP directly. Scissors, bobbins, and the rest of the bench live under <a href=\"\/collections\/fly-tying-tools\">Fly Tying Tools<\/a>. Materials for the next bag sit under <a href=\"\/collections\/fly-tying-materials\">Fly Tying Materials<\/a>.<\/p>"
+          }
+        },
+        "button": {
+          "type": "button",
+          "settings": {
+            "button_label": "Stonfo Elite vise",
+            "button_link": "shopify:\/\/products\/stonfo-elite-vise",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text",
+        "button"
+      ],
+      "settings": {
+        "premium_seo_style": true,
+        "premium_eyebrow": "Tying guide",
+        "use_collection_image": false,
+        "image": "shopify:\/\/shop_images\/homepage-ilwaco.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "scheme-1",
+        "color_scheme": "scheme-1",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "faq": {
+      "type": "collapsible-content",
+      "blocks": {
+        "q1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Do I need a rotary vise as a beginner?",
+            "icon": "none",
+            "row_content": "<p>No. You need jaws that hold the hook and a base that does not walk. Add rotary when your patterns ask for it.<\/p>"
+          }
+        },
+        "q2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What vise for tiny trout flies?",
+            "icon": "none",
+            "row_content": "<p>Prioritize midge-capable jaws and a steady head. Fancy finishes do not help a #22.<\/p>"
+          }
+        },
+        "q3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What vise for streamers and salt?",
+            "icon": "none",
+            "row_content": "<p>Wider jaws, strong grip, and a base that stays put when you pull materials hard.<\/p>"
+          }
+        },
+        "q4": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I buy tools here too?",
+            "icon": "none",
+            "row_content": "<p>Yes. Scissors, bobbins, and the rest of the bench live under <a href=\"\/collections\/fly-tying-tools\">Fly Tying Tools<\/a>. Materials are next door under <a href=\"\/collections\/fly-tying-materials\">Fly Tying Materials<\/a>.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ],
+      "settings": {
+        "premium_seo_style": true,
+        "premium_eyebrow": "Common questions",
+        "caption": "",
+        "heading": "Fly tying vise FAQ",
+        "heading_size": "h2",
+        "color_scheme": "scheme-1",
+        "container_color_scheme": "scheme-1",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 80,
+        "padding_bottom": 96
+      }
+    }
+  },
+  "order": [
+    "collection_premium",
+    "howto",
+    "faq"
+  ]
+}

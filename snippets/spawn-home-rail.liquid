@@ -2,7 +2,12 @@
   <section class="sh-section sh-rail-section sh-shell" aria-labelledby="{{ rail_id }}-heading">
     <div class="sh-section-head">
       <div><p class="sh-eyebrow">{{ eyebrow | escape }}</p><h2 id="{{ rail_id }}-heading">{{ heading | escape }}</h2></div>
-      <a href="{{ rail_collection.url }}" class="sh-text-link">{{ link_label | escape }}</a>
+      <div class="sh-section-head__links">
+        <a href="{{ rail_collection.url }}" class="sh-text-link">{{ link_label | escape }}</a>
+        {%- if library_link_label != blank -%}
+          <a href="{{ pages['fly-library'].url }}" class="sh-text-link sh-text-link--quiet">{{ library_link_label | escape }}</a>
+        {%- endif -%}
+      </div>
     </div>
     <spawn-product-rail class="sh-rail">
       <ul class="sh-product-track" id="{{ rail_id }}" tabindex="0" aria-label="{{ heading | escape }}. Scroll for more products.">

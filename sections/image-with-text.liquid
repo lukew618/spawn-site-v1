@@ -1,4 +1,7 @@
 {{ 'component-image-with-text.css' | asset_url | stylesheet_tag }}
+{%- if section.settings.premium_seo_style -%}
+  {{ 'premium-collection-seo.css' | asset_url | stylesheet_tag }}
+{%- endif -%}
 
 {%- style -%}
   .section-{{ section.id }}-padding {
@@ -16,26 +19,30 @@
 
 {%- liquid
   assign fetch_priority = 'auto'
+  assign section_image = section.settings.image
   if section.index == 1
     assign fetch_priority = 'high'
+  endif
+  if section.settings.premium_seo_style and section.settings.use_collection_image and section_image == blank and collection.image != blank
+    assign section_image = collection.image
   endif
   if section.settings.color_scheme == section.settings.section_color_scheme and section.settings.content_layout == 'no-overlap'
     assign remove_color_classes = true
   endif
 -%}
 
-<div class="section-{{ section.id }}-padding gradient color-{{ section.settings.section_color_scheme }}">
+<div class="section-{{ section.id }}-padding gradient color-{{ section.settings.section_color_scheme }}{% if section.settings.premium_seo_style %} premium-seo premium-seo--guide{% endif %}">
   <div class="page-width">
     <div class="image-with-text image-with-text--{{ section.settings.content_layout }} isolate{% if settings.text_boxes_border_thickness > 0 and settings.text_boxes_border_opacity > 0 and settings.media_border_thickness > 0 and settings.media_border_opacity > 0 %} collapse-borders{% endif %}{% unless section.settings.color_scheme == section.settings.section_color_scheme and settings.media_border_thickness > 0 and settings.text_boxes_shadow_opacity == 0 and settings.text_boxes_border_thickness == 0 or settings.text_boxes_border_opacity == 0 %} collapse-corners{% endunless %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
       <div class="image-with-text__grid grid grid--gapless grid--1-col grid--{% if section.settings.desktop_image_width == 'medium' %}2-col-tablet{% else %}3-col-tablet{% endif %}{% if section.settings.layout == 'text_first' %} image-with-text__grid--reverse{% endif %}">
         <div class="image-with-text__media-item image-with-text__media-item--{{ section.settings.desktop_image_width }} image-with-text__media-item--{{ section.settings.desktop_content_position }} grid__item">
           <div
-            class="image-with-text__media image-with-text__media--{{ section.settings.height }} global-media-settings{% unless remove_color_classes %} gradient color-{{ section.settings.color_scheme }}{% else %} background-transparent{% endunless %}{% if section.settings.image != blank %} media{% else %} image-with-text__media--placeholder placeholder{% endif %}{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}"
-            {% if section.settings.height == 'adapt' and section.settings.image != blank %}
-              style="padding-bottom: {{ 1 | divided_by: section.settings.image.aspect_ratio | times: 100 }}%;"
+            class="image-with-text__media image-with-text__media--{{ section.settings.height }} global-media-settings{% unless remove_color_classes %} gradient color-{{ section.settings.color_scheme }}{% else %} background-transparent{% endunless %}{% if section_image != blank %} media{% else %} image-with-text__media--placeholder placeholder{% endif %}{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}"
+            {% if section.settings.height == 'adapt' and section_image != blank %}
+              style="padding-bottom: {{ 1 | divided_by: section_image.aspect_ratio | times: 100 }}%;"
             {% endif %}
           >
-            {%- if section.settings.image != blank -%}
+            {%- if section_image != blank -%}
               {%- if section.settings.image_behavior == 'ambient' or section.settings.image_behavior == 'zoom-in' -%}
                 {%- assign widths = '198, 432, 642, 900, 1284, 1800' -%}
                 {%- capture sizes -%}
@@ -50,7 +57,7 @@
             {%- endcapture -%}
               {%- endif -%}
               {{
-                section.settings.image
+                section_image
                 | image_url: width: 1500
                 | image_tag: sizes: sizes, widths: widths, fetchpriority: fetch_priority
               }}
@@ -64,6 +71,9 @@
             id="ImageWithText--{{ section.id }}"
             class="image-with-text__content image-with-text__content--{{ section.settings.desktop_content_position }} image-with-text__content--desktop-{{ section.settings.desktop_content_alignment }} image-with-text__content--mobile-{{ section.settings.mobile_content_alignment }} image-with-text__content--{{ section.settings.height }} content-container{% unless remove_color_classes %} gradient color-{{ section.settings.color_scheme }}{% else %} background-transparent{% endunless %}"
           >
+            {%- if section.settings.premium_seo_style and section.settings.premium_eyebrow != blank -%}
+              <p class="premium-seo__eyebrow">{{ section.settings.premium_eyebrow | escape }}</p>
+            {%- endif -%}
             {%- for block in section.blocks -%}
               {% case block.type %}
                 {%- when 'heading' -%}
@@ -115,6 +125,24 @@
     "groups": ["header", "footer"]
   },
   "settings": [
+    {
+      "type": "checkbox",
+      "id": "premium_seo_style",
+      "default": false,
+      "label": "Use premium collection guide style"
+    },
+    {
+      "type": "text",
+      "id": "premium_eyebrow",
+      "default": "Tying guide",
+      "label": "Premium eyebrow"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_collection_image",
+      "default": false,
+      "label": "Use collection image when image is blank"
+    },
     {
       "type": "image_picker",
       "id": "image",

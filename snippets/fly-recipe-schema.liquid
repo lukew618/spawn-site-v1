@@ -1,0 +1,117 @@
+{% comment %}
+  spawn-merch-bot fly-library-traffic PREVIEW 2026-09-15
+  Soft VideoObject + HowTo JSON-LD for recipe pages.
+  Prefer page metafield custom.recipe_schema_json when present; else static by handle.
+  Does NOT emit CollectionPage/ItemList (hub owns that).
+  uploadDate 2020-01-01 is PREVIEW placeholder; replace from YouTube Studio before MAIN schema.
+{% endcomment %}
+{%- liquid
+  assign schema_json = blank
+  if page.metafields.custom.recipe_schema_json != blank
+    assign schema_json = page.metafields.custom.recipe_schema_json.value | default: page.metafields.custom.recipe_schema_json
+  endif
+-%}
+{%- if schema_json != blank -%}
+  <script type="application/ld+json">{{ schema_json }}</script>
+{%- elsif page.handle == 'fly-library-sea-run-cutthroat-intruder' -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "VideoObject",
+      "name": "Sea Run Cutthroat - Intruder Style Fly",
+      "description": "How Josh ties an Intruder-style sea-run cutthroat fly on the Spawn Alaska Intruder Shank (28 mm). Materials and steps from the Spawn vise.",
+      "thumbnailUrl": ["https://i.ytimg.com/vi/pd1Ds6P9GSo/hqdefault.jpg"],
+      "uploadDate": "2020-01-01",
+      "embedUrl": "https://www.youtube.com/embed/pd1Ds6P9GSo",
+      "contentUrl": "https://www.youtube.com/watch?v=pd1Ds6P9GSo",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Spawn Fly Fish",
+        "url": "https://spawnflyfish.com"
+      }
+    },
+    {
+      "@type": "HowTo",
+      "name": "How to tie a sea-run cutthroat Intruder-style fly",
+      "description": "Intruder-style baitfish on a Spawn Alaska Intruder Shank 28 mm for Puget Sound cutthroat.",
+      "totalTime": "PT20M",
+      "tool": [
+        {"@type": "HowToTool", "name": "Fly tying vise and tools"}
+      ],
+      "supply": [
+        {"@type": "HowToSupply", "name": "Spawn Alaska Intruder Shank 28 mm"},
+        {"@type": "HowToSupply", "name": "Rex SA280 #8 trailing hook"},
+        {"@type": "HowToSupply", "name": "Spider wire or Senyo Intruder Wire"},
+        {"@type": "HowToSupply", "name": "Danville 210 thread"},
+        {"@type": "HowToSupply", "name": "EP Foxy brush"},
+        {"@type": "HowToSupply", "name": "Schlappen"},
+        {"@type": "HowToSupply", "name": "Spawn fluorescent Southern Peach marabou"},
+        {"@type": "HowToSupply", "name": "Head cement"}
+      ],
+      "step": [
+        {"@type": "HowToStep", "position": 1, "name": "Mount shank", "text": "Mount the 28 mm Alaska Intruder Shank. Start Danville 210 on the long arm."},
+        {"@type": "HowToStep", "position": 2, "name": "Trailing hook", "text": "Loop spider wire (or Senyo Intruder Wire) through a Rex SA280 #8. Leave about 10-12 mm free behind the shank so the hook swings."},
+        {"@type": "HowToStep", "position": 3, "name": "Lock wire", "text": "Lock the wire along the shank. Keep the trailing hook free to move."},
+        {"@type": "HowToStep", "position": 4, "name": "Build profile", "text": "Build profile with EP Foxy brush and schlappen."},
+        {"@type": "HowToStep", "position": 5, "name": "Add marabou", "text": "Add Spawn Southern Peach marabou for movement."},
+        {"@type": "HowToStep", "position": 6, "name": "Finish", "text": "Small thread head, whip finish, cement. Keep the eye clean."}
+      ],
+      "url": "https://spawnflyfish.com/pages/fly-library-sea-run-cutthroat-intruder"
+    }
+  ]
+}
+</script>
+{%- elsif page.handle == 'fly-library-pink-changer-worm' -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "VideoObject",
+      "name": "Pink Changer Worm for Steelhead- Fly Tying Tutorial",
+      "description": "How Pete ties a pink feather-changer worm for steelhead on Spawn articulated shanks with UV flash Polliwog tail and a white slotted tungsten bead.",
+      "thumbnailUrl": ["https://i.ytimg.com/vi/zMjdl7LRCAE/hqdefault.jpg"],
+      "uploadDate": "2020-01-01",
+      "embedUrl": "https://www.youtube.com/embed/zMjdl7LRCAE",
+      "contentUrl": "https://www.youtube.com/watch?v=zMjdl7LRCAE",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Spawn Fly Fish",
+        "url": "https://spawnflyfish.com"
+      }
+    },
+    {
+      "@type": "HowTo",
+      "name": "How to tie a pink changer worm for steelhead",
+      "description": "Articulated pink worm with UV flash Polliwog tail and white slotted tungsten bead.",
+      "tool": [
+        {"@type": "HowToTool", "name": "Fly tying vise and tools"}
+      ],
+      "supply": [
+        {"@type": "HowToSupply", "name": "Spawn articulated shank 11 mm"},
+        {"@type": "HowToSupply", "name": "Spawn articulated shank 12 mm"},
+        {"@type": "HowToSupply", "name": "Spawn articulated shank 19 mm"},
+        {"@type": "HowToSupply", "name": "Spawn UV flash Polliwog fluorescent pink"},
+        {"@type": "HowToSupply", "name": "Pink hen saddle"},
+        {"@type": "HowToSupply", "name": "Hook ARX SA254 size 2"},
+        {"@type": "HowToSupply", "name": "Spawn Super slotted tungsten bead white"},
+        {"@type": "HowToSupply", "name": "Lead-free wire .0025"},
+        {"@type": "HowToSupply", "name": "Pink thread 6/0 or 140"},
+        {"@type": "HowToSupply", "name": "Head cement"}
+      ],
+      "step": [
+        {"@type": "HowToStep", "position": 1, "name": "Tail on 11 mm shank", "text": "Start on an 11 mm Spawn articulated shank with pink thread. Tie in fluorescent pink UV flash Polliwog for the worm tail. Keep bulk low."},
+        {"@type": "HowToStep", "position": 2, "name": "Hen saddle section", "text": "Dress pink hen saddle (four feathers per section). Trim feather edges so thread bites the stems. Wrap, stroking fibers back each turn."},
+        {"@type": "HowToStep", "position": 3, "name": "Join 12 mm shank", "text": "Join the next shank (12 mm), repeat feather sections as in the video."},
+        {"@type": "HowToStep", "position": 4, "name": "Rear 19 mm shank", "text": "Build the rear on a 19 mm articulated shank (eye cut / arm open as Pete shows) if following his three-shank build."},
+        {"@type": "HowToStep", "position": 5, "name": "Hook and bead", "text": "On the hook: ARX SA254 #2, six wraps .0025 lead-free wire, Spawn white Super slotted tungsten bead."},
+        {"@type": "HowToStep", "position": 6, "name": "Connect and finish", "text": "Connect shank string to hook. Cement feather stations. Whip finish hard behind the bead."}
+      ],
+      "url": "https://spawnflyfish.com/pages/fly-library-pink-changer-worm"
+    }
+  ]
+}
+</script>
+{%- endif -%}

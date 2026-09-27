@@ -1,0 +1,194 @@
+/* spawn-merch-bot W1 theme PREVIEW 2026-09-15: fly-rods deepen Pick-by-water freshwater/salt/spey + reel FAQ + brand/reels links; Cite/Archive HOLD; no Admin SEO; no MAIN */
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "collection_premium": {
+      "type": "collection-premium",
+      "blocks": {
+        "chip_1": {
+          "type": "chip",
+          "settings": {
+            "label": "Douglas",
+            "collection": "douglas-outdoors-fly-rods"
+          }
+        },
+        "chip_2": {
+          "type": "chip",
+          "settings": {
+            "label": "Echo",
+            "collection": "echo-fly-rods"
+          }
+        },
+        "chip_3": {
+          "type": "chip",
+          "settings": {
+            "label": "G. Loomis",
+            "collection": "g-loomis-fly-rods"
+          }
+        },
+        "chip_4": {
+          "type": "chip",
+          "settings": {
+            "label": "Sage",
+            "collection": "sage-fly-rods"
+          }
+        },
+        "chip_5": {
+          "type": "chip",
+          "settings": {
+            "label": "Fly reels",
+            "collection": "fly-reels"
+          }
+        }
+      },
+      "block_order": [
+        "chip_1",
+        "chip_2",
+        "chip_3",
+        "chip_4",
+        "chip_5"
+      ],
+      "settings": {
+        "subtitle": "Fly rods for the casts you remember. Pick weight for the fish and the flies, then open a brand aisle when you already know the label you want.",
+        "overlay_opacity": 45,
+        "products_per_page": 36,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "image_ratio": "square",
+        "enable_filtering": true,
+        "enable_sorting": true,
+        "padding_top": 0,
+        "padding_bottom": 36
+      },
+      "custom_css": [
+        "@media screen and (max-width: 749px) {.collection-premium__hero .collection-premium__breadcrumb {top: 20px;}}"
+      ]
+    },
+    "howto": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Pick a rod by water",
+            "heading_size": "h2"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Weight</strong><br>Match weight to the fish and the flies you throw. A 5-weight covers a lot of trout water. Go lighter for small streams and dries. Go heavier for wind, streamers, or larger fish.</p><h3>Freshwater trout</h3><p>Most Ilwaco customers start here. Length and action are preference after weight is right.</p><h3>Salt and bigger flies</h3><p>More backbone, guides that take abuse, and a blank that recovers when the wind is up. Pair with a sealed-drag reel from the <a href=\"/collections/fly-reels\">fly reels</a> aisle.</p><h3>Spey and switch</h3><p>Two-handed tools for bigger water and longer casts. Buy the length and grain window the line calls for, not the longest tube on the wall.</p><h3>Brand aisles</h3><p>Jump into <a href=\"/collections/douglas-outdoors-fly-rods\">Douglas</a>, <a href=\"/collections/echo-fly-rods\">Echo</a>, <a href=\"/collections/g-loomis-fly-rods\">G. Loomis</a>, or <a href=\"/collections/sage-fly-rods\">Sage</a> with the chips, then compare length and weight on each product page.</p>"
+          }
+        },
+        "button": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop fly reels",
+            "button_link": "shopify://collections/fly-reels",
+            "button_style_secondary": true
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text",
+        "button"
+      ],
+      "settings": {
+        "premium_seo_style": true,
+        "premium_eyebrow": "Rod guide",
+        "use_collection_image": true,
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "scheme-1",
+        "color_scheme": "scheme-1",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "faq": {
+      "type": "collapsible-content",
+      "blocks": {
+        "q1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What rod weight should I start with?",
+            "icon": "none",
+            "row_content": "<p>A 5-weight covers a lot of trout water. Go lighter for small streams and dries. Go heavier for wind, streamers, or larger fish.</p>"
+          }
+        },
+        "q2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Do you carry full kits?",
+            "icon": "none",
+            "row_content": "<p>Browse rods here and pair with a reel from the fly reels aisle. Product pages list line weight and length.</p>"
+          }
+        },
+        "q3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I compare brands?",
+            "icon": "none",
+            "row_content": "<p>Yes. Use the brand chips above, then sort and filter inside each brand aisle.</p>"
+          }
+        },
+        "q4": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What about shipping?",
+            "icon": "none",
+            "row_content": "<p>Rods ship carefully packed. Check each product page for stock and shipping notes.</p>"
+          }
+        },
+        "q5": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I buy the reel here too?",
+            "icon": "none",
+            "row_content": "<p>Yes. Match reel size to rod weight under <a href=\"/collections/fly-reels\">Fly Reels</a>.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5"
+      ],
+      "settings": {
+        "premium_seo_style": true,
+        "premium_eyebrow": "Common questions",
+        "caption": "",
+        "heading": "Fly rods FAQ",
+        "heading_size": "h2",
+        "color_scheme": "scheme-1",
+        "container_color_scheme": "scheme-1",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 80,
+        "padding_bottom": 96
+      }
+    }
+  },
+  "order": [
+    "collection_premium",
+    "howto",
+    "faq"
+  ]
+}

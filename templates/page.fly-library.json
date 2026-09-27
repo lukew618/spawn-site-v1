@@ -1,0 +1,134 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+/* spawn-merch-bot MAIN 2026-09-22: fly-library intro trim (Luke via Growth); hub #3+#4 live */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "fly_library_hub": {
+      "type": "fly-library-hub",
+      "blocks": {
+        "card_intruder": {
+          "type": "recipe_card",
+          "settings": {
+            "title": "Sea-Run Cutthroat Intruder-Style Fly",
+            "hook": "Josh's baitfish Intruder on the Alaska Shank for Puget Sound cutthroat.",
+            "youtube_id": "pd1Ds6P9GSo",
+            "link": "shopify://pages/fly-library-sea-run-cutthroat-intruder",
+            "cta_label": "Watch recipe",
+            "status": "live",
+            "badge": "New",
+            "coming_soon_label": ""
+          }
+        },
+        "card_worm": {
+          "type": "recipe_card",
+          "settings": {
+            "title": "Pink Changer Worm for Steelhead",
+            "hook": "Pete's pink changer worm with white slotted tungsten, built to get eaten.",
+            "youtube_id": "zMjdl7LRCAE",
+            "link": "shopify://pages/fly-library-pink-changer-worm",
+            "cta_label": "Watch recipe",
+            "status": "live",
+            "badge": "New",
+            "coming_soon_label": ""
+          }
+        },
+        "card_crayfish": {
+          "type": "recipe_card",
+          "settings": {
+            "title": "Bronze Butter Crayfish for Trout",
+            "hook": "Pete's small jig crayfish with Spawn football bead and bronze butter dub.",
+            "youtube_id": "Q81Vx6R9j2g",
+            "link": "shopify://pages/fly-library-bronze-butter-crayfish",
+            "cta_label": "Watch recipe",
+            "status": "live",
+            "badge": "New",
+            "coming_soon_label": ""
+          }
+        },
+        "card_nightmare": {
+          "type": "recipe_card",
+          "settings": {
+            "title": "Nightmare Jig Streamer for Steelhead",
+            "hook": "Pete's Nightmare jig streamer with white Super bead, Polliwog, and red schlappen.",
+            "youtube_id": "ya-21Clg3FE",
+            "link": "shopify://pages/fly-library-nightmare-jig-streamer",
+            "cta_label": "Watch recipe",
+            "status": "live",
+            "badge": "New",
+            "coming_soon_label": ""
+          }
+        }
+      },
+      "block_order": [
+        "card_intruder",
+        "card_worm",
+        "card_crayfish",
+        "card_nightmare"
+      ],
+      "settings": {
+        "hero_image": "shopify://shop_images/IMG_0385.jpg",
+        "eyebrow": "From the Ilwaco shop",
+        "heading": "Fly Library",
+        "heading_size": "h0",
+        "intro": "<p>Ilwaco fly-tying recipes from the Spawn shop floor. Short, shoppable patterns with materials linked to our collections.</p>",
+        "grid_heading": "Recipes",
+        "grid_heading_size": "h2",
+        "columns_desktop": 2,
+        "color_scheme": "scheme-1",
+        "padding_top": 36,
+        "padding_bottom": 48
+      }
+    },
+    "featured_materials": {
+      "type": "featured-collection",
+      "custom_css": [
+        "h2 {text-align: center;}"
+      ],
+      "settings": {
+        "title": "Shop fly tying materials",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "fly-tying-materials",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": true,
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 24,
+        "padding_bottom": 64
+      }
+    }
+  },
+  "order": [
+    "main",
+    "fly_library_hub",
+    "featured_materials"
+  ]
+}
