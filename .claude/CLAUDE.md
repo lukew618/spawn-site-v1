@@ -1,17 +1,18 @@
 # Spawn Fly Fish — Shopify Theme
 
+Read `AGENTS.md` first. It owns the Shopify Admin versus theme-code routing and the current publishing boundary.
+
 ## Project
-Fly fishing retailer (Ilwaco, WA). Dawn v15.2.0 base theme with custom header scroll behavior, free shipping bar, and in-store-only template. Store: spawn-fly-fish.myshopify.com. `SHOPIFY_FLAG_STORE` is already exported in `~/.zshrc`.
+Fly fishing retailer (Ilwaco, WA). Dawn v15.2.0 base theme with custom header scroll behavior, free shipping bar, and in-store-only template. Store: spawn-fly-fish.myshopify.com. Check local Shopify CLI configuration on the current machine.
 
 Open product-page work is tracked in `docs/pdp-improvement-backlog.md` — check it before starting PDP changes.
 
 ## Commands
 ```bash
-shopify theme dev --theme=129377796159       # local dev with hot reload
-shopify theme push --theme=129377796159      # deploy to Shopify
-shopify theme pull --theme=129377796159      # sync from Shopify (do before starting work)
-shopify theme check                          # lint — must pass clean before every commit
+shopify theme check  # compare changed-file findings with the imported live baseline
 ```
+
+Use only an isolated development or unpublished theme for a Shopify-rendered preview. Theme `129377796159` is live. Do not use it as a development target or push to it during coding and review.
 
 ## Architecture (OS2)
 - **JSON templates** (`templates/*.json`) — define page structure, reference sections. No Liquid here.
@@ -97,7 +98,7 @@ No build step. Edit files directly — no webpack, Vite, or compilation.
 
 ## Section Schema Standards
 - All label/info strings use `t:` translation keys — never hardcoded English in schema.
-- Every setting has a `default` value.
+- Give settings valid defaults when Shopify permits them. Omit an empty `default` for `inline_richtext` and `richtext`.
 - Use `header` type blocks to group settings in the editor.
 - Blocks: composable and single-purpose (a "Button" block, not a "Hero Content" block).
 - Include `{ "type": "@app" }` in blocks array for any section that could benefit from app injection.
@@ -119,7 +120,7 @@ No build step. Edit files directly — no webpack, Vite, or compilation.
 
 ## Off-Limits Files
 Handle with care (Theme Editor owns these):
-- `config/settings_data.json` — prefer editing section/template JSON directly.
+- `config/settings_data.json` — inspect current editor settings before a planned edit. Do not replace them with stale local data.
 
 ## Key Customizations — Don't Break
 - **Scroll header:** `assets/header-scroll.js` + `.site-header--homepage` class in `sections/header.liquid` — transparent on homepage, solid on scroll/other pages.
@@ -135,7 +136,7 @@ Handle with care (Theme Editor owns these):
 
 ## Pre-Commit Checklist
 Run before every commit, no exceptions:
-- [ ] `shopify theme check` — zero errors, zero unacknowledged warnings
+- [ ] `shopify theme check` — no new changed-file errors against the imported live baseline; record existing failures accurately
 - [ ] All images: `alt` attribute present, `image_url` + `image_tag` used
 - [ ] No `{% include %}` anywhere in changed files
 - [ ] No hardcoded hex colors — CSS custom properties only
@@ -168,18 +169,18 @@ chore(snippets): migrate include to render in featured-collection
 ## Gotchas
 - **Unused React in `package.json`** — `react` and `@types/react` are installed but not used. Don't add React-based code to this theme.
 - **`git_commit_template.md` in `/assets/`** — accidentally committed, not a theme file. Do not reference or deploy it.
-- **Theme Editor vs. code** — changes made in the Shopify Theme Editor land in `config/settings_data.json`. Always `shopify theme pull` before starting work or you'll clobber editor changes.
+- **Theme Editor vs. code** — editor changes can affect `config/settings_data.json` and template JSON. Inspect live changes before a planned settings edit. Never pull the live theme directly into a working branch.
 - **Shopify's strict Liquid parser** — all Liquid must be syntactically valid or the theme will fail to publish. `shopify theme check` catches this.
-- **Three theme IDs exist** (main live: `128853147711`, staging: `128878903359`) — but this repo tracks spawn-store-v1 (`129377796159`) exclusively. Never push to the other IDs from this workflow. As of 2026-07, `129377796159` reports `role: "live"` on push — treat every push to it as a production deploy.
-- **Push-time schema validation goes beyond theme check** — `shopify theme check` passes but push rejects: (1) `inline_richtext`/`richtext` settings can't have `"default": ""` — omit the default instead; (2) template JSON dynamic sources are validated against an allowlist — `{{ product.type }}` is invalid in settings (use `product.vendor`, `product.title`, or metafields). Always confirm push output shows `errors: None`; a failed file silently keeps the old version live.
+- **Live theme** — `129377796159` is the live `spawn-store-v1` theme. Any upload to it is a production change. Verify theme identity before any approved publishing operation.
+- **Shopify schema validation goes beyond theme check** — (1) `inline_richtext`/`richtext` settings cannot have `"default": ""`; omit that default. (2) Template JSON dynamic sources use an allowlist; `{{ product.type }}` is invalid in settings.
 - **IntersectionObserver misses jump-scrolls** — an element jumping from below-viewport to above-viewport (End key, anchor link, fast flick) never intersects, so no callback fires. For scroll-position UI (sticky bars, scroll headers), use a rAF-throttled scroll listener with `getBoundingClientRect()` like `header-scroll.js` and `sticky-atc.js` do.
 
 ## Workflow
-1. `shopify theme pull --theme=129377796159` — sync before starting
-2. Make changes
-3. Run pre-commit checklist
-4. `shopify theme push --theme=129377796159` — deploy
-5. Commit + push to GitHub
+1. Start from the current GitHub base in a clean checkout. Preserve unrelated local work.
+2. Route Admin data changes through a supported Caddis action or another explicitly authorized Admin workflow.
+3. Change theme code on a branch. Run the pre-commit checklist and verify an isolated preview.
+4. Open a pull request. Resolve conflicts on the PR branch and inspect the combined result.
+5. Merge only after the applicable checks and approval pass. Do not assume merge publishes Shopify until the native GitHub integration is activated and verified.
 
 ## Self-Improvement Rule
 After any correction or mistake by Claude: append the fix as a new rule to this file so the same mistake never happens twice. Claude writes the rule itself at the end of the relevant section.
