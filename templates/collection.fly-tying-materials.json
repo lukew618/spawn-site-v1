@@ -1,3 +1,4 @@
+/* spawn-merch-bot fly-library-traffic PREVIEW 2026-09-15: Fly Library CTA; Cite/Archive HOLD */
 /*
  * ------------------------------------------------------------
  * IMPORTANT: The contents of this file are auto-generated.
@@ -38,13 +39,22 @@
             "label": "Tools",
             "collection": "fly-tying-tools"
           }
+        },
+        "chip_fly_library": {
+          "type": "chip",
+          "settings": {
+            "label": "Fly Library",
+            "collection": "",
+            "link": "shopify://pages/fly-library"
+          }
         }
       },
       "block_order": [
         "chip_feathers",
         "chip_beads",
         "chip_shanks",
-        "chip_tools"
+        "chip_tools",
+        "chip_fly_library"
       ],
       "settings": {
         "overlay_opacity": 45,
@@ -55,7 +65,11 @@
         "enable_filtering": true,
         "enable_sorting": true,
         "padding_top": 0,
-        "padding_bottom": 36
+        "padding_bottom": 36,
+        "fly_library_cta_label": "Fly Library: shoppable recipes from our tying videos",
+        "fly_library_cta_link": "shopify://pages/fly-library",
+        "fly_library_secondary_label": "",
+        "fly_library_secondary_link": ""
       }
     },
     "howto": {
@@ -71,7 +85,7 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>Feathers for wings, collars, soft hackles. Beads for weight and a clean head. Shanks when the fly is articulated. Trout: lighter hooks, softer fiber. Steelhead and salt: stronger wire, flash, materials that survive abrasive mouths.</p>"
+            "text": "<p>Feathers for wings, collars, soft hackles. Beads for weight and a clean head. Shanks when the fly is articulated. Tools and adhesives sit next door as supplies.</p><h3>By water</h3><p>Trout: lighter hooks, softer fiber, smaller beads. Steelhead and salt: stronger wire, flash, materials that survive abrasive mouths.</p><h3>Skill ladder</h3><p><strong>Beginner</strong><br>Start with a vise and one materials chip: feathers or beads. Tie the same simple pattern until the wraps feel boring. Buy the next bag only when that bag is empty.</p><p><strong>Getting comfortable</strong><br>Add the category you keep running out of. If you fish trout nymphs, that is usually beads and dubbing. If you fish soft hackles, it is waterfowl. Stop filling every empty drawer.</p><p><strong>Advanced / steelhead\u2013salt</strong><br>Build around the patterns you actually fish. Stronger wire, flash, articulated shanks, materials that survive abrasive mouths. Specialty packs (Select wood duck, football beads) earn their keep when the pattern calls for them, not because the shelf looks full.</p><p>We stock what we tie with in Ilwaco. Brands on the shelf are there because they show up in our own patterns.</p>"
           }
         },
         "button": {
@@ -89,6 +103,9 @@
         "button"
       ],
       "settings": {
+        "premium_seo_style": true,
+        "premium_eyebrow": "Tying guide",
+        "use_collection_image": false,
         "image": "shopify://shop_images/spawn-wood-duck-howto.jpg",
         "height": "adapt",
         "desktop_image_width": "medium",
@@ -100,8 +117,8 @@
         "color_scheme": "scheme-1",
         "image_behavior": "none",
         "mobile_content_alignment": "left",
-        "padding_top": 28,
-        "padding_bottom": 28
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     },
     "faq": {
@@ -112,7 +129,7 @@
           "settings": {
             "heading": "What's the difference between fly tying materials and supplies?",
             "icon": "none",
-            "row_content": "<p>Materials go on the hook. Feathers, beads, shanks, dubbing, flash. Tools and adhesives are supplies. Different aisle.</p>"
+            "row_content": "<p>Materials go on the hook: feathers, beads, shanks, dubbing, flash. Tools and adhesives are supplies. Different job, different aisle.</p>"
           }
         },
         "q2": {
@@ -120,7 +137,7 @@
           "settings": {
             "heading": "What should I buy for freshwater vs saltwater or steelhead?",
             "icon": "none",
-            "row_content": "<p>Trout: softer fiber, dubbing, lighter beads. Steelhead and salt: stronger wire, flash, articulated shanks.</p>"
+            "row_content": "<p>Trout leans softer fiber, dubbing, lighter beads. Steelhead and salt lean stronger wire, flash, and articulated shanks that take a beating.</p>"
           }
         },
         "q3": {
@@ -128,7 +145,7 @@
           "settings": {
             "heading": "Where should a beginner start?",
             "icon": "none",
-            "row_content": "<p>Grab a vise, then one category from the chips. Feathers or beads. Expand after you know what you burn through.</p>"
+            "row_content": "<p>A vise, then one materials category from the chips. Feathers or beads. Expand after you know what you burn through.</p>"
           }
         },
         "q4": {
@@ -144,7 +161,31 @@
           "settings": {
             "heading": "Are sale items on this hub?",
             "icon": "none",
-            "row_content": "<p>No. This hub is full price. Timed Select feather deals live on the <a href=\"/collections/tying-room-clearance\">Labor Day Sale</a> collection.</p>"
+            "row_content": "<p>No. This hub is full price. Timed Select feather deals live on the Tying Room Clearance collection when a sale is running.</p>"
+          }
+        },
+        "q6": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Do I need every category before I start tying?",
+            "icon": "none",
+            "row_content": "<p>No. One pattern family, the materials it uses, and the four core tools. Empty shelves of stuff you never wrap are not a tying program.</p>"
+          }
+        },
+        "q7": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I match beads to hooks?",
+            "icon": "none",
+            "row_content": "<p>Start with the bead size chart for that hook family (eye OD and desired sink). For trout nymphs, middle of the chart is usually enough. Step up only when the seam is fast or deep. Football and slotted tungsten behave differently in the water; buy the shape your pattern calls for.</p>"
+          }
+        },
+        "q8": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Do you have charts for thread and hooks?",
+            "icon": "none",
+            "row_content": "<p>Yes. Use the Bench resources notes on this page for bead, thread, and hook basics. For Select waterfowl grading and soft-hackle vs wing feathers, open the Fly Tying Feathers collection.</p>"
           }
         }
       },
@@ -153,9 +194,14 @@
         "q2",
         "q3",
         "q4",
-        "q5"
+        "q5",
+        "q6",
+        "q7",
+        "q8"
       ],
       "settings": {
+        "premium_seo_style": true,
+        "premium_eyebrow": "Common questions",
         "caption": "",
         "heading": "Materials FAQ",
         "heading_size": "h2",
@@ -164,14 +210,64 @@
         "open_first_collapsible_row": false,
         "image_ratio": "adapt",
         "desktop_layout": "image_second",
-        "padding_top": 20,
-        "padding_bottom": 40
+        "padding_top": 80,
+        "padding_bottom": 96
+      }
+    },
+    "bench_resources": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Bench resources",
+            "heading_size": "h2"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>These are the questions we get at the desk. Use them before you fill another drawer.</p><h3>Bead to hook (quick)</h3><p>Match bead OD to the hook eye and the sink rate you want. Too small and the fly never gets down. Too big and the head looks clumsy. Start in the middle of the size chart for that hook family, then go heavier only if the water asks for it.</p><h3>Thread</h3><p>Fine thread for small dry flies and clean heads. Stronger thread when you are packing deer hair, tying salt, or building articulated shanks. If the thread keeps cutting materials, step up a size before you blame the feather.</p><h3>Hooks</h3><p>Dry, nymph, jig, and saltwire are different jobs. Wire weight and gape matter more than the brand stamp on the box. Pick the hook for the water, then pull materials that fit that hook.</p><h3>Where to go next</h3><p>Feathers for wings and soft hackles. Beads when you need weight and a clean head. Shanks when the fly is articulated. Vises and scissors under Tools.</p>"
+          }
+        },
+        "button": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop Fly Tying Feathers",
+            "button_link": "shopify://collections/fly-tying-feathers",
+            "button_style_secondary": true
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text",
+        "button"
+      ],
+      "settings": {
+        "premium_seo_style": true,
+        "premium_eyebrow": "Desk charts",
+        "use_collection_image": false,
+        "image": "shopify://shop_images/spawn-wood-duck-howto.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "scheme-1",
+        "color_scheme": "scheme-1",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     }
   },
   "order": [
     "collection_premium",
     "howto",
+    "bench_resources",
     "faq"
   ]
 }

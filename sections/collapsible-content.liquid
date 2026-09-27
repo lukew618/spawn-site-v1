@@ -1,5 +1,8 @@
 {{ 'component-accordion.css' | asset_url | stylesheet_tag }}
 {{ 'collapsible-content.css' | asset_url | stylesheet_tag }}
+{%- if section.settings.premium_seo_style -%}
+  {{ 'premium-collection-seo.css' | asset_url | stylesheet_tag }}
+{%- endif -%}
 
 {%- style -%}
   .section-{{ section.id }}-padding {
@@ -15,7 +18,7 @@
   }
 {%- endstyle -%}
 
-<div class="color-{{ section.settings.color_scheme }} gradient">
+<div class="color-{{ section.settings.color_scheme }} gradient{% if section.settings.premium_seo_style %} premium-seo premium-seo--faq{% endif %}">
   <div class="collapsible-content collapsible-{{ section.settings.layout }}-layout isolate{% if section.settings.layout == 'section' %} page-width{% elsif section.settings.layout == 'none' %} content-container content-container--full-width{% endif %}">
     <div class="collapsible-content__wrapper section-{{ section.id }}-padding{% if section.settings.layout == 'section' %} content-container color-{{ section.settings.container_color_scheme }} gradient{% endif %}">
       <div class="{% if section.settings.image == blank %}collapsible-content-wrapper-narrow{% else %}page-width{% endif %}">
@@ -23,6 +26,9 @@
           class="collapsible-content__header{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
           style="text-align: {{ section.settings.heading_alignment }};"
         >
+          {%- if section.settings.premium_seo_style and section.settings.premium_eyebrow != blank -%}
+            <p class="premium-seo__eyebrow">{{ section.settings.premium_eyebrow | escape }}</p>
+          {%- endif -%}
           {%- if section.settings.caption != blank -%}
             <p class="caption-with-letter-spacing">
               {{ section.settings.caption | escape }}
@@ -115,6 +121,18 @@
     "groups": ["header", "footer"]
   },
   "settings": [
+    {
+      "type": "checkbox",
+      "id": "premium_seo_style",
+      "default": false,
+      "label": "Use premium collection FAQ style"
+    },
+    {
+      "type": "text",
+      "id": "premium_eyebrow",
+      "default": "Common questions",
+      "label": "Premium eyebrow"
+    },
     {
       "type": "text",
       "id": "caption",

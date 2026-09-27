@@ -331,6 +331,7 @@
     {{ 'spawn-home.css' | asset_url | stylesheet_tag }}
     {{ 'spawn-header-search.css' | asset_url | stylesheet_tag }}
     {{ 'spawn-storefront.css' | asset_url | stylesheet_tag }}
+    <script src="{{ 'spawn-forms-popup.js' | asset_url }}" data-stylesheet-url="{{ 'spawn-forms-popup.css' | asset_url }}" defer></script>
   </head>
 
   <body class="spawn-type spawn-storefront gradient template-{{ request.page_type | handleize }}{% if template.suffix != blank %} template-{{ template.suffix | handleize }}{% endif %}">

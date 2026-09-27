@@ -1,3 +1,4 @@
+/* spawn-merch-bot 2026-09-26 tools/tails layer-trim PREVIEW: drop FAQ rows answered in tying-guide; Admin cards skipped in liquid */
 /*
  * ------------------------------------------------------------
  * IMPORTANT: The contents of this file are auto-generated.
@@ -11,18 +12,18 @@
     "collection_premium": {
       "type": "collection-premium",
       "blocks": {
+        "chip_feathers": {
+          "type": "chip",
+          "settings": {
+            "label": "Feathers",
+            "collection": "feathers"
+          }
+        },
         "chip_materials": {
           "type": "chip",
           "settings": {
-            "label": "All materials",
+            "label": "Materials",
             "collection": "fly-tying-materials"
-          }
-        },
-        "chip_beads": {
-          "type": "chip",
-          "settings": {
-            "label": "Beads",
-            "collection": "fly-tying-beads"
           }
         },
         "chip_shanks": {
@@ -31,23 +32,15 @@
             "label": "Shanks",
             "collection": "fly-tying-shanks"
           }
-        },
-        "chip_tools": {
-          "type": "chip",
-          "settings": {
-            "label": "Tools",
-            "collection": "fly-tying-tools"
-          }
         }
       },
       "block_order": [
+        "chip_feathers",
         "chip_materials",
-        "chip_beads",
-        "chip_shanks",
-        "chip_tools"
+        "chip_shanks"
       ],
       "settings": {
-        "subtitle": "Natural and dyed feathers for wings, collars, soft hackles, and precise accents.",
+        "subtitle": "Tails set silhouette and movement. This aisle covers tails, fins, claws, and related bits so you can finish the back of the fly without raiding three other drawers.",
         "overlay_opacity": 45,
         "products_per_page": 36,
         "columns_desktop": 4,
@@ -56,7 +49,8 @@
         "enable_filtering": true,
         "enable_sorting": true,
         "padding_top": 0,
-        "padding_bottom": 36
+        "padding_bottom": 36,
+        "show_admin_description": true
       }
     },
     "howto": {
@@ -65,22 +59,22 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Choose feathers by use",
+            "heading": "Pick tails and appendages",
             "heading_size": "h2"
           }
         },
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>We sell waterfowl we actually sort. Spawn Select means usable barred and soft fibers, not a mystery bag.</p><h3>Match the feather to the job</h3><ul><li><strong>Soft hackle:</strong> soft, webby feathers that breathe in the water</li><li><strong>Wings:</strong> cleaner barring (barred wood duck and similar)</li><li><strong>Collars and cheeks:</strong> shorter tips that frame the head without bulk</li></ul><h3>Types you will see here</h3><p>Waterfowl for wings, collars, and soft hackles. Pintail, wood duck, and related Select packs when you want consistent barring. We are not pretending to be a full genetic-hackle catalog. If you need rooster saddles and graded dry-fly hackle, that is a different aisle than this collection.</p><h3>Natural vs dyed</h3><p>Natural barring comes from the bird. Dyed stock keeps the feather structure and locks a color so packs match across flies.</p>"
+            "text": "<p>Tails set silhouette and movement. Soft materials kick in the water; stiffer fibers hold a clean mayfly line. Match stiffness to the water before you fill the bin.</p><h3>Soft mobile tails</h3><p>Marabou-style and soft synthetics for streamers and buggers that need kick.</p><h3>Stiffer dry / nymph tails</h3><p>Fibers that hold a split or a clean mayfly line without collapsing.</p><h3>Fins and claws</h3><p>When the pattern shows a fin or claw silhouette, buy the piece sized for the hook, not a novelty pack you will never cut.</p><h3>Rule</h3><p>Match stiffness to the water. Soft for swim. Stiffer for float and profile.</p>"
           }
         },
         "button": {
           "type": "button",
           "settings": {
-            "button_label": "Select feathers on sale (timed)",
-            "button_link": "shopify://collections/tying-room-clearance",
-            "button_style_secondary": true
+            "button_label": "Shop feathers",
+            "button_link": "shopify://collections/feathers",
+            "button_style_secondary": false
           }
         }
       },
@@ -93,7 +87,7 @@
         "premium_seo_style": true,
         "premium_eyebrow": "Tying guide",
         "use_collection_image": false,
-        "image": "shopify://shop_images/spawn-wood-duck-howto.jpg",
+        "image": "shopify://shop_images/s10008331-spawn-polliwog-tails-spawn-fly-fish-779847.jpg",
         "height": "adapt",
         "desktop_image_width": "medium",
         "layout": "image_first",
@@ -111,50 +105,50 @@
     "faq": {
       "type": "collapsible-content",
       "blocks": {
-        "q1": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "Natural vs dyed feathers?",
-            "icon": "none",
-            "row_content": "<p>Natural shows how the bird grew. Dyed keeps structure and gives a consistent color. Use natural when barring is the point. Use dyed when you need a specific shade across a batch.</p>"
-          }
-        },
         "q2": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "How should I store waterfowl feathers?",
+            "heading": "Can I substitute tails across patterns?",
             "icon": "none",
-            "row_content": "<p>Dry, flat or loosely sleeved. Keep moths and moisture out. Crushed packs waste the tips you paid for.</p>"
+            "row_content": "<p>Often yes. Keep silhouette and stiffness close to what the pattern asked for.</p>"
           }
         },
         "q3": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Which feathers for soft hackles?",
+            "heading": "Polliwog vs Pacchiarini's tails?",
             "icon": "none",
-            "row_content": "<p>Soft, webby waterfowl. For barred accents, wood duck and teal-style fibers. Stiff dry-fly hackle is the wrong tool for a soft-hackle collar.</p>"
+            "row_content": "<p>Spawn Polliwog Tails are our shop packs for rubberized swim tails in solid, UV Flash, and Grizzly. Pacchiarini's (Dragon, Wiggle, Wave, Double, Saddle) are the named Italian profiles when a recipe calls for that brand and shape.</p>"
           }
         },
         "q4": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Why buy Select packs instead of random bulk?",
+            "heading": "When do I use mayfly tails instead of rubber?",
             "icon": "none",
-            "row_content": "<p>Sorting takes time. Select packs favor usable length and barring so you spend less of the bag in the trash. That matters when you are tying for the shop and for yourself.</p>"
+            "row_content": "<p>Mayfly tails (Hareline) for dries and nymphs that should look like an insect. Rubber and dragon tails for streamers and bugs that need kick in the water.</p>"
+          }
+        },
+        "q5": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Will synthetic tails sink a dry fly?",
+            "icon": "none",
+            "row_content": "<p>Heavy rubber can. Keep synthetic swim tails on streamers, nymphs, and poppers. Use microfibers or natural mayfly tails on dries.</p>"
           }
         }
       },
       "block_order": [
-        "q1",
         "q2",
         "q3",
-        "q4"
+        "q4",
+        "q5"
       ],
       "settings": {
         "premium_seo_style": true,
         "premium_eyebrow": "Common questions",
         "caption": "",
-        "heading": "Fly tying feathers FAQ",
+        "heading": "Tails FAQ",
         "heading_size": "h2",
         "color_scheme": "scheme-1",
         "container_color_scheme": "scheme-1",

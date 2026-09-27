@@ -1,3 +1,4 @@
+{%- comment -%} spawn-merch-bot fly-library-traffic PREVIEW 2026-09-15: homepage Fly Library card {%- endcomment -%}
 {%- liquid
   assign hero_alt = section.settings.hero_image.alt | default: 'Original Spawn flies, tied for days on the water'
   assign feature_alt = section.settings.feature_image.alt | default: 'A fly from the Spawn tying bench'
@@ -51,14 +52,34 @@
     </div>
   </section>
 
-  {% render 'spawn-home-rail', rail_collection: section.settings.materials_collection, rail_id: best_id, eyebrow: 'Original materials. Endless possibilities.', heading: 'Bench favorites.', link_label: 'Shop Spawn products' %}
+  {% render 'spawn-home-rail', rail_collection: section.settings.materials_collection, rail_id: best_id, eyebrow: 'Original materials. Endless possibilities.', heading: 'Bench favorites.', link_label: 'Shop Spawn products', library_link_label: 'Watch tying recipes' %}
 
   <section class="sh-feature" aria-labelledby="SpawnFeatureTitle">
     <div class="sh-feature__image">{% if section.settings.feature_image %}{{ section.settings.feature_image | image_url: width: 1400 | image_tag: widths: '550, 750, 1100, 1400', sizes: '(min-width: 750px) 55vw, 100vw', loading: 'lazy', alt: feature_alt }}{% endif %}<span class="sh-image-caption">The Spawn tying bench / Ilwaco, WA</span></div>
     <div class="sh-feature__copy"><p class="sh-eyebrow">Fly of the month</p><h2 id="SpawnFeatureTitle">{{ section.settings.feature_title | escape | newline_to_br }}</h2><p>{{ section.settings.feature_text | escape }}</p><a class="sh-button sh-button--light" href="{{ section.settings.feature_collection.url }}">Shop the featured fly</a>{% if settings.social_youtube_link != blank %}<a class="sh-text-link" href="{{ settings.social_youtube_link }}">Watch us tie</a>{% endif %}</div>
   </section>
 
-  {% render 'spawn-home-rail', rail_collection: section.settings.flies_collection, rail_id: flies_id, eyebrow: 'Patterns from our own waters', heading: 'Spawn signature flies.', link_label: 'Shop all Spawn flies' %}
+  
+  {%- if section.settings.library_enabled -%}
+    <section class="sh-library sh-shell" aria-labelledby="SpawnLibraryTitle">
+      <a class="sh-library__card" href="{{ pages['fly-library'].url }}">
+        <div class="sh-library__image">
+          {%- if section.settings.library_image -%}
+            {%- assign library_alt = section.settings.library_image.alt | default: 'Spawn Fly Library tying recipes' -%}
+            {{ section.settings.library_image | image_url: width: 1400 | image_tag: widths: '550, 750, 1100, 1400', sizes: '(min-width: 750px) 48vw, 100vw', loading: 'lazy', alt: library_alt }}
+          {%- endif -%}
+        </div>
+        <div class="sh-library__copy">
+          <p class="sh-eyebrow">{{ section.settings.library_eyebrow | default: 'Fly Library' | escape }}</p>
+          <h2 id="SpawnLibraryTitle">{{ section.settings.library_title | default: 'Watch tying recipes.' | escape }}</h2>
+          <p>{{ section.settings.library_text | default: 'Shoppable recipes from our tying videos, built at the Ilwaco vise.' | escape }}</p>
+          <span class="sh-button sh-button--accent">{{ section.settings.library_cta | default: 'Open Fly Library' | escape }}</span>
+        </div>
+      </a>
+    </section>
+  {%- endif -%}
+
+{% render 'spawn-home-rail', rail_collection: section.settings.flies_collection, rail_id: flies_id, eyebrow: 'Patterns from our own waters', heading: 'Spawn signature flies.', link_label: 'Shop all Spawn flies' %}
 
   <section class="sh-store sh-shell" aria-labelledby="SpawnStoreTitle">
     <div class="sh-store__copy"><p class="sh-eyebrow">Our home on the coast</p><h2 id="SpawnStoreTitle">Small town.<br>Endless water.</h2><p>{{ section.settings.store_text | escape }}</p><a class="sh-text-link" href="{{ pages['contact-us'].url }}">Visit the Ilwaco shop</a><span class="sh-store__location">ILWACO, WASHINGTON · PACIFIC NORTHWEST</span></div>
@@ -99,6 +120,13 @@
     { "type": "collection", "id": "feature_collection", "label": "t:sections.spawn_home.feature_collection" },
     { "type": "image_picker", "id": "store_image", "label": "t:sections.spawn_home.store_image" },
     { "type": "textarea", "id": "store_text", "label": "t:sections.spawn_home.store_text", "default": "Where the Columbia meets the Pacific, you'll find our shop. Stop in for a handful of materials, a little local knowledge, or a conversation about your next day out." },
+    { "type": "header", "content": "Fly Library entry" },
+    { "type": "checkbox", "id": "library_enabled", "label": "Show Fly Library card", "default": true },
+    { "type": "image_picker", "id": "library_image", "label": "Fly Library image" },
+    { "type": "text", "id": "library_eyebrow", "label": "Fly Library eyebrow", "default": "Fly Library" },
+    { "type": "text", "id": "library_title", "label": "Fly Library title", "default": "Watch tying recipes." },
+    { "type": "textarea", "id": "library_text", "label": "Fly Library text", "default": "Shoppable recipes from our tying videos, built at the Ilwaco vise." },
+    { "type": "text", "id": "library_cta", "label": "Fly Library CTA", "default": "Open Fly Library" },
     { "type": "blog", "id": "blog", "label": "t:sections.spawn_home.blog" }
   ],
   "blocks": [

@@ -11,43 +11,51 @@
     "collection_premium": {
       "type": "collection-premium",
       "blocks": {
-        "chip_materials": {
+        "chip_1": {
           "type": "chip",
           "settings": {
-            "label": "All materials",
-            "collection": "fly-tying-materials"
+            "label": "Spawn flies",
+            "collection": "spawn-flies"
           }
         },
-        "chip_beads": {
+        "chip_2": {
           "type": "chip",
           "settings": {
-            "label": "Beads",
-            "collection": "fly-tying-beads"
+            "label": "Streamers",
+            "collection": "flies-streamers"
           }
         },
-        "chip_shanks": {
+        "chip_3": {
           "type": "chip",
           "settings": {
-            "label": "Shanks",
-            "collection": "fly-tying-shanks"
+            "label": "Dry flies",
+            "collection": "dry-flies"
           }
         },
-        "chip_tools": {
+        "chip_4": {
           "type": "chip",
           "settings": {
-            "label": "Tools",
-            "collection": "fly-tying-tools"
+            "label": "Nymphs",
+            "collection": "nymph-flies"
+          }
+        },
+        "chip_5": {
+          "type": "chip",
+          "settings": {
+            "label": "Salmon & steelhead",
+            "collection": "salmon-steelhead"
           }
         }
       },
       "block_order": [
-        "chip_materials",
-        "chip_beads",
-        "chip_shanks",
-        "chip_tools"
+        "chip_1",
+        "chip_2",
+        "chip_3",
+        "chip_4",
+        "chip_5"
       ],
       "settings": {
-        "subtitle": "Natural and dyed feathers for wings, collars, soft hackles, and precise accents.",
+        "subtitle": "Tied flies for the next good day: streamers, dries, nymphs, and more. Spawn patterns sit alongside trusted makers.",
         "overlay_opacity": 45,
         "products_per_page": 36,
         "columns_desktop": 4,
@@ -57,7 +65,10 @@
         "enable_sorting": true,
         "padding_top": 0,
         "padding_bottom": 36
-      }
+      },
+      "custom_css": [
+        "@media screen and (max-width: 749px) {.collection-premium__hero .collection-premium__breadcrumb {top: 20px;}}"
+      ]
     },
     "howto": {
       "type": "image-with-text",
@@ -65,21 +76,21 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Choose feathers by use",
+            "heading": "Shop flies by water",
             "heading_size": "h2"
           }
         },
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>We sell waterfowl we actually sort. Spawn Select means usable barred and soft fibers, not a mystery bag.</p><h3>Match the feather to the job</h3><ul><li><strong>Soft hackle:</strong> soft, webby feathers that breathe in the water</li><li><strong>Wings:</strong> cleaner barring (barred wood duck and similar)</li><li><strong>Collars and cheeks:</strong> shorter tips that frame the head without bulk</li></ul><h3>Types you will see here</h3><p>Waterfowl for wings, collars, and soft hackles. Pintail, wood duck, and related Select packs when you want consistent barring. We are not pretending to be a full genetic-hackle catalog. If you need rooster saddles and graded dry-fly hackle, that is a different aisle than this collection.</p><h3>Natural vs dyed</h3><p>Natural barring comes from the bird. Dyed stock keeps the feather structure and locks a color so packs match across flies.</p>"
+            "text": "<p>Start with the water you fish. Streamers for big eats. Dries when fish look up. Nymphs when they stay down.</p><h3>Spawn flies and the full aisle</h3><p>Spawn signature patterns live here alongside selections from other tyers. Use the chips to jump into a style, then filter by size and brand.</p>"
           }
         },
         "button": {
           "type": "button",
           "settings": {
-            "button_label": "Select feathers on sale (timed)",
-            "button_link": "shopify://collections/tying-room-clearance",
+            "button_label": "Shop Spawn flies",
+            "button_link": "shopify://collections/spawn-flies",
             "button_style_secondary": true
           }
         }
@@ -91,9 +102,8 @@
       ],
       "settings": {
         "premium_seo_style": true,
-        "premium_eyebrow": "Tying guide",
-        "use_collection_image": false,
-        "image": "shopify://shop_images/spawn-wood-duck-howto.jpg",
+        "premium_eyebrow": "Shop guide",
+        "use_collection_image": true,
         "height": "adapt",
         "desktop_image_width": "medium",
         "layout": "image_first",
@@ -114,33 +124,33 @@
         "q1": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Natural vs dyed feathers?",
+            "heading": "How do I choose a fly size?",
             "icon": "none",
-            "row_content": "<p>Natural shows how the bird grew. Dyed keeps structure and gives a consistent color. Use natural when barring is the point. Use dyed when you need a specific shade across a batch.</p>"
+            "row_content": "<p>Match the food in the water and the rod you are fishing. When unsure, start mid-size for that pattern and keep a size up and down.</p>"
           }
         },
         "q2": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "How should I store waterfowl feathers?",
+            "heading": "What is the difference between Spawn flies and the full aisle?",
             "icon": "none",
-            "row_content": "<p>Dry, flat or loosely sleeved. Keep moths and moisture out. Crushed packs waste the tips you paid for.</p>"
+            "row_content": "<p>Spawn flies are patterns from our own bench. This collection is the full flies aisle, including Spawn and other makers.</p>"
           }
         },
         "q3": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Which feathers for soft hackles?",
+            "heading": "Can I filter by style?",
             "icon": "none",
-            "row_content": "<p>Soft, webby waterfowl. For barred accents, wood duck and teal-style fibers. Stiff dry-fly hackle is the wrong tool for a soft-hackle collar.</p>"
+            "row_content": "<p>Yes. Use the chips for streamers, dries, nymphs, and more, then sort and filter inside each aisle.</p>"
           }
         },
         "q4": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Why buy Select packs instead of random bulk?",
+            "heading": "Do you ship flies ready to fish?",
             "icon": "none",
-            "row_content": "<p>Sorting takes time. Select packs favor usable length and barring so you spend less of the bag in the trash. That matters when you are tying for the shop and for yourself.</p>"
+            "row_content": "<p>Yes. Flies ship tied and ready. Check each product page for pack counts and hook details.</p>"
           }
         }
       },
@@ -154,7 +164,7 @@
         "premium_seo_style": true,
         "premium_eyebrow": "Common questions",
         "caption": "",
-        "heading": "Fly tying feathers FAQ",
+        "heading": "Flies FAQ",
         "heading_size": "h2",
         "color_scheme": "scheme-1",
         "container_color_scheme": "scheme-1",

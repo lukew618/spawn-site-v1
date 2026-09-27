@@ -1,0 +1,185 @@
+/* spawn-merch-bot 2026-09-26 tools/tails layer-trim PREVIEW: drop FAQ rows answered in tying-guide; Admin cards skipped in liquid */
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "collection_premium": {
+      "type": "collection-premium",
+      "blocks": {
+        "chip_vises": {
+          "type": "chip",
+          "settings": {
+            "label": "Vises",
+            "collection": "fly-tying-vises"
+          }
+        },
+        "chip_materials": {
+          "type": "chip",
+          "settings": {
+            "label": "Materials",
+            "collection": "fly-tying-materials"
+          }
+        },
+        "chip_beads": {
+          "type": "chip",
+          "settings": {
+            "label": "Beads",
+            "collection": "fly-tying-beads"
+          }
+        },
+        "chip_feathers": {
+          "type": "chip",
+          "settings": {
+            "label": "Feathers",
+            "collection": "fly-tying-feathers"
+          }
+        }
+      },
+      "block_order": [
+        "chip_vises",
+        "chip_materials",
+        "chip_beads",
+        "chip_feathers"
+      ],
+      "settings": {
+        "subtitle": "Vises, scissors, bobbins, and bench tools selected for clean, consistent tying. Start with the four tools you will touch on every fly, then add specialty pieces when a pattern asks for them.",
+        "overlay_opacity": 45,
+        "products_per_page": 36,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "image_ratio": "square",
+        "enable_filtering": true,
+        "enable_sorting": true,
+        "padding_top": 0,
+        "padding_bottom": 36,
+        "show_admin_description": true
+      }
+    },
+    "howto": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Build a better tying bench",
+            "heading_size": "h2"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Start with the four tools you will touch on every fly, then add specialty pieces when a pattern asks for them.</p><h3>The first four</h3><p>Vise, one sharp fine scissors, a bobbin, and a whip finisher. That set ties most trout flies without drama.</p><h3>Scissors</h3><p>Fine tips for thread and detail. Keep a tougher pair for wire, foam, and coarse stuff so the fine tips stay sharp.</p><h3>Bobbins</h3><p>Ceramic or smooth tubes that do not fray thread. Weight and balance are personal. Buy what you will hold for an hour without thinking about it.</p><h3>Specialty</h3><p>Hackle pliers, hair stackers, dubbing brushes, and caddies earn a drawer when you repeat the same pattern enough times to notice the slowdown.</p><h3>Vises</h3><p>The vise lives next door under <a href=\"/collections/fly-tying-vises\">Fly Tying Vises</a>. Materials for the next bag sit under <a href=\"/collections/fly-tying-materials\">Fly Tying Materials</a>.</p>"
+          }
+        },
+        "button": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop fly tying vises",
+            "button_link": "shopify://collections/fly-tying-vises",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text",
+        "button"
+      ],
+      "settings": {
+        "premium_seo_style": true,
+        "premium_eyebrow": "Tying guide",
+        "use_collection_image": false,
+        "image": "shopify://shop_images/homepage-ilwaco.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "scheme-1",
+        "color_scheme": "scheme-1",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "faq": {
+      "type": "collapsible-content",
+      "blocks": {
+        "q4": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How should I care for fly tying tools?",
+            "icon": "none",
+            "row_content": "<p>Keep edges clean and dry. Wipe wax and adhesive off bobbin tubes, bodkins, and vise jaws before it builds up. Oil a sticky vise joint lightly.</p>"
+          }
+        },
+        "q5": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Do I need a full tool kit?",
+            "icon": "none",
+            "row_content": "<p>Kits are fine if the scissors and bobbin are actually usable. Otherwise buy the four core tools separately and skip filler you will not touch.</p>"
+          }
+        },
+        "q6": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Do I need a whip finisher as a beginner?",
+            "icon": "none",
+            "row_content": "<p>Yes, sooner than most people think. Half-hitches work. A whip finish is cleaner, smaller, and less likely to unravel when you varnish. Start with the Hareline Standard.</p>"
+          }
+        },
+        "q7": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Standard vs extended whip finisher?",
+            "icon": "none",
+            "row_content": "<p>Standard for trout dries, nymphs, and most soft hackles. Extended when the head sits farther from the vise jaws on big streamers and Intruders.</p>"
+          }
+        },
+        "q8": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Tool kit or buy pieces?",
+            "icon": "none",
+            "row_content": "<p>A Loon Core or Complete kit is faster if your drawer is empty. Buy singles when you already own scissors and a bobbin and only need the whip finisher or pliers.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q4",
+        "q5",
+        "q6",
+        "q7",
+        "q8"
+      ],
+      "settings": {
+        "premium_seo_style": true,
+        "premium_eyebrow": "Common questions",
+        "caption": "",
+        "heading": "Fly tying tools FAQ",
+        "heading_size": "h2",
+        "color_scheme": "scheme-1",
+        "container_color_scheme": "scheme-1",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 80,
+        "padding_bottom": 96
+      }
+    }
+  },
+  "order": [
+    "collection_premium",
+    "howto",
+    "faq"
+  ]
+}

@@ -3916,7 +3916,7 @@ body:not(.template-index) .header__inline-menu .header__menu-button {
 /* Add a vertical bar divider between header inline menu items */
 .header__inline-menu > *:not(:last-child)::after {
   content: "|";
-  color: inherit;
+  color: #ffffff;
   margin: 0 1rem;
 }
 

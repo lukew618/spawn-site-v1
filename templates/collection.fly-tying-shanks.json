@@ -1,82 +1,85 @@
+/* spawn-merch-bot fly-library-traffic PREVIEW 2026-09-15: Fly Library + Intruder CTA; Cite/Archive HOLD */
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
-    "breadcrumb": {
-      "type": "breadcrumb",
-      "settings": {}
-    },
-    "collection_hero": {
-      "type": "collection-hero-banner",
-      "settings": {
-        "image_height": "medium",
-        "image_overlay_opacity": 0,
-        "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "center",
-        "heading_size": "h1",
-        "show_text_box": false,
-        "color_scheme": "scheme-78823a03-0880-4c09-84ee-d09083839a52"
-      }
-    },
-    "intro_richtext": {
-      "type": "rich-text",
+    "collection_premium": {
+      "type": "collection-premium",
       "blocks": {
-        "heading": {
-          "type": "heading",
+        "chip_materials": {
+          "type": "chip",
           "settings": {
-            "heading": "Fly Tying Shanks",
-            "heading_size": "h2"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>A shank is not a hook. It is the backbone for articulated streamers and steelhead Intruders. Our house shanks are what we size for Columbia and coast-style builds.</p><p>Pick length and wire for the pattern. Evergreen 2-for-1, when live, is not Labor Day.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "heading",
-        "text"
-      ],
-      "settings": {
-        "desktop_content_position": "left",
-        "content_alignment": "left",
-        "full_width": false,
-        "color_scheme": "scheme-1",
-        "padding_top": 20,
-        "padding_bottom": 8
-      }
-    },
-    "category_rail": {
-      "type": "collection-list",
-      "blocks": {
-        "materials": {
-          "type": "featured_collection",
-          "settings": {
+            "label": "Materials",
             "collection": "fly-tying-materials"
           }
         },
-        "beads": {
-          "type": "featured_collection",
+        "chip_tails": {
+          "type": "chip",
           "settings": {
-            "collection": "fly-tying-beads"
+            "label": "Tails",
+            "collection": "tails-fins-claws-more"
+          }
+        },
+        "chip_feathers": {
+          "type": "chip",
+          "settings": {
+            "label": "Feathers",
+            "collection": "feathers"
+          }
+        },
+        "chip_tools": {
+          "type": "chip",
+          "settings": {
+            "label": "Tools",
+            "collection": "fly-tying-tools"
+          }
+        },
+        "chip_fly_library": {
+          "type": "chip",
+          "settings": {
+            "label": "Fly Library",
+            "collection": "",
+            "link": "shopify://pages/fly-library"
+          }
+        },
+        "chip_intruder": {
+          "type": "chip",
+          "settings": {
+            "label": "Intruder recipe",
+            "collection": "",
+            "link": "shopify://pages/fly-library-sea-run-cutthroat-intruder"
           }
         }
       },
       "block_order": [
-        "materials",
-        "beads"
+        "chip_materials",
+        "chip_tails",
+        "chip_feathers",
+        "chip_tools",
+        "chip_fly_library",
+        "chip_intruder"
       ],
       "settings": {
-        "title": "Shop related",
-        "heading_size": "h2",
-        "image_ratio": "square",
-        "columns_desktop": 2,
-        "color_scheme": "scheme-1",
-        "show_view_all": false,
+        "subtitle": "Articulated shanks for streamers, Intruders, and patterns built to move.",
+        "overlay_opacity": 45,
+        "products_per_page": 36,
+        "columns_desktop": 4,
         "columns_mobile": "2",
-        "swipe_on_mobile": true,
-        "padding_top": 12,
-        "padding_bottom": 12
+        "image_ratio": "square",
+        "enable_filtering": true,
+        "enable_sorting": true,
+        "padding_top": 0,
+        "padding_bottom": 36,
+        "fly_library_cta_label": "Fly Library: shoppable recipes from our tying videos",
+        "fly_library_cta_link": "shopify://pages/fly-library",
+        "fly_library_secondary_label": "Intruder recipe",
+        "fly_library_secondary_link": "shopify://pages/fly-library-sea-run-cutthroat-intruder"
       }
     },
     "howto": {
@@ -85,22 +88,34 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "How to choose",
+            "heading": "Choose shanks by pattern",
             "heading_size": "h2"
           }
         },
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>The hook holds the fish. The shank builds length and articulation. Shorter for compact Intruders. Longer for extended streamers.</p>"
+            "text": "<p>A shank is the backbone for articulated streamers and steelhead Intruders. The trailing hook holds the fish. The shank builds length and movement.</p><p>Shorter shanks keep Intruders compact. Longer shanks stretch baitfish and multi-section streamers. Wire should carry the dressing without folding once the fly is wet. Match shank length to the forage you are imitating, then pick a trailing hook that fits the game fish.</p><h3>Articulated vs single-hook builds</h3><p>Use shanks when the fly needs a joint and a longer profile. Keep the trailing hook honest to the water you fish. If the pattern is a simple Intruder-style build, start with the shank length you already fish, not the longest tube on the wall.</p><p>Dress the shank with <a href=\"/collections/fly-tying-materials\">Fly Tying Materials</a>, <a href=\"/collections/tails-fins-claws-more\">Tails, Fins, Claws &amp; More</a>, and <a href=\"/collections/feathers\">Feathers</a>.</p>"
+          }
+        },
+        "button": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop fly tying materials",
+            "button_link": "shopify://collections/fly-tying-materials",
+            "button_style_secondary": false
           }
         }
       },
       "block_order": [
         "heading",
-        "text"
+        "text",
+        "button"
       ],
       "settings": {
+        "premium_seo_style": true,
+        "premium_eyebrow": "Tying guide",
+        "use_collection_image": false,
         "image": "shopify://shop_images/spawn-articulated-shanks-howto.jpg",
         "height": "adapt",
         "desktop_image_width": "medium",
@@ -112,8 +127,8 @@
         "color_scheme": "scheme-1",
         "image_behavior": "none",
         "mobile_content_alignment": "left",
-        "padding_top": 20,
-        "padding_bottom": 20
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     },
     "faq": {
@@ -122,9 +137,9 @@
         "q1": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "What\u2019s the difference between a shank and a hook?",
+            "heading": "What's the difference between a shank and a hook?",
             "icon": "none",
-            "row_content": "<p>A hook has a point and bend. A shank is wire for articulated bodies, usually with a trailing hook.</p>"
+            "row_content": "<p>A hook has a point and bend. A shank is wire for articulated bodies, usually finished with a trailing hook. The shank is not what sticks the fish.</p>"
           }
         },
         "q2": {
@@ -132,7 +147,7 @@
           "settings": {
             "heading": "Which flies use shanks?",
             "icon": "none",
-            "row_content": "<p>Steelhead Intruders, articulated streamers, multi-section baitfish patterns.</p>"
+            "row_content": "<p>Steelhead Intruders, articulated streamers, and multi-section baitfish patterns. Single-hook trout nymphs usually do not need one.</p>"
           }
         },
         "q3": {
@@ -140,16 +155,27 @@
           "settings": {
             "heading": "How do I pick shank length?",
             "icon": "none",
-            "row_content": "<p>Match overall fly length to the forage. Wire should carry the dressing without folding.</p>"
+            "row_content": "<p>Match overall fly length to the forage. If the dressing collapses the wire, step up in strength or shorten the pattern.</p>"
+          }
+        },
+        "q4": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Why articulate instead of one long hook?",
+            "icon": "none",
+            "row_content": "<p>Articulation adds movement and lets you build length without a giant single hook. It also helps the fly track when the rear section can kick.</p>"
           }
         }
       },
       "block_order": [
         "q1",
         "q2",
-        "q3"
+        "q3",
+        "q4"
       ],
       "settings": {
+        "premium_seo_style": true,
+        "premium_eyebrow": "Common questions",
         "caption": "",
         "heading": "Fly tying shanks FAQ",
         "heading_size": "h2",
@@ -158,37 +184,13 @@
         "open_first_collapsible_row": false,
         "image_ratio": "adapt",
         "desktop_layout": "image_second",
-        "padding_top": 20,
-        "padding_bottom": 24
-      }
-    },
-    "product-grid": {
-      "type": "main-collection-product-grid",
-      "settings": {
-        "products_per_page": 36,
-        "columns_desktop": 4,
-        "color_scheme": "",
-        "image_ratio": "square",
-        "image_shape": "default",
-        "show_secondary_image": false,
-        "show_vendor": true,
-        "show_rating": false,
-        "quick_add": "bulk",
-        "enable_filtering": true,
-        "filter_type": "vertical",
-        "enable_sorting": true,
-        "columns_mobile": "2",
-        "padding_top": 28,
-        "padding_bottom": 36
+        "padding_top": 80,
+        "padding_bottom": 96
       }
     }
   },
   "order": [
-    "breadcrumb",
-    "collection_hero",
-    "intro_richtext",
-    "category_rail",
-    "product-grid",
+    "collection_premium",
     "howto",
     "faq"
   ]

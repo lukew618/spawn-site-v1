@@ -1,3 +1,4 @@
+{% comment %} spawn-merch-bot fly-library-traffic PREVIEW 2026-09-15: Fly Library nav chip {% endcomment %}
 <script src="{{ 'spawn-home.js' | asset_url }}" defer></script>
 <spawn-home-header class="sh-masthead">
   <header class="sh-header" aria-label="Main header">
@@ -21,12 +22,16 @@
             <div class="sh-mega__column">
               <a class="sh-mega__title" href="{{ category.url }}">{{ category.title | escape }}</a>
               {%- for sublink in category.links -%}{%- unless sublink.url == category.url -%}<a href="{{ sublink.url }}">{{ sublink.title | escape }}</a>{%- endunless -%}{%- endfor -%}
+              {%- if category.title == 'Fly Tying' -%}
+                <a href="{{ pages['fly-library'].url }}">Fly Library</a>
+              {%- endif -%}
             </div>
           {%- endfor -%}
           </div>
         </div>
       </details>
       <a href="{{ collections['fly-tying-products'].url }}">Fly tying</a>
+      <a href="{{ pages['fly-library'].url }}">Fly Library</a>
       <a href="{{ collections['flies'].url }}">Flies</a>
       <a href="{{ routes.collections_url }}?view=rods-reels"{% if template.suffix == 'rods-reels' %} aria-current="page"{% endif %}>Rods &amp; reels</a>
       <a href="{{ collections['spawn-apparel'].url }}">Apparel</a>

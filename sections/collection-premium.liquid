@@ -1,3 +1,7 @@
+{%- comment -%}
+  spawn-merch-bot fly-library-traffic PREVIEW 2026-09-15: optional Fly Library CTA + page-link chips.
+  Cite/Archive HOLD. Do not wipe Pick/Match/FAQ.
+{%- endcomment -%}
 {{ 'section-collection-premium.css' | asset_url | stylesheet_tag }}
 {{ 'template-collection.css' | asset_url | stylesheet_tag }}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
@@ -8,16 +12,116 @@
 <script src="{{ 'spawn-collection-sort.js' | asset_url }}" defer="defer"></script>
 
 {%- liquid
+  assign hero_variant = 'auto'
+  assign hero_basic_path = false
+  if template.suffix == blank or template.suffix == 'basic-collection'
+    assign hero_basic_path = true
+  endif
+  if template.suffix == 'hero-wash'
+    assign hero_variant = 'wash'
+  elsif template.suffix == 'hero-split'
+    assign hero_variant = 'split'
+  endif
   assign hero_image = collection.metafields.custom.collection_hero_image.value
+  assign hero_image_source = 'metafield'
   if hero_image == blank
     assign hero_image = collection.image
+    assign hero_image_source = 'collection'
+  endif
+  if hero_basic_path
+    assign hero_image = blank
+    assign hero_image_source = 'none'
+    assign hero_candidate = collection.metafields.custom.collection_hero_image.value
+    if hero_candidate != blank and hero_candidate.width >= 800 and hero_candidate.aspect_ratio >= 1.2
+      assign hero_image = hero_candidate
+      assign hero_image_source = 'metafield'
+    else
+      assign hero_candidate = collection.image
+      if hero_candidate != blank and hero_candidate.width >= 800 and hero_candidate.aspect_ratio >= 1.2
+        assign hero_image = hero_candidate
+        assign hero_image_source = 'collection'
+      endif
+    endif
+    if hero_image != blank
+      assign hero_variant = 'wash'
+    else
+      assign hero_variant = 'split'
+    endif
+  endif
+  if template.suffix == 'hero-wash' and hero_image == blank
+    for hero_product in collection.products
+      assign hero_image = hero_product.featured_media.preview_image | default: hero_product.featured_image
+      if hero_image != blank
+        assign hero_image_source = 'product'
+        break
+      endif
+    endfor
+  endif
+  assign aisle_body_html = collection.description
+  assign show_about_aisle = false
+  assign hero_from_admin_body = false
+  assign hero_from_override = false
+  assign compact_aisle_enabled = false
+  if collection.handle == 'fly-tying-kits' or collection.handle == 'spawn-fly-heads-beads-eyes'
+    assign compact_aisle_enabled = true
   endif
   assign hero_description = collection.metafields.custom.collection_description.value
   if hero_description == blank
-    assign hero_description = section.settings.subtitle
+    assign hero_description = section.settings.subtitle | strip
+  endif
+  if hero_description != blank
+    assign hero_from_override = true
+  endif
+  if hero_description == blank
+    assign desc_plain = collection.description | strip_html | strip
+    if desc_plain != blank and desc_plain != collection.title
+      assign hero_description = desc_plain
+      assign hero_from_admin_body = true
+    endif
+  endif
+  if hero_description == blank
+    assign hero_description = page_description
+  endif
+  assign hero_description = hero_description | strip_html | replace: '&amp;', '&' | replace: '&nbsp;', ' ' | replace: '&#160;', ' ' | replace: '&quot;', '"' | replace: '&#39;', "'" | strip
+  if compact_aisle_enabled
+    assign aisle_body_plain = aisle_body_html | strip_html | replace: '&amp;', '&' | replace: '&nbsp;', ' ' | replace: '&#160;', ' ' | replace: '&quot;', '"' | replace: '&#39;', "'" | strip
+    if hero_from_admin_body and hero_description.size > 280
+      assign show_about_aisle = true
+      assign compact_hero = blank
+      if aisle_body_html contains '</p>'
+        assign aisle_paragraphs = aisle_body_html | split: '</p>'
+        for aisle_paragraph in aisle_paragraphs
+          assign paragraph_plain = aisle_paragraph | strip_html | replace: '&amp;', '&' | replace: '&nbsp;', ' ' | replace: '&#160;', ' ' | replace: '&quot;', '"' | replace: '&#39;', "'" | strip
+          if paragraph_plain != blank
+            assign compact_hero = paragraph_plain
+            break
+          endif
+        endfor
+      endif
+      if compact_hero == blank or compact_hero.size > 280
+        assign compact_hero = hero_description | truncatewords: 42, "" | strip
+      endif
+      assign hero_description = compact_hero
+    elsif hero_from_override and aisle_body_plain.size > 280 and aisle_body_plain != hero_description
+      assign show_about_aisle = true
+    endif
   endif
   assign overlay_opacity = section.settings.overlay_opacity | default: 45
   assign overlay_strength = overlay_opacity | divided_by: 100.0
+  assign hero_text_only = false
+  if hero_image == blank and hero_variant == 'auto'
+    assign hero_text_only = true
+  endif
+  if hero_variant == 'split'
+    assign hero_text_only = true
+    for hero_product in collection.products
+      assign tile_image = hero_product.featured_media.preview_image | default: hero_product.featured_image
+      if tile_image != blank
+        assign hero_text_only = false
+        break
+      endif
+    endfor
+  endif
 -%}
 
 {%- style -%}
@@ -42,9 +146,9 @@
   data-section-id="{{ section.id }}"
   data-cp-root
 >
-  <div class="collection-premium__hero"{% if hero_image != blank %} data-header-overlay{% endif %}>
-    {%- if hero_image != blank -%}
-      <div class="collection-premium__hero-media" aria-hidden="true">
+  <div class="collection-premium__hero{% if hero_text_only %} collection-premium__hero--text-only{% endif %}{% unless hero_variant == 'auto' or hero_text_only %} collection-premium__hero--{{ hero_variant }}{% endunless %}"{% if hero_image != blank and hero_variant == 'auto' %} data-header-overlay{% endif %} data-cp-hero-variant="{{ hero_variant }}">
+    {%- if hero_image != blank and hero_variant != 'split' -%}
+      <div class="collection-premium__hero-media" aria-hidden="true" data-cp-image-source="{{ hero_image_source }}">
         {{
           hero_image
           | image_url: width: 3840
@@ -72,6 +176,7 @@
     </nav>
 
     <div class="collection-premium__hero-inner">
+      <div class="collection-premium__hero-copy">
       <p class="collection-premium__eyebrow">Collection</p>
       <h1 class="collection-premium__title">{{ collection.title | escape }}</h1>
       {%- if hero_description != blank -%}
@@ -86,18 +191,81 @@
             {%- if block.type == 'chip' -%}
               {%- assign chip_collection = block.settings.collection -%}
               {%- assign chip_label = block.settings.label | strip -%}
+              {%- assign chip_url = block.settings.link -%}
+              {%- if chip_url == blank -%}
+                {%- assign chip_url = chip_collection.url -%}
+              {%- endif -%}
+              {%- if chip_url == blank -%}
+                {%- if chip_label == 'Fly Library' -%}
+                  {%- assign chip_url = pages['fly-library'].url -%}
+                {%- elsif chip_label == 'Intruder recipe' -%}
+                  {%- assign chip_url = pages['fly-library-sea-run-cutthroat-intruder'].url -%}
+                {%- endif -%}
+              {%- endif -%}
+              {%- if block.settings.link == blank and chip_collection.handle == 'fly-tying-tools' and chip_collection != blank -%}
+                {%- assign chip_url = chip_collection.url | append: '?view=fly-tying-tools' -%}
+              {%- endif -%}
               {%- if chip_label == blank and chip_collection != blank -%}
                 {%- assign chip_label = chip_collection.title -%}
               {%- endif -%}
               {%- if chip_label != blank -%}
                 <li {{ block.shopify_attributes }}>
-                  {%- if chip_collection != blank -%}
-                    <a class="collection-premium__chip" href="{{ chip_collection.url }}">{{ chip_label | escape }}</a>
+                  {%- if chip_url != blank -%}
+                    <a class="collection-premium__chip" href="{{ chip_url }}">{{ chip_label | escape }}</a>
                   {%- else -%}
                     <span class="collection-premium__chip" aria-disabled="true">{{ chip_label | escape }}</span>
                   {%- endif -%}
                 </li>
               {%- endif -%}
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+        {%- liquid
+          assign fl_cta_label = section.settings.fly_library_cta_label
+          assign fl_cta_url = section.settings.fly_library_cta_link
+          assign fl_sec_label = section.settings.fly_library_secondary_label
+          assign fl_sec_url = section.settings.fly_library_secondary_link
+          if fl_cta_label == blank
+            if collection.handle == 'fly-tying-shanks' or collection.handle == 'feathers' or collection.handle == 'fly-tying-materials'
+              assign fl_cta_label = 'Fly Library: shoppable recipes from our tying videos'
+            endif
+          endif
+          if fl_cta_url == blank
+            assign fl_cta_url = pages['fly-library'].url
+          endif
+          if fl_sec_label == blank and collection.handle == 'fly-tying-shanks'
+            assign fl_sec_label = 'Intruder recipe'
+            assign fl_sec_url = pages['fly-library-sea-run-cutthroat-intruder'].url
+          endif
+        -%}
+        {%- if fl_cta_label != blank -%}
+          <p class="collection-premium__library-cta">
+            <a href="{{ fl_cta_url }}">{{ fl_cta_label | escape }}</a>
+            {%- if fl_sec_label != blank and fl_sec_url != blank -%}
+              <span class="collection-premium__library-cta-sep" aria-hidden="true">·</span>
+              <a href="{{ fl_sec_url }}">{{ fl_sec_label | escape }}</a>
+            {%- endif -%}
+          </p>
+        {%- endif -%}
+      {%- endif -%}
+      </div>
+      {%- if hero_variant == 'split' and hero_text_only == false -%}
+        <ul class="collection-premium__hero-tiles" role="list" aria-label="Products from {{ collection.title | escape }}">
+          {%- assign hero_tile_count = 0 -%}
+          {%- for hero_product in collection.products -%}
+            {%- assign tile_image = hero_product.featured_media.preview_image | default: hero_product.featured_image -%}
+            {%- if tile_image != blank -%}
+              <li class="collection-premium__hero-tile">
+                <a class="collection-premium__hero-tile-link" href="{{ hero_product.url }}">
+                  <div class="collection-premium__hero-tile-image">
+                    {{ tile_image | image_url: width: 560 | image_tag: loading: 'eager', widths: '180, 280, 420, 560', sizes: '(min-width: 990px) 15vw, 30vw', alt: '' }}
+                  </div>
+                  <span class="collection-premium__hero-tile-title">{{ hero_product.title | escape }}</span>
+                  <span class="collection-premium__hero-tile-price">{% if hero_product.price_varies %}From {% endif %}{{ hero_product.price | money }}</span>
+                </a>
+              </li>
+              {%- assign hero_tile_count = hero_tile_count | plus: 1 -%}
+              {%- if hero_tile_count == 3 -%}{%- break -%}{%- endif -%}
             {%- endif -%}
           {%- endfor -%}
         </ul>
@@ -322,6 +490,79 @@
       {%- endpaginate -%}
     </div>
   </div>
+  {%- if show_about_aisle and aisle_body_html != blank -%}
+    <div class="collection-premium__about-aisle page-width">
+      <details class="collection-premium__about-aisle-details">
+        <summary>About this aisle</summary>
+        <div class="rte collection-premium__about-aisle-body">
+          {{ aisle_body_html }}
+        </div>
+      </details>
+    </div>
+  {%- endif -%}
+
+{%- comment -%} spawn-merch-bot 2026-09-26 tools/tails drop Buying Guide band when zero Admin cards remain after filter (lead alone is useless) {%- endcomment -%}
+{%- if section.settings.show_admin_description and collection.description != blank -%}
+  {%- assign admin_chunks = collection.description | split: '<h2' -%}
+  {%- capture admin_cards_html -%}
+    {%- for chunk in admin_chunks -%}
+      {%- unless forloop.first -%}
+        {%- assign h2_parts = chunk | split: '</h2>' -%}
+        {%- assign h2_head = h2_parts | first -%}
+        {%- if h2_parts.size > 1 -%}
+          {%- assign h2_body = h2_parts[1] -%}
+        {%- else -%}
+          {%- assign h2_body = '' -%}
+        {%- endif -%}
+        {%- assign title_raw = h2_head | split: '>' | last -%}
+        {%- assign title = title_raw | strip_html | strip -%}
+        {%- assign title_key = title | downcase -%}
+        {%- assign skip_card = false -%}
+        {%- if title_key == 'faq' or title_key contains 'faq' -%}
+          {%- assign skip_card = true -%}
+        {%- endif -%}
+        {%- comment -%} Skip howto-overlap / aisle-map H2 cards: tying-guide + FAQ own those topics. {%- endcomment -%}
+        {%- if title_key == 'the four essentials' -%}{%- assign skip_card = true -%}{%- endif -%}
+        {%- if title_key == 'whip finishers on this aisle' -%}{%- assign skip_card = true -%}{%- endif -%}
+        {%- if title_key == 'specialty tools worth adding later' -%}{%- assign skip_card = true -%}{%- endif -%}
+        {%- if title_key == 'synthetic vs natural tails' -%}{%- assign skip_card = true -%}{%- endif -%}
+        {%- if title_key == 'what else sits on this aisle' -%}{%- assign skip_card = true -%}{%- endif -%}
+        {%- unless skip_card -%}
+          {%- if title != blank or h2_body != blank -%}
+            <article class="collection-premium__admin-card">
+              {%- if title != blank -%}
+                <h2 class="collection-premium__admin-card-title">{{ title | escape }}</h2>
+              {%- endif -%}
+              {%- if h2_body != blank -%}
+                <div class="rte collection-premium__admin-card-body">
+                  {{ h2_body }}
+                </div>
+              {%- endif -%}
+            </article>
+          {%- endif -%}
+        {%- endunless -%}
+      {%- endunless -%}
+    {%- endfor -%}
+  {%- endcapture -%}
+  {%- assign admin_cards_html = admin_cards_html | strip -%}
+  {%- if admin_cards_html != blank -%}
+    {{ 'premium-collection-seo.css' | asset_url | stylesheet_tag }}
+    <div class="collection-premium__admin-body premium-seo premium-seo--guide">
+      <div class="page-width collection-premium__admin-body-shell">
+        <p class="premium-seo__eyebrow">Buying guide</p>
+        {%- assign admin_lead = admin_chunks.first | strip -%}
+        {%- if admin_chunks.size > 1 and admin_lead != blank -%}
+          <div class="collection-premium__admin-lead rte">
+            {{ admin_lead }}
+          </div>
+        {%- endif -%}
+        <div class="collection-premium__admin-grid">
+          {{ admin_cards_html }}
+        </div>
+      </div>
+    </div>
+  {%- endif -%}
+{%- endif -%}
 </section>
 
 
@@ -339,9 +580,42 @@
       {
         "@type": "ListItem",
         "position": 2,
-        "name": {{ collection.title | json }}
+        "name": {{ collection.title | json }},
+        "item": {{ request.origin | append: collection.url | json }}
       }
     ]
+  }
+</script>
+
+{%- liquid
+  assign seo_name = collection.seo.title | default: collection.title
+  assign seo_desc = collection.seo.description | default: hero_description | default: collection.description | strip_html | strip
+-%}
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": {{ seo_name | json }},
+    "description": {{ seo_desc | json }},
+    "url": {{ request.origin | append: collection.url | json }},
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": {{ shop.name | json }},
+      "url": {{ shop.url | json }}
+    },
+    "mainEntity": {
+      "@type": "ItemList",
+      "itemListElement": [
+        {%- for product in collection.products -%}
+          {
+            "@type": "ListItem",
+            "position": {{ forloop.index }},
+            "url": {{ request.origin | append: product.url | json }},
+            "name": {{ product.title | json }}
+          }{%- unless forloop.last -%},{%- endunless -%}
+        {%- endfor -%}
+      ]
+    }
   }
 </script>
 
@@ -350,6 +624,26 @@
     var root = document.querySelector('#CollectionPremium-{{ section.id }}');
     if (!root) return;
     var mobileMq = window.matchMedia('(max-width: 989px)');
+
+    {%- if template.suffix == 'hero-wash' or template.suffix == 'hero-split' -%}
+      // Preserve the selected mock through sort, filter, and clear-filter requests.
+      customElements.whenDefined('facet-filters-form').then(function () {
+        var FacetForm = customElements.get('facet-filters-form');
+        if (FacetForm.cpHeroViewPatched) return;
+        var renderPage = FacetForm.renderPage;
+        FacetForm.renderPage = function (searchParams, event, updateURLHash) {
+          var hero = document.querySelector('[data-cp-hero-variant]');
+          var variant = hero && hero.getAttribute('data-cp-hero-variant');
+          if (variant === 'wash' || variant === 'split') {
+            var params = new URLSearchParams(searchParams);
+            params.set('view', 'hero-' + variant);
+            searchParams = params.toString();
+          }
+          return renderPage.call(this, searchParams, event, updateURLHash);
+        };
+        FacetForm.cpHeroViewPatched = true;
+      });
+    {%- endif -%}
 
     function setFiltersOpen(open) {
       root.classList.toggle('is-filters-open', open);
@@ -417,8 +711,14 @@
       "type": "textarea",
       "id": "subtitle",
       "label": "Subtitle",
-      "default": "We stock what we tie with in Ilwaco. Feathers, beads, shanks, and tools.",
       "info": "Used when collection.metafields.custom.collection_description is empty."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_admin_description",
+      "label": "Show full Admin collection description",
+      "default": false,
+      "info": "Renders collection.description as RTE below the product grid. Keep hero subtitle short."
     },
     {
       "type": "range",
@@ -504,13 +804,39 @@
       "unit": "px",
       "label": "Padding bottom",
       "default": 36
+    },
+    {
+      "type": "header",
+      "content": "Fly Library CTA"
+    },
+    {
+      "type": "text",
+      "id": "fly_library_cta_label",
+      "label": "Fly Library line",
+      "info": "Short line under chips. Leave blank to hide."
+    },
+    {
+      "type": "url",
+      "id": "fly_library_cta_link",
+      "label": "Fly Library link",
+      "info": "Defaults to /pages/fly-library when blank."
+    },
+    {
+      "type": "text",
+      "id": "fly_library_secondary_label",
+      "label": "Secondary recipe label"
+    },
+    {
+      "type": "url",
+      "id": "fly_library_secondary_link",
+      "label": "Secondary recipe link"
     }
   ],
   "blocks": [
     {
       "type": "chip",
       "name": "Chip",
-      "limit": 6,
+      "limit": 8,
       "settings": [
         {
           "type": "text",
@@ -522,6 +848,12 @@
           "type": "collection",
           "id": "collection",
           "label": "Collection"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Custom link (page or URL)",
+          "info": "Optional. Overrides collection when set. Use for Fly Library pages."
         }
       ]
     }

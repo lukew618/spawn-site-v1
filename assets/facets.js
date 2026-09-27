@@ -30,6 +30,12 @@ class FacetFiltersForm extends HTMLElement {
   }
 
   static renderPage(searchParams, event, updateURLHash = true) {
+    const currentView = new URLSearchParams(window.location.search).get('view');
+    if (currentView && window.location.pathname.includes('/collections/')) {
+      const previewParams = new URLSearchParams(searchParams);
+      previewParams.set('view', currentView);
+      searchParams = previewParams.toString();
+    }
     FacetFiltersForm.searchParamsPrev = searchParams;
     const sections = FacetFiltersForm.getSections();
     const countContainer = document.getElementById('ProductCount');
