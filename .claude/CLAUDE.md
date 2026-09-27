@@ -186,11 +186,14 @@ After any correction or mistake by Claude: append the fix as a new rule to this 
 
 ## Skill routing
 
-When the user's request matches an available skill, ALWAYS invoke it using the Skill
-tool as your FIRST action. Do NOT answer directly, do NOT use other tools first.
-The skill has specialized workflows that produce better results than ad-hoc answers.
+Read repository policy and local instructions before choosing a workflow.
+When a shared team is installed, use `run-repo-agent-team` for implementation, including features, bug fixes, refactors, and UI changes.
+Read `AGENTS.local.md`, `.agents/team.json`, and `.agents/repo-context.md` when present. Preserve existing task contracts.
+The team controller selects expert skills and owns review and delivery. Do not start a second gstack pipeline inside it.
+Handle questions and small, low-risk mechanical edits directly. Broad edits or uncertain effects use the team.
 
-Key routing rules:
+Use the following skills for standalone requests. Honor explicitly named skills and plan-only, review-only, or QA-only scope.
+These routes grant no deployment permission.
 - Product ideas, "is this worth building", brainstorming → invoke office-hours
 - Bugs, errors, "why is this broken", 500 errors → invoke investigate
 - Ship, deploy, push, create PR → invoke ship
