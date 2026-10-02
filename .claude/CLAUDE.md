@@ -2,6 +2,8 @@
 
 Read `AGENTS.md` first. It owns the Shopify Admin versus theme-code routing and the current publishing boundary.
 
+Caddis approval applies only to writes staged through Caddis. Do not ask for Caddis approval to edit or test theme code, use a development preview, commit, push a branch, open or resolve a PR, or merge it. Follow the requester's authorization and GitHub rules for merges. Check the connected branch because merging it may publish the live theme.
+
 ## Project
 Fly fishing retailer (Ilwaco, WA). Dawn v15.2.0 base theme with custom header scroll behavior, free shipping bar, and in-store-only template. Store: spawn-fly-fish.myshopify.com. Check local Shopify CLI configuration on the current machine.
 
@@ -12,7 +14,7 @@ Open product-page work is tracked in `docs/pdp-improvement-backlog.md` — check
 shopify theme check  # compare changed-file findings with the imported live baseline
 ```
 
-Use only an isolated development or unpublished theme for a Shopify-rendered preview. Theme `129377796159` is live. Do not use it as a development target or push to it during coding and review.
+Use only an isolated development or unpublished theme for a Shopify-rendered preview. Verify the current published theme ID. Do not use that theme as a development target or push to it during coding and review.
 
 ## Architecture (OS2)
 - **JSON templates** (`templates/*.json`) — define page structure, reference sections. No Liquid here.
@@ -169,9 +171,9 @@ chore(snippets): migrate include to render in featured-collection
 ## Gotchas
 - **Unused React in `package.json`** — `react` and `@types/react` are installed but not used. Don't add React-based code to this theme.
 - **`git_commit_template.md` in `/assets/`** — accidentally committed, not a theme file. Do not reference or deploy it.
-- **Theme Editor vs. code** — editor changes can affect `config/settings_data.json` and template JSON. Inspect live changes before a planned settings edit. Never pull the live theme directly into a working branch.
+- **Theme Editor vs. code** — editor changes can affect `config/settings_data.json` and template JSON. Fetch Shopify's editor commits from GitHub before a planned settings edit. Never pull the live theme directly into a working branch. For sync recovery, pull into a separate empty directory and review the diff.
 - **Shopify's strict Liquid parser** — all Liquid must be syntactically valid or the theme will fail to publish. `shopify theme check` catches this.
-- **Theme IDs** — `129377796159` is the live `spawn-store-v1` theme. Historical IDs `128853147711` and `128878903359` also exist in old instructions. Never target them from this workflow. Verify current theme identity before any approved publishing operation.
+- **Theme IDs** — `129377796159` was live at the September 26, 2026 baseline import. Historical IDs `128853147711` and `128878903359` also exist in old instructions. Verify the current published theme and connected branch before a merge or other publishing operation.
 - **Shopify schema validation goes beyond theme check** — (1) `inline_richtext`/`richtext` settings cannot have `"default": ""`; omit that default. (2) Template JSON dynamic sources use an allowlist; `{{ product.type }}` is invalid in settings.
 - **Approved upload result** — if Luke separately authorizes a theme upload, confirm its output shows `errors: None`. A rejected file can leave the old version live.
 - **IntersectionObserver misses jump-scrolls** — an element jumping from below-viewport to above-viewport (End key, anchor link, fast flick) never intersects, so no callback fires. For scroll-position UI (sticky bars, scroll headers), use a rAF-throttled scroll listener with `getBoundingClientRect()` like `header-scroll.js` and `sticky-atc.js` do.
@@ -181,7 +183,7 @@ chore(snippets): migrate include to render in featured-collection
 2. Route Admin data changes through a supported Caddis action or another explicitly authorized Admin workflow.
 3. Change theme code on a branch. Run the pre-commit checklist and verify an isolated preview.
 4. Open a pull request. Resolve conflicts on the PR branch and inspect the combined result.
-5. Merge only after the applicable checks and approval pass. Do not assume merge publishes Shopify until the native GitHub integration is activated and verified.
+5. Follow the requester's authorization and GitHub review rules for the merge. Do not add a Caddis approval step. Verify the published theme's connected branch; a merge to that branch may publish through Shopify's native GitHub integration.
 
 ## Self-Improvement Rule
 After any correction or mistake by Claude: append the fix as a new rule to this file so the same mistake never happens twice. Claude writes the rule itself at the end of the relevant section.

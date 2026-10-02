@@ -5,8 +5,8 @@ A modern Shopify theme using HTML-first, JavaScript-only-as-needed approach with
 1. **Clone Repository**
 
 ```bash
-git clone https://github.com/your-repo/your-theme.git
-cd your-theme
+git clone https://github.com/lukew618/spawn-site-v1.git
+cd spawn-site-v1
 ```
 
 ## Development Workflow
@@ -26,15 +26,7 @@ shopify theme dev
 - Theme Editor: `http://127.0.0.1:9292/admin/themes/current/editor`
 - Preview with test data: Add `?preview_theme_id=YOUR_THEME_ID` to any URL
 
-3. **Test Data**
-
-```bash
-# Generate test data for development
-shopify theme init # Creates sample products, collections, etc.
-
-# Or use development store data
-shopify theme pull # Pulls your development theme data
-```
+Development themes use the connected store's data. Work from a current GitHub branch; do not pull the live theme into your checkout.
 
 ### Development Commands
 
@@ -55,19 +47,15 @@ These commands are configured in your shell profile with:
 
 ### Theme Editor Changes
 
-shopify theme pull
+The Shopify GitHub integration commits Theme Editor changes to the connected branch. Fetch that branch from GitHub before editing related settings or templates. If the theme and branch appear out of sync, pull the verified theme into a separate empty directory for comparison, then bring intended changes through a PR.
 
 ### Theme Check
 
 shopify theme check
 
-## Theme Pull
+## Publishing
 
-shopify theme pull
-
-## Theme Push
-
-shopify theme push
+Use a branch and PR for theme code. Check the combined preview and the branch connected to the published theme before merging. Shopify's native GitHub integration syncs the connected branch. Do not use a direct live `shopify theme push` or a GitHub Actions publisher. Caddis approval applies only to writes staged through Caddis, not this Git workflow.
 
 ## Theme Architecture
 
@@ -129,13 +117,13 @@ shopify theme check
 
 - Work in feature branches
 - Regular commits
-- Pull before starting work
+- Fetch current GitHub `main` before starting work
 - Document theme editor changes
 
 4. **Theme Editor Usage**
 
 - Changes sync automatically to GitHub
-- Pull changes before local development
+- Fetch editor commits from GitHub before local development
 - Coordinate with team on editor usage
 - Document significant changes
 
