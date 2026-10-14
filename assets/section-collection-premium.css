@@ -1316,7 +1316,8 @@ html.cp-filters-lock body {
 }
 
 /* Full Admin copy below the catalog for the two compact hero aisles. */
-.collection-premium .collection-premium__about-aisle.page-width {
+.collection-premium .collection-premium__about-aisle.page-width,
+.collection-premium .collection-premium__seo-copy.page-width {
   margin-top: var(--cp-space-lg);
   padding-left: var(--cp-catalog-gutter-left);
   padding-right: var(--cp-catalog-gutter-right);
