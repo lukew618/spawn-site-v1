@@ -1,0 +1,99 @@
+.learn-guides {
+  margin: 0 0 4rem;
+}
+
+.learn-guides__heading {
+  margin: 0 0 1.6rem;
+}
+
+.learn-guides__list {
+  display: grid;
+  gap: var(--grid-mobile-vertical-spacing);
+  margin: 0;
+}
+
+.learn-guide {
+  position: relative;
+  display: flex;
+  gap: 1.4rem;
+  align-items: flex-start;
+  padding: 1.2rem;
+  border: 0.1rem solid rgba(var(--color-foreground), 0.12);
+  border-radius: var(--card-corner-radius, 0);
+  background: rgb(var(--color-background));
+  transition: border-color var(--duration-short, 100ms) ease;
+}
+
+.learn-guide:hover {
+  border-color: rgba(var(--color-foreground), 0.4);
+}
+
+.learn-guide__media {
+  flex: 0 0 9.6rem;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.learn-guide__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.learn-guide__content {
+  min-width: 0;
+}
+
+.learn-guide__title {
+  margin: 0 0 0.6rem;
+}
+
+/* Stretch the title link so the whole card is one tap target. */
+.learn-guide__link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+.learn-guide:hover .learn-guide__link {
+  text-decoration: underline;
+  text-underline-offset: 0.3rem;
+}
+
+.learn-guide__excerpt {
+  margin: 0;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  color: rgba(var(--color-foreground), 0.75);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media screen and (min-width: 750px) {
+  .learn-guides {
+    margin-bottom: 6rem;
+  }
+
+  .learn-guides__list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: var(--grid-desktop-horizontal-spacing);
+  }
+
+  .learn-guide {
+    flex-direction: column;
+    padding: 0 0 1.6rem;
+  }
+
+  .learn-guide__media {
+    flex: none;
+    width: 100%;
+    aspect-ratio: 3 / 2;
+  }
+
+  .learn-guide__content {
+    padding: 0 1.6rem;
+  }
+}

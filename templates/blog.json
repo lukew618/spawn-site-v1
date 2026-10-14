@@ -18,8 +18,40 @@
         "show_date": true,
         "show_author": false,
         "padding_top": 100,
-        "padding_bottom": 36
-      }
+        "padding_bottom": 36,
+        "guides_heading": "Fly Fishing Guides"
+      },
+      "blocks": {
+        "guide_puget_sound": {
+          "type": "guide",
+          "settings": {
+            "page": "how-to-fly-fish-puget-sound",
+            "image": "shopify://shop_images/sea-run-cutthroat-trout-landing-net-puget-sound.jpg",
+            "description": "Find beaches, read tides, and pick the right gear and flies for Puget Sound sea-run cutthroat."
+          }
+        },
+        "guide_coho": {
+          "type": "guide",
+          "settings": {
+            "page": "fly-fishing-for-coho-salmon-washington",
+            "image": "shopify://shop_images/fly-fishing-for-coho-southwest-washington-river.jpg",
+            "description": "Coho on the fly from South Puget Sound to the North Jetty, Baker Bay, the ocean, and the Willapa rivers."
+          }
+        },
+        "guide_albacore": {
+          "type": "guide",
+          "settings": {
+            "page": "fly-fishing-albacore-tuna-washington",
+            "image": "shopify://shop_images/albacore-tuna-on-the-fly-ilwaco.jpg",
+            "description": "Finding tuna water, fishing bait stops, choosing tackle, and landing albacore on the fly out of Ilwaco."
+          }
+        }
+      },
+      "block_order": [
+        "guide_puget_sound",
+        "guide_coho",
+        "guide_albacore"
+      ]
     }
   },
   "order": [

@@ -22,6 +22,52 @@
       {{ blog.title | escape }}
     </h1>
 
+    {%- if paginate.current_page == 1 and section.blocks.size > 0 -%}
+      {{ 'component-learn-guides.css' | asset_url | stylesheet_tag }}
+      <div class="learn-guides">
+        {%- if section.settings.guides_heading != blank -%}
+          <h2 class="learn-guides__heading h3">{{ section.settings.guides_heading | escape }}</h2>
+        {%- endif -%}
+        <ul class="learn-guides__list list-unstyled" role="list">
+          {%- for block in section.blocks -%}
+            {%- assign guide_page = block.settings.page -%}
+            {%- if guide_page != blank -%}
+              <li class="learn-guide" {{ block.shopify_attributes }}>
+                {%- if block.settings.image != blank -%}
+                  {%- assign guide_alt = block.settings.image.alt | default: guide_page.title | escape -%}
+                  <div class="learn-guide__media">
+                    {{
+                      block.settings.image
+                      | image_url: width: 800
+                      | image_tag:
+                        loading: 'lazy',
+                        widths: '160,320,480,640,800',
+                        sizes: '(min-width: 750px) 33vw, 96px',
+                        alt: guide_alt
+                    }}
+                  </div>
+                {%- endif -%}
+                <div class="learn-guide__content">
+                  <h3 class="learn-guide__title h4">
+                    <a href="{{ guide_page.url }}" class="learn-guide__link full-unstyled-link">
+                      {{- guide_page.title | escape -}}
+                    </a>
+                  </h3>
+                  <p class="learn-guide__excerpt">
+                    {%- if block.settings.description != blank -%}
+                      {{ block.settings.description | escape }}
+                    {%- else -%}
+                      {{ guide_page.content | strip_html | truncatewords: 22 }}
+                    {%- endif -%}
+                  </p>
+                </div>
+              </li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      </div>
+    {%- endif -%}
+
     <div class="blog-articles {% if section.settings.layout == 'collage' %}blog-articles--collage{% endif %}">
       {%- for article in blog.articles -%}
         <div
@@ -147,6 +193,41 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 36
+    },
+    {
+      "type": "header",
+      "content": "t:sections.main-blog.settings.guides_header.content"
+    },
+    {
+      "type": "text",
+      "id": "guides_heading",
+      "default": "t:sections.main-blog.settings.guides_heading.default",
+      "label": "t:sections.main-blog.settings.guides_heading.label",
+      "info": "t:sections.main-blog.settings.guides_heading.info"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "guide",
+      "name": "t:sections.main-blog.blocks.guide.name",
+      "settings": [
+        {
+          "type": "page",
+          "id": "page",
+          "label": "t:sections.main-blog.blocks.guide.settings.page.label"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:sections.main-blog.blocks.guide.settings.image.label"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "t:sections.main-blog.blocks.guide.settings.description.label",
+          "info": "t:sections.main-blog.blocks.guide.settings.description.info"
+        }
+      ]
     }
   ]
 }

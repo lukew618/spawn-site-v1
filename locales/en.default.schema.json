@@ -1873,6 +1873,31 @@
             "label": "Large"
           },
           "info": "For best results, use an image with a 3:2 aspect ratio. [Learn more](https://help.shopify.com/manual/shopify-admin/productivity-tools/image-editor#understanding-image-aspect-ratio)"
+        },
+        "guides_header": {
+          "content": "Featured guides"
+        },
+        "guides_heading": {
+          "label": "Guides heading",
+          "default": "Fly Fishing Guides",
+          "info": "Add Guide blocks to feature pages above the blog posts. Shown on the first page of the blog only."
+        }
+      },
+      "blocks": {
+        "guide": {
+          "name": "Guide",
+          "settings": {
+            "page": {
+              "label": "Page"
+            },
+            "image": {
+              "label": "Image"
+            },
+            "description": {
+              "label": "Description",
+              "info": "Leave blank to use the start of the page text."
+            }
+          }
         }
       }
     },
