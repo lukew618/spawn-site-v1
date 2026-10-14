@@ -65,6 +65,8 @@
   if collection.handle == 'fly-tying-kits' or collection.handle == 'spawn-fly-heads-beads-eyes'
     assign compact_aisle_enabled = true
   endif
+  assign hero_intro = collection.metafields.custom.hero_intro
+  assign seo_heading = collection.metafields.custom.seo_heading.value
   assign hero_description = collection.metafields.custom.collection_description.value
   if hero_description == blank
     assign hero_description = section.settings.subtitle | strip
@@ -179,9 +181,17 @@
       <div class="collection-premium__hero-copy">
       <p class="collection-premium__eyebrow">Collection</p>
       <h1 class="collection-premium__title">{{ collection.title | escape }}</h1>
-      {%- if hero_description != blank -%}
+      {%- if hero_intro != blank or hero_description != blank -%}
         <div class="collection-premium__subtitle">
+          {%- if hero_intro != blank -%}
+            <div class="rte collection-premium__hero-intro">
+              {{ hero_intro.value }}
+            </div>
+          {%- elsif hero_from_admin_body and show_about_aisle == false -%}
+            <div class="rte">{{ collection.description }}</div>
+          {%- else -%}
           <p>{{ hero_description | escape }}</p>
+          {%- endif -%}
         </div>
       {%- endif -%}
 
@@ -490,7 +500,28 @@
       {%- endpaginate -%}
     </div>
   </div>
-  {%- if show_about_aisle and aisle_body_html != blank -%}
+  {%- if hero_intro != blank -%}
+    {%- style -%}
+      .collection-premium__hero-intro a,
+      .collection-premium__seo-copy a,
+      .collection-premium__hero-intro a:hover,
+      .collection-premium__hero-intro a:visited,
+      .collection-premium__seo-copy a:hover,
+      .collection-premium__seo-copy a:visited {
+        color: inherit;
+        text-decoration: underline;
+      }
+    {%- endstyle -%}
+    <section class="collection-premium__seo-copy page-width">
+      {%- if seo_heading != blank -%}
+        <h2 class="collection-premium__seo-heading">{{ seo_heading | escape }}</h2>
+      {%- endif -%}
+      <div class="rte">
+        {{ collection.description }}
+      </div>
+    </section>
+  {%- endif -%}
+  {%- if hero_intro == blank and show_about_aisle and aisle_body_html != blank -%}
     <div class="collection-premium__about-aisle page-width">
       <details class="collection-premium__about-aisle-details">
         <summary>About this aisle</summary>
