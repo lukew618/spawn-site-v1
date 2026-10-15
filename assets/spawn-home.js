@@ -60,13 +60,14 @@ class SpawnHomeHeader extends HTMLElement {
       if (!event.matches) menus.forEach(menu => { menu.open = false; });
     }, options);
     menus.forEach(menu => {
-      menu.addEventListener('pointerenter', () => {
-        if (!desktopHover.matches) return;
+      // Finger taps on a trackpad-equipped iPad also match desktopHover; only a mouse should hover-open.
+      menu.addEventListener('pointerenter', event => {
+        if (event.pointerType !== 'mouse' || !desktopHover.matches) return;
         clearTimeout(menu.closeTimer);
         if (!menu.open) { menu.open = true; menu.openedByHover = true; }
       }, options);
-      menu.addEventListener('pointerleave', () => {
-        if (!desktopHover.matches) return;
+      menu.addEventListener('pointerleave', event => {
+        if (event.pointerType !== 'mouse' || !desktopHover.matches) return;
         menu.closeTimer = setTimeout(() => { menu.open = false; menu.openedByHover = false; }, 150);
       }, options);
       menu.querySelector('summary').addEventListener('click', event => {
@@ -78,8 +79,10 @@ class SpawnHomeHeader extends HTMLElement {
       menu.addEventListener('toggle', () => {
         if (menu.open) menus.filter(other => other !== menu).forEach(other => { other.open = false; });
       }, options);
+      // Safari never focuses a tapped link, so tapping one blurs the summary with no relatedTarget.
+      // Closing then hides the link before its click lands. Outside clicks close via the document handler.
       menu.addEventListener('focusout', event => {
-        if (!menu.contains(event.relatedTarget)) menu.open = false;
+        if (event.relatedTarget && !menu.contains(event.relatedTarget)) menu.open = false;
       }, options);
     });
     document.addEventListener('click', event => {
