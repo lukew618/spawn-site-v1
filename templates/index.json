@@ -9,571 +9,8 @@
  */
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
-      "blocks": {
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "Original flies, proven materials, and expert-picked gear for Pacific Northwest anglers.",
-            "text_style": "body"
-          }
-        },
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "TIED HERE. FISHED EVERYWHERE.",
-            "heading_size": "h1"
-          }
-        },
-        "button": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "SHOP FLY TYING",
-            "button_link_1": "shopify://collections/fly-tying-products",
-            "button_style_secondary_1": false,
-            "button_label_2": "SHOP SPAWN FLIES",
-            "button_link_2": "shopify://collections/spawn-flies",
-            "button_style_secondary_2": true
-          }
-        }
-      },
-      "block_order": [
-        "heading",
-        "text",
-        "button"
-      ],
-      "settings": {
-        "image": "shopify://shop_images/Blog_Banner_for_Website_Content_1.png",
-        "image_mobile": "shopify://shop_images/Todd_Moen_Coho.jpg",
-        "image_overlay_opacity": 20,
-        "image_height": "large",
-        "desktop_content_position": "middle-left",
-        "show_text_box": false,
-        "desktop_content_alignment": "left",
-        "color_scheme": "scheme-4",
-        "image_behavior": "none",
-        "mobile_content_alignment": "left",
-        "stack_images_on_mobile": false,
-        "show_text_below": false,
-        "eyebrow": "SPAWN FLY FISH \u00b7 ILWACO, WA"
-      },
-      "disabled": true
-    },
-    "why_spawn": {
-      "type": "why-spawn",
-      "blocks": {
-        "col_curated": {
-          "type": "column",
-          "settings": {
-            "icon": "curated",
-            "heading": "Expert Picked",
-            "text": "Gear and materials selected by Pacific Northwest anglers."
-          }
-        },
-        "col_shipping": {
-          "type": "column",
-          "settings": {
-            "icon": "location",
-            "heading": "Ships from Ilwaco",
-            "text": "Your order leaves our Washington coast shop."
-          }
-        },
-        "col_specialist": {
-          "type": "column",
-          "settings": {
-            "icon": "specialist",
-            "heading": "Fly Fishing Specialists",
-            "text": "Focused on fly fishing and fly tying since day one."
-          }
-        },
-        "col_free_shipping": {
-          "type": "column",
-          "settings": {
-            "icon": "shipping",
-            "heading": "Free Shipping",
-            "text": "Free contiguous U.S. shipping over $85."
-          }
-        },
-        "col_returns": {
-          "type": "column",
-          "settings": {
-            "icon": "returns",
-            "heading": "Free Returns",
-            "text": "Free return shipping within the United States."
-          }
-        },
-        "col_pledge": {
-          "type": "column",
-          "settings": {
-            "icon": "pledge",
-            "heading": "2% Pledge",
-            "text": "We give 2% of profits to conservation groups."
-          }
-        }
-      },
-      "block_order": [
-        "col_curated",
-        "col_shipping",
-        "col_specialist",
-        "col_free_shipping",
-        "col_returns",
-        "col_pledge"
-      ],
-      "settings": {
-        "heading": "WHY SPAWN",
-        "color_scheme": "scheme-1"
-      },
-      "disabled": true
-    },
-    "featured_collection_UdX4CU": {
-      "type": "featured-collection",
-      "settings": {
-        "title": "<strong>BEST SELLERS</strong>",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "spawn-fly-fish-products",
-        "products_to_show": 8,
-        "columns_desktop": 4,
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "link",
-        "enable_desktop_slider": false,
-        "color_scheme": "scheme-1",
-        "image_ratio": "square",
-        "image_shape": "default",
-        "show_secondary_image": false,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "swipe_on_mobile": true,
-        "padding_top": 36,
-        "padding_bottom": 28
-      },
-      "disabled": true
-    },
-    "collection_list_QGtX47": {
-      "type": "collection-list",
-      "blocks": {
-        "featured_collection_xtfYnQ": {
-          "type": "featured_collection",
-          "settings": {
-            "custom_title": "Fly Tying Materials",
-            "collection": "fly-tying-products"
-          }
-        },
-        "featured_collection_nQwnKi": {
-          "type": "featured_collection",
-          "settings": {
-            "custom_title": "Flies",
-            "collection": "flies"
-          }
-        },
-        "featured_collection_iXjiXn": {
-          "type": "featured_collection",
-          "settings": {
-            "custom_title": "Rods",
-            "collection": "fly-rods"
-          }
-        },
-        "featured_collection_GAdW8E": {
-          "type": "featured_collection",
-          "settings": {
-            "custom_title": "Reels",
-            "collection": "fly-reels"
-          }
-        },
-        "featured_collection_spawn": {
-          "type": "featured_collection",
-          "settings": {
-            "custom_title": "Spawn Products",
-            "collection": "spawn-fly-fish-products"
-          }
-        },
-        "featured_collection_new": {
-          "type": "featured_collection",
-          "settings": {
-            "custom_title": "New Arrivals",
-            "collection": "new-arrivals"
-          }
-        }
-      },
-      "block_order": [
-        "featured_collection_xtfYnQ",
-        "featured_collection_nQwnKi",
-        "featured_collection_iXjiXn",
-        "featured_collection_GAdW8E",
-        "featured_collection_spawn",
-        "featured_collection_new"
-      ],
-      "settings": {
-        "title": "<strong>SHOP BY CATEGORY</strong>",
-        "heading_size": "h2",
-        "image_ratio": "square",
-        "columns_desktop": 3,
-        "color_scheme": "scheme-1",
-        "show_view_all": false,
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 48,
-        "padding_bottom": 28,
-        "category_grid": true
-      },
-      "disabled": true
-    },
-    "image_banner_7C3HhQ": {
-      "type": "image-banner",
-      "blocks": {
-        "heading_98Phf4": {
-          "type": "heading",
-          "settings": {
-            "heading": "New Arrivals",
-            "heading_size": "h0"
-          }
-        },
-        "buttons_8zmXDw": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "SHOP NOW",
-            "button_link_1": "shopify://collections/new-arrivals",
-            "button_style_secondary_1": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_98Phf4",
-        "buttons_8zmXDw"
-      ],
-      "settings": {
-        "image": "shopify://shop_images/1EFC119C-22B9-4169-9306-EF58F861E4F4.jpg",
-        "image_mobile": "shopify://shop_images/Todd_Moen_Aerial_Idaho.jpg",
-        "image_overlay_opacity": 0,
-        "image_height": "medium",
-        "desktop_content_position": "middle-left",
-        "show_text_box": false,
-        "desktop_content_alignment": "left",
-        "color_scheme": "scheme-3",
-        "image_behavior": "ambient",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": true,
-        "show_text_below": false
-      },
-      "disabled": true
-    },
-    "image_with_text_EJEVBb": {
-      "type": "image-with-text",
-      "blocks": {
-        "heading_L9rKYc": {
-          "type": "heading",
-          "settings": {
-            "heading": "<strong>FLY OF THE MONTH</strong>",
-            "heading_size": "h2"
-          }
-        },
-        "text_6paNG8": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Each month, Pete ties one proven pattern from the Spawn bench. Shop the featured fly, watch the tutorial, and learn the choices behind it.</p>",
-            "text_style": "body"
-          }
-        },
-        "button_Ca4tef": {
-          "type": "button",
-          "settings": {
-            "button_label": "SHOP THE FLY",
-            "button_link": "shopify://collections/fly-of-the-month",
-            "button_style_secondary": true
-          }
-        }
-      },
-      "block_order": [
-        "heading_L9rKYc",
-        "text_6paNG8",
-        "button_Ca4tef"
-      ],
-      "settings": {
-        "image": "shopify://shop_images/001_11_54487531-e049-4b31-b9f1-182cc098f282.jpg",
-        "height": "medium",
-        "desktop_image_width": "medium",
-        "layout": "image_first",
-        "desktop_content_position": "middle",
-        "desktop_content_alignment": "left",
-        "content_layout": "no-overlap",
-        "section_color_scheme": "scheme-4",
-        "color_scheme": "scheme-4",
-        "image_behavior": "none",
-        "mobile_content_alignment": "left",
-        "padding_top": 36,
-        "padding_bottom": 28
-      },
-      "disabled": true
-    },
-    "featured_collection_tXX8gN": {
-      "type": "featured-collection",
-      "name": "t:sections.featured-collection.presets.name",
-      "settings": {
-        "title": "<strong>SPAWN SIGNATURE FLIES</strong>",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "spawn-flies",
-        "products_to_show": 8,
-        "columns_desktop": 4,
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "link",
-        "enable_desktop_slider": false,
-        "color_scheme": "",
-        "image_ratio": "square",
-        "image_shape": "default",
-        "show_secondary_image": false,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "swipe_on_mobile": true,
-        "padding_top": 36,
-        "padding_bottom": 28
-      },
-      "disabled": true
-    },
-    "image_with_text_bViTjP": {
-      "type": "image-with-text",
-      "blocks": {
-        "heading_W8JFQR": {
-          "type": "heading",
-          "settings": {
-            "heading": "<strong>SPAWN APPAREL</strong>",
-            "heading_size": "h1"
-          }
-        },
-        "text_6fe79C": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Join the Spawn family and represent the brand. Spawn apparel is made from the best materials with in-house tested designs.</p>",
-            "text_style": "subtitle"
-          }
-        },
-        "button_aJctwE": {
-          "type": "button",
-          "settings": {
-            "button_label": "SHOP NOW",
-            "button_link": "shopify://collections/spawn-apparel",
-            "button_style_secondary": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_W8JFQR",
-        "text_6fe79C",
-        "button_aJctwE"
-      ],
-      "settings": {
-        "image": "shopify://shop_images/spawn-h-ilwaco-s-spawn-ilwaco-hoodie-spawn-fly-fish-272096.jpg",
-        "height": "medium",
-        "desktop_image_width": "medium",
-        "layout": "text_first",
-        "desktop_content_position": "top",
-        "desktop_content_alignment": "left",
-        "content_layout": "no-overlap",
-        "section_color_scheme": "scheme-1",
-        "color_scheme": "scheme-1",
-        "image_behavior": "none",
-        "mobile_content_alignment": "left",
-        "padding_top": 28,
-        "padding_bottom": 20
-      },
-      "disabled": true
-    },
-    "featured_blog_UaRnVq": {
-      "type": "featured-blog",
-      "settings": {
-        "heading": "<strong>FROM THE BLOG</strong>",
-        "heading_size": "h2",
-        "blog": "spawn-blog",
-        "post_limit": 3,
-        "columns_desktop": 3,
-        "color_scheme": "scheme-4",
-        "show_image": true,
-        "show_date": true,
-        "show_author": false,
-        "show_view_all": true,
-        "padding_top": 36,
-        "padding_bottom": 28
-      },
-      "disabled": true
-    },
-    "image_banner_ja4xUn": {
-      "type": "image-banner",
-      "blocks": {
-        "text_naMBB4": {
-          "type": "text",
-          "settings": {
-            "text": "SOME THINGS ARE BETTER IN PERSON",
-            "text_style": "body"
-          }
-        },
-        "heading_dtCVNq": {
-          "type": "heading",
-          "settings": {
-            "heading": "ILWACO FLAGSHIP",
-            "heading_size": "h1"
-          }
-        },
-        "buttons_R8nbkh": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Visit the Store",
-            "button_link_1": "https://maps.app.goo.gl/b7MzVaJmaJVaK7Ec6",
-            "button_style_secondary_1": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "text_naMBB4",
-        "heading_dtCVNq",
-        "buttons_R8nbkh"
-      ],
-      "settings": {
-        "image": "shopify://shop_images/homepage-ilwaco.png",
-        "image_mobile": "shopify://shop_images/ilwaco_shop_mobile.png",
-        "image_overlay_opacity": 30,
-        "image_height": "medium",
-        "desktop_content_position": "middle-center",
-        "show_text_box": false,
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-78823a03-0880-4c09-84ee-d09083839a52",
-        "image_behavior": "none",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": true,
-        "show_text_below": false
-      },
-      "disabled": true
-    },
-    "multicolumn_78HbFk": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_EcPYtw": {
-          "type": "column",
-          "settings": {
-            "title": "<strong>FREE SHIPPING</strong>",
-            "text": "<p>Free shipping on orders over $85 to the contiguous US.</p>",
-            "link_label": "",
-            "link": "shopify://policies/refund-policy"
-          }
-        },
-        "column_iJgtUk": {
-          "type": "column",
-          "settings": {
-            "title": "<strong>FREE RETURNS</strong>",
-            "text": "<p>We stand behind our products. Return shipping is free on all returns shipped from within the United States.</p>",
-            "link_label": "",
-            "link": "shopify://policies/refund-policy"
-          }
-        },
-        "column_X9cXEB": {
-          "type": "column",
-          "settings": {
-            "title": "<strong>2% PLEDGE</strong>",
-            "text": "<p>2% of all Spawn profits are donated to conservation groups. This has been true since our 1st day of business.</p>",
-            "link_label": "",
-            "link": "shopify://pages/conservation"
-          }
-        }
-      },
-      "block_order": [
-        "column_EcPYtw",
-        "column_iJgtUk",
-        "column_X9cXEB"
-      ],
-      "settings": {
-        "title": "",
-        "heading_size": "h2",
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "columns_desktop": 3,
-        "column_alignment": "center",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "color_scheme": "",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 28,
-        "padding_bottom": 20
-      },
-      "disabled": true
-    },
-    "1777666874e27876d8": {
-      "type": "_blocks",
-      "settings": {}
-    },
-    "featured_collection_tying_room_clearance": {
-      "type": "featured-collection",
-      "custom_css": [
-        "h3 {text-transform: uppercase;}"
-      ],
-      "settings": {
-        "title": "<strong>LABOR DAY SALE</strong>",
-        "heading_size": "h2",
-        "description": "<p>SHOP THE LABOR DAY SALE</p>",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "tying-room-clearance",
-        "products_to_show": 15,
-        "columns_desktop": 3,
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "link",
-        "enable_desktop_slider": true,
-        "color_scheme": "scheme-1",
-        "image_ratio": "square",
-        "image_shape": "default",
-        "show_secondary_image": false,
-        "show_vendor": true,
-        "show_rating": false,
-        "quick_add": "standard",
-        "columns_mobile": "1",
-        "swipe_on_mobile": true,
-        "padding_top": 28,
-        "padding_bottom": 20
-      },
-      "disabled": true
-    },
     "premium_home": {
       "type": "spawn-home",
-      "settings": {
-        "hero_image": "shopify://shop_images/Blog_Banner_for_Website_Content_1.png",
-        "hero_eyebrow": "SPAWN FLY FISH / ILWACO, WA",
-        "hero_title": "TIED HERE.\nFISHED EVERYWHERE.",
-        "hero_text": "Original flies, proven materials, and a lifetime of looking forward to the next cast.",
-        "tying_collection": "fly-tying-products",
-        "materials_collection": "spawn-fly-fish-products",
-        "flies_collection": "spawn-flies",
-        "feature_image": "shopify://shop_images/001_11_54487531-e049-4b31-b9f1-182cc098f282.jpg",
-        "feature_title": "One fly.\nA hundred possibilities.",
-        "feature_text": "Pull up a chair at the vise. Discover our featured pattern and the materials that bring it to life.",
-        "feature_collection": "fly-of-the-month",
-        "store_image": "shopify://shop_images/homepage-ilwaco.png",
-        "store_text": "Where the Columbia meets the Pacific, you'll find our shop. Stop in for a handful of materials, a little local knowledge, or a conversation about your next day out.",
-        "blog": "spawn-blog",
-        "library_enabled": true,
-        "library_image": "shopify://shop_images/IMG_0385.jpg",
-        "library_eyebrow": "Fly Library",
-        "library_title": "Watch tying recipes.",
-        "library_text": "Shoppable recipes from our tying videos, built at the Ilwaco vise.",
-        "library_cta": "Open Fly Library"
-      },
       "blocks": {
         "category_1": {
           "type": "category",
@@ -637,7 +74,578 @@
         "category_4",
         "category_5",
         "category_6"
-      ]
+      ],
+      "settings": {
+        "hero_image": "shopify://shop_images/Blog_Banner_for_Website_Content_1.png",
+        "hero_eyebrow": "SPAWN FLY FISH / ILWACO, WA",
+        "hero_title": "TIED HERE.\nFISHED EVERYWHERE.",
+        "hero_text": "Original flies, proven materials, and a lifetime of looking forward to the next cast.",
+        "tying_collection": "fly-tying-products",
+        "materials_collection": "spawn-fly-fish-products",
+        "flies_collection": "spawn-flies",
+        "feature_image": "shopify://shop_images/001_11_54487531-e049-4b31-b9f1-182cc098f282.jpg",
+        "feature_title": "One fly. A hundred possibilities.",
+        "feature_text": "Pull up a chair at the vise. Discover our featured pattern and the materials that bring it to life.",
+        "feature_collection": "fly-of-the-month",
+        "store_image": "shopify://shop_images/homepage-ilwaco.png",
+        "store_text": "Where the Columbia meets the Pacific, you'll find our shop. Stop in for a handful of materials, a little local knowledge, or a conversation about your next day out.",
+        "library_enabled": false,
+        "library_image": "shopify://shop_images/IMG_0385.jpg",
+        "library_eyebrow": "Fly Library",
+        "library_title": "Watch tying recipes.",
+        "library_text": "Shoppable recipes from our tying videos, built at the Ilwaco vise.",
+        "library_cta": "Open Fly Library",
+        "blog": "spawn-blog"
+      }
+    },
+    "image_banner": {
+      "type": "image-banner",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "TIED HERE. FISHED EVERYWHERE.",
+            "heading_size": "h1"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "Original flies, proven materials, and expert-picked gear for Pacific Northwest anglers.",
+            "text_style": "body"
+          }
+        },
+        "button": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "SHOP FLY TYING",
+            "button_link_1": "shopify://collections/fly-tying-products",
+            "button_style_secondary_1": false,
+            "button_label_2": "SHOP SPAWN FLIES",
+            "button_link_2": "shopify://collections/spawn-flies",
+            "button_style_secondary_2": true
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text",
+        "button"
+      ],
+      "disabled": true,
+      "settings": {
+        "image": "shopify://shop_images/Blog_Banner_for_Website_Content_1.png",
+        "image_mobile": "shopify://shop_images/Todd_Moen_Coho.jpg",
+        "eyebrow": "SPAWN FLY FISH · ILWACO, WA",
+        "image_overlay_opacity": 20,
+        "image_height": "large",
+        "desktop_content_position": "middle-left",
+        "show_text_box": false,
+        "desktop_content_alignment": "left",
+        "color_scheme": "scheme-4",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      }
+    },
+    "collection_list_QGtX47": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_xtfYnQ": {
+          "type": "featured_collection",
+          "settings": {
+            "custom_title": "Fly Tying Materials",
+            "collection": "fly-tying-products"
+          }
+        },
+        "featured_collection_nQwnKi": {
+          "type": "featured_collection",
+          "settings": {
+            "custom_title": "Flies",
+            "collection": "flies"
+          }
+        },
+        "featured_collection_iXjiXn": {
+          "type": "featured_collection",
+          "settings": {
+            "custom_title": "Rods",
+            "collection": "fly-rods"
+          }
+        },
+        "featured_collection_GAdW8E": {
+          "type": "featured_collection",
+          "settings": {
+            "custom_title": "Reels",
+            "collection": "fly-reels"
+          }
+        },
+        "featured_collection_spawn": {
+          "type": "featured_collection",
+          "settings": {
+            "custom_title": "Spawn Products",
+            "collection": "spawn-fly-fish-products"
+          }
+        },
+        "featured_collection_new": {
+          "type": "featured_collection",
+          "settings": {
+            "custom_title": "New Arrivals",
+            "collection": "new-arrivals"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_xtfYnQ",
+        "featured_collection_nQwnKi",
+        "featured_collection_iXjiXn",
+        "featured_collection_GAdW8E",
+        "featured_collection_spawn",
+        "featured_collection_new"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "<strong>SHOP BY CATEGORY</strong>",
+        "heading_size": "h2",
+        "image_ratio": "square",
+        "columns_desktop": 3,
+        "color_scheme": "scheme-1",
+        "show_view_all": false,
+        "category_grid": true,
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 48,
+        "padding_bottom": 28
+      }
+    },
+    "why_spawn": {
+      "type": "why-spawn",
+      "blocks": {
+        "col_curated": {
+          "type": "column",
+          "settings": {
+            "icon": "curated",
+            "heading": "Expert Picked",
+            "text": "Gear and materials selected by Pacific Northwest anglers."
+          }
+        },
+        "col_shipping": {
+          "type": "column",
+          "settings": {
+            "icon": "location",
+            "heading": "Ships from Ilwaco",
+            "text": "Your order leaves our Washington coast shop."
+          }
+        },
+        "col_specialist": {
+          "type": "column",
+          "settings": {
+            "icon": "specialist",
+            "heading": "Fly Fishing Specialists",
+            "text": "Focused on fly fishing and fly tying since day one."
+          }
+        },
+        "col_free_shipping": {
+          "type": "column",
+          "settings": {
+            "icon": "shipping",
+            "heading": "Free Shipping",
+            "text": "Free contiguous U.S. shipping over $85."
+          }
+        },
+        "col_returns": {
+          "type": "column",
+          "settings": {
+            "icon": "returns",
+            "heading": "Free Returns",
+            "text": "Free return shipping within the United States."
+          }
+        },
+        "col_pledge": {
+          "type": "column",
+          "settings": {
+            "icon": "pledge",
+            "heading": "2% Pledge",
+            "text": "We give 2% of profits to conservation groups."
+          }
+        }
+      },
+      "block_order": [
+        "col_curated",
+        "col_shipping",
+        "col_specialist",
+        "col_free_shipping",
+        "col_returns",
+        "col_pledge"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "WHY SPAWN",
+        "color_scheme": "scheme-1"
+      }
+    },
+    "featured_collection_UdX4CU": {
+      "type": "featured-collection",
+      "disabled": true,
+      "settings": {
+        "title": "<strong>BEST SELLERS</strong>",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "spawn-fly-fish-products",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "link",
+        "enable_desktop_slider": false,
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    },
+    "image_with_text_EJEVBb": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_L9rKYc": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>FLY OF THE MONTH</strong>",
+            "heading_size": "h2"
+          }
+        },
+        "text_6paNG8": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Each month, Pete ties one proven pattern from the Spawn bench. Shop the featured fly, watch the tutorial, and learn the choices behind it.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_Ca4tef": {
+          "type": "button",
+          "settings": {
+            "button_label": "SHOP THE FLY",
+            "button_link": "shopify://collections/fly-of-the-month",
+            "button_style_secondary": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_L9rKYc",
+        "text_6paNG8",
+        "button_Ca4tef"
+      ],
+      "disabled": true,
+      "settings": {
+        "premium_seo_style": false,
+        "premium_eyebrow": "Tying guide",
+        "use_collection_image": false,
+        "image": "shopify://shop_images/001_11_54487531-e049-4b31-b9f1-182cc098f282.jpg",
+        "height": "medium",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "scheme-4",
+        "color_scheme": "scheme-4",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    },
+    "featured_collection_tXX8gN": {
+      "type": "featured-collection",
+      "disabled": true,
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "title": "<strong>SPAWN SIGNATURE FLIES</strong>",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "spawn-flies",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "link",
+        "enable_desktop_slider": false,
+        "color_scheme": "",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    },
+    "image_banner_ja4xUn": {
+      "type": "image-banner",
+      "blocks": {
+        "text_naMBB4": {
+          "type": "text",
+          "settings": {
+            "text": "SOME THINGS ARE BETTER IN PERSON",
+            "text_style": "body"
+          }
+        },
+        "heading_dtCVNq": {
+          "type": "heading",
+          "settings": {
+            "heading": "ILWACO FLAGSHIP",
+            "heading_size": "h1"
+          }
+        },
+        "buttons_R8nbkh": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Visit the Store",
+            "button_link_1": "https://maps.app.goo.gl/b7MzVaJmaJVaK7Ec6",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "text_naMBB4",
+        "heading_dtCVNq",
+        "buttons_R8nbkh"
+      ],
+      "disabled": true,
+      "settings": {
+        "image": "shopify://shop_images/homepage-ilwaco.png",
+        "image_mobile": "shopify://shop_images/ilwaco_shop_mobile.png",
+        "eyebrow": "",
+        "image_overlay_opacity": 30,
+        "image_height": "medium",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "scheme-78823a03-0880-4c09-84ee-d09083839a52",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": false
+      }
+    },
+    "featured_blog_UaRnVq": {
+      "type": "featured-blog",
+      "disabled": true,
+      "settings": {
+        "heading": "<strong>FROM THE BLOG</strong>",
+        "heading_size": "h2",
+        "blog": "spawn-blog",
+        "post_limit": 3,
+        "columns_desktop": 3,
+        "color_scheme": "scheme-4",
+        "show_image": true,
+        "show_date": true,
+        "show_author": false,
+        "show_view_all": true,
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    },
+    "featured_collection_tying_room_clearance": {
+      "type": "featured-collection",
+      "disabled": true,
+      "custom_css": [
+        "h3 {text-transform: uppercase;}"
+      ],
+      "settings": {
+        "title": "<strong>LABOR DAY SALE</strong>",
+        "heading_size": "h2",
+        "description": "<p>SHOP THE LABOR DAY SALE</p>",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "tying-room-clearance",
+        "products_to_show": 15,
+        "columns_desktop": 3,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "link",
+        "enable_desktop_slider": true,
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": true,
+        "show_rating": false,
+        "quick_add": "standard",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 28,
+        "padding_bottom": 20
+      }
+    },
+    "image_banner_7C3HhQ": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_98Phf4": {
+          "type": "heading",
+          "settings": {
+            "heading": "New Arrivals",
+            "heading_size": "h0"
+          }
+        },
+        "buttons_8zmXDw": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "SHOP NOW",
+            "button_link_1": "shopify://collections/new-arrivals",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_98Phf4",
+        "buttons_8zmXDw"
+      ],
+      "disabled": true,
+      "settings": {
+        "image": "shopify://shop_images/1EFC119C-22B9-4169-9306-EF58F861E4F4.jpg",
+        "image_mobile": "shopify://shop_images/Todd_Moen_Aerial_Idaho.jpg",
+        "eyebrow": "",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "desktop_content_position": "middle-left",
+        "show_text_box": false,
+        "desktop_content_alignment": "left",
+        "color_scheme": "scheme-3",
+        "image_behavior": "ambient",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": false
+      }
+    },
+    "image_with_text_bViTjP": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_W8JFQR": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>SPAWN APPAREL</strong>",
+            "heading_size": "h1"
+          }
+        },
+        "text_6fe79C": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Join the Spawn family and represent the brand. Spawn apparel is made from the best materials with in-house tested designs.</p>",
+            "text_style": "subtitle"
+          }
+        },
+        "button_aJctwE": {
+          "type": "button",
+          "settings": {
+            "button_label": "SHOP NOW",
+            "button_link": "shopify://collections/spawn-apparel",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_W8JFQR",
+        "text_6fe79C",
+        "button_aJctwE"
+      ],
+      "disabled": true,
+      "settings": {
+        "premium_seo_style": false,
+        "premium_eyebrow": "Tying guide",
+        "use_collection_image": false,
+        "image": "shopify://shop_images/spawn-h-ilwaco-s-spawn-ilwaco-hoodie-spawn-fly-fish-272096.jpg",
+        "height": "medium",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "scheme-1",
+        "color_scheme": "scheme-1",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 28,
+        "padding_bottom": 20
+      }
+    },
+    "multicolumn_78HbFk": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_EcPYtw": {
+          "type": "column",
+          "settings": {
+            "title": "<strong>FREE SHIPPING</strong>",
+            "text": "<p>Free shipping on orders over $85 to the contiguous US.</p>",
+            "link_label": "",
+            "link": "shopify://policies/refund-policy"
+          }
+        },
+        "column_iJgtUk": {
+          "type": "column",
+          "settings": {
+            "title": "<strong>FREE RETURNS</strong>",
+            "text": "<p>We stand behind our products. Return shipping is free on all returns shipped from within the United States.</p>",
+            "link_label": "",
+            "link": "shopify://policies/refund-policy"
+          }
+        },
+        "column_X9cXEB": {
+          "type": "column",
+          "settings": {
+            "title": "<strong>2% PLEDGE</strong>",
+            "text": "<p>2% of all Spawn profits are donated to conservation groups. This has been true since our 1st day of business.</p>",
+            "link_label": "",
+            "link": "shopify://pages/conservation"
+          }
+        }
+      },
+      "block_order": [
+        "column_EcPYtw",
+        "column_iJgtUk",
+        "column_X9cXEB"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 28,
+        "padding_bottom": 20
+      }
+    },
+    "1777666874e27876d8": {
+      "type": "_blocks",
+      "settings": {}
     }
   },
   "order": [
