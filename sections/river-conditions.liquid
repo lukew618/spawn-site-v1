@@ -430,6 +430,21 @@ SEA airport|141 mi W{%- endcapture -%}
     }
   </script>
 
+  {%- assign river_article_desc = page_description | default: river.description | strip_html | strip | truncate: 155 -%}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": {{ river.name | json }},
+      "description": {{ river_article_desc | json }},
+      "mainEntityOfPage": "{{ shop.url }}{{ page.url }}",
+      "datePublished": "{{ page.published_at | date: '%Y-%m-%dT%H:%M:%SZ' }}",
+      "dateModified": "{{ page.updated_at | date: '%Y-%m-%dT%H:%M:%SZ' }}",
+      "author": { "@id": "{{ shop.url }}/#organization" },
+      "publisher": { "@id": "{{ shop.url }}/#organization" }
+    }
+  </script>
+
 {%- endif -%}
 
 {% schema %}

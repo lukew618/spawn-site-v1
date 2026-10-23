@@ -1,0 +1,62 @@
+{% comment %}
+  Organization on every page, plus WebSite and SearchAction on the homepage.
+{% endcomment %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["Organization", "Store"],
+      "@id": "{{ shop.url }}/#organization",
+      "name": {{ shop.name | strip | json }},
+      "url": "{{ shop.url }}",
+      {%- if settings.logo != blank %}
+      "logo": {{ settings.logo | image_url: width: 600 | prepend: 'https:' | json }},
+      {%- endif %}
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": {{ shop.address.address1 | json }},
+        "addressLocality": {{ shop.address.city | json }},
+        "addressRegion": {{ shop.address.province_code | json }},
+        "postalCode": {{ shop.address.zip | json }},
+        "addressCountry": {{ shop.address.country_code | json }}
+      },
+      "sameAs": [
+        {%- assign first_social = true -%}
+        {%- if settings.social_facebook_link != blank -%}
+          {{ settings.social_facebook_link | json }}
+          {%- assign first_social = false -%}
+        {%- endif -%}
+        {%- if settings.social_instagram_link != blank -%}
+          {%- unless first_social -%},{%- endunless -%}
+          {{ settings.social_instagram_link | json }}
+          {%- assign first_social = false -%}
+        {%- endif -%}
+        {%- if settings.social_youtube_link != blank -%}
+          {%- unless first_social -%},{%- endunless -%}
+          {{ settings.social_youtube_link | json }}
+          {%- assign first_social = false -%}
+        {%- endif -%}
+        {%- if settings.social_tiktok_link != blank -%}
+          {%- unless first_social -%},{%- endunless -%}
+          {{ settings.social_tiktok_link | json }}
+        {%- endif -%}
+      ]
+    }
+    {%- if request.page_type == 'index' -%},
+    {
+      "@type": "WebSite",
+      "@id": "{{ shop.url }}/#website",
+      "name": {{ shop.name | strip | json }},
+      "url": "{{ shop.url }}",
+      "publisher": { "@id": "{{ shop.url }}/#organization" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "{{ shop.url }}{{ routes.search_url }}?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    {%- endif %}
+  ]
+}
+</script>

@@ -23,6 +23,26 @@
   </div>
 </div>
 
+{%- liquid
+  assign article_pages = 'how-to-fly-fish-puget-sound,fly-fishing-for-coho-salmon-washington,fly-fishing-albacore-tuna-washington,conservation' | split: ','
+-%}
+{%- if article_pages contains page.handle -%}
+  {%- assign article_desc = page_description | default: page.content | strip_html | strip | truncate: 155 -%}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": {{ page.title | json }},
+      "description": {{ article_desc | json }},
+      "mainEntityOfPage": "{{ shop.url }}{{ page.url }}",
+      "datePublished": "{{ page.published_at | date: '%Y-%m-%dT%H:%M:%SZ' }}",
+      "dateModified": "{{ page.updated_at | date: '%Y-%m-%dT%H:%M:%SZ' }}",
+      "author": { "@type": "Person", "name": "Josh Phillips" },
+      "publisher": { "@id": "{{ shop.url }}/#organization" }
+    }
+  </script>
+{%- endif -%}
+
 {% schema %}
 {
   "name": "t:sections.main-page.name",
