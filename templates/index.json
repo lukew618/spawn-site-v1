@@ -89,7 +89,7 @@
         "feature_collection": "fly-of-the-month",
         "store_image": "shopify://shop_images/homepage-ilwaco.png",
         "store_text": "Where the Columbia meets the Pacific, you'll find our shop. Stop in for a handful of materials, a little local knowledge, or a conversation about your next day out.",
-        "library_enabled": false,
+        "library_enabled": true,
         "library_image": "shopify://shop_images/IMG_0385.jpg",
         "library_eyebrow": "Fly Library",
         "library_title": "Watch tying recipes.",
