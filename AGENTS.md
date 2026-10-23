@@ -26,3 +26,11 @@ Caddis MCP offers Shopify reads and specific staged actions. It is not a general
 - Do not overwrite `config/settings_data.json` or other editor-owned settings with stale local data. Inspect live editor changes before a planned settings edit.
 
 Luke selected Shopify's native GitHub integration for theme publishing. The live theme was imported into GitHub on September 26, 2026. Luke reported the integration setup complete on October 2, 2026. Verify the current published theme and connected branch in Shopify before a release. Shopify commits Theme Editor changes to that branch and syncs branch changes to the theme. GitHub Actions may run checks, but must not publish the theme. Caddis does not approve this GitHub workflow.
+
+## Cloud Agent environment
+
+The image provides Node 22, pnpm, and Shopify CLI 4.9.4 (`shopify` on `/usr/local/bin`). Worker dependencies are installed in `worker/`. Do not run `npm ci` at the repository root: `package.json` is empty.
+
+- Theme check: `shopify theme check --no-color -o json`. JSON finishes in a few seconds on the default Node heap. The default text report grows without bound on this theme and is killed for memory. Exit code 1 is the imported baseline (mostly `MatchingTranslations` across locales). Compare changed files with that baseline.
+- Worker: `pnpm --dir worker test`. Local API: `pnpm --dir worker exec wrangler dev --local --port 8787 --ip 127.0.0.1`.
+- Do not start `shopify theme dev` from environment boot. A store preview needs `SHOPIFY_CLI_THEME_TOKEN` and `SHOPIFY_FLAG_STORE=spawn-fly-fish.myshopify.com`, and it must use an unpublished development theme. Do not pass the published theme id.
