@@ -3589,9 +3589,17 @@
     "wholesale_landing": {
       "name": "Wholesale landing",
       "settings": {
+        "hero_image": "Hero image",
         "eyebrow": "Eyebrow",
         "heading": "Heading",
         "lede": "Supporting text",
+        "points_header": "Hero highlights",
+        "point_1_title": "Highlight 1 title",
+        "point_1_text": "Highlight 1 detail",
+        "point_2_title": "Highlight 2 title",
+        "point_2_text": "Highlight 2 detail",
+        "point_3_title": "Highlight 3 title",
+        "point_3_text": "Highlight 3 detail",
         "request_label": "Request access button label",
         "login_label": "Sign in button label",
         "shop_label": "Shop button label",
