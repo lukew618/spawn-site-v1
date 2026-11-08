@@ -1,0 +1,41 @@
+/*
+ * ------------------------------------------------------------
+ * Wholesale program landing. Assign this template to the
+ * /pages/wholesale page in Shopify Admin.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "wholesale_landing": {
+      "type": "wholesale-landing",
+      "settings": {
+        "eyebrow": "SPAWN FLY FISH / WHOLESALE",
+        "heading": "Wholesale ordering",
+        "lede": "Approved dealers get catalog pricing, pack quantities, and a simpler path to restock. Retail shoppers continue to use the main Spawn storefront.",
+        "request_label": "Request wholesale access",
+        "login_label": "Dealer sign in",
+        "shop_label": "Start ordering",
+        "account_label": "Your account",
+        "who_heading": "Who this is for",
+        "who_text": "<p>Independent fly shops, guides, and retailers stocking Spawn flies and materials. We review every request before activating a company account.</p><ul><li>Brick-and-mortar and specialty online dealers</li><li>Guides and outfitters buying for clients</li><li>Accounts that need pack quantities and net terms when offered</li></ul>",
+        "after_heading": "After you are approved",
+        "after_text": "<p>Sign in with customer accounts. Your company association unlocks catalog pricing, quantity rules, and reorder tools. The public login link never grants wholesale access by itself.</p>",
+        "form_heading": "Request an account",
+        "form_text": "Tell us about your shop. We will follow up when your company location is ready.",
+        "support_email": "info@spawnflyfish.com"
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "wholesale_landing",
+    "main"
+  ]
+}

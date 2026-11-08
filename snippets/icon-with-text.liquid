@@ -15,6 +15,18 @@
   assign heading_2_empty = false
   assign heading_3_empty = false
   assign text_only_all_items = true
+  assign heading_1_text = block.settings.heading_1
+  assign heading_2_text = block.settings.heading_2
+  assign heading_3_text = block.settings.heading_3
+
+  if customer.b2b?
+    if heading_1_text contains 'Free Shipping' or heading_1_text contains '$85'
+      assign heading_1_text = 'Catalog pricing'
+    endif
+    if heading_2_text contains 'Free Return'
+      assign heading_2_text = 'Account reorders'
+    endif
+  endif
 
   if block.settings.heading_1 == empty
     assign heading_1_empty = true
@@ -58,7 +70,7 @@
         >
       {%- endif -%}
       <span class="h4 inline-richtext">
-        {{- block.settings.heading_1 -}}
+        {{- heading_1_text -}}
       </span>
     </li>
   {%- endunless -%}
@@ -80,7 +92,7 @@
         >
       {%- endif -%}
       <span class="h4 inline-richtext">
-        {{- block.settings.heading_2 -}}
+        {{- heading_2_text -}}
       </span>
     </li>
   {%- endunless -%}
@@ -102,7 +114,7 @@
         >
       {%- endif -%}
       <span class="h4 inline-richtext">
-        {{- block.settings.heading_3 -}}
+        {{- heading_3_text -}}
       </span>
     </li>
   {%- endunless -%}

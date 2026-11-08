@@ -2945,6 +2945,10 @@
     "quick-order-list": {
       "name": "Quick order list",
       "settings": {
+        "b2b_only": {
+          "label": "Show only to B2B customers",
+          "info": "When enabled, the quick order list appears only for signed-in wholesale buyers."
+        },
         "show_image": {
           "label": "Show images"
         },
@@ -3581,6 +3585,37 @@
       "category_image": "Category image override",
       "category_subtitle": "Category subtitle",
       "category_cta": "Category button label"
+    },
+    "wholesale_landing": {
+      "name": "Wholesale landing",
+      "settings": {
+        "eyebrow": "Eyebrow",
+        "heading": "Heading",
+        "lede": "Supporting text",
+        "request_label": "Request access button label",
+        "login_label": "Sign in button label",
+        "shop_label": "Shop button label",
+        "account_label": "Account button label",
+        "shop_link": "Shop link for signed-in buyers",
+        "who_header": "Who this is for",
+        "who_heading": "Who heading",
+        "who_text": "Who body",
+        "after_header": "After approval",
+        "after_heading": "After heading",
+        "after_text": "After body",
+        "form_header": "Request form",
+        "form_heading": "Form heading",
+        "form_text": "Form supporting text",
+        "support_email": "Fallback support email"
+      },
+      "blocks": {
+        "richtext": {
+          "name": "Rich text",
+          "settings": {
+            "text": "Text"
+          }
+        }
+      }
     }
   }
 }

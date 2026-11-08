@@ -1,0 +1,239 @@
+{{ 'section-wholesale-landing.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign login_url = routes.account_login_url
+  assign collections_url = routes.all_products_collection_url
+  if section.settings.shop_link != blank
+    assign collections_url = section.settings.shop_link
+  endif
+-%}
+
+<div class="sw-landing">
+  <div class="sw-landing__hero">
+    <div class="sw-landing__shell">
+      <p class="sw-landing__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      <h1>{{ section.settings.heading | escape }}</h1>
+      {%- if section.settings.lede != blank -%}
+        <p class="sw-landing__lede">{{ section.settings.lede | escape }}</p>
+      {%- endif -%}
+      <div class="sw-landing__actions">
+        {%- if customer.b2b? -%}
+          <a class="sw-landing__button sw-landing__button--accent" href="{{ collections_url }}">
+            {{ section.settings.shop_label | default: 'Start ordering' | escape }}
+          </a>
+          <a class="sw-landing__button sw-landing__button--outline" href="{{ routes.account_url }}">
+            {{ section.settings.account_label | default: 'Your account' | escape }}
+          </a>
+        {%- else -%}
+          <a class="sw-landing__button sw-landing__button--accent" href="#WholesaleRequest">
+            {{ section.settings.request_label | default: 'Request wholesale access' | escape }}
+          </a>
+          <a class="sw-landing__button sw-landing__button--outline" href="{{ login_url }}">
+            {{ section.settings.login_label | default: 'Dealer sign in' | escape }}
+          </a>
+        {%- endif -%}
+      </div>
+      {%- if customer.b2b? -%}
+        <div class="sw-landing__signed-in" role="status">
+          <p>
+            Signed in as a wholesale buyer
+            {%- if customer.current_company -%}
+              for {{ customer.current_company.name | escape }}
+            {%- endif -%}
+            . Catalog pricing applies in cart and checkout.
+          </p>
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+
+  <div class="sw-landing__shell">
+    <div class="sw-landing__grid">
+      <article class="sw-landing__card">
+        <h2>{{ section.settings.who_heading | escape }}</h2>
+        <div class="rte">{{ section.settings.who_text }}</div>
+      </article>
+      <article class="sw-landing__card">
+        <h2>{{ section.settings.after_heading | escape }}</h2>
+        <div class="rte">{{ section.settings.after_text }}</div>
+      </article>
+    </div>
+
+    <div class="sw-landing__form" id="WholesaleRequest">
+      <div class="sw-landing__form-head">
+        <h2>{{ section.settings.form_heading | escape }}</h2>
+        {%- if section.settings.form_text != blank -%}
+          <p>{{ section.settings.form_text | escape }}</p>
+        {%- endif -%}
+      </div>
+      <div class="sw-landing__form-slot">
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+            {%- when '@app' -%}
+              <div {{ block.shopify_attributes }}>
+                {% render block %}
+              </div>
+            {%- when 'richtext' -%}
+              <div class="rte" {{ block.shopify_attributes }}>
+                {{ block.settings.text }}
+              </div>
+          {%- endcase -%}
+        {%- endfor -%}
+        {%- if section.blocks.size == 0 -%}
+          <div class="sw-landing__form-fallback">
+            <p>
+              Add the Shopify Forms block in the theme editor for this section, or email
+              <a href="mailto:{{ section.settings.support_email | default: shop.email | escape }}">
+                {{- section.settings.support_email | default: shop.email | escape -}}
+              </a>
+              to request a dealer account. Signing in alone does not grant wholesale pricing —
+              your company association does.
+            </p>
+          </div>
+        {%- endif -%}
+      </div>
+      {%- unless customer -%}
+        <p class="sw-landing__lede" style="margin-top: 24px;">
+          Already approved?
+          <a href="{{ login_url }}">{{ section.settings.login_label | default: 'Dealer sign in' | escape }}</a>
+          with the email on your company profile.
+        </p>
+      {%- endunless -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.wholesale_landing.name",
+  "tag": "section",
+  "class": "section wholesale-landing-section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "t:sections.wholesale_landing.settings.eyebrow",
+      "default": "SPAWN FLY FISH / WHOLESALE"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:sections.wholesale_landing.settings.heading",
+      "default": "Wholesale ordering"
+    },
+    {
+      "type": "textarea",
+      "id": "lede",
+      "label": "t:sections.wholesale_landing.settings.lede",
+      "default": "Approved dealers get catalog pricing, pack quantities, and a simpler path to restock. Retail shoppers continue to use the main Spawn storefront."
+    },
+    {
+      "type": "text",
+      "id": "request_label",
+      "label": "t:sections.wholesale_landing.settings.request_label",
+      "default": "Request wholesale access"
+    },
+    {
+      "type": "text",
+      "id": "login_label",
+      "label": "t:sections.wholesale_landing.settings.login_label",
+      "default": "Dealer sign in"
+    },
+    {
+      "type": "text",
+      "id": "shop_label",
+      "label": "t:sections.wholesale_landing.settings.shop_label",
+      "default": "Start ordering"
+    },
+    {
+      "type": "text",
+      "id": "account_label",
+      "label": "t:sections.wholesale_landing.settings.account_label",
+      "default": "Your account"
+    },
+    {
+      "type": "url",
+      "id": "shop_link",
+      "label": "t:sections.wholesale_landing.settings.shop_link"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.wholesale_landing.settings.who_header"
+    },
+    {
+      "type": "text",
+      "id": "who_heading",
+      "label": "t:sections.wholesale_landing.settings.who_heading",
+      "default": "Who this is for"
+    },
+    {
+      "type": "richtext",
+      "id": "who_text",
+      "label": "t:sections.wholesale_landing.settings.who_text",
+      "default": "<p>Independent fly shops, guides, and retailers stocking Spawn flies and materials. We review every request before activating a company account.</p><ul><li>Brick-and-mortar and specialty online dealers</li><li>Guides and outfitters buying for clients</li><li>Accounts that need pack quantities and net terms when offered</li></ul>"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.wholesale_landing.settings.after_header"
+    },
+    {
+      "type": "text",
+      "id": "after_heading",
+      "label": "t:sections.wholesale_landing.settings.after_heading",
+      "default": "After you are approved"
+    },
+    {
+      "type": "richtext",
+      "id": "after_text",
+      "label": "t:sections.wholesale_landing.settings.after_text",
+      "default": "<p>Sign in with customer accounts. Your company association unlocks catalog pricing, quantity rules, and reorder tools. The public login link never grants wholesale access by itself.</p>"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.wholesale_landing.settings.form_header"
+    },
+    {
+      "type": "text",
+      "id": "form_heading",
+      "label": "t:sections.wholesale_landing.settings.form_heading",
+      "default": "Request an account"
+    },
+    {
+      "type": "textarea",
+      "id": "form_text",
+      "label": "t:sections.wholesale_landing.settings.form_text",
+      "default": "Tell us about your shop. We will follow up when your company location is ready."
+    },
+    {
+      "type": "text",
+      "id": "support_email",
+      "label": "t:sections.wholesale_landing.settings.support_email",
+      "default": "info@spawnflyfish.com"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "@app"
+    },
+    {
+      "type": "richtext",
+      "name": "t:sections.wholesale_landing.blocks.richtext.name",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "t:sections.wholesale_landing.blocks.richtext.settings.text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.wholesale_landing.name"
+    }
+  ]
+}
+{% endschema %}
