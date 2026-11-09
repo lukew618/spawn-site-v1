@@ -12,6 +12,12 @@
   if section.blocks.size > 0
     assign announcement_bar = true
   endif
+  # customer.b2b? is nil when nobody is signed in. In Liquid, nil == false
+  # is false, so a == false check hides the retail link from guests.
+  assign show_retail_announcement_link = false
+  unless customer.b2b?
+    assign show_retail_announcement_link = true
+  endunless
 -%}
 
 {% if social_icons %}
@@ -51,19 +57,25 @@
         {{ block.shopify_attributes }}
       >
         {%- if section.blocks.first.settings.text != blank -%}
-          {%- if section.blocks.first.settings.link != blank -%}
+          {%- if section.blocks.first.settings.link != blank and show_retail_announcement_link -%}
             <a
               href="{{ section.blocks.first.settings.link }}"
               class="announcement-bar__link link link--text focus-inset animate-arrow"
             >
           {%- endif -%}
           <p class="announcement-bar__message h5">
-            <span>{{ section.blocks.first.settings.text | escape }}</span>
-            {%- if section.blocks.first.settings.link != blank -%}
+            <span>
+              {%- if customer.b2b? -%}
+                Wholesale ordering · Catalog pricing for approved dealers
+              {%- else -%}
+                {{ section.blocks.first.settings.text | escape }}
+              {%- endif -%}
+            </span>
+            {%- if section.blocks.first.settings.link != blank and show_retail_announcement_link -%}
               {{- 'icon-arrow.svg' | inline_asset_content -}}
             {%- endif -%}
           </p>
-          {%- if section.blocks.first.settings.link != blank -%}
+          {%- if section.blocks.first.settings.link != blank and show_retail_announcement_link -%}
             </a>
           {%- endif -%}
         {%- endif -%}
@@ -119,8 +131,14 @@
                       >
                     {%- endif -%}
                     <p class="announcement-bar__message h5">
-                      <span>{{ block.settings.text | escape }}</span>
-                      {%- if block.settings.link != blank -%}
+                      <span>
+                        {%- if customer.b2b? -%}
+                          Wholesale ordering · Catalog pricing for approved dealers
+                        {%- else -%}
+                          {{ block.settings.text | escape }}
+                        {%- endif -%}
+                      </span>
+                      {%- if block.settings.link != blank and show_retail_announcement_link -%}
                         {{- 'icon-arrow.svg' | inline_asset_content -}}
                       {%- endif -%}
                     </p>

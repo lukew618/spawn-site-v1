@@ -186,6 +186,17 @@
         "padding_bottom": 16
       }
     },
+    "quick_order_list": {
+      "type": "quick-order-list",
+      "settings": {
+        "b2b_only": true,
+        "show_image": true,
+        "show_sku": true,
+        "color_scheme": "scheme-1",
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
     "product_editorial_main": {
       "type": "product-editorial",
       "settings": {
@@ -316,6 +327,7 @@
   "order": [
     "breadcrumb",
     "main",
+    "quick_order_list",
     "product_editorial_main",
     "related-products",
     "image_banner_irBgAP",
