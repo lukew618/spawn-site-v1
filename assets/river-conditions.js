@@ -341,30 +341,7 @@ class RiverConditions extends HTMLElement {
   }
 
   computeFishability(flow, temp) {
-    const c = this.riverConfig;
-    if (flow == null) return 'UNKNOWN';
-    if (flow < c.prime.flow_min) return 'LOW_FLOW';
-    if (flow >= c.blown.flow_min) return 'BLOWN_OUT';
-
-    const levels = ['prime', 'good', 'fair', 'marginal'];
-    for (const level of levels) {
-      const r = c[level];
-      if (!r) continue;
-      const flowMatch = flow >= r.flow_min && flow < r.flow_max;
-      if (temp == null) {
-        if (flowMatch) return level.toUpperCase();
-        continue;
-      }
-      const hasTemp = r.temp_min != null && r.temp_max != null;
-      if (level === 'prime' || level === 'good') {
-        if (flowMatch && (!hasTemp || (temp >= r.temp_min && temp < r.temp_max))) {
-          return level.toUpperCase();
-        }
-      } else {
-        if (flowMatch) return level.toUpperCase();
-      }
-    }
-    return 'FAIR';
+    return window.SPAWN_RIVERS.computeFishability(this.config.slug, flow, temp);
   }
 
   enhanceHatches(data) {
