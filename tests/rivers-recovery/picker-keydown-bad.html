@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Known-bad river picker: ArrowDown bubbles and moves twice</title>
+  </head>
+  <body>
+    <river-picker>
+      <button class="river-picker__trigger" type="button" aria-expanded="false">Rivers</button>
+      <div class="river-picker__panel" hidden>
+        <input class="river-picker__search" type="text" value="river" />
+        <div data-picker-group>
+          <div data-picker-item data-river-name="yakima"><a class="river-picker__link" href="/pages/yakima-river">Yakima</a></div>
+          <div data-picker-item data-river-name="skagit"><a class="river-picker__link" href="/pages/skagit-river">Skagit</a></div>
+          <div data-picker-item data-river-name="sauk"><a class="river-picker__link" href="/pages/sauk-river">Sauk</a></div>
+        </div>
+        <p class="river-picker__empty" hidden>No rivers match.</p>
+      </div>
+    </river-picker>
+    <script>
+      class RiverPicker extends HTMLElement {
+        connectedCallback() {
+          this.trigger = this.querySelector(".river-picker__trigger");
+          this.panel = this.querySelector(".river-picker__panel");
+          this.search = this.querySelector(".river-picker__search");
+          this.items = [...this.querySelectorAll("[data-picker-item]")];
+          this.activeIndex = -1;
+          this.search.addEventListener("keydown", (event) => {
+            if (event.key === "ArrowDown") this._moveActive(1);
+          });
+          this.panel.addEventListener("keydown", (event) => {
+            if (event.key === "ArrowDown") this._moveActive(1);
+            if (event.key === "Home") this.activeIndex = 0;
+          });
+        }
+        open() { this.panel.hidden = false; }
+        _moveActive() {
+          const next = this.activeIndex < 0 ? 0 : this.activeIndex + 1;
+          this.activeIndex = next % this.items.length;
+        }
+      }
+      customElements.define("river-picker", RiverPicker);
+      const picker = document.querySelector("river-picker");
+      const search = picker.querySelector(".river-picker__search");
+      picker.open();
+      search.dispatchEvent(new KeyboardEvent("keydown", { key: "ArrowDown", bubbles: true }));
+      const afterOne = picker.activeIndex;
+      search.dispatchEvent(new KeyboardEvent("keydown", { key: "ArrowDown", bubbles: true }));
+      const afterTwo = picker.activeIndex;
+      search.dispatchEvent(new KeyboardEvent("keydown", { key: "Home", bubbles: true }));
+      document.documentElement.dataset.pickerResult = JSON.stringify({
+        afterOne,
+        afterTwo,
+        afterHome: picker.activeIndex,
+      });
+    </script>
+  </body>
+</html>

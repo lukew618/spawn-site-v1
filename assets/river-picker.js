@@ -82,18 +82,24 @@ class RiverPicker extends HTMLElement {
   _onSearchKeydown(e) {
     if (e.key === 'ArrowDown') {
       e.preventDefault();
+      e.stopPropagation();
       this._moveActive(1);
     } else if (e.key === 'Escape') {
       e.preventDefault();
+      e.stopPropagation();
       this.close();
       this.trigger.focus();
+    } else if (e.key === 'Home' || e.key === 'End') {
+      e.stopPropagation();
     } else if (e.key === 'Enter') {
       const items = this._visibleItems();
       if (items.length === 1) {
         e.preventDefault();
+        e.stopPropagation();
         items[0].querySelector('.river-picker__link')?.click();
       } else if (this.activeIndex >= 0) {
         e.preventDefault();
+        e.stopPropagation();
         items[this.activeIndex]?.querySelector('.river-picker__link')?.click();
       }
     }

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>ENG-017 drawer label fixture</title>
+  </head>
+  <body>
+    <button
+      id="mobile-menu-toggle"
+      type="button"
+      aria-label="Menu"
+      aria-expanded="false"
+      aria-controls="drawer-menu"
+      data-menu-label="Menu"
+      data-close-label="Close"
+    >Menu</button>
+    <div id="drawer-menu" class="hidden" role="dialog" aria-modal="true">
+      <button id="drawer-menu-close" type="button" aria-label="Close">&times;</button>
+      <button class="drawer-menu__link" aria-expanded="false" aria-controls="submenu-1">Shop</button>
+      <div id="submenu-1"></div>
+    </div>
+    <script>
+      function trapFocus() {}
+      function removeTrapFocus() {}
+    </script>
+    <script src="../../assets/drawer-menu.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const toggle = document.getElementById("mobile-menu-toggle");
+        toggle.click();
+        const opened = {
+          label: toggle.getAttribute("aria-label"),
+          expanded: toggle.getAttribute("aria-expanded"),
+        };
+        toggle.click();
+        const closed = {
+          label: toggle.getAttribute("aria-label"),
+          expanded: toggle.getAttribute("aria-expanded"),
+        };
+        document.documentElement.dataset.drawerResult = JSON.stringify({ opened, closed });
+      });
+    </script>
+  </body>
+</html>

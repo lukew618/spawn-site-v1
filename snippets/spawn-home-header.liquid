@@ -2,7 +2,7 @@
 <script src="{{ 'spawn-home.js' | asset_url }}" defer></script>
 <spawn-home-header class="sh-masthead">
   <header class="sh-header" aria-label="Main header">
-    <button class="sh-icon sh-menu-toggle" id="mobile-menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="drawer-menu">
+    <button class="sh-icon sh-menu-toggle" id="mobile-menu-toggle" type="button" aria-label="{{ 'sections.header.menu' | t | escape }}" aria-expanded="false" aria-controls="drawer-menu" data-menu-label="{{ 'sections.header.menu' | t | escape }}" data-close-label="{{ 'accessibility.close' | t | escape }}">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="1.5"/></svg>
     </button>
     <a class="sh-brand" href="{{ routes.root_url }}" aria-label="Spawn Fly Fish home">SPAWN FLY FISH</a>
