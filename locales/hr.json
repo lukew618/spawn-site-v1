@@ -49,7 +49,8 @@
     },
     "search": {
       "search": "Traži",
-      "reset": "Izbriši pojam za pretraživanje"
+      "reset": "Izbriši pojam za pretraživanje",
+      "placeholder": "Traži proizvode i marke"
     },
     "cart": {
       "view": "Prikaži košaricu ({{ count }})",
@@ -147,7 +148,8 @@
         "from_price_html": "Od {{ price }}",
         "regular_price": "Redovna cijena",
         "sale_price": "Prodajna cijena",
-        "unit_price": "Jedinična cijena"
+        "unit_price": "Jedinična cijena",
+        "save_percent": "Ušteda {{ percent }} %"
       },
       "pickup_availability": {
         "view_store_info": "Prikaži informacije o trgovini",
@@ -325,7 +327,18 @@
       "duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_html": "Carina je uključena. Porezi, popusti i <a href=\"{{ link }}\">poštarina</a> obračunavaju se prilikom plaćanja.",
       "duties_included_taxes_at_checkout_shipping_at_checkout_without_policy": "Carina je uključena. Porezi, popusti i poštarina obračunavaju se prilikom plaćanja.",
       "taxes_at_checkout_shipping_at_checkout_with_policy_html": "Porezi, popusti i <a href=\"{{ link }}\">poštarina</a> obračunavaju se prilikom plaćanja.",
-      "taxes_at_checkout_shipping_at_checkout_without_policy": "Porezi, popusti i poštarina obračunavaju se prilikom plaćanja."
+      "taxes_at_checkout_shipping_at_checkout_without_policy": "Porezi, popusti i poštarina obračunavaju se prilikom plaćanja.",
+      "empty_message": "Pripremite stol za vezanje za sljedeći dan na vodi.",
+      "shop_materials": "Kupuj vezanje muha",
+      "shop_flies": "Istraži muhe",
+      "remove": "Ukloni",
+      "each": "po komadu",
+      "available_offers": "Dostupne ponude",
+      "view_full_cart": "Prikaži cijelu košaricu",
+      "shipping_remaining_html": "Do besplatne dostave nedostaje vam <strong>{{ amount }}</strong>.",
+      "shipping_unlocked": "Otključali ste besplatnu dostavu.",
+      "shipping_progress": "Napredak prema besplatnoj dostavi",
+      "shipping_region": "Za narudžbe u susjedne savezne države SAD-a."
     },
     "footer": {
       "payment": "Načini plaćanja"
@@ -395,6 +408,69 @@
       "min_error": "Minimum za ovaj artikl iznosi {{ min }}",
       "max_error": "Maksimum za ovaj artikl iznosi {{ max }}",
       "step_error": "Ovaj artikl možete dodavati samo u rasponima povećanja od {{ step }}"
+    },
+    "river_conditions": {
+      "name": "Stanje rijeke",
+      "no_river": "Za ovu stranicu nisu postavljeni podaci o rijeci.",
+      "river_navigation": "Navigacija rijekama",
+      "live_label": "Uživo · USGS svakih 15 min",
+      "flow": "Protok",
+      "temperature": "Temperatura vode",
+      "gage_height": "Visina vodomjera",
+      "clarity": "Prozirnost",
+      "unknown": "Nepoznato",
+      "data_unavailable": "Podaci uživo trenutačno nisu dostupni. Provjerite uskoro.",
+      "flow_history": "Protok u 7 dana",
+      "where": "Gdje pecate",
+      "access_points": "Pristupi · od uzvodno prema nizvodno",
+      "nearest": "Najbliže",
+      "best_stretch": "Najbolja dionica trenutačno",
+      "guide_report": "Izvještaj vodiča",
+      "on_the_water": "Na vodi sada",
+      "current_hatches": "Trenutna izlijeganja",
+      "no_hatches": "Trenutačno nema aktivnih izlijeganja. Provjerite uskoro ili pregledajte cijelu kutiju muha ispod.",
+      "recommended_gear": "Preporučena oprema",
+      "gear_lede": "Usklađeno s onim što je trenutačno na vodi.",
+      "settings": {
+        "header_layout": {
+          "content": "Raspored",
+          "info": "Određuje razmak iznad i ispod bloka stanja rijeke."
+        },
+        "header_products": {
+          "content": "Kartice proizvoda"
+        }
+      },
+      "blocks": {
+        "river_link": {
+          "name": "Poveznica rijeke",
+          "settings": {
+            "url": {
+              "label": "URL"
+            },
+            "label": {
+              "label": "Natpis"
+            }
+          }
+        }
+      }
+    },
+    "river_picker": {
+      "current": "Trenutna rijeka",
+      "search_placeholder": "Traži rijeke…",
+      "search_label": "Traži rijeke",
+      "browse_all": "Pregledaj sve rijeke",
+      "empty": "Nijedna rijeka ne odgovara."
+    },
+    "rivers_index": {
+      "empty": "Još nema postavljenih rijeka. Pokrenite skriptu za punjenje podataka o rijekama.",
+      "search_placeholder": "Traži rijeke ili mjesta…",
+      "search_label": "Traži rijeke",
+      "filter_label": "Filtriraj po regiji",
+      "all_regions": "Sve regije",
+      "flow": "Protok",
+      "temperature": "Temp.",
+      "view": "Prikaži uvjete",
+      "no_results": "Nijedna rijeka ne odgovara. Očistite filtre ili potražite drugi naziv."
     }
   },
   "localization": {

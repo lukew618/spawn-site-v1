@@ -49,7 +49,8 @@
     },
     "search": {
       "search": "Recherche",
-      "reset": "Effacer le terme de recherche"
+      "reset": "Effacer le terme de recherche",
+      "placeholder": "Rechercher des produits et des marques"
     },
     "cart": {
       "view": "Voir le panier ({{ count }})",
@@ -140,7 +141,8 @@
         "from_price_html": "À partir de {{ price }}",
         "regular_price": "Prix habituel",
         "sale_price": "Prix promotionnel",
-        "unit_price": "Prix unitaire"
+        "unit_price": "Prix unitaire",
+        "save_percent": "Économisez {{ percent }} %"
       },
       "share": "Partager ce produit",
       "sold_out": "Épuisé",
@@ -325,7 +327,18 @@
       "duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_html": "Frais de douane inclus. Taxes, réductions et <a href=\"{{ link }}\">frais d’expédition</a> calculés à l’étape du paiement.",
       "duties_included_taxes_at_checkout_shipping_at_checkout_without_policy": "Frais de douane inclus. Taxes, réductions et frais d’expédition calculés à l’étape du paiement.",
       "taxes_at_checkout_shipping_at_checkout_with_policy_html": "Taxes, réductions et <a href=\"{{ link }}\">frais d’expédition</a> calculés à l’étape du paiement.",
-      "taxes_at_checkout_shipping_at_checkout_without_policy": "Taxes, réductions et frais d’expédition calculés à l’étape du paiement."
+      "taxes_at_checkout_shipping_at_checkout_without_policy": "Taxes, réductions et frais d’expédition calculés à l’étape du paiement.",
+      "empty_message": "Préparez votre établi pour votre prochaine journée au bord de l’eau.",
+      "shop_materials": "Acheter le montage de mouches",
+      "shop_flies": "Explorer les mouches",
+      "remove": "Supprimer",
+      "each": "l’unité",
+      "available_offers": "Offres disponibles",
+      "view_full_cart": "Voir le panier complet",
+      "shipping_remaining_html": "Plus que <strong>{{ amount }}</strong> pour la livraison gratuite.",
+      "shipping_unlocked": "Vous avez débloqué la livraison gratuite.",
+      "shipping_progress": "Progression vers la livraison gratuite",
+      "shipping_region": "Pour les commandes vers les États-Unis contigus."
     },
     "footer": {
       "payment": "Moyens de paiement"
@@ -395,6 +408,69 @@
       "min_error": "Cet article a un minimum de {{ min }}",
       "max_error": "Cet article a un maximum de {{ max }}",
       "step_error": "Vous pouvez ajouter cet article uniquement par incréments de {{ step }}"
+    },
+    "river_conditions": {
+      "name": "Conditions de la rivière",
+      "no_river": "Aucune donnée de rivière n’est configurée pour cette page.",
+      "river_navigation": "Navigation des rivières",
+      "live_label": "En direct · flux USGS toutes les 15 min",
+      "flow": "Débit",
+      "temperature": "Température de l’eau",
+      "gage_height": "Hauteur d’échelle",
+      "clarity": "Clarté",
+      "unknown": "Inconnu",
+      "data_unavailable": "Les données en direct sont temporairement indisponibles. Revenez bientôt.",
+      "flow_history": "Débit sur 7 jours",
+      "where": "Là où vous pêchez",
+      "access_points": "Accès · de l’amont vers l’aval",
+      "nearest": "Le plus proche",
+      "best_stretch": "Meilleur secteur en ce moment",
+      "guide_report": "Compte-rendu du guide",
+      "on_the_water": "Sur l’eau maintenant",
+      "current_hatches": "Éclosions en cours",
+      "no_hatches": "Aucune éclosion active pour le moment. Revenez bientôt ou parcourez toute la boîte à mouches ci-dessous.",
+      "recommended_gear": "Matériel recommandé",
+      "gear_lede": "Choisi selon ce qu’il y a sur l’eau en ce moment.",
+      "settings": {
+        "header_layout": {
+          "content": "Mise en page",
+          "info": "Règle l’espacement au-dessus et au-dessous du bloc des conditions de la rivière."
+        },
+        "header_products": {
+          "content": "Cartes produit"
+        }
+      },
+      "blocks": {
+        "river_link": {
+          "name": "Lien de la rivière",
+          "settings": {
+            "url": {
+              "label": "URL"
+            },
+            "label": {
+              "label": "Libellé"
+            }
+          }
+        }
+      }
+    },
+    "river_picker": {
+      "current": "Rivière actuelle",
+      "search_placeholder": "Rechercher des rivières…",
+      "search_label": "Rechercher des rivières",
+      "browse_all": "Parcourir toutes les rivières",
+      "empty": "Aucune rivière ne correspond."
+    },
+    "rivers_index": {
+      "empty": "Aucune rivière n’est encore configurée. Lancez le script d’amorçage pour remplir les données.",
+      "search_placeholder": "Rechercher une rivière ou une ville…",
+      "search_label": "Rechercher des rivières",
+      "filter_label": "Filtrer par région",
+      "all_regions": "Toutes les régions",
+      "flow": "Débit",
+      "temperature": "Temp.",
+      "view": "Voir les conditions",
+      "no_results": "Aucune rivière ne correspond. Effacez les filtres ou cherchez un autre nom."
     }
   },
   "localization": {

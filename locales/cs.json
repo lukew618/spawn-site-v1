@@ -49,7 +49,8 @@
     },
     "search": {
       "search": "Hledání",
-      "reset": "Vymazat hledaný termín"
+      "reset": "Vymazat hledaný termín",
+      "placeholder": "Hledat produkty a značky"
     },
     "cart": {
       "view": "Zobrazit košík ({{ count }})",
@@ -147,7 +148,8 @@
         "from_price_html": "Od {{ price }}",
         "regular_price": "Běžná cena",
         "sale_price": "Výprodejová cena",
-        "unit_price": "Jednotková cena"
+        "unit_price": "Jednotková cena",
+        "save_percent": "Ušetříte {{ percent }} %"
       },
       "pickup_availability": {
         "view_store_info": "Zobrazit informace o obchodě",
@@ -335,7 +337,18 @@
       "duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_html": "Včetně cla. Daně, slevy a <a href=\"{{ link }}\">poštovné</a> se vypočítají na pokladně.",
       "duties_included_taxes_at_checkout_shipping_at_checkout_without_policy": "Včetně cla. Daně, slevy a poštovné se vypočítají na pokladně.",
       "taxes_at_checkout_shipping_at_checkout_with_policy_html": "Daně, slevy a <a href=\"{{ link }}\">poštovné</a> se vypočítají na pokladně.",
-      "taxes_at_checkout_shipping_at_checkout_without_policy": "Daně, slevy a poštovné se vypočítají na pokladně."
+      "taxes_at_checkout_shipping_at_checkout_without_policy": "Daně, slevy a poštovné se vypočítají na pokladně.",
+      "empty_message": "Připravte si vazačský stůl na další den na vodě.",
+      "shop_materials": "Nakupovat vázání mušek",
+      "shop_flies": "Prohlédnout mušky",
+      "remove": "Odebrat",
+      "each": "za kus",
+      "available_offers": "Dostupné nabídky",
+      "view_full_cart": "Zobrazit celý košík",
+      "shipping_remaining_html": "Do dopravy zdarma vám chybí <strong>{{ amount }}</strong>.",
+      "shipping_unlocked": "Získali jste dopravu zdarma.",
+      "shipping_progress": "Postup k dopravě zdarma",
+      "shipping_region": "U objednávek do sousedících států USA."
     },
     "footer": {
       "payment": "Platební metody"
@@ -407,6 +420,69 @@
       "min_error": "Tato položka vyžaduje minimum: {{ min }}",
       "max_error": "Tato položka vyžaduje maximum: {{ max }}",
       "step_error": "Tuto položku můžete přidat jen v přírůstcích hodnoty: {{ step }}"
+    },
+    "river_conditions": {
+      "name": "Stav řeky",
+      "no_river": "Pro tuto stránku nejsou nastavena data řeky.",
+      "river_navigation": "Navigace mezi řekami",
+      "live_label": "Živě · USGS každých 15 min",
+      "flow": "Průtok",
+      "temperature": "Teplota vody",
+      "gage_height": "Výška vodoměru",
+      "clarity": "Průzračnost",
+      "unknown": "Neznámé",
+      "data_unavailable": "Živá data jsou dočasně nedostupná. Zkuste to brzy znovu.",
+      "flow_history": "Průtok za 7 dní",
+      "where": "Kde právě chytáte",
+      "access_points": "Přístupy · po proudu shora dolů",
+      "nearest": "Nejbližší",
+      "best_stretch": "Nejlepší úsek právě teď",
+      "guide_report": "Zpráva průvodce",
+      "on_the_water": "Teď na vodě",
+      "current_hatches": "Aktuální líhnutí",
+      "no_hatches": "Právě teď nejsou žádná aktivní líhnutí. Zkuste to brzy znovu nebo si prohlédněte celou krabičku mušek níže.",
+      "recommended_gear": "Doporučená výbava",
+      "gear_lede": "Vybrané podle toho, co je právě na vodě.",
+      "settings": {
+        "header_layout": {
+          "content": "Rozvržení",
+          "info": "Nastavuje odsazení nad a pod blokem stavu řeky."
+        },
+        "header_products": {
+          "content": "Karty produktů"
+        }
+      },
+      "blocks": {
+        "river_link": {
+          "name": "Odkaz na řeku",
+          "settings": {
+            "url": {
+              "label": "URL"
+            },
+            "label": {
+              "label": "Popisek"
+            }
+          }
+        }
+      }
+    },
+    "river_picker": {
+      "current": "Aktuální řeka",
+      "search_placeholder": "Hledat řeky…",
+      "search_label": "Hledat řeky",
+      "browse_all": "Prohlédnout všechny řeky",
+      "empty": "Žádná řeka neodpovídá."
+    },
+    "rivers_index": {
+      "empty": "Zatím nejsou nastaveny žádné řeky. Spusťte seed skript a naplňte data řek.",
+      "search_placeholder": "Hledat řeky nebo města…",
+      "search_label": "Hledat řeky",
+      "filter_label": "Filtrovat podle regionu",
+      "all_regions": "Všechny regiony",
+      "flow": "Průtok",
+      "temperature": "Teplota",
+      "view": "Zobrazit podmínky",
+      "no_results": "Žádná řeka neodpovídá. Zrušte filtry nebo zkuste jiné jméno."
     }
   },
   "localization": {

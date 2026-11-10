@@ -1464,6 +1464,31 @@
           "options__4": {
             "label": "Velká"
           }
+        },
+        "guides_header": {
+          "content": "Vybraní průvodci"
+        },
+        "guides_heading": {
+          "label": "Nadpis průvodců",
+          "default": "Průvodci muškařením",
+          "info": "Přidejte bloky Guide a zobrazte stránky nad příspěvky blogu. Jen na první stránce blogu."
+        }
+      },
+      "blocks": {
+        "guide": {
+          "name": "Průvodce",
+          "settings": {
+            "page": {
+              "label": "Stránka"
+            },
+            "image": {
+              "label": "Obrázek"
+            },
+            "description": {
+              "label": "Popis",
+              "info": "Nechte prázdné a použije se začátek textu stránky."
+            }
+          }
         }
       }
     },
@@ -3420,10 +3445,209 @@
         },
         "show_sku": {
           "label": "Zobrazit SKU"
+        },
+        "b2b_only": {
+          "label": "Zobrazit jen zákazníkům B2B",
+          "info": "Pokud je zapnuto, seznam rychlé objednávky se zobrazí jen přihlášeným velkoobchodním kupujícím."
         }
       },
       "presets": {
         "name": "Seznam pro rychlé objednávky"
+      }
+    },
+    "product-specs": {
+      "name": "Specifikace produktu",
+      "settings": {
+        "heading": {
+          "label": "Nadpis"
+        },
+        "color_scheme": {
+          "label": "Barevné schéma"
+        },
+        "padding_top": {
+          "label": "Horní vnitřní okraj"
+        },
+        "padding_bottom": {
+          "label": "Dolní vnitřní okraj"
+        }
+      },
+      "blocks": {
+        "spec": {
+          "name": "Sloupec specifikace",
+          "settings": {
+            "heading": {
+              "label": "Nadpis",
+              "default": "Vlastnosti"
+            },
+            "content": {
+              "label": "Obsah",
+              "info": "Připojte metapole produktu jako dynamický zdroj, nebo nechte prázdné a sloupec se skryje."
+            },
+            "wide": {
+              "label": "Široký sloupec",
+              "info": "Dejte tomuto sloupci dvojitou šířku, třeba pro seznam vlastností."
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Specifikace produktu"
+      }
+    },
+    "product-editorial": {
+      "name": "Redakční blok produktu",
+      "settings": {
+        "heading": {
+          "label": "Nadpis",
+          "info": "Připojte metapole produktu jako dynamický zdroj nadpisu pro každý produkt."
+        },
+        "content": {
+          "label": "Obsah",
+          "info": "Připojte metapole produktu jako dynamický zdroj. Sekce se skryje, když je prázdná."
+        },
+        "use_description_fallback": {
+          "label": "Použít popis produktu jako zálohu",
+          "info": "Když není připojen obsah, zobrazí se popis produktu."
+        },
+        "fallback_heading": {
+          "label": "Záložní nadpis",
+          "info": "Použije se, když není připojen nadpis pro daný produkt.",
+          "default": "Popis a vlastnosti"
+        },
+        "brand_heading": {
+          "label": "Nadpis sloupce značky",
+          "default": "Značka"
+        },
+        "shipping_heading": {
+          "label": "Nadpis sloupce dopravy",
+          "default": "Doprava a vrácení"
+        },
+        "shipping_text": {
+          "label": "Text sloupce dopravy",
+          "default": "<p>Doprava zdarma u objednávek do USA nad $75. Vrácení zboží v rámci USA zdarma.</p>"
+        },
+        "color_scheme": {
+          "label": "Barevné schéma"
+        },
+        "padding_top": {
+          "label": "Horní vnitřní okraj"
+        },
+        "padding_bottom": {
+          "label": "Dolní vnitřní okraj"
+        }
+      },
+      "presets": {
+        "name": "Redakční blok produktu"
+      }
+    },
+    "sticky-atc-bar": {
+      "name": "Připnutá lišta přidat do košíku",
+      "settings": {
+        "paragraph": {
+          "content": "Zobrazí lištu s cenou a tlačítkem přidat do košíku, jakmile nakupující mine hlavní nákupní tlačítka."
+        },
+        "color_scheme": {
+          "label": "Barevné schéma"
+        }
+      },
+      "presets": {
+        "name": "Připnutá lišta přidat do košíku"
+      }
+    },
+    "spawn_rods_reels": {
+      "name": "Stránka prutů a navijáků",
+      "title": "Název stránky",
+      "intro": "Úvod",
+      "rods": "Kolekce muškařských prutů",
+      "reels": "Kolekce muškařských navijáků",
+      "rods_image": "Vlastní obrázek prutů",
+      "reels_image": "Vlastní obrázek navijáků",
+      "brand_menu": "Menu se značkami prutů a navijáků"
+    },
+    "spawn_home": {
+      "name": "Prémiová úvodní stránka Spawn",
+      "hero_image": "Hlavní obrázek",
+      "eyebrow": "Řádek nad nadpisem",
+      "hero_title": "Hlavní nadpis",
+      "hero_text": "Hlavní popis",
+      "tying_collection": "Kolekce pro vázání mušek",
+      "materials_collection": "Kolekce vybraných materiálů",
+      "flies_collection": "Kolekce typických mušek",
+      "feature_image": "Obrázek vybrané mušky",
+      "feature_title": "Název vybrané mušky",
+      "feature_text": "Popis vybrané mušky",
+      "feature_collection": "Kolekce vybrané mušky",
+      "store_image": "Obrázek prodejny",
+      "store_text": "Popis prodejny",
+      "blog": "Blog deníku",
+      "category": "Kategorie",
+      "category_title": "Název kategorie",
+      "category_image": "Vlastní obrázek kategorie",
+      "category_subtitle": "Podnadpis kategorie",
+      "category_cta": "Popisek tlačítka kategorie"
+    },
+    "wholesale_landing": {
+      "name": "Vstupní stránka velkoobchodu",
+      "settings": {
+        "hero_image": "Hlavní obrázek",
+        "eyebrow": "Řádek nad nadpisem",
+        "heading": "Nadpis",
+        "lede": "Doplňující text",
+        "points_header": "Hlavní zvýraznění",
+        "point_1_title": "Nadpis zvýraznění 1",
+        "point_1_text": "Text zvýraznění 1",
+        "point_2_title": "Nadpis zvýraznění 2",
+        "point_2_text": "Text zvýraznění 2",
+        "point_3_title": "Nadpis zvýraznění 3",
+        "point_3_text": "Text zvýraznění 3",
+        "request_label": "Popisek tlačítka žádosti o přístup",
+        "login_label": "Popisek tlačítka přihlášení",
+        "shop_label": "Popisek tlačítka obchodu",
+        "account_label": "Popisek tlačítka účtu",
+        "shop_link": "Odkaz do obchodu pro přihlášené kupující",
+        "who_header": "Pro koho je",
+        "who_heading": "Nadpis „Pro koho“",
+        "who_text": "Text „Pro koho“",
+        "after_header": "Po schválení",
+        "after_heading": "Nadpis po schválení",
+        "after_text": "Text po schválení",
+        "form_header": "Formulář žádosti",
+        "form_heading": "Nadpis formuláře",
+        "form_text": "Doplňující text formuláře",
+        "support_email": "Záložní e-mail podpory"
+      },
+      "blocks": {
+        "richtext": {
+          "name": "Formát RTF",
+          "settings": {
+            "text": "Text"
+          }
+        }
+      }
+    },
+    "river_conditions": {
+      "name": "Stav řeky",
+      "settings": {
+        "header_layout": {
+          "content": "Rozvržení",
+          "info": "Nastavuje odsazení nad a pod blokem stavu řeky."
+        },
+        "header_products": {
+          "content": "Karty produktů"
+        }
+      },
+      "blocks": {
+        "river_link": {
+          "name": "Odkaz na řeku",
+          "settings": {
+            "url": {
+              "label": "URL"
+            },
+            "label": {
+              "label": "Popisek"
+            }
+          }
+        }
       }
     }
   }

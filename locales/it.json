@@ -49,7 +49,8 @@
     },
     "search": {
       "search": "Cerca",
-      "reset": "Cancella termine ricerca"
+      "reset": "Cancella termine ricerca",
+      "placeholder": "Cerca prodotti e marchi"
     },
     "cart": {
       "view": "Visualizza carrello ({{ count }})",
@@ -139,7 +140,8 @@
         "from_price_html": "Da {{ price }}",
         "regular_price": "Prezzo di listino",
         "sale_price": "Prezzo scontato",
-        "unit_price": "Prezzo unitario"
+        "unit_price": "Prezzo unitario",
+        "save_percent": "Risparmi il {{ percent }}%"
       },
       "share": "Condividi questo prodotto",
       "sold_out": "Esaurito",
@@ -325,7 +327,18 @@
       "duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_html": "Dazi inclusi. Imposte, sconti e <a href=\"{{ link }}\">spedizione</a> calcolati al check-out.",
       "duties_included_taxes_at_checkout_shipping_at_checkout_without_policy": "Dazi inclusi. Imposte, sconti e spedizione calcolati al check-out.",
       "taxes_at_checkout_shipping_at_checkout_with_policy_html": "Imposte, sconti e <a href=\"{{ link }}\">spedizione</a> calcolati al check-out.",
-      "taxes_at_checkout_shipping_at_checkout_without_policy": "Imposte, sconti e spedizione calcolati al check-out."
+      "taxes_at_checkout_shipping_at_checkout_without_policy": "Imposte, sconti e spedizione calcolati al check-out.",
+      "empty_message": "Prepara il banco da costruzione per la prossima giornata in acqua.",
+      "shop_materials": "Acquista il tying",
+      "shop_flies": "Esplora le mosche",
+      "remove": "Rimuovi",
+      "each": "cadauno",
+      "available_offers": "Offerte disponibili",
+      "view_full_cart": "Vedi il carrello completo",
+      "shipping_remaining_html": "Ti mancano <strong>{{ amount }}</strong> per la spedizione gratuita.",
+      "shipping_unlocked": "Hai sbloccato la spedizione gratuita.",
+      "shipping_progress": "Avanzamento verso la spedizione gratuita",
+      "shipping_region": "Per ordini negli Stati Uniti contigui."
     },
     "footer": {
       "payment": "Metodi di pagamento"
@@ -395,6 +408,69 @@
       "min_error": "Questo articolo ha un minimo di {{ min }}",
       "max_error": "Questo articolo ha un massimo di {{ max }}",
       "step_error": "Puoi aggiungere questo articolo solo in incrementi di {{ step }}"
+    },
+    "river_conditions": {
+      "name": "Condizioni del fiume",
+      "no_river": "Nessun dato del fiume è configurato per questa pagina.",
+      "river_navigation": "Navigazione fiumi",
+      "live_label": "In diretta · dati USGS ogni 15 min",
+      "flow": "Portata",
+      "temperature": "Temperatura dell’acqua",
+      "gage_height": "Altezza idrometrica",
+      "clarity": "Limpidezza",
+      "unknown": "Sconosciuto",
+      "data_unavailable": "I dati in diretta non sono temporaneamente disponibili. Riprova presto.",
+      "flow_history": "Portata di 7 giorni",
+      "where": "Dove stai pescando",
+      "access_points": "Accessi · da monte verso valle",
+      "nearest": "Più vicino",
+      "best_stretch": "Il tratto migliore in questo momento",
+      "guide_report": "Rapporto della guida",
+      "on_the_water": "In acqua adesso",
+      "current_hatches": "Schiuse attuali",
+      "no_hatches": "Nessuna schiusa attiva in questo momento. Riprova presto o sfoglia sotto l’intera scatola di mosche.",
+      "recommended_gear": "Attrezzatura consigliata",
+      "gear_lede": "Scelto in base a ciò che c’è in acqua adesso.",
+      "settings": {
+        "header_layout": {
+          "content": "Layout",
+          "info": "Controlla la spaziatura sopra e sotto il blocco delle condizioni del fiume."
+        },
+        "header_products": {
+          "content": "Schede prodotto"
+        }
+      },
+      "blocks": {
+        "river_link": {
+          "name": "Link del fiume",
+          "settings": {
+            "url": {
+              "label": "URL"
+            },
+            "label": {
+              "label": "Etichetta"
+            }
+          }
+        }
+      }
+    },
+    "river_picker": {
+      "current": "Fiume attuale",
+      "search_placeholder": "Cerca fiumi…",
+      "search_label": "Cerca fiumi",
+      "browse_all": "Sfoglia tutti i fiumi",
+      "empty": "Nessun fiume corrisponde."
+    },
+    "rivers_index": {
+      "empty": "Nessun fiume è ancora configurato. Esegui lo script di seed per compilare i dati.",
+      "search_placeholder": "Cerca fiumi o località…",
+      "search_label": "Cerca fiumi",
+      "filter_label": "Filtra per regione",
+      "all_regions": "Tutte le regioni",
+      "flow": "Portata",
+      "temperature": "Temp.",
+      "view": "Vedi le condizioni",
+      "no_results": "Nessun fiume corrisponde. Azzera i filtri o cerca un altro nome."
     }
   },
   "localization": {
