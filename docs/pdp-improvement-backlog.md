@@ -1,9 +1,9 @@
 # PDP Improvement Backlog
 
 Status as of 2026-07-02. Written for whoever (human or agent) picks up product
-detail page work next. Read `.claude/CLAUDE.md` first for theme rules and the
-deploy workflow; note theme `129377796159` currently reports `role: "live"` on
-push, so every push is a production deploy.
+detail page work next. Read `AGENTS.md` and `.claude/CLAUDE.md` first. Do not
+push the published theme. Theme `129377796159` was the live id when this note
+was written; verify the current published theme before any preview.
 
 ## Shipped 2026-07-02 (context, don't redo)
 

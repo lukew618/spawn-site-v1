@@ -20,7 +20,7 @@ Caddis MCP offers Shopify reads and specific staged actions. It is not a general
 - Fetch Theme Editor changes from GitHub. Do not routinely run `shopify theme pull` into a working checkout. For sync recovery, pull a verified theme into a separate empty directory, compare it with GitHub, and bring intended changes through a PR.
 - Keep theme changes on a branch. Open a pull request and inspect the combined preview before merge.
 - Resolve PR conflicts on that branch. Preserve both edits when possible. Ask the owner when the edits require different product choices.
-- Compare changed-file Theme Check results with the current baseline. The imported live theme has existing Theme Check failures; do not claim a clean whole-theme check.
+- Compare changed-file Theme Check results with the current baseline. Recommended theme check on this repository root exits 0 with 0 errors and 21 warnings. Record the warnings. A new error is a failure.
 - For a requested theme change, use an isolated development or unpublished theme for its Shopify-rendered preview. Never use the current published theme as a development or preview target.
 - Do not run `shopify theme push --allow-live` or upload files to the live theme during coding or review.
 - Do not overwrite `config/settings_data.json` or other editor-owned settings with stale local data. Inspect live editor changes before a planned settings edit.
@@ -31,6 +31,7 @@ Luke selected Shopify's native GitHub integration for theme publishing. The live
 
 The image provides Node 22, pnpm, and Shopify CLI 4.9.4 (`shopify` on `/usr/local/bin`). Worker dependencies are installed in `worker/`. Do not run `npm ci` at the repository root: `package.json` is empty.
 
-- Theme check: `node scripts/check-theme-root.mjs` from the repository root. It refuses an empty directory, which otherwise makes `shopify theme check` exit 0 with no offenses. JSON and text reports both finish on the current theme: exit 0, 0 errors, 21 warnings. Do not treat an empty folder as a pass.
+- Theme check: `node scripts/check-theme-root.mjs` from the repository root. It refuses an empty directory, which otherwise makes `shopify theme check` exit 0 with no offenses. JSON and text reports both finish on the current theme: exit 0, 0 errors, 21 warnings. Do not treat an empty folder as a pass. Locale parity: `node scripts/check-locale-completeness.mjs`.
+- Landed recovery checks: `node scripts/check-stack-recovery.mjs` and `node scripts/check-rivers-recovery.mjs`.
 - Worker: `pnpm --dir worker test`. Local API: `pnpm --dir worker exec wrangler dev --local --port 8787 --ip 127.0.0.1`.
 - Do not start `shopify theme dev` from environment boot. A store preview needs `SHOPIFY_CLI_THEME_TOKEN` and `SHOPIFY_FLAG_STORE=spawn-fly-fish.myshopify.com`, and it must use an unpublished development theme. Do not pass the published theme id.

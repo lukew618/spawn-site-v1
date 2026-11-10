@@ -11,7 +11,7 @@ Open product-page work is tracked in `docs/pdp-improvement-backlog.md` — check
 
 ## Commands
 ```bash
-shopify theme check  # compare changed-file findings with the imported live baseline
+shopify theme check  # repository root: 0 errors and 21 warnings; record any new error
 ```
 
 Use only an isolated development or unpublished theme for a Shopify-rendered preview. Verify the current published theme ID. Do not use that theme as a development target or push to it during coding and review.
@@ -138,7 +138,7 @@ Handle with care (Theme Editor owns these):
 
 ## Pre-Commit Checklist
 Run before every commit, no exceptions:
-- [ ] `shopify theme check` — no new changed-file errors against the imported live baseline; record existing failures accurately
+- [ ] `shopify theme check` — 0 errors on the repository root; record the current 21 warnings and any new finding
 - [ ] All images: `alt` attribute present, `image_url` + `image_tag` used
 - [ ] No `{% include %}` anywhere in changed files
 - [ ] No hardcoded hex colors — CSS custom properties only
