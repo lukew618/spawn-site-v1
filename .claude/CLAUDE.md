@@ -169,7 +169,7 @@ chore(snippets): migrate include to render in featured-collection
 - `.shopifyignore` controls what gets pushed — check it before adding sensitive config files.
 
 ## Gotchas
-- **Unused React in `package.json`** — `react` and `@types/react` are installed but not used. Don't add React-based code to this theme.
+- **No React in the theme** — root `package.json` is empty. `package-lock.json` still lists `react` and `@types/react` from an older lockfile; they are not dependencies of `package.json`. Don't add React-based code to this theme.
 - **`git_commit_template.md` in `/assets/`** — accidentally committed, not a theme file. Do not reference or deploy it.
 - **Theme Editor vs. code** — editor changes can affect `config/settings_data.json` and template JSON. Fetch Shopify's editor commits from GitHub before a planned settings edit. Never pull the live theme directly into a working branch. For sync recovery, pull into a separate empty directory and review the diff.
 - **Shopify's strict Liquid parser** — all Liquid must be syntactically valid or the theme will fail to publish. `shopify theme check` catches this.

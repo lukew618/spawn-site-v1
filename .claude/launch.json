@@ -4,7 +4,7 @@
     {
       "name": "shopify-dev",
       "runtimeExecutable": "/Users/lucaswhiteman/.nvm/versions/node/v23.10.0/bin/shopify",
-      "runtimeArgs": ["theme", "dev", "--theme=129377796159", "--store=spawn-fly-fish.myshopify.com"],
+      "runtimeArgs": ["theme", "dev", "--store=spawn-fly-fish.myshopify.com"],
       "port": 9292
     }
   ]
