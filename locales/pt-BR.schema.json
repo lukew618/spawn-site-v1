@@ -1464,6 +1464,31 @@
             "label": "Grande"
           },
           "info": "Use uma imagem com proporção 3:2 para alcançar os melhores resultados. [Saiba mais](https://help.shopify.com/manual/shopify-admin/productivity-tools/image-editor#understanding-image-aspect-ratio)"
+        },
+        "guides_header": {
+          "content": "Guias em destaque"
+        },
+        "guides_heading": {
+          "label": "Título dos guias",
+          "default": "Guias de pesca com mosca",
+          "info": "Adicione blocos Guide para destacar páginas acima das publicações. Somente na primeira página do blog."
+        }
+      },
+      "blocks": {
+        "guide": {
+          "name": "Guia",
+          "settings": {
+            "page": {
+              "label": "Página"
+            },
+            "image": {
+              "label": "Imagem"
+            },
+            "description": {
+              "label": "Descrição",
+              "info": "Deixe em branco para usar o início do texto da página."
+            }
+          }
         }
       }
     },
@@ -3420,10 +3445,209 @@
         },
         "show_sku": {
           "label": "Mostrar SKUs"
+        },
+        "b2b_only": {
+          "label": "Mostrar apenas para clientes B2B",
+          "info": "Quando ativada, a lista de pedido rápido aparece só para compradores de atacado conectados."
         }
       },
       "presets": {
         "name": "Lista de pedidos rápidos"
+      }
+    },
+    "product-specs": {
+      "name": "Especificações do produto",
+      "settings": {
+        "heading": {
+          "label": "Título"
+        },
+        "color_scheme": {
+          "label": "Esquema de cores"
+        },
+        "padding_top": {
+          "label": "Preenchimento superior"
+        },
+        "padding_bottom": {
+          "label": "Preenchimento inferior"
+        }
+      },
+      "blocks": {
+        "spec": {
+          "name": "Coluna de especificação",
+          "settings": {
+            "heading": {
+              "label": "Título",
+              "default": "Características"
+            },
+            "content": {
+              "label": "Conteúdo",
+              "info": "Conecte um metacampo do produto como fonte dinâmica ou deixe em branco para ocultar esta coluna."
+            },
+            "wide": {
+              "label": "Coluna larga",
+              "info": "Dê a esta coluna o dobro da largura, como uma lista de características."
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Especificações do produto"
+      }
+    },
+    "product-editorial": {
+      "name": "Editorial do produto",
+      "settings": {
+        "heading": {
+          "label": "Título",
+          "info": "Conecte um metacampo do produto como fonte dinâmica para um título por produto."
+        },
+        "content": {
+          "label": "Conteúdo",
+          "info": "Conecte um metacampo do produto como fonte dinâmica. A seção fica oculta quando vazia."
+        },
+        "use_description_fallback": {
+          "label": "Usar a descrição do produto como alternativa",
+          "info": "Quando nenhum conteúdo está conectado, mostre a descrição do produto."
+        },
+        "fallback_heading": {
+          "label": "Título alternativo",
+          "info": "Usado quando nenhum título por produto está conectado.",
+          "default": "Descrição e características"
+        },
+        "brand_heading": {
+          "label": "Título da coluna da marca",
+          "default": "Marca"
+        },
+        "shipping_heading": {
+          "label": "Título da coluna de envio",
+          "default": "Envio e devoluções"
+        },
+        "shipping_text": {
+          "label": "Texto da coluna de envio",
+          "default": "<p>Frete grátis em pedidos para os EUA acima de $75. Devolução grátis nos EUA.</p>"
+        },
+        "color_scheme": {
+          "label": "Esquema de cores"
+        },
+        "padding_top": {
+          "label": "Preenchimento superior"
+        },
+        "padding_bottom": {
+          "label": "Preenchimento inferior"
+        }
+      },
+      "presets": {
+        "name": "Editorial do produto"
+      }
+    },
+    "sticky-atc-bar": {
+      "name": "Barra fixa de adicionar ao carrinho",
+      "settings": {
+        "paragraph": {
+          "content": "Mostra uma barra com preço e botão de adicionar ao carrinho quando quem compra passa dos botões principais."
+        },
+        "color_scheme": {
+          "label": "Esquema de cores"
+        }
+      },
+      "presets": {
+        "name": "Barra fixa de adicionar ao carrinho"
+      }
+    },
+    "spawn_rods_reels": {
+      "name": "Página de varas e carretilhas",
+      "title": "Título da página",
+      "intro": "Introdução",
+      "rods": "Coleção de varas de mosca",
+      "reels": "Coleção de carretilhas de mosca",
+      "rods_image": "Imagem alternativa das varas",
+      "reels_image": "Imagem alternativa das carretilhas",
+      "brand_menu": "Menu com marcas de varas e carretilhas"
+    },
+    "spawn_home": {
+      "name": "Página inicial premium da Spawn",
+      "hero_image": "Imagem principal",
+      "eyebrow": "Linha acima do título",
+      "hero_title": "Título principal",
+      "hero_text": "Descrição principal",
+      "tying_collection": "Coleção de montagem de moscas",
+      "materials_collection": "Coleção de materiais em destaque",
+      "flies_collection": "Coleção de moscas exclusivas",
+      "feature_image": "Imagem da mosca em destaque",
+      "feature_title": "Título da mosca em destaque",
+      "feature_text": "Descrição da mosca em destaque",
+      "feature_collection": "Coleção da mosca em destaque",
+      "store_image": "Imagem da loja",
+      "store_text": "Descrição da loja",
+      "blog": "Blog do diário",
+      "category": "Categoria",
+      "category_title": "Título da categoria",
+      "category_image": "Imagem alternativa da categoria",
+      "category_subtitle": "Subtítulo da categoria",
+      "category_cta": "Rótulo do botão da categoria"
+    },
+    "wholesale_landing": {
+      "name": "Página de atacado",
+      "settings": {
+        "hero_image": "Imagem principal",
+        "eyebrow": "Linha acima do título",
+        "heading": "Título",
+        "lede": "Texto de apoio",
+        "points_header": "Destaques do bloco principal",
+        "point_1_title": "Título do destaque 1",
+        "point_1_text": "Detalhe do destaque 1",
+        "point_2_title": "Título do destaque 2",
+        "point_2_text": "Detalhe do destaque 2",
+        "point_3_title": "Título do destaque 3",
+        "point_3_text": "Detalhe do destaque 3",
+        "request_label": "Rótulo do botão de solicitar acesso",
+        "login_label": "Rótulo do botão de entrar",
+        "shop_label": "Rótulo do botão de compra",
+        "account_label": "Rótulo do botão da conta",
+        "shop_link": "Link da loja para compradores conectados",
+        "who_header": "Para quem é",
+        "who_heading": "Título de „Para quem“",
+        "who_text": "Texto de „Para quem“",
+        "after_header": "Após a aprovação",
+        "after_heading": "Título após a aprovação",
+        "after_text": "Texto após a aprovação",
+        "form_header": "Formulário de solicitação",
+        "form_heading": "Título do formulário",
+        "form_text": "Texto de apoio do formulário",
+        "support_email": "E-mail de suporte alternativo"
+      },
+      "blocks": {
+        "richtext": {
+          "name": "Rich text",
+          "settings": {
+            "text": "Texto"
+          }
+        }
+      }
+    },
+    "river_conditions": {
+      "name": "Condições do rio",
+      "settings": {
+        "header_layout": {
+          "content": "Layout",
+          "info": "Controla o espaçamento acima e abaixo do bloco de condições do rio."
+        },
+        "header_products": {
+          "content": "Cartões de produtos"
+        }
+      },
+      "blocks": {
+        "river_link": {
+          "name": "Link do rio",
+          "settings": {
+            "url": {
+              "label": "URL"
+            },
+            "label": {
+              "label": "Rótulo"
+            }
+          }
+        }
       }
     }
   }

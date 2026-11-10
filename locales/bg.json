@@ -49,7 +49,8 @@
     },
     "search": {
       "search": "Търсене",
-      "reset": "Изчисти думата за търсене"
+      "reset": "Изчисти думата за търсене",
+      "placeholder": "Търсене на продукти и марки"
     },
     "cart": {
       "view": "Покажи количката ({{ count }})",
@@ -138,7 +139,8 @@
         "from_price_html": "От {{ price }}",
         "regular_price": "Обичайна цена",
         "sale_price": "Цена при разпродажба",
-        "unit_price": "Единична цена"
+        "unit_price": "Единична цена",
+        "save_percent": "Спестявате {{ percent }}%"
       },
       "share": "Споделяне на този продукт",
       "unavailable": "Неналично",
@@ -315,7 +317,18 @@
       "duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_html": "С включено мито. Данъците, отстъпките и <a href=\"{{ link }}\">доставката</a> се изчисляват при плащане.",
       "duties_included_taxes_at_checkout_shipping_at_checkout_without_policy": "С включено мито. Данъците, отстъпките и доставката се изчисляват при плащане.",
       "taxes_at_checkout_shipping_at_checkout_with_policy_html": "Данъците, отстъпките и <a href=\"{{ link }}\">доставката</a> се изчисляват при плащане.",
-      "taxes_at_checkout_shipping_at_checkout_without_policy": "Данъците, отстъпките и доставката се изчисляват при плащане."
+      "taxes_at_checkout_shipping_at_checkout_without_policy": "Данъците, отстъпките и доставката се изчисляват при плащане.",
+      "empty_message": "Напълнете масата за връзване за следващия ден на водата.",
+      "shop_materials": "Магазин за връзване на мухи",
+      "shop_flies": "Разгледай мухите",
+      "remove": "Премахни",
+      "each": "за брой",
+      "available_offers": "Налични оферти",
+      "view_full_cart": "Виж цялата количка",
+      "shipping_remaining_html": "Остават ви <strong>{{ amount }}</strong> до безплатна доставка.",
+      "shipping_unlocked": "Отключихте безплатна доставка.",
+      "shipping_progress": "Напредък към безплатна доставка",
+      "shipping_region": "За поръчки към континенталната част на САЩ."
     },
     "footer": {
       "payment": "Начини на плащане"
@@ -383,6 +396,69 @@
       "min_error": "За този артикул има минимум от {{ min }}",
       "max_error": "За този артикул има максимум от {{ max }}",
       "step_error": "Можете да добавяте този артикул само на групи от {{ step }}"
+    },
+    "river_conditions": {
+      "name": "Състояние на реката",
+      "no_river": "За тази страница няма зададени данни за река.",
+      "river_navigation": "Навигация по реките",
+      "live_label": "На живо · данни USGS на 15 мин",
+      "flow": "Отток",
+      "temperature": "Температура на водата",
+      "gage_height": "Ниво на водомера",
+      "clarity": "Прозрачност",
+      "unknown": "Неизвестно",
+      "data_unavailable": "Данните на живо временно не са налични. Проверете отново скоро.",
+      "flow_history": "Отток за 7 дни",
+      "where": "Където ловите",
+      "access_points": "Достъп · от горе по течението надолу",
+      "nearest": "Най-близо",
+      "best_stretch": "Най-добрият участък в момента",
+      "guide_report": "Доклад на гида",
+      "on_the_water": "На водата сега",
+      "current_hatches": "Текущи излюпвания",
+      "no_hatches": "В момента няма активни излюпвания. Проверете отново скоро или разгледайте пълната кутия с мухи по-долу.",
+      "recommended_gear": "Препоръчано оборудване",
+      "gear_lede": "Подбрано според това, което е на водата сега.",
+      "settings": {
+        "header_layout": {
+          "content": "Оформление",
+          "info": "Определя отстъпа над и под блока със състоянието на реката."
+        },
+        "header_products": {
+          "content": "Карти на продукти"
+        }
+      },
+      "blocks": {
+        "river_link": {
+          "name": "Връзка към река",
+          "settings": {
+            "url": {
+              "label": "URL"
+            },
+            "label": {
+              "label": "Етикет"
+            }
+          }
+        }
+      }
+    },
+    "river_picker": {
+      "current": "Текуща река",
+      "search_placeholder": "Търсене на реки…",
+      "search_label": "Търсене на реки",
+      "browse_all": "Всички реки",
+      "empty": "Няма съвпадащи реки."
+    },
+    "rivers_index": {
+      "empty": "Все още няма зададени реки. Пуснете скрипта за зареждане, за да попълните данните.",
+      "search_placeholder": "Търсене на реки или градове…",
+      "search_label": "Търсене на реки",
+      "filter_label": "Филтър по регион",
+      "all_regions": "Всички региони",
+      "flow": "Отток",
+      "temperature": "Темп.",
+      "view": "Виж условията",
+      "no_results": "Няма съвпадащи реки. Изчистете филтрите или потърсете друго име."
     }
   },
   "localization": {

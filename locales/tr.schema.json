@@ -1464,6 +1464,31 @@
             "label": "Büyük"
           },
           "info": "En iyi sonuçlar için 3:2 en-boy oranına sahip bir görsel kullanın. [Daha fazla bilgi edinin](https://help.shopify.com/manual/shopify-admin/productivity-tools/image-editor#understanding-image-aspect-ratio)"
+        },
+        "guides_header": {
+          "content": "Öne çıkan rehberler"
+        },
+        "guides_heading": {
+          "label": "Rehberler başlığı",
+          "default": "Sinek balıkçılığı rehberleri",
+          "info": "Blog yazılarının üstünde sayfalar göstermek için Guide blokları ekleyin. Yalnızca blogun ilk sayfasında görünür."
+        }
+      },
+      "blocks": {
+        "guide": {
+          "name": "Rehber",
+          "settings": {
+            "page": {
+              "label": "Sayfa"
+            },
+            "image": {
+              "label": "Görsel"
+            },
+            "description": {
+              "label": "Açıklama",
+              "info": "Sayfa metninin başını kullanmak için boş bırakın."
+            }
+          }
         }
       }
     },
@@ -3420,10 +3445,209 @@
         },
         "show_sku": {
           "label": "SKU'ları göster"
+        },
+        "b2b_only": {
+          "label": "Yalnızca B2B müşterilere göster",
+          "info": "Açıkken hızlı sipariş listesi yalnızca oturum açmış toptan alıcılara görünür."
         }
       },
       "presets": {
         "name": "Hızlı sipariş listesi"
+      }
+    },
+    "product-specs": {
+      "name": "Ürün özellikleri",
+      "settings": {
+        "heading": {
+          "label": "Başlık"
+        },
+        "color_scheme": {
+          "label": "Renk şeması"
+        },
+        "padding_top": {
+          "label": "Üst dolgu"
+        },
+        "padding_bottom": {
+          "label": "Alt dolgu"
+        }
+      },
+      "blocks": {
+        "spec": {
+          "name": "Özellik sütunu",
+          "settings": {
+            "heading": {
+              "label": "Başlık",
+              "default": "Özellikler"
+            },
+            "content": {
+              "label": "İçerik",
+              "info": "Bir ürün meta alanını dinamik kaynak olarak bağlayın veya bu sütunu gizlemek için boş bırakın."
+            },
+            "wide": {
+              "label": "Geniş sütun",
+              "info": "Bu sütuna, özellik listesi gibi, iki kat genişlik verin."
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Ürün özellikleri"
+      }
+    },
+    "product-editorial": {
+      "name": "Ürün editoryal bloğu",
+      "settings": {
+        "heading": {
+          "label": "Başlık",
+          "info": "Ürün başına başlık için bir ürün meta alanını dinamik kaynak olarak bağlayın."
+        },
+        "content": {
+          "label": "İçerik",
+          "info": "Bir ürün meta alanını dinamik kaynak olarak bağlayın. Boşsa bölüm gizlenir."
+        },
+        "use_description_fallback": {
+          "label": "Ürün açıklamasına geri dön",
+          "info": "İçerik bağlanmadığında ürün açıklamasını göster."
+        },
+        "fallback_heading": {
+          "label": "Yedek başlık",
+          "info": "Ürün başına başlık bağlanmadığında kullanılır.",
+          "default": "Açıklama ve özellikler"
+        },
+        "brand_heading": {
+          "label": "Marka sütunu başlığı",
+          "default": "Marka"
+        },
+        "shipping_heading": {
+          "label": "Kargo sütunu başlığı",
+          "default": "Kargo ve iadeler"
+        },
+        "shipping_text": {
+          "label": "Kargo sütunu metni",
+          "default": "<p>ABD'ye $75 üzeri siparişlerde kargo ücretsiz. ABD içinde iade kargosu ücretsiz.</p>"
+        },
+        "color_scheme": {
+          "label": "Renk şeması"
+        },
+        "padding_top": {
+          "label": "Üst dolgu"
+        },
+        "padding_bottom": {
+          "label": "Alt dolgu"
+        }
+      },
+      "presets": {
+        "name": "Ürün editoryal bloğu"
+      }
+    },
+    "sticky-atc-bar": {
+      "name": "Yapışkan sepete ekle çubuğu",
+      "settings": {
+        "paragraph": {
+          "content": "Alıcı ana satın alma düğmelerini geçince fiyat ve sepete ekle düğmeli bir çubuk gösterir."
+        },
+        "color_scheme": {
+          "label": "Renk şeması"
+        }
+      },
+      "presets": {
+        "name": "Yapışkan sepete ekle çubuğu"
+      }
+    },
+    "spawn_rods_reels": {
+      "name": "Olta ve makara sayfası",
+      "title": "Sayfa başlığı",
+      "intro": "Giriş",
+      "rods": "Sinek oltası koleksiyonu",
+      "reels": "Sinek makarası koleksiyonu",
+      "rods_image": "Sinek oltası görseli değiştirme",
+      "reels_image": "Sinek makarası görseli değiştirme",
+      "brand_menu": "Olta ve makara markaları menüsü"
+    },
+    "spawn_home": {
+      "name": "Spawn premium ana sayfa",
+      "hero_image": "Ana görsel",
+      "eyebrow": "Başlık üstü satır",
+      "hero_title": "Ana başlık",
+      "hero_text": "Ana açıklama",
+      "tying_collection": "Sinek bağlama koleksiyonu",
+      "materials_collection": "Öne çıkan malzeme koleksiyonu",
+      "flies_collection": "İmza sinek koleksiyonu",
+      "feature_image": "Öne çıkan sinek görseli",
+      "feature_title": "Öne çıkan sinek başlığı",
+      "feature_text": "Öne çıkan sinek açıklaması",
+      "feature_collection": "Öne çıkan sinek koleksiyonu",
+      "store_image": "Mağaza görseli",
+      "store_text": "Mağaza açıklaması",
+      "blog": "Günlük blogu",
+      "category": "Kategori",
+      "category_title": "Kategori başlığı",
+      "category_image": "Kategori görseli değiştirme",
+      "category_subtitle": "Kategori alt başlığı",
+      "category_cta": "Kategori düğmesi etiketi"
+    },
+    "wholesale_landing": {
+      "name": "Toptan satış sayfası",
+      "settings": {
+        "hero_image": "Ana görsel",
+        "eyebrow": "Başlık üstü satır",
+        "heading": "Başlık",
+        "lede": "Destekleyici metin",
+        "points_header": "Ana bölüm vurguları",
+        "point_1_title": "Vurgu 1 başlığı",
+        "point_1_text": "Vurgu 1 ayrıntısı",
+        "point_2_title": "Vurgu 2 başlığı",
+        "point_2_text": "Vurgu 2 ayrıntısı",
+        "point_3_title": "Vurgu 3 başlığı",
+        "point_3_text": "Vurgu 3 ayrıntısı",
+        "request_label": "Erişim iste düğmesi etiketi",
+        "login_label": "Oturum aç düğmesi etiketi",
+        "shop_label": "Mağaza düğmesi etiketi",
+        "account_label": "Hesap düğmesi etiketi",
+        "shop_link": "Oturum açmış alıcılar için mağaza bağlantısı",
+        "who_header": "Kim için",
+        "who_heading": "„Kim için“ başlığı",
+        "who_text": "„Kim için“ metni",
+        "after_header": "Onaydan sonra",
+        "after_heading": "Onaydan sonraki başlık",
+        "after_text": "Onaydan sonraki metin",
+        "form_header": "Talep formu",
+        "form_heading": "Form başlığı",
+        "form_text": "Form destek metni",
+        "support_email": "Yedek destek e-postası"
+      },
+      "blocks": {
+        "richtext": {
+          "name": "Zengin metin",
+          "settings": {
+            "text": "Metin"
+          }
+        }
+      }
+    },
+    "river_conditions": {
+      "name": "Nehir koşulları",
+      "settings": {
+        "header_layout": {
+          "content": "Düzen",
+          "info": "Nehir koşulları bloğunun üstündeki ve altındaki boşluğu ayarlar."
+        },
+        "header_products": {
+          "content": "Ürün kartları"
+        }
+      },
+      "blocks": {
+        "river_link": {
+          "name": "Nehir bağlantısı",
+          "settings": {
+            "url": {
+              "label": "URL"
+            },
+            "label": {
+              "label": "Etiket"
+            }
+          }
+        }
       }
     }
   }

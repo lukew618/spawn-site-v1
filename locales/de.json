@@ -49,7 +49,8 @@
     },
     "search": {
       "search": "Suchen",
-      "reset": "Suchbegriff zurücksetzen"
+      "reset": "Suchbegriff zurücksetzen",
+      "placeholder": "Produkte und Marken suchen"
     },
     "cart": {
       "view": "Warenkorb ansehen ({{ count }})",
@@ -138,7 +139,8 @@
         "from_price_html": "Von {{ price }}",
         "regular_price": "Normaler Preis",
         "sale_price": "Verkaufspreis",
-        "unit_price": "Grundpreis"
+        "unit_price": "Grundpreis",
+        "save_percent": "Sie sparen {{ percent }} %"
       },
       "share": "Dieses Produkt teilen",
       "sold_out": "Ausverkauft",
@@ -315,7 +317,18 @@
       "duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_html": "Inkl. Zollgebühren. Steuern, Rabatte und <a href=\"{{ link }}\">Versand</a> werden beim Checkout berechnet.",
       "duties_included_taxes_at_checkout_shipping_at_checkout_without_policy": "Inkl. Zollgebühren. Steuern, Rabatte und Versand werden beim Checkout berechnet.",
       "taxes_at_checkout_shipping_at_checkout_with_policy_html": "Steuern, Rabatte und <a href=\"{{ link }}\">Versand</a> werden beim Checkout berechnet.",
-      "taxes_at_checkout_shipping_at_checkout_without_policy": "Steuern, Rabatte und Versand werden beim Checkout berechnet."
+      "taxes_at_checkout_shipping_at_checkout_without_policy": "Steuern, Rabatte und Versand werden beim Checkout berechnet.",
+      "empty_message": "Rüsten Sie den Bindetisch für den nächsten Tag am Wasser.",
+      "shop_materials": "Fliegenbinden einkaufen",
+      "shop_flies": "Fliegen entdecken",
+      "remove": "Entfernen",
+      "each": "pro Stück",
+      "available_offers": "Verfügbare Angebote",
+      "view_full_cart": "Gesamten Warenkorb ansehen",
+      "shipping_remaining_html": "Noch <strong>{{ amount }}</strong> bis zum kostenlosen Versand.",
+      "shipping_unlocked": "Sie haben kostenlosen Versand freigeschaltet.",
+      "shipping_progress": "Fortschritt bis zum kostenlosen Versand",
+      "shipping_region": "Bei Bestellungen in die zusammenhängenden USA."
     },
     "footer": {
       "payment": "Zahlungsmethoden"
@@ -383,6 +396,69 @@
       "min_error": "Dieser Artikel hat ein Minimum von {{ min }}",
       "max_error": "Dieser Artikel hat ein Maximum von {{ max }}",
       "step_error": "Du kannst diesen Artikel nur in Abstufungen von {{ step }} hinzufügen."
+    },
+    "river_conditions": {
+      "name": "Flussbedingungen",
+      "no_river": "Für diese Seite sind keine Flussdaten hinterlegt.",
+      "river_navigation": "Flussnavigation",
+      "live_label": "Live · USGS alle 15 Minuten",
+      "flow": "Abfluss",
+      "temperature": "Wassertemperatur",
+      "gage_height": "Pegelhöhe",
+      "clarity": "Sicht",
+      "unknown": "Unbekannt",
+      "data_unavailable": "Livedaten sind vorübergehend nicht verfügbar. Schauen Sie bald wieder vorbei.",
+      "flow_history": "Abfluss über 7 Tage",
+      "where": "Wo Sie fischen",
+      "access_points": "Zugänge · von oben nach unten",
+      "nearest": "Am nächsten",
+      "best_stretch": "Beste Strecke im Moment",
+      "guide_report": "Guidebericht",
+      "on_the_water": "Jetzt am Wasser",
+      "current_hatches": "Aktuelle Schlupf",
+      "no_hatches": "Gerade keine aktiven Schlupf. Schauen Sie bald wieder vorbei oder sehen Sie unten die ganze Fliegendose.",
+      "recommended_gear": "Empfohlene Ausrüstung",
+      "gear_lede": "Abgestimmt auf das, was gerade am Wasser ist.",
+      "settings": {
+        "header_layout": {
+          "content": "Layout",
+          "info": "Steuert den Abstand über und unter dem Block mit den Flussbedingungen."
+        },
+        "header_products": {
+          "content": "Produktkarten"
+        }
+      },
+      "blocks": {
+        "river_link": {
+          "name": "Flusslink",
+          "settings": {
+            "url": {
+              "label": "URL"
+            },
+            "label": {
+              "label": "Beschriftung"
+            }
+          }
+        }
+      }
+    },
+    "river_picker": {
+      "current": "Aktueller Fluss",
+      "search_placeholder": "Flüsse suchen…",
+      "search_label": "Flüsse suchen",
+      "browse_all": "Alle Flüsse ansehen",
+      "empty": "Keine Flüsse gefunden."
+    },
+    "rivers_index": {
+      "empty": "Noch keine Flüsse hinterlegt. Führen Sie das Seed-Skript aus, um die Flussdaten zu füllen.",
+      "search_placeholder": "Flüsse oder Orte suchen…",
+      "search_label": "Flüsse suchen",
+      "filter_label": "Nach Region filtern",
+      "all_regions": "Alle Regionen",
+      "flow": "Abfluss",
+      "temperature": "Temp.",
+      "view": "Bedingungen ansehen",
+      "no_results": "Keine Flüsse gefunden. Löschen Sie die Filter oder suchen Sie einen anderen Namen."
     }
   },
   "localization": {

@@ -49,7 +49,8 @@
     },
     "search": {
       "search": "搜索",
-      "reset": "清除搜索词"
+      "reset": "清除搜索词",
+      "placeholder": "搜索产品和品牌"
     },
     "cart": {
       "view": "查看购物车 ({{ count }})",
@@ -139,7 +140,8 @@
         "from_price_html": "来自 {{ price }}",
         "regular_price": "常规价格",
         "sale_price": "促销价",
-        "unit_price": "单价"
+        "unit_price": "单价",
+        "save_percent": "节省 {{ percent }}%"
       },
       "share": "分享此产品",
       "sold_out": "售罄",
@@ -315,7 +317,18 @@
       "duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_html": "已含关税。结账时计算税费、折扣和<a href=\"{{ link }}\">运费</a>。",
       "duties_included_taxes_at_checkout_shipping_at_checkout_without_policy": "已含关税。结账时计算税费、折扣和运费。",
       "taxes_at_checkout_shipping_at_checkout_with_policy_html": "结账时计算税费、折扣和<a href=\"{{ link }}\">运费</a>。",
-      "taxes_at_checkout_shipping_at_checkout_without_policy": "结账时计算税费、折扣和运费。"
+      "taxes_at_checkout_shipping_at_checkout_without_policy": "结账时计算税费、折扣和运费。",
+      "empty_message": "为下一次出水把绑制台备好。",
+      "shop_materials": "选购绑制材料",
+      "shop_flies": "浏览毛钩",
+      "remove": "移除",
+      "each": "每个",
+      "available_offers": "可用优惠",
+      "view_full_cart": "查看完整购物车",
+      "shipping_remaining_html": "再买 <strong>{{ amount }}</strong> 即可免运费。",
+      "shipping_unlocked": "已达到免运费。",
+      "shipping_progress": "距免运费的进度",
+      "shipping_region": "适用于运往美国本土的订单。"
     },
     "footer": {
       "payment": "付款方式"
@@ -383,6 +396,69 @@
       "min_error": "此商品的最小值为 {{ min }}",
       "max_error": "此商品的最大值为 {{ max }}",
       "step_error": "您只能以 {{ step }} 为增量来添加此商品"
+    },
+    "river_conditions": {
+      "name": "河流状况",
+      "no_river": "此页面尚未配置河流数据。",
+      "river_navigation": "河流导航",
+      "live_label": "实时 · USGS 15 分钟数据",
+      "flow": "流量",
+      "temperature": "水温",
+      "gage_height": "水位",
+      "clarity": "清澈度",
+      "unknown": "未知",
+      "data_unavailable": "实时数据暂时不可用。请稍后再看。",
+      "flow_history": "7日流量",
+      "where": "你正在作钓的位置",
+      "access_points": "到达点 · 自上游向下游",
+      "nearest": "最近",
+      "best_stretch": "此刻最佳河段",
+      "guide_report": "向导报告",
+      "on_the_water": "此刻水情",
+      "current_hatches": "当前羽化",
+      "no_hatches": "此刻没有活跃羽化。请稍后再看，或浏览下方整盒毛钩。",
+      "recommended_gear": "推荐装备",
+      "gear_lede": "配合此刻水情挑选。",
+      "settings": {
+        "header_layout": {
+          "content": "布局",
+          "info": "控制河流状况区块上下的内边距。"
+        },
+        "header_products": {
+          "content": "产品卡片"
+        }
+      },
+      "blocks": {
+        "river_link": {
+          "name": "河流链接",
+          "settings": {
+            "url": {
+              "label": "URL"
+            },
+            "label": {
+              "label": "标签"
+            }
+          }
+        }
+      }
+    },
+    "river_picker": {
+      "current": "当前河流",
+      "search_placeholder": "搜索河流…",
+      "search_label": "搜索河流",
+      "browse_all": "浏览所有河流",
+      "empty": "没有匹配的河流。"
+    },
+    "rivers_index": {
+      "empty": "尚未配置河流。请运行种子脚本以填入河流数据。",
+      "search_placeholder": "搜索河流或城镇…",
+      "search_label": "搜索河流",
+      "filter_label": "按地区筛选",
+      "all_regions": "所有地区",
+      "flow": "流量",
+      "temperature": "水温",
+      "view": "查看状况",
+      "no_results": "没有匹配的河流。请清除筛选或换一个名称搜索。"
     }
   },
   "localization": {

@@ -49,7 +49,8 @@
     },
     "search": {
       "search": "Szukaj",
-      "reset": "Wyczyść szukany termin"
+      "reset": "Wyczyść szukany termin",
+      "placeholder": "Szukaj produktów i marek"
     },
     "cart": {
       "view": "Pokaż koszyk ({{ count }})",
@@ -147,7 +148,8 @@
         "from_price_html": "Od {{ price }}",
         "regular_price": "Cena regularna",
         "sale_price": "Cena promocyjna",
-        "unit_price": "Cena jednostkowa"
+        "unit_price": "Cena jednostkowa",
+        "save_percent": "Oszczędzasz {{ percent }}%"
       },
       "pickup_availability": {
         "view_store_info": "Wyświetl informacje o sklepie",
@@ -335,7 +337,18 @@
       "duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_html": "Z wliczonymi cłami. Obliczenie podatków, rabatów i <a href=\"{{ link }}\">wysyłki</a> przy realizacji zakupu.",
       "duties_included_taxes_at_checkout_shipping_at_checkout_without_policy": "Z wliczonymi cłami. Obliczenie podatków, rabatów i wysyłki przy realizacji zakupu.",
       "taxes_at_checkout_shipping_at_checkout_with_policy_html": "Obliczenie podatków, rabatów i <a href=\"{{ link }}\">wysyłki</a> przy realizacji zakupu.",
-      "taxes_at_checkout_shipping_at_checkout_without_policy": "Obliczenie podatków, rabatów i wysyłki przy realizacji zakupu."
+      "taxes_at_checkout_shipping_at_checkout_without_policy": "Obliczenie podatków, rabatów i wysyłki przy realizacji zakupu.",
+      "empty_message": "Przygotuj stół do wiązania na kolejny dzień nad wodą.",
+      "shop_materials": "Kup wiązanie muszek",
+      "shop_flies": "Przeglądaj muszki",
+      "remove": "Usuń",
+      "each": "za sztukę",
+      "available_offers": "Dostępne oferty",
+      "view_full_cart": "Zobacz cały koszyk",
+      "shipping_remaining_html": "Brakuje <strong>{{ amount }}</strong> do darmowej wysyłki.",
+      "shipping_unlocked": "Odblokowano darmową wysyłkę.",
+      "shipping_progress": "Postęp do darmowej wysyłki",
+      "shipping_region": "Przy zamówieniach do kontynentalnych Stanów Zjednoczonych."
     },
     "footer": {
       "payment": "Metody płatności"
@@ -407,6 +420,69 @@
       "min_error": "Pozycja ma minimalny limit {{ min }}",
       "max_error": "Pozycja ma maksymalny limit {{ max }}",
       "step_error": "Możesz dodać tę pozycję tylko z przyrostem o {{ step }}"
+    },
+    "river_conditions": {
+      "name": "Warunki na rzece",
+      "no_river": "Dla tej strony nie ustawiono danych rzeki.",
+      "river_navigation": "Nawigacja rzek",
+      "live_label": "Na żywo · USGS co 15 min",
+      "flow": "Przepływ",
+      "temperature": "Temperatura wody",
+      "gage_height": "Stan wody",
+      "clarity": "Przejrzystość",
+      "unknown": "Nieznane",
+      "data_unavailable": "Dane na żywo są chwilowo niedostępne. Sprawdź ponownie wkrótce.",
+      "flow_history": "Przepływ z 7 dni",
+      "where": "Gdzie łowisz",
+      "access_points": "Dojścia · z prądem, z góry na dół",
+      "nearest": "Najbliżej",
+      "best_stretch": "Najlepszy odcinek w tej chwili",
+      "guide_report": "Raport przewodnika",
+      "on_the_water": "Teraz na wodzie",
+      "current_hatches": "Aktualne wyloty",
+      "no_hatches": "Teraz nie ma aktywnych wylotów. Sprawdź wkrótce albo przejrzyj poniżej pełne pudełko muszek.",
+      "recommended_gear": "Polecany sprzęt",
+      "gear_lede": "Dobrané do tego, co jest teraz na wodzie.",
+      "settings": {
+        "header_layout": {
+          "content": "Układ",
+          "info": "Ustawia odstęp nad i pod blokiem warunków rzeki."
+        },
+        "header_products": {
+          "content": "Karty produktów"
+        }
+      },
+      "blocks": {
+        "river_link": {
+          "name": "Link do rzeki",
+          "settings": {
+            "url": {
+              "label": "URL"
+            },
+            "label": {
+              "label": "Etykieta"
+            }
+          }
+        }
+      }
+    },
+    "river_picker": {
+      "current": "Bieżąca rzeka",
+      "search_placeholder": "Szukaj rzek…",
+      "search_label": "Szukaj rzek",
+      "browse_all": "Przeglądaj wszystkie rzeki",
+      "empty": "Żadna rzeka nie pasuje."
+    },
+    "rivers_index": {
+      "empty": "Nie ustawiono jeszcze rzek. Uruchom skrypt seed, aby uzupełnić dane.",
+      "search_placeholder": "Szukaj rzek lub miejscowości…",
+      "search_label": "Szukaj rzek",
+      "filter_label": "Filtruj według regionu",
+      "all_regions": "Wszystkie regiony",
+      "flow": "Przepływ",
+      "temperature": "Temp.",
+      "view": "Zobacz warunki",
+      "no_results": "Żadna rzeka nie pasuje. Wyczyść filtry albo wyszukaj inną nazwę."
     }
   },
   "localization": {

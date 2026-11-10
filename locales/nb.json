@@ -49,7 +49,8 @@
     },
     "search": {
       "search": "Søk",
-      "reset": "Fjern søket"
+      "reset": "Fjern søket",
+      "placeholder": "Søk produkter og merker"
     },
     "cart": {
       "view": "Vis handlekurv ({{ count }})",
@@ -138,7 +139,8 @@
         "from_price_html": "Fra {{ price }}",
         "regular_price": "Vanlig pris",
         "sale_price": "Salgspris",
-        "unit_price": "Enhetspris"
+        "unit_price": "Enhetspris",
+        "save_percent": "Spar {{ percent }} %"
       },
       "share": "Del dette produktet",
       "sold_out": "Utsolgt",
@@ -315,7 +317,18 @@
       "duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_html": "Inkluder tollplikter. Avgifter, rabatter og <a href=\"{{ link }}\">frakt</a> beregnes i kassen.",
       "duties_included_taxes_at_checkout_shipping_at_checkout_without_policy": "Inkluder tollplikter. Avgifter, rabatter og frakt beregnes i kassen.",
       "taxes_at_checkout_shipping_at_checkout_with_policy_html": "Avgifter, rabatter og <a href=\"{{ link }}\">frakt</a> beregnes i kassen.",
-      "taxes_at_checkout_shipping_at_checkout_without_policy": "Avgifter, rabatter og frakt beregnes i kassen."
+      "taxes_at_checkout_shipping_at_checkout_without_policy": "Avgifter, rabatter og frakt beregnes i kassen.",
+      "empty_message": "Fyll bindebenken for neste dag på vannet.",
+      "shop_materials": "Handle fluebinding",
+      "shop_flies": "Utforsk fluer",
+      "remove": "Fjern",
+      "each": "per stk.",
+      "available_offers": "Tilgjengelige tilbud",
+      "view_full_cart": "Se hele handlekurven",
+      "shipping_remaining_html": "Du mangler <strong>{{ amount }}</strong> til gratis frakt.",
+      "shipping_unlocked": "Du har låst opp gratis frakt.",
+      "shipping_progress": "Fremgang mot gratis frakt",
+      "shipping_region": "På bestillinger til det sammenhengende USA."
     },
     "footer": {
       "payment": "Betalingsmåter"
@@ -383,6 +396,69 @@
       "min_error": "Denne varen har et minimumsantall på {{ min }}",
       "max_error": "Denne varen har et maksimumsantall på {{ max }}",
       "step_error": "Du kan bare legge til denne varen i multipler av {{ step }}"
+    },
+    "river_conditions": {
+      "name": "Elveforhold",
+      "no_river": "Ingen elvedata er satt opp for denne siden.",
+      "river_navigation": "Elvenavigasjon",
+      "live_label": "Direkte · USGS hvert 15. minutt",
+      "flow": "Vannføring",
+      "temperature": "Vanntemperatur",
+      "gage_height": "Vannstand",
+      "clarity": "Sikt",
+      "unknown": "Ukjent",
+      "data_unavailable": "Direktedata er midlertidig utilgjengelige. Prøv igjen snart.",
+      "flow_history": "7 dagers vannføring",
+      "where": "Der du fisker",
+      "access_points": "Adkomst · fra oppstrøms og ned",
+      "nearest": "Nærmest",
+      "best_stretch": "Beste strekning akkurat nå",
+      "guide_report": "Guiderapport",
+      "on_the_water": "På vannet nå",
+      "current_hatches": "Aktuelle klekkinger",
+      "no_hatches": "Ingen aktive klekkinger akkurat nå. Kom tilbake snart, eller se hele flueboksen nedenfor.",
+      "recommended_gear": "Anbefalt utstyr",
+      "gear_lede": "Tilpasset det som er på vannet akkurat nå.",
+      "settings": {
+        "header_layout": {
+          "content": "Oppsett",
+          "info": "Styrer luft over og under blokken med elveforhold."
+        },
+        "header_products": {
+          "content": "Produktkort"
+        }
+      },
+      "blocks": {
+        "river_link": {
+          "name": "Elvelenke",
+          "settings": {
+            "url": {
+              "label": "URL"
+            },
+            "label": {
+              "label": "Etikett"
+            }
+          }
+        }
+      }
+    },
+    "river_picker": {
+      "current": "Gjeldende elv",
+      "search_placeholder": "Søk elver…",
+      "search_label": "Søk elver",
+      "browse_all": "Se alle elver",
+      "empty": "Ingen elver samsvarer."
+    },
+    "rivers_index": {
+      "empty": "Ingen elver er satt opp ennå. Kjør seed-skriptet for å fylle elvedata.",
+      "search_placeholder": "Søk elver eller steder…",
+      "search_label": "Søk elver",
+      "filter_label": "Filtrer etter region",
+      "all_regions": "Alle regioner",
+      "flow": "Vannføring",
+      "temperature": "Temp.",
+      "view": "Se forhold",
+      "no_results": "Ingen elver samsvarer. Tøm filtrene, eller søk etter et annet navn."
     }
   },
   "localization": {
