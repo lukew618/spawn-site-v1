@@ -2,6 +2,7 @@ import { spawnSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import vm from 'node:vm';
+import { pathToFileURL } from 'node:url';
 
 const root = path.resolve(import.meta.dirname, '..');
 const read = (file) => fs.readFileSync(path.join(root, file), 'utf8');
@@ -64,18 +65,27 @@ for (const [flow, temp, expected] of cases) {
   expect(shared === expected && page === expected, `yakima ${flow}/${temp} should be ${expected}, shared ${shared}, page ${page}`);
 }
 
-function chromeDump() {
+function chromeDump(fixturePath) {
+  const fixture = path.isAbsolute(fixturePath) ? fixturePath : path.join(root, fixturePath);
   const result = spawnSync('timeout', [
     '20', 'google-chrome', '--headless=new', '--disable-gpu', '--no-sandbox',
-    '--user-data-dir=/tmp/chrome-rivers-picker',
+    `--user-data-dir=/tmp/chrome-rivers-picker-${path.basename(fixture, '.html')}`,
     '--virtual-time-budget=2500',
     '--window-size=1440,900',
     '--dump-dom',
-    'file:///agent/repos/spawn-site-v1/tests/rivers-recovery/picker-keydown.html',
+    pathToFileURL(fixture).href,
   ], { encoding: 'utf8' });
   return `${result.stdout || ''}\n${result.stderr || ''}`;
 }
-const dump = chromeDump();
+const fixtureArg = process.argv.indexOf('--fixture');
+const fixture = fixtureArg === -1
+  ? 'tests/rivers-recovery/picker-keydown.html'
+  : process.argv[fixtureArg + 1];
+if (!fixture) {
+  console.error('pass a fixture path after --fixture');
+  process.exit(2);
+}
+const dump = chromeDump(fixture);
 const match = dump.match(/data-picker-result="([^"]+)"/);
 expect(Boolean(match), 'picker fixture must record keyboard state');
 if (match) {
