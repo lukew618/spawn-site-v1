@@ -113,13 +113,13 @@ Acceptance criteria verified:
 Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
 ```
 
-### 7.5. Live QA smoke test (gstack /qa)
+### 7.5. Preview QA
 
-After pushing, run a quick QA pass on the live page most affected by the change:
+After the branch is on GitHub, check the affected page on an unpublished preview. Do not use the published theme for that check.
 
 ```bash
-# Example — adjust URL to the page this task changed
-/qa --quick https://spawn-fly-fish.myshopify.com/[relevant-page]
+# Example — use the unpublished preview URL for the page this task changed
+/qa --quick https://<unpublished-preview>/[relevant-page]
 ```
 
 - Use diff-aware quick mode (~30s) — not a full site audit
