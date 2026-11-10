@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>ENG-018 river picker key fixture</title>
+  </head>
+  <body>
+    <river-picker>
+      <button class="river-picker__trigger" type="button" aria-expanded="false">Rivers</button>
+      <div class="river-picker__panel" hidden>
+        <input class="river-picker__search" type="text" value="river" />
+        <div data-picker-group>
+          <div data-picker-item data-river-name="yakima"><a class="river-picker__link" href="/pages/yakima-river">Yakima</a></div>
+          <div data-picker-item data-river-name="skagit"><a class="river-picker__link" href="/pages/skagit-river">Skagit</a></div>
+          <div data-picker-item data-river-name="sauk"><a class="river-picker__link" href="/pages/sauk-river">Sauk</a></div>
+        </div>
+        <p class="river-picker__empty" hidden>No rivers match.</p>
+      </div>
+    </river-picker>
+    <script src="../../assets/river-picker.js"></script>
+    <script>
+      const picker = document.querySelector("river-picker");
+      const search = picker.querySelector(".river-picker__search");
+      picker.open();
+      search.dispatchEvent(new KeyboardEvent("keydown", { key: "ArrowDown", bubbles: true }));
+      const afterOne = picker.activeIndex;
+      search.dispatchEvent(new KeyboardEvent("keydown", { key: "ArrowDown", bubbles: true }));
+      const afterTwo = picker.activeIndex;
+      search.dispatchEvent(new KeyboardEvent("keydown", { key: "Home", bubbles: true }));
+      document.documentElement.dataset.pickerResult = JSON.stringify({
+        afterOne,
+        afterTwo,
+        afterHome: picker.activeIndex,
+      });
+    </script>
+  </body>
+</html>
