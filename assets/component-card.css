@@ -305,6 +305,12 @@
   margin-bottom: 0;
 }
 
+.product-card-wrapper .card:not(.card--horizontal) .card__heading {
+  font-size: 1.4rem;
+  line-height: 1.4;
+  letter-spacing: 0.03rem;
+}
+
 .card__heading:last-child {
   margin-bottom: 0;
 }
@@ -327,6 +333,10 @@
 }
 
 @media only screen and (min-width: 750px) {
+  .product-card-wrapper .card:not(.card--horizontal) .card__heading {
+    font-size: 1.5rem;
+  }
+
   .card--horizontal .card__heading,
   .card--horizontal .price__container .price-item,
   .card--horizontal__quick-add {

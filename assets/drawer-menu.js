@@ -18,7 +18,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     if (trigger === mobileMenuToggle) {
       mobileMenuToggle.classList.add("is-open");
-      mobileMenuToggle.setAttribute("aria-label", "Close Navigation");
+      if (mobileMenuToggle.dataset.closeLabel) {
+        mobileMenuToggle.setAttribute(
+          "aria-label",
+          mobileMenuToggle.dataset.closeLabel
+        );
+      }
     }
     trapFocus(drawerMenu, drawerCloseBtn);
     document.addEventListener("keyup", onEscapeClose);
@@ -32,7 +37,13 @@ document.addEventListener("DOMContentLoaded", () => {
     drawerTriggers.forEach((t) => t.setAttribute("aria-expanded", "false"));
     if (mobileMenuToggle) {
       mobileMenuToggle.classList.remove("is-open");
-      mobileMenuToggle.setAttribute("aria-label", "Open Navigation");
+      if (mobileMenuToggle.dataset.menuLabel) {
+        mobileMenuToggle.setAttribute(
+          "aria-label",
+          mobileMenuToggle.dataset.menuLabel
+        );
+      }
+      mobileMenuToggle.setAttribute("aria-expanded", "false");
     }
     activeTrigger = null;
   }
