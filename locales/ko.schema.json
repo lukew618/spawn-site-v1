@@ -1464,6 +1464,31 @@
             "label": "크게"
           },
           "info": "최고의 결과를 얻으려면 이미지의 가로 세로 비율을 3:2로 사용하십시오. [자세히 알아보기](https://help.shopify.com/manual/shopify-admin/productivity-tools/image-editor#understanding-image-aspect-ratio)"
+        },
+        "guides_header": {
+          "content": "추천 가이드"
+        },
+        "guides_heading": {
+          "label": "가이드 제목",
+          "default": "플라이 낚시 가이드",
+          "info": "Guide 블록을 추가하면 블로그 글 위에 페이지가 표시됩니다. 블로그 첫 페이지에만 표시됩니다."
+        }
+      },
+      "blocks": {
+        "guide": {
+          "name": "가이드",
+          "settings": {
+            "page": {
+              "label": "페이지"
+            },
+            "image": {
+              "label": "이미지"
+            },
+            "description": {
+              "label": "설명",
+              "info": "비워 두면 페이지 본문 앞부분을 사용합니다."
+            }
+          }
         }
       }
     },
@@ -3420,10 +3445,209 @@
         },
         "show_sku": {
           "label": "SKU(재고 관리 코드) 표시"
+        },
+        "b2b_only": {
+          "label": "B2B 고객에게만 표시",
+          "info": "켜면 빠른 주문 목록이 로그인한 도매 구매자에게만 표시됩니다."
         }
       },
       "presets": {
         "name": "빠른 주문 목록"
+      }
+    },
+    "product-specs": {
+      "name": "상품 사양",
+      "settings": {
+        "heading": {
+          "label": "제목"
+        },
+        "color_scheme": {
+          "label": "색상 배합"
+        },
+        "padding_top": {
+          "label": "상단 패딩"
+        },
+        "padding_bottom": {
+          "label": "하단 패딩"
+        }
+      },
+      "blocks": {
+        "spec": {
+          "name": "사양 열",
+          "settings": {
+            "heading": {
+              "label": "제목",
+              "default": "특징"
+            },
+            "content": {
+              "label": "콘텐츠",
+              "info": "상품 메타필드를 동적 소스로 연결하거나 비워 두면 이 열이 숨겨집니다."
+            },
+            "wide": {
+              "label": "넓은 열",
+              "info": "특징 목록처럼 이 열을 두 배 너비로 표시합니다."
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "상품 사양"
+      }
+    },
+    "product-editorial": {
+      "name": "상품 에디토리얼",
+      "settings": {
+        "heading": {
+          "label": "제목",
+          "info": "상품별 제목에 상품 메타필드를 동적 소스로 연결합니다."
+        },
+        "content": {
+          "label": "콘텐츠",
+          "info": "상품 메타필드를 동적 소스로 연결합니다. 비어 있으면 섹션이 숨겨집니다."
+        },
+        "use_description_fallback": {
+          "label": "상품 설명으로 대체",
+          "info": "연결된 콘텐츠가 없으면 상품 설명을 표시합니다."
+        },
+        "fallback_heading": {
+          "label": "대체 제목",
+          "info": "상품별 제목이 연결되지 않았을 때 사용합니다.",
+          "default": "설명 및 특징"
+        },
+        "brand_heading": {
+          "label": "브랜드 열 제목",
+          "default": "브랜드"
+        },
+        "shipping_heading": {
+          "label": "배송 열 제목",
+          "default": "배송 및 반품"
+        },
+        "shipping_text": {
+          "label": "배송 열 본문",
+          "default": "<p>미국 주문 $75 초과 시 무료 배송. 미국 내 반품 배송도 무료입니다.</p>"
+        },
+        "color_scheme": {
+          "label": "색상 배합"
+        },
+        "padding_top": {
+          "label": "상단 패딩"
+        },
+        "padding_bottom": {
+          "label": "하단 패딩"
+        }
+      },
+      "presets": {
+        "name": "상품 에디토리얼"
+      }
+    },
+    "sticky-atc-bar": {
+      "name": "고정 장바구니 담기 막대",
+      "settings": {
+        "paragraph": {
+          "content": "주요 구매 버튼을 지나 스크롤하면 가격과 장바구니 담기 버튼이 있는 막대를 표시합니다."
+        },
+        "color_scheme": {
+          "label": "색상 배합"
+        }
+      },
+      "presets": {
+        "name": "고정 장바구니 담기 막대"
+      }
+    },
+    "spawn_rods_reels": {
+      "name": "로드와 릴 페이지",
+      "title": "페이지 제목",
+      "intro": "소개",
+      "rods": "플라이 로드 컬렉션",
+      "reels": "플라이 릴 컬렉션",
+      "rods_image": "플라이 로드 이미지 대체",
+      "reels_image": "플라이 릴 이미지 대체",
+      "brand_menu": "로드와 릴 브랜드 메뉴"
+    },
+    "spawn_home": {
+      "name": "Spawn 프리미엄 홈페이지",
+      "hero_image": "메인 이미지",
+      "eyebrow": "제목 위 작은 글",
+      "hero_title": "메인 제목",
+      "hero_text": "메인 설명",
+      "tying_collection": "플라이 타이잉 컬렉션",
+      "materials_collection": "추천 재료 컬렉션",
+      "flies_collection": "시그니처 플라이 컬렉션",
+      "feature_image": "추천 플라이 이미지",
+      "feature_title": "추천 플라이 제목",
+      "feature_text": "추천 플라이 설명",
+      "feature_collection": "추천 플라이 컬렉션",
+      "store_image": "매장 이미지",
+      "store_text": "매장 설명",
+      "blog": "저널 블로그",
+      "category": "카테고리",
+      "category_title": "카테고리 제목",
+      "category_image": "카테고리 이미지 대체",
+      "category_subtitle": "카테고리 부제",
+      "category_cta": "카테고리 버튼 레이블"
+    },
+    "wholesale_landing": {
+      "name": "도매 랜딩",
+      "settings": {
+        "hero_image": "메인 이미지",
+        "eyebrow": "제목 위 작은 글",
+        "heading": "제목",
+        "lede": "보조 문구",
+        "points_header": "메인 강조 항목",
+        "point_1_title": "강조 1 제목",
+        "point_1_text": "강조 1 설명",
+        "point_2_title": "강조 2 제목",
+        "point_2_text": "강조 2 설명",
+        "point_3_title": "강조 3 제목",
+        "point_3_text": "강조 3 설명",
+        "request_label": "액세스 요청 버튼 레이블",
+        "login_label": "로그인 버튼 레이블",
+        "shop_label": "쇼핑 버튼 레이블",
+        "account_label": "계정 버튼 레이블",
+        "shop_link": "로그인한 구매자용 쇼핑 링크",
+        "who_header": "대상",
+        "who_heading": "‘대상’ 제목",
+        "who_text": "‘대상’ 본문",
+        "after_header": "승인 후",
+        "after_heading": "승인 후 제목",
+        "after_text": "승인 후 본문",
+        "form_header": "요청 양식",
+        "form_heading": "양식 제목",
+        "form_text": "양식 보조 문구",
+        "support_email": "대체 지원 이메일"
+      },
+      "blocks": {
+        "richtext": {
+          "name": "서식있는 텍스트",
+          "settings": {
+            "text": "텍스트"
+          }
+        }
+      }
+    },
+    "river_conditions": {
+      "name": "강 상태",
+      "settings": {
+        "header_layout": {
+          "content": "레이아웃",
+          "info": "강 상태 블록 위아래 여백을 설정합니다."
+        },
+        "header_products": {
+          "content": "제품 카드"
+        }
+      },
+      "blocks": {
+        "river_link": {
+          "name": "강 링크",
+          "settings": {
+            "url": {
+              "label": "URL"
+            },
+            "label": {
+              "label": "레이블"
+            }
+          }
+        }
       }
     }
   }

@@ -49,7 +49,8 @@
     },
     "search": {
       "search": "Hae",
-      "reset": "Tyhjennä hakutermi"
+      "reset": "Tyhjennä hakutermi",
+      "placeholder": "Hae tuotteita ja merkkejä"
     },
     "cart": {
       "view": "Näytä ostoskori ({{ count }})",
@@ -138,7 +139,8 @@
         "from_price_html": "Alkaen {{ price }}",
         "regular_price": "Normaalihinta",
         "sale_price": "Alennushinta",
-        "unit_price": "Yksikköhinta"
+        "unit_price": "Yksikköhinta",
+        "save_percent": "Säästä {{ percent }} %"
       },
       "share": "Jaa tämä tuote",
       "sold_out": "Loppuunmyyty",
@@ -315,7 +317,18 @@
       "duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_html": "Sisältää tullit. Verot, alennukset ja <a href=\"{{ link }}\">toimituskulut</a> lasketaan kassalla.",
       "duties_included_taxes_at_checkout_shipping_at_checkout_without_policy": "Sisältää tullit. Verot, alennukset ja toimituskulut lasketaan kassalla.",
       "taxes_at_checkout_shipping_at_checkout_with_policy_html": "Verot, alennukset ja <a href=\"{{ link }}\">toimituskulut</a> lasketaan kassalla.",
-      "taxes_at_checkout_shipping_at_checkout_without_policy": "Verot, alennukset ja toimituskulut lasketaan kassalla."
+      "taxes_at_checkout_shipping_at_checkout_without_policy": "Verot, alennukset ja toimituskulut lasketaan kassalla.",
+      "empty_message": "Varaa sidontapöytä valmiiksi seuraavaa vesipäivää varten.",
+      "shop_materials": "Osta perhonsidontaa",
+      "shop_flies": "Tutustu perhoihin",
+      "remove": "Poista",
+      "each": "kappale",
+      "available_offers": "Saatavilla olevat tarjoukset",
+      "view_full_cart": "Näytä koko ostoskori",
+      "shipping_remaining_html": "Ilmaiseen toimitukseen puuttuu <strong>{{ amount }}</strong>.",
+      "shipping_unlocked": "Sait ilmaisen toimituksen.",
+      "shipping_progress": "Edistyminen ilmaiseen toimitukseen",
+      "shipping_region": "Tilauksille Yhdysvaltain manneralueelle."
     },
     "footer": {
       "payment": "Maksutavat"
@@ -383,6 +396,69 @@
       "min_error": "Tämän tuotteen vähimmäisarvo on {{ min }}",
       "max_error": "Tämän tuotteen enimmäisarvo on {{ max }}",
       "step_error": "Voit lisätä tätä tuotetta vain {{ step }}:n lisäyksinä"
+    },
+    "river_conditions": {
+      "name": "Jokiolosuhteet",
+      "no_river": "Tälle sivulle ei ole määritetty jokitietoja.",
+      "river_navigation": "Jokivalikko",
+      "live_label": "Live · USGS 15 minuutin välein",
+      "flow": "Virtaama",
+      "temperature": "Veden lämpötila",
+      "gage_height": "Vedenkorkeus",
+      "clarity": "Kirkkaus",
+      "unknown": "Tuntematon",
+      "data_unavailable": "Live-tiedot eivät ole tilapäisesti saatavilla. Tarkista pian uudelleen.",
+      "flow_history": "7 päivän virtaama",
+      "where": "Missä kalastat",
+      "access_points": "Pääsy · ylävirrasta alavirtaan",
+      "nearest": "Lähin",
+      "best_stretch": "Paras osuus juuri nyt",
+      "guide_report": "Oppaan raportti",
+      "on_the_water": "Vedessä nyt",
+      "current_hatches": "Nykyiset kuoriutumiset",
+      "no_hatches": "Ei aktiivisia kuoriutumisia juuri nyt. Tarkista pian uudelleen tai selaa koko perhorasiaa alta.",
+      "recommended_gear": "Suositeltu välineistö",
+      "gear_lede": "Sovitettu siihen, mitä vedessä on juuri nyt.",
+      "settings": {
+        "header_layout": {
+          "content": "Asettelu",
+          "info": "Säätää jokiolosuhdelohkon ylä- ja alapuolen täytteen."
+        },
+        "header_products": {
+          "content": "Tuotekortit"
+        }
+      },
+      "blocks": {
+        "river_link": {
+          "name": "Jokilinkki",
+          "settings": {
+            "url": {
+              "label": "URL"
+            },
+            "label": {
+              "label": "Tunniste"
+            }
+          }
+        }
+      }
+    },
+    "river_picker": {
+      "current": "Nykyinen joki",
+      "search_placeholder": "Hae jokia…",
+      "search_label": "Hae jokia",
+      "browse_all": "Selaa kaikkia jokia",
+      "empty": "Yksikään joki ei täsmää."
+    },
+    "rivers_index": {
+      "empty": "Jokia ei ole vielä määritetty. Aja siemenkomentosarja jokitietojen täyttämiseksi.",
+      "search_placeholder": "Hae jokia tai paikkoja…",
+      "search_label": "Hae jokia",
+      "filter_label": "Suodata alueen mukaan",
+      "all_regions": "Kaikki alueet",
+      "flow": "Virtaama",
+      "temperature": "Lämpö",
+      "view": "Näytä olosuhteet",
+      "no_results": "Yksikään joki ei täsmää. Tyhjennä suodattimet tai hae toisella nimellä."
     }
   },
   "localization": {

@@ -1464,6 +1464,31 @@
             "label": "Grand"
           },
           "info": "Pour optimiser vos résultats, utilisez une image ayant un rapport d'aspect de 3:2. [En savoir plus](https://help.shopify.com/manual/shopify-admin/productivity-tools/image-editor#understanding-image-aspect-ratio)"
+        },
+        "guides_header": {
+          "content": "Guides en vedette"
+        },
+        "guides_heading": {
+          "label": "Titre des guides",
+          "default": "Guides de pêche à la mouche",
+          "info": "Ajoutez des blocs Guide pour présenter des pages au-dessus des articles. Uniquement sur la première page du blog."
+        }
+      },
+      "blocks": {
+        "guide": {
+          "name": "Guide",
+          "settings": {
+            "page": {
+              "label": "Page"
+            },
+            "image": {
+              "label": "Image"
+            },
+            "description": {
+              "label": "Description",
+              "info": "Laissez vide pour utiliser le début du texte de la page."
+            }
+          }
         }
       }
     },
@@ -3420,10 +3445,209 @@
         },
         "show_sku": {
           "label": "Afficher les SKU"
+        },
+        "b2b_only": {
+          "label": "Afficher seulement aux clients B2B",
+          "info": "Si l’option est activée, la liste de commande rapide n’apparaît que pour les acheteurs grossistes connectés."
         }
       },
       "presets": {
         "name": "Liste rapide des commandes"
+      }
+    },
+    "product-specs": {
+      "name": "Spécifications du produit",
+      "settings": {
+        "heading": {
+          "label": "Titre"
+        },
+        "color_scheme": {
+          "label": "Nuancier de couleurs"
+        },
+        "padding_top": {
+          "label": "Marge supérieure"
+        },
+        "padding_bottom": {
+          "label": "Marge inférieure"
+        }
+      },
+      "blocks": {
+        "spec": {
+          "name": "Colonne de spécification",
+          "settings": {
+            "heading": {
+              "label": "Titre",
+              "default": "Caractéristiques"
+            },
+            "content": {
+              "label": "Contenu",
+              "info": "Reliez un champ méta produit comme source dynamique, ou laissez vide pour masquer cette colonne."
+            },
+            "wide": {
+              "label": "Colonne large",
+              "info": "Donnez à cette colonne une double largeur, comme pour une liste de caractéristiques."
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Spécifications du produit"
+      }
+    },
+    "product-editorial": {
+      "name": "Éditorial produit",
+      "settings": {
+        "heading": {
+          "label": "Titre",
+          "info": "Reliez un champ méta produit comme source dynamique pour un titre par produit."
+        },
+        "content": {
+          "label": "Contenu",
+          "info": "Reliez un champ méta produit comme source dynamique. La section est masquée si elle est vide."
+        },
+        "use_description_fallback": {
+          "label": "Revenir à la description du produit",
+          "info": "Lorsqu’aucun contenu n’est relié, la description du produit s’affiche."
+        },
+        "fallback_heading": {
+          "label": "Titre de repli",
+          "info": "Utilisé lorsqu’aucun titre par produit n’est relié.",
+          "default": "Description et caractéristiques"
+        },
+        "brand_heading": {
+          "label": "Titre de la colonne marque",
+          "default": "Marque"
+        },
+        "shipping_heading": {
+          "label": "Titre de la colonne livraison",
+          "default": "Livraison et retours"
+        },
+        "shipping_text": {
+          "label": "Texte de la colonne livraison",
+          "default": "<p>Livraison gratuite pour les commandes vers les États-Unis de plus de $75. Retour gratuit aux États-Unis.</p>"
+        },
+        "color_scheme": {
+          "label": "Nuancier de couleurs"
+        },
+        "padding_top": {
+          "label": "Marge supérieure"
+        },
+        "padding_bottom": {
+          "label": "Marge inférieure"
+        }
+      },
+      "presets": {
+        "name": "Éditorial produit"
+      }
+    },
+    "sticky-atc-bar": {
+      "name": "Barre fixe d’ajout au panier",
+      "settings": {
+        "paragraph": {
+          "content": "Affiche une barre avec le prix et le bouton d’ajout au panier lorsque l’acheteur dépasse les boutons d’achat principaux."
+        },
+        "color_scheme": {
+          "label": "Nuancier de couleurs"
+        }
+      },
+      "presets": {
+        "name": "Barre fixe d’ajout au panier"
+      }
+    },
+    "spawn_rods_reels": {
+      "name": "Page cannes et moulinets",
+      "title": "Titre de la page",
+      "intro": "Introduction",
+      "rods": "Collection de cannes mouche",
+      "reels": "Collection de moulinets mouche",
+      "rods_image": "Image de remplacement des cannes",
+      "reels_image": "Image de remplacement des moulinets",
+      "brand_menu": "Menu avec les marques de cannes et de moulinets"
+    },
+    "spawn_home": {
+      "name": "Page d’accueil premium Spawn",
+      "hero_image": "Image principale",
+      "eyebrow": "Surtitre",
+      "hero_title": "Titre principal",
+      "hero_text": "Description principale",
+      "tying_collection": "Collection de montage de mouches",
+      "materials_collection": "Collection de matériaux en vedette",
+      "flies_collection": "Collection de mouches signatures",
+      "feature_image": "Image de la mouche en vedette",
+      "feature_title": "Titre de la mouche en vedette",
+      "feature_text": "Description de la mouche en vedette",
+      "feature_collection": "Collection de la mouche en vedette",
+      "store_image": "Image de la boutique",
+      "store_text": "Description de la boutique",
+      "blog": "Blog du journal",
+      "category": "Catégorie",
+      "category_title": "Titre de la catégorie",
+      "category_image": "Image de remplacement de la catégorie",
+      "category_subtitle": "Sous-titre de la catégorie",
+      "category_cta": "Libellé du bouton de catégorie"
+    },
+    "wholesale_landing": {
+      "name": "Page grossiste",
+      "settings": {
+        "hero_image": "Image principale",
+        "eyebrow": "Surtitre",
+        "heading": "Titre",
+        "lede": "Texte d’accompagnement",
+        "points_header": "Points forts du bandeau",
+        "point_1_title": "Titre du point fort 1",
+        "point_1_text": "Détail du point fort 1",
+        "point_2_title": "Titre du point fort 2",
+        "point_2_text": "Détail du point fort 2",
+        "point_3_title": "Titre du point fort 3",
+        "point_3_text": "Détail du point fort 3",
+        "request_label": "Libellé du bouton de demande d’accès",
+        "login_label": "Libellé du bouton de connexion",
+        "shop_label": "Libellé du bouton boutique",
+        "account_label": "Libellé du bouton de compte",
+        "shop_link": "Lien boutique pour les acheteurs connectés",
+        "who_header": "À qui cela s’adresse",
+        "who_heading": "Titre « Pour qui »",
+        "who_text": "Texte « Pour qui »",
+        "after_header": "Après approbation",
+        "after_heading": "Titre après approbation",
+        "after_text": "Texte après approbation",
+        "form_header": "Formulaire de demande",
+        "form_heading": "Titre du formulaire",
+        "form_text": "Texte d’accompagnement du formulaire",
+        "support_email": "E-mail d’assistance de repli"
+      },
+      "blocks": {
+        "richtext": {
+          "name": "Texte enrichi",
+          "settings": {
+            "text": "Texte"
+          }
+        }
+      }
+    },
+    "river_conditions": {
+      "name": "Conditions de la rivière",
+      "settings": {
+        "header_layout": {
+          "content": "Mise en page",
+          "info": "Règle l’espacement au-dessus et au-dessous du bloc des conditions de la rivière."
+        },
+        "header_products": {
+          "content": "Cartes de produit"
+        }
+      },
+      "blocks": {
+        "river_link": {
+          "name": "Lien de la rivière",
+          "settings": {
+            "url": {
+              "label": "URL"
+            },
+            "label": {
+              "label": "Libellé"
+            }
+          }
+        }
       }
     }
   }

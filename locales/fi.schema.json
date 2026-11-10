@@ -1464,6 +1464,31 @@
             "label": "Suuri"
           },
           "info": "Saat parhaat tulokset käyttämällä kuvaa, jonka kuvasuhde on 3:2. [Lisätietoja](https://help.shopify.com/manual/shopify-admin/productivity-tools/image-editor#understanding-image-aspect-ratio)"
+        },
+        "guides_header": {
+          "content": "Esitellyt oppaat"
+        },
+        "guides_heading": {
+          "label": "Oppaisen otsikko",
+          "default": "Perhokalastusoppaat",
+          "info": "Lisää Guide-lohkoja, jotta sivut näkyvät blogijulkaisujen yläpuolella. Vain blogin ensimmäisellä sivulla."
+        }
+      },
+      "blocks": {
+        "guide": {
+          "name": "Opas",
+          "settings": {
+            "page": {
+              "label": "Sivu"
+            },
+            "image": {
+              "label": "Kuva"
+            },
+            "description": {
+              "label": "Kuvaus",
+              "info": "Jätä tyhjäksi, niin käytetään sivun tekstin alkua."
+            }
+          }
         }
       }
     },
@@ -3420,10 +3445,209 @@
         },
         "show_sku": {
           "label": "Näytä SKU-koodit"
+        },
+        "b2b_only": {
+          "label": "Näytä vain B2B-asiakkaille",
+          "info": "Kun käytössä, pikatilauslista näkyy vain kirjautuneille tukkukaupan ostajille."
         }
       },
       "presets": {
         "name": "Pikatilausluettelo"
+      }
+    },
+    "product-specs": {
+      "name": "Tuotteen tiedot",
+      "settings": {
+        "heading": {
+          "label": "Otsikko"
+        },
+        "color_scheme": {
+          "label": "Värimalli"
+        },
+        "padding_top": {
+          "label": "Yläosan täyttö"
+        },
+        "padding_bottom": {
+          "label": "Alaosan täyttö"
+        }
+      },
+      "blocks": {
+        "spec": {
+          "name": "Määritesarake",
+          "settings": {
+            "heading": {
+              "label": "Otsikko",
+              "default": "Ominaisuudet"
+            },
+            "content": {
+              "label": "Sisältö",
+              "info": "Yhdistä tuotteen metakenttä dynaamiseksi lähteeksi tai jätä tyhjäksi, niin sarake piilotetaan."
+            },
+            "wide": {
+              "label": "Leveä sarake",
+              "info": "Anna tälle sarakkeelle kaksinkertainen leveys, esimerkiksi ominaisuuslistalle."
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Tuotteen tiedot"
+      }
+    },
+    "product-editorial": {
+      "name": "Tuotteen toimituksellinen osio",
+      "settings": {
+        "heading": {
+          "label": "Otsikko",
+          "info": "Yhdistä tuotteen metakenttä dynaamiseksi lähteeksi tuotekohtaiseen otsikkoon."
+        },
+        "content": {
+          "label": "Sisältö",
+          "info": "Yhdistä tuotteen metakenttä dynaamiseksi lähteeksi. Osio piilotetaan, jos se on tyhjä."
+        },
+        "use_description_fallback": {
+          "label": "Käytä tuotteen kuvausta varalla",
+          "info": "Kun sisältöä ei ole yhdistetty, näytetään tuotteen kuvaus."
+        },
+        "fallback_heading": {
+          "label": "Varaotsikko",
+          "info": "Käytetään, kun tuotekohtaista otsikkoa ei ole yhdistetty.",
+          "default": "Kuvaus ja ominaisuudet"
+        },
+        "brand_heading": {
+          "label": "Merkkisarakkeen otsikko",
+          "default": "Merkki"
+        },
+        "shipping_heading": {
+          "label": "Toimitussarakkeen otsikko",
+          "default": "Toimitus ja palautukset"
+        },
+        "shipping_text": {
+          "label": "Toimitussarakkeen teksti",
+          "default": "<p>Ilmainen toimitus Yhdysvaltoihin yli $75 tilauksille. Ilmainen palautus Yhdysvaltojen sisällä.</p>"
+        },
+        "color_scheme": {
+          "label": "Värimalli"
+        },
+        "padding_top": {
+          "label": "Yläosan täyttö"
+        },
+        "padding_bottom": {
+          "label": "Alaosan täyttö"
+        }
+      },
+      "presets": {
+        "name": "Tuotteen toimituksellinen osio"
+      }
+    },
+    "sticky-atc-bar": {
+      "name": "Kiinnitetty lisäys ostoskoriin -palkki",
+      "settings": {
+        "paragraph": {
+          "content": "Näyttää palkin, jossa on hinta ja lisäys ostoskoriin, kun ostaja vierittää pääostopainikkeiden ohi."
+        },
+        "color_scheme": {
+          "label": "Värimalli"
+        }
+      },
+      "presets": {
+        "name": "Kiinnitetty lisäys ostoskoriin -palkki"
+      }
+    },
+    "spawn_rods_reels": {
+      "name": "Vapojen ja kelojen sivu",
+      "title": "Sivun otsikko",
+      "intro": "Johdanto",
+      "rods": "Perhovapojen kokoelma",
+      "reels": "Perhokelojen kokoelma",
+      "rods_image": "Perhovapojen oma kuva",
+      "reels_image": "Perhokelojen oma kuva",
+      "brand_menu": "Valikko vapa- ja kelamerkeillä"
+    },
+    "spawn_home": {
+      "name": "Spawnin premium-etusivu",
+      "hero_image": "Pääkuva",
+      "eyebrow": "Otsikon ylärivi",
+      "hero_title": "Pääotsikko",
+      "hero_text": "Pääkuvaus",
+      "tying_collection": "Perhonsidonnan kokoelma",
+      "materials_collection": "Esiteltyjen materiaalien kokoelma",
+      "flies_collection": "Tunnusperhojen kokoelma",
+      "feature_image": "Esitellyn perhon kuva",
+      "feature_title": "Esitellyn perhon otsikko",
+      "feature_text": "Esitellyn perhon kuvaus",
+      "feature_collection": "Esitellyn perhon kokoelma",
+      "store_image": "Myymälän kuva",
+      "store_text": "Myymälän kuvaus",
+      "blog": "Päiväkirjablogi",
+      "category": "Luokka",
+      "category_title": "Luokan otsikko",
+      "category_image": "Luokan oma kuva",
+      "category_subtitle": "Luokan alaotsikko",
+      "category_cta": "Luokkapainikkeen teksti"
+    },
+    "wholesale_landing": {
+      "name": "Tukkukaupan sivu",
+      "settings": {
+        "hero_image": "Pääkuva",
+        "eyebrow": "Otsikon ylärivi",
+        "heading": "Otsikko",
+        "lede": "Tukiteksti",
+        "points_header": "Pääalueen kohokohdat",
+        "point_1_title": "Kohokohdan 1 otsikko",
+        "point_1_text": "Kohokohdan 1 teksti",
+        "point_2_title": "Kohokohdan 2 otsikko",
+        "point_2_text": "Kohokohdan 2 teksti",
+        "point_3_title": "Kohokohdan 3 otsikko",
+        "point_3_text": "Kohokohdan 3 teksti",
+        "request_label": "Käyttöoikeuspyynnön painikkeen teksti",
+        "login_label": "Kirjautumispainikkeen teksti",
+        "shop_label": "Kauppapainikkeen teksti",
+        "account_label": "Tilipainikkeen teksti",
+        "shop_link": "Kauppalinkki kirjautuneille ostajille",
+        "who_header": "Kenelle tämä on",
+        "who_heading": "Otsikko „Kenelle“",
+        "who_text": "Teksti „Kenelle“",
+        "after_header": "Hyväksynnän jälkeen",
+        "after_heading": "Otsikko hyväksynnän jälkeen",
+        "after_text": "Teksti hyväksynnän jälkeen",
+        "form_header": "Pyyntölomake",
+        "form_heading": "Lomakkeen otsikko",
+        "form_text": "Lomakkeen tukiteksti",
+        "support_email": "Varatukiosoite"
+      },
+      "blocks": {
+        "richtext": {
+          "name": "Rich text",
+          "settings": {
+            "text": "Teksti"
+          }
+        }
+      }
+    },
+    "river_conditions": {
+      "name": "Jokiolosuhteet",
+      "settings": {
+        "header_layout": {
+          "content": "Asettelu",
+          "info": "Säätää jokiolosuhdelohkon ylä- ja alapuolen täytteen."
+        },
+        "header_products": {
+          "content": "Tuotekortit"
+        }
+      },
+      "blocks": {
+        "river_link": {
+          "name": "Jokilinkki",
+          "settings": {
+            "url": {
+              "label": "URL-osoite"
+            },
+            "label": {
+              "label": "Tunniste"
+            }
+          }
+        }
       }
     }
   }

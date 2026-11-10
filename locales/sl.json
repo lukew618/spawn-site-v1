@@ -49,7 +49,8 @@
     },
     "search": {
       "search": "Iskanje",
-      "reset": "Počisti iskalni izraz"
+      "reset": "Počisti iskalni izraz",
+      "placeholder": "Išči izdelke in znamke"
     },
     "cart": {
       "view": "Prikaži košarico ({{ count }})",
@@ -148,7 +149,8 @@
         "from_price_html": "Od {{ price }}",
         "regular_price": "Redna cena",
         "sale_price": "Znižana cena",
-        "unit_price": "Cena na enoto"
+        "unit_price": "Cena na enoto",
+        "save_percent": "Prihranite {{ percent }} %"
       },
       "pickup_availability": {
         "view_store_info": "Prikaži podatke o trgovini",
@@ -335,7 +337,18 @@
       "duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_html": "Dajatve vključene. Davki, popusti in <a href=\"{{ link }}\">strošek dostave</a> se obračunajo ob zaključku nakupa.",
       "duties_included_taxes_at_checkout_shipping_at_checkout_without_policy": "Dajatve vključene. Davki, popusti in strošek dostave se obračunajo ob zaključku nakupa.",
       "taxes_at_checkout_shipping_at_checkout_with_policy_html": "Davki, popusti in <a href=\"{{ link }}\">strošek dostave</a> se obračunajo ob zaključku nakupa.",
-      "taxes_at_checkout_shipping_at_checkout_without_policy": "Davki, popusti in strošek dostave se obračunajo ob zaključku nakupa."
+      "taxes_at_checkout_shipping_at_checkout_without_policy": "Davki, popusti in strošek dostave se obračunajo ob zaključku nakupa.",
+      "empty_message": "Pripravite vezalno mizo za naslednji dan na vodi.",
+      "shop_materials": "Nakup vezanja muh",
+      "shop_flies": "Razišči muhe",
+      "remove": "Odstrani",
+      "each": "na kos",
+      "available_offers": "Razpoložljive ponudbe",
+      "view_full_cart": "Prikaži celotno košarico",
+      "shipping_remaining_html": "Do brezplačne dostave vam manjka <strong>{{ amount }}</strong>.",
+      "shipping_unlocked": "Odklenili ste brezplačno dostavo.",
+      "shipping_progress": "Napredek do brezplačne dostave",
+      "shipping_region": "Za naročila v celinski del ZDA."
     },
     "footer": {
       "payment": "Načini plačila"
@@ -407,6 +420,69 @@
       "min_error": "Ta artikel ima najmanj {{ min }}",
       "max_error": "Ta artikel ima največ {{ max }}",
       "step_error": "Ta artikel lahko dodate samo v korakih po {{ step }}."
+    },
+    "river_conditions": {
+      "name": "Razmere na reki",
+      "no_river": "Za to stran niso nastavljeni podatki o reki.",
+      "river_navigation": "Krmarjenje po rekah",
+      "live_label": "V živo · USGS vsakih 15 min",
+      "flow": "Pretok",
+      "temperature": "Temperatura vode",
+      "gage_height": "Višina vodomera",
+      "clarity": "Jasnost",
+      "unknown": "Neznano",
+      "data_unavailable": "Podatki v živo začasno niso na voljo. Preverite kmalu.",
+      "flow_history": "Pretok v 7 dneh",
+      "where": "Kjer ribarite",
+      "access_points": "Dostopi · od gorvodno navzdol",
+      "nearest": "Najbližje",
+      "best_stretch": "Najboljši odsek trenutno",
+      "guide_report": "Poročilo vodnika",
+      "on_the_water": "Zdaj na vodi",
+      "current_hatches": "Trenutna izleganja",
+      "no_hatches": "Trenutno ni aktivnih izleganj. Preverite kmalu ali spodaj prebrskajte celotno škatlo muh.",
+      "recommended_gear": "Priporočena oprema",
+      "gear_lede": "Usklajeno s tem, kar je zdaj na vodi.",
+      "settings": {
+        "header_layout": {
+          "content": "Postavitev",
+          "info": "Nastavi razmik nad in pod blokom razmer na reki."
+        },
+        "header_products": {
+          "content": "Kartice izdelkov"
+        }
+      },
+      "blocks": {
+        "river_link": {
+          "name": "Povezava do reke",
+          "settings": {
+            "url": {
+              "label": "URL"
+            },
+            "label": {
+              "label": "Napis"
+            }
+          }
+        }
+      }
+    },
+    "river_picker": {
+      "current": "Trenutna reka",
+      "search_placeholder": "Išči reke…",
+      "search_label": "Išči reke",
+      "browse_all": "Prebrskaj vse reke",
+      "empty": "Nobena reka se ne ujema."
+    },
+    "rivers_index": {
+      "empty": "Reke še niso nastavljene. Zaženite skripto za polnjenje podatkov o rekah.",
+      "search_placeholder": "Išči reke ali kraje…",
+      "search_label": "Išči reke",
+      "filter_label": "Filtriraj po regiji",
+      "all_regions": "Vse regije",
+      "flow": "Pretok",
+      "temperature": "Temp.",
+      "view": "Prikaži razmere",
+      "no_results": "Nobena reka se ne ujema. Počistite filtre ali poiščite drugo ime."
     }
   },
   "localization": {

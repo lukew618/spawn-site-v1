@@ -49,7 +49,8 @@
     },
     "search": {
       "search": "Sök",
-      "reset": "Rensa sökord"
+      "reset": "Rensa sökord",
+      "placeholder": "Sök produkter och varumärken"
     },
     "cart": {
       "view": "Visa varukorg ({{ count }})",
@@ -138,7 +139,8 @@
         "from_price_html": "Från {{ price }}",
         "regular_price": "Ordinarie pris",
         "sale_price": "Försäljningspris",
-        "unit_price": "Enhetspris"
+        "unit_price": "Enhetspris",
+        "save_percent": "Spara {{ percent }} %"
       },
       "share": "Dela den här produkten",
       "sold_out": "Slutsåld",
@@ -315,7 +317,18 @@
       "duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_html": "Tullavgifter ingår. Skatter, rabatter och <a href=\"{{ link }}\">fraktkostnad</a> beräknas i kassan.",
       "duties_included_taxes_at_checkout_shipping_at_checkout_without_policy": "Tullavgifter ingår. Skatter, rabatter och fraktkostnad beräknas i kassan.",
       "taxes_at_checkout_shipping_at_checkout_with_policy_html": "Skatter, rabatter och <a href=\"{{ link }}\">fraktkostnad</a> beräknas i kassan.",
-      "taxes_at_checkout_shipping_at_checkout_without_policy": "Skatter, rabatter och fraktkostnad beräknas i kassan."
+      "taxes_at_checkout_shipping_at_checkout_without_policy": "Skatter, rabatter och fraktkostnad beräknas i kassan.",
+      "empty_message": "Fyll bindbänken inför nästa dag på vattnet.",
+      "shop_materials": "Handla flugbinding",
+      "shop_flies": "Utforska flugor",
+      "remove": "Ta bort",
+      "each": "per styck",
+      "available_offers": "Tillgängliga erbjudanden",
+      "view_full_cart": "Visa hela varukorgen",
+      "shipping_remaining_html": "Du har <strong>{{ amount }}</strong> kvar till fri frakt.",
+      "shipping_unlocked": "Du har låst upp fri frakt.",
+      "shipping_progress": "Förlopp mot fri frakt",
+      "shipping_region": "På beställningar till de sammanhängande USA."
     },
     "footer": {
       "payment": "Betalningsmetoder"
@@ -383,6 +396,69 @@
       "min_error": "Den här artikeln har minst {{ min }}",
       "max_error": "Den här artikeln har max {{ max }}",
       "step_error": "Du kan endast lägga till den här artikeln med ökningar om {{ step }}"
+    },
+    "river_conditions": {
+      "name": "Flodförhållanden",
+      "no_river": "Inga floddata är inställda för den här sidan.",
+      "river_navigation": "Flodnavigering",
+      "live_label": "Live · USGS var 15:e minut",
+      "flow": "Vattenföring",
+      "temperature": "Vattentemperatur",
+      "gage_height": "Vattenstånd",
+      "clarity": "Sikt",
+      "unknown": "Okänt",
+      "data_unavailable": "Livedata är tillfälligt otillgängliga. Kom tillbaka snart.",
+      "flow_history": "7 dagars vattenföring",
+      "where": "Där du fiskar",
+      "access_points": "Tillträde · uppströms och nedåt",
+      "nearest": "Närmast",
+      "best_stretch": "Bästa sträckan just nu",
+      "guide_report": "Guidens rapport",
+      "on_the_water": "På vattnet nu",
+      "current_hatches": "Aktuella kläckningar",
+      "no_hatches": "Inga aktiva kläckningar just nu. Kom tillbaka snart eller bläddra i hela flugasken nedan.",
+      "recommended_gear": "Rekommenderad utrustning",
+      "gear_lede": "Matchat till det som är på vattnet just nu.",
+      "settings": {
+        "header_layout": {
+          "content": "Layout",
+          "info": "Styr avståndet ovanför och under blocket med flodförhållanden."
+        },
+        "header_products": {
+          "content": "Produktkort"
+        }
+      },
+      "blocks": {
+        "river_link": {
+          "name": "Flodlänk",
+          "settings": {
+            "url": {
+              "label": "URL"
+            },
+            "label": {
+              "label": "Etikett"
+            }
+          }
+        }
+      }
+    },
+    "river_picker": {
+      "current": "Aktuell flod",
+      "search_placeholder": "Sök floder…",
+      "search_label": "Sök floder",
+      "browse_all": "Bläddra bland alla floder",
+      "empty": "Inga floder matchar."
+    },
+    "rivers_index": {
+      "empty": "Inga floder är inställda ännu. Kör seed-skriptet för att fylla floddata.",
+      "search_placeholder": "Sök floder eller orter…",
+      "search_label": "Sök floder",
+      "filter_label": "Filtrera efter region",
+      "all_regions": "Alla regioner",
+      "flow": "Vattenföring",
+      "temperature": "Temp.",
+      "view": "Visa förhållanden",
+      "no_results": "Inga floder matchar. Rensa filtren eller sök ett annat namn."
     }
   },
   "localization": {

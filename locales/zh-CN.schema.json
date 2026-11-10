@@ -1464,6 +1464,31 @@
             "label": "大"
           },
           "info": "若要获得最佳效果，请使用纵横比为 3:2 的图片。[详细了解](https://help.shopify.com/manual/shopify-admin/productivity-tools/image-editor#understanding-image-aspect-ratio)"
+        },
+        "guides_header": {
+          "content": "精选指南"
+        },
+        "guides_heading": {
+          "label": "指南标题",
+          "default": "飞钓指南",
+          "info": "添加 Guide 区块，可在博客文章上方展示页面。仅显示在博客第一页。"
+        }
+      },
+      "blocks": {
+        "guide": {
+          "name": "指南",
+          "settings": {
+            "page": {
+              "label": "页面"
+            },
+            "image": {
+              "label": "图片"
+            },
+            "description": {
+              "label": "描述",
+              "info": "留空则使用页面正文的开头。"
+            }
+          }
         }
       }
     },
@@ -3420,10 +3445,209 @@
         },
         "show_sku": {
           "label": "显示 SKU"
+        },
+        "b2b_only": {
+          "label": "仅向 B2B 客户显示",
+          "info": "启用后，快速订购列表仅对已登录的批发买家显示。"
         }
       },
       "presets": {
         "name": "快速订单列表"
+      }
+    },
+    "product-specs": {
+      "name": "产品规格",
+      "settings": {
+        "heading": {
+          "label": "标题"
+        },
+        "color_scheme": {
+          "label": "配色方案"
+        },
+        "padding_top": {
+          "label": "顶部填充"
+        },
+        "padding_bottom": {
+          "label": "底部填充"
+        }
+      },
+      "blocks": {
+        "spec": {
+          "name": "规格列",
+          "settings": {
+            "heading": {
+              "label": "标题",
+              "default": "特点"
+            },
+            "content": {
+              "label": "内容",
+              "info": "将产品元字段作为动态源连接，或留空以隐藏此列。"
+            },
+            "wide": {
+              "label": "宽列",
+              "info": "让此列占用双倍宽度，例如特点列表。"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "产品规格"
+      }
+    },
+    "product-editorial": {
+      "name": "产品编辑区",
+      "settings": {
+        "heading": {
+          "label": "标题",
+          "info": "将产品元字段作为动态源，用于每个产品的标题。"
+        },
+        "content": {
+          "label": "内容",
+          "info": "将产品元字段作为动态源连接。为空时隐藏此分区。"
+        },
+        "use_description_fallback": {
+          "label": "回退到产品描述",
+          "info": "未连接内容时，改为显示产品描述。"
+        },
+        "fallback_heading": {
+          "label": "备用标题",
+          "info": "未连接每个产品的标题时使用。",
+          "default": "描述与特点"
+        },
+        "brand_heading": {
+          "label": "品牌列标题",
+          "default": "品牌"
+        },
+        "shipping_heading": {
+          "label": "配送列标题",
+          "default": "配送与退货"
+        },
+        "shipping_text": {
+          "label": "配送列正文",
+          "default": "<p>运往美国且超过 $75 的订单免运费。美国境内退货运费免费。</p>"
+        },
+        "color_scheme": {
+          "label": "配色方案"
+        },
+        "padding_top": {
+          "label": "顶部填充"
+        },
+        "padding_bottom": {
+          "label": "底部填充"
+        }
+      },
+      "presets": {
+        "name": "产品编辑区"
+      }
+    },
+    "sticky-atc-bar": {
+      "name": "固定加入购物车条",
+      "settings": {
+        "paragraph": {
+          "content": "购物者滚过主要购买按钮后，显示带价格和加入购物车按钮的条。"
+        },
+        "color_scheme": {
+          "label": "配色方案"
+        }
+      },
+      "presets": {
+        "name": "固定加入购物车条"
+      }
+    },
+    "spawn_rods_reels": {
+      "name": "竿与轮页面",
+      "title": "页面标题",
+      "intro": "简介",
+      "rods": "飞钓竿系列",
+      "reels": "飞钓轮系列",
+      "rods_image": "飞钓竿图片替换",
+      "reels_image": "飞钓轮图片替换",
+      "brand_menu": "竿与轮品牌菜单"
+    },
+    "spawn_home": {
+      "name": "Spawn 高级首页",
+      "hero_image": "主图",
+      "eyebrow": "标题上方小字",
+      "hero_title": "主标题",
+      "hero_text": "主描述",
+      "tying_collection": "绑制材料系列",
+      "materials_collection": "主推材料系列",
+      "flies_collection": "招牌毛钩系列",
+      "feature_image": "主推毛钩图片",
+      "feature_title": "主推毛钩标题",
+      "feature_text": "主推毛钩描述",
+      "feature_collection": "主推毛钩系列",
+      "store_image": "店铺图片",
+      "store_text": "店铺描述",
+      "blog": "日志博客",
+      "category": "分类",
+      "category_title": "分类标题",
+      "category_image": "分类图片替换",
+      "category_subtitle": "分类副标题",
+      "category_cta": "分类按钮标签"
+    },
+    "wholesale_landing": {
+      "name": "批发着陆页",
+      "settings": {
+        "hero_image": "主图",
+        "eyebrow": "标题上方小字",
+        "heading": "标题",
+        "lede": "辅助文字",
+        "points_header": "主视觉要点",
+        "point_1_title": "要点 1 的标题",
+        "point_1_text": "要点 1 的说明",
+        "point_2_title": "要点 2 的标题",
+        "point_2_text": "要点 2 的说明",
+        "point_3_title": "要点 3 的标题",
+        "point_3_text": "要点 3 的说明",
+        "request_label": "申请权限按钮标签",
+        "login_label": "登录按钮标签",
+        "shop_label": "商店按钮标签",
+        "account_label": "账户按钮标签",
+        "shop_link": "已登录买家的商店链接",
+        "who_header": "适用对象",
+        "who_heading": "“适用对象”标题",
+        "who_text": "“适用对象”正文",
+        "after_header": "批准之后",
+        "after_heading": "批准后的标题",
+        "after_text": "批准后的正文",
+        "form_header": "申请表单",
+        "form_heading": "表单标题",
+        "form_text": "表单辅助文字",
+        "support_email": "备用支持邮箱"
+      },
+      "blocks": {
+        "richtext": {
+          "name": "富文本",
+          "settings": {
+            "text": "文本"
+          }
+        }
+      }
+    },
+    "river_conditions": {
+      "name": "河流状况",
+      "settings": {
+        "header_layout": {
+          "content": "布局",
+          "info": "控制河流状况区块上下的内边距。"
+        },
+        "header_products": {
+          "content": "产品卡"
+        }
+      },
+      "blocks": {
+        "river_link": {
+          "name": "河流链接",
+          "settings": {
+            "url": {
+              "label": "URL"
+            },
+            "label": {
+              "label": "标签"
+            }
+          }
+        }
       }
     }
   }

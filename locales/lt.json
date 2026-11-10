@@ -49,7 +49,8 @@
     },
     "search": {
       "search": "Ieškoti",
-      "reset": "Išvalyti paieškos terminą"
+      "reset": "Išvalyti paieškos terminą",
+      "placeholder": "Ieškoti produktų ir prekių ženklų"
     },
     "cart": {
       "view": "Peržiūrėti krepšelį ({{ count }})",
@@ -148,7 +149,8 @@
         "from_price_html": "Nuo {{ price }}",
         "regular_price": "Įprasta kaina",
         "sale_price": "Išpardavimo kaina",
-        "unit_price": "Vieneto kaina"
+        "unit_price": "Vieneto kaina",
+        "save_percent": "Sutaupykite {{ percent }} %"
       },
       "pickup_availability": {
         "view_store_info": "Žiūrėti parduotuvės informaciją",
@@ -335,7 +337,18 @@
       "duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_html": "Muito mokesčiai įtraukti. Mokesčiai, nuolaidos ir <a href=\"{{ link }}\">siuntimo išlaidos</a> apskaičiuojamos atsiskaitant.",
       "duties_included_taxes_at_checkout_shipping_at_checkout_without_policy": "Muito mokesčiai įtraukti. Mokesčiai, nuolaidos ir siuntimo išlaidos apskaičiuojamos atsiskaitant.",
       "taxes_at_checkout_shipping_at_checkout_with_policy_html": "Mokesčiai, nuolaidos ir <a href=\"{{ link }}\">siuntimo išlaidos</a> apskaičiuojamos atsiskaitant.",
-      "taxes_at_checkout_shipping_at_checkout_without_policy": "Mokesčiai, nuolaidos ir siuntimo išlaidos apskaičiuojamos atsiskaitant."
+      "taxes_at_checkout_shipping_at_checkout_without_policy": "Mokesčiai, nuolaidos ir siuntimo išlaidos apskaičiuojamos atsiskaitant.",
+      "empty_message": "Paruoškite rišimo stalą kitai dienai ant vandens.",
+      "shop_materials": "Pirkti musių rišimą",
+      "shop_flies": "Apžiūrėti muses",
+      "remove": "Pašalinti",
+      "each": "už vnt.",
+      "available_offers": "Galimi pasiūlymai",
+      "view_full_cart": "Rodyti visą krepšelį",
+      "shipping_remaining_html": "Iki nemokamo pristatymo trūksta <strong>{{ amount }}</strong>.",
+      "shipping_unlocked": "Atrakinta nemokama pristatymas.",
+      "shipping_progress": "Pažanga iki nemokamo pristatymo",
+      "shipping_region": "Užsakymams į gretimas JAV valstijas."
     },
     "footer": {
       "payment": "Mokėjimo būdai"
@@ -407,6 +420,69 @@
       "min_error": "Nustatytas mažiausias šios prekės kiekis: {{ min }}",
       "max_error": "Nustatytas didžiausias šios prekės kiekis: {{ max }}",
       "step_error": "Galima pridėti tik po {{ step }} vnt. šios prekės"
+    },
+    "river_conditions": {
+      "name": "Upės sąlygos",
+      "no_river": "Šiam puslapiui nenustatyti upės duomenys.",
+      "river_navigation": "Upių navigacija",
+      "live_label": "Tiesiogiai · USGS kas 15 min.",
+      "flow": "Debitas",
+      "temperature": "Vandens temperatūra",
+      "gage_height": "Vandens lygis",
+      "clarity": "Skaidrumas",
+      "unknown": "Nežinoma",
+      "data_unavailable": "Tiesioginiai duomenys laikinai nepasiekiami. Patikrinkite netrukus.",
+      "flow_history": "7 dienų debitas",
+      "where": "Kur žvejojate",
+      "access_points": "Prieigos · nuo aukštupio žemyn",
+      "nearest": "Artimiausia",
+      "best_stretch": "Geriausia atkarpa dabar",
+      "guide_report": "Gido ataskaita",
+      "on_the_water": "Ant vandens dabar",
+      "current_hatches": "Dabartiniai ritiniai",
+      "no_hatches": "Dabar nėra aktyvių ritinių. Patikrinkite netrukus arba peržiūrėkite visą musių dėžę žemiau.",
+      "recommended_gear": "Rekomenduojama įranga",
+      "gear_lede": "Parinkta pagal tai, kas dabar yra ant vandens.",
+      "settings": {
+        "header_layout": {
+          "content": "Išdėstymas",
+          "info": "Nustato tarpą virš ir po upės sąlygų bloko."
+        },
+        "header_products": {
+          "content": "Produktų kortelės"
+        }
+      },
+      "blocks": {
+        "river_link": {
+          "name": "Upės nuoroda",
+          "settings": {
+            "url": {
+              "label": "URL"
+            },
+            "label": {
+              "label": "Etiketė"
+            }
+          }
+        }
+      }
+    },
+    "river_picker": {
+      "current": "Dabartinė upė",
+      "search_placeholder": "Ieškoti upių…",
+      "search_label": "Ieškoti upių",
+      "browse_all": "Peržiūrėti visas upes",
+      "empty": "Nėra atitinkančių upių."
+    },
+    "rivers_index": {
+      "empty": "Upės dar nenustatytos. Paleiskite sėjos scenarijų upės duomenims užpildyti.",
+      "search_placeholder": "Ieškoti upių ar miestų…",
+      "search_label": "Ieškoti upių",
+      "filter_label": "Filtruoti pagal regioną",
+      "all_regions": "Visi regionai",
+      "flow": "Debitas",
+      "temperature": "Temp.",
+      "view": "Rodyti sąlygas",
+      "no_results": "Nėra atitinkančių upių. Išvalykite filtrus arba ieškokite kito pavadinimo."
     }
   },
   "localization": {

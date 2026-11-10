@@ -3624,6 +3624,31 @@
           }
         }
       }
+    },
+    "river_conditions": {
+      "name": "River conditions",
+      "settings": {
+        "header_layout": {
+          "content": "Layout",
+          "info": "Controls the section padding above and below the river conditions block."
+        },
+        "header_products": {
+          "content": "Product cards"
+        }
+      },
+      "blocks": {
+        "river_link": {
+          "name": "River link",
+          "settings": {
+            "url": {
+              "label": "URL"
+            },
+            "label": {
+              "label": "Label"
+            }
+          }
+        }
+      }
     }
   }
 }

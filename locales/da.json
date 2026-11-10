@@ -49,7 +49,8 @@
     },
     "search": {
       "search": "Søg",
-      "reset": "Ryd søgeord"
+      "reset": "Ryd søgeord",
+      "placeholder": "Søg produkter og mærker"
     },
     "cart": {
       "view": "Se indkøbskurv ({{ count }})",
@@ -138,7 +139,8 @@
         "from_price_html": "Fra {{ price }}",
         "regular_price": "Normalpris",
         "sale_price": "Udsalgspris",
-        "unit_price": "Stykpris"
+        "unit_price": "Stykpris",
+        "save_percent": "Spar {{ percent }} %"
       },
       "share": "Del dette produkt",
       "sold_out": "Udsolgt",
@@ -315,7 +317,18 @@
       "duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_html": "Inklusive told. Skatter, rabatter og <a href=\"{{ link }}\">levering</a> beregnes ved betaling.",
       "duties_included_taxes_at_checkout_shipping_at_checkout_without_policy": "Inklusive told. Skatter, rabatter og levering beregnes ved betaling.",
       "taxes_at_checkout_shipping_at_checkout_with_policy_html": "Skatter, rabatter og <a href=\"{{ link }}\">levering</a> beregnes ved betaling.",
-      "taxes_at_checkout_shipping_at_checkout_without_policy": "Skatter, rabatter og levering beregnes ved betaling."
+      "taxes_at_checkout_shipping_at_checkout_without_policy": "Skatter, rabatter og levering beregnes ved betaling.",
+      "empty_message": "Fyld bindebordet op til din næste dag på vandet.",
+      "shop_materials": "Shop fluebinding",
+      "shop_flies": "Udforsk fluer",
+      "remove": "Fjern",
+      "each": "pr. stk.",
+      "available_offers": "Tilgængelige tilbud",
+      "view_full_cart": "Se hele kurven",
+      "shipping_remaining_html": "Du mangler <strong>{{ amount }}</strong> for gratis levering.",
+      "shipping_unlocked": "Du har låst op for gratis levering.",
+      "shipping_progress": "Fremskridt mod gratis levering",
+      "shipping_region": "På ordrer til det sammenhængende USA."
     },
     "footer": {
       "payment": "Betalingsmetoder"
@@ -383,6 +396,69 @@
       "min_error": "Denne vare har en minimumsgrænse på {{ min }}",
       "max_error": "Denne vare har en maksimumgrænse på {{ max }}",
       "step_error": "Du kan kun tilføje denne vare i intervaller på {{ step }}"
+    },
+    "river_conditions": {
+      "name": "Flodforhold",
+      "no_river": "Der er ikke konfigureret floddata for denne side.",
+      "river_navigation": "Flodnavigation",
+      "live_label": "Live · USGS hvert 15. minut",
+      "flow": "Vandføring",
+      "temperature": "Vandtemperatur",
+      "gage_height": "Vandstand",
+      "clarity": "Klarhed",
+      "unknown": "Ukendt",
+      "data_unavailable": "Live-data er midlertidigt utilgængelige. Prøv igen snart.",
+      "flow_history": "7 dages vandføring",
+      "where": "Hvor du fisker",
+      "access_points": "Adgang · fra opstrøms og ned",
+      "nearest": "Nærmest",
+      "best_stretch": "Bedste strækning lige nu",
+      "guide_report": "Guiderapport",
+      "on_the_water": "På vandet nu",
+      "current_hatches": "Aktuelle klækninger",
+      "no_hatches": "Ingen aktive klækninger lige nu. Prøv igen snart, eller se hele flueæsken nedenfor.",
+      "recommended_gear": "Anbefalet grej",
+      "gear_lede": "Matchet til det, der er på vandet lige nu.",
+      "settings": {
+        "header_layout": {
+          "content": "Layout",
+          "info": "Styrer afstanden over og under blokken med flodforhold."
+        },
+        "header_products": {
+          "content": "Produktkort"
+        }
+      },
+      "blocks": {
+        "river_link": {
+          "name": "Flodlink",
+          "settings": {
+            "url": {
+              "label": "URL"
+            },
+            "label": {
+              "label": "Etiket"
+            }
+          }
+        }
+      }
+    },
+    "river_picker": {
+      "current": "Nuværende flod",
+      "search_placeholder": "Søg floder…",
+      "search_label": "Søg floder",
+      "browse_all": "Se alle floder",
+      "empty": "Ingen floder matcher."
+    },
+    "rivers_index": {
+      "empty": "Ingen floder er konfigureret endnu. Kør seed-scriptet for at udfylde floddata.",
+      "search_placeholder": "Søg floder eller byer…",
+      "search_label": "Søg floder",
+      "filter_label": "Filtrér efter region",
+      "all_regions": "Alle regioner",
+      "flow": "Vandføring",
+      "temperature": "Temp.",
+      "view": "Se forhold",
+      "no_results": "Ingen floder matcher. Ryd filtrene, eller søg efter et andet navn."
     }
   },
   "localization": {

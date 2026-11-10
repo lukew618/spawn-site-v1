@@ -49,7 +49,8 @@
     },
     "search": {
       "search": "搜尋",
-      "reset": "清除搜尋詞彙"
+      "reset": "清除搜尋詞彙",
+      "placeholder": "搜尋產品和品牌"
     },
     "cart": {
       "view": "檢視購物車 ({{ count }})",
@@ -139,7 +140,8 @@
         "from_price_html": "從 {{ price }} 起",
         "regular_price": "定價",
         "sale_price": "售價",
-        "unit_price": "單價"
+        "unit_price": "單價",
+        "save_percent": "節省 {{ percent }}%"
       },
       "share": "分享產品",
       "sold_out": "售罄",
@@ -315,7 +317,18 @@
       "duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_html": "已包含關稅。結帳時計算稅額、折扣和<a href=\"{{ link }}\">運費</a>。",
       "duties_included_taxes_at_checkout_shipping_at_checkout_without_policy": "已包含關稅。結帳時計算稅額、折扣和運費。",
       "taxes_at_checkout_shipping_at_checkout_with_policy_html": "結帳時計算稅額、折扣和<a href=\"{{ link }}\">運費</a>。",
-      "taxes_at_checkout_shipping_at_checkout_without_policy": "結帳時計算稅額、折扣和運費。"
+      "taxes_at_checkout_shipping_at_checkout_without_policy": "結帳時計算稅額、折扣和運費。",
+      "empty_message": "為下一次出水把綁製台備好。",
+      "shop_materials": "選購綁製材料",
+      "shop_flies": "瀏覽毛鉤",
+      "remove": "移除",
+      "each": "每個",
+      "available_offers": "可用優惠",
+      "view_full_cart": "查看完整購物車",
+      "shipping_remaining_html": "再買 <strong>{{ amount }}</strong> 即可免運費。",
+      "shipping_unlocked": "已達到免運費。",
+      "shipping_progress": "距免運費的進度",
+      "shipping_region": "適用於運往美國本土的訂單。"
     },
     "footer": {
       "payment": "付款方式"
@@ -383,6 +396,69 @@
       "min_error": "此品項下限為 {{ min }}",
       "max_error": "此品項上限為 {{ max }}",
       "step_error": "只能以 {{ step }} 為增量新增此品項"
+    },
+    "river_conditions": {
+      "name": "河流狀況",
+      "no_river": "此頁面尚未設定河流資料。",
+      "river_navigation": "河流導覽",
+      "live_label": "即時 · USGS 15 分鐘數據",
+      "flow": "流量",
+      "temperature": "水溫",
+      "gage_height": "水位",
+      "clarity": "清澈度",
+      "unknown": "未知",
+      "data_unavailable": "即時資料暫時無法使用。請稍後再看。",
+      "flow_history": "7日流量",
+      "where": "你正在作釣的位置",
+      "access_points": "到達點 · 自上游向下游",
+      "nearest": "最近",
+      "best_stretch": "此刻最佳河段",
+      "guide_report": "嚮導報告",
+      "on_the_water": "此刻水情",
+      "current_hatches": "目前羽化",
+      "no_hatches": "此刻沒有活躍羽化。請稍後再看，或瀏覽下方整盒毛鉤。",
+      "recommended_gear": "推薦裝備",
+      "gear_lede": "配合此刻水情挑選。",
+      "settings": {
+        "header_layout": {
+          "content": "版面",
+          "info": "控制河流狀況區塊上下的內距。"
+        },
+        "header_products": {
+          "content": "產品卡片"
+        }
+      },
+      "blocks": {
+        "river_link": {
+          "name": "河流連結",
+          "settings": {
+            "url": {
+              "label": "URL"
+            },
+            "label": {
+              "label": "標籤"
+            }
+          }
+        }
+      }
+    },
+    "river_picker": {
+      "current": "目前河流",
+      "search_placeholder": "搜尋河流…",
+      "search_label": "搜尋河流",
+      "browse_all": "瀏覽所有河流",
+      "empty": "沒有相符的河流。"
+    },
+    "rivers_index": {
+      "empty": "尚未設定河流。請執行種子指令稿以填入河流資料。",
+      "search_placeholder": "搜尋河流或城鎮…",
+      "search_label": "搜尋河流",
+      "filter_label": "依地區篩選",
+      "all_regions": "所有地區",
+      "flow": "流量",
+      "temperature": "水溫",
+      "view": "查看狀況",
+      "no_results": "沒有相符的河流。請清除篩選或換一個名稱搜尋。"
     }
   },
   "localization": {

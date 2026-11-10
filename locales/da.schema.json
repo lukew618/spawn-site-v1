@@ -1464,6 +1464,31 @@
             "label": "Stor"
           },
           "info": "Brug et billede med et højde-bredde-forhold på 3:2 for at opnå det bedste resultat. [Få mere at vide](https://help.shopify.com/manual/shopify-admin/productivity-tools/image-editor#understanding-image-aspect-ratio)"
+        },
+        "guides_header": {
+          "content": "Udvalgte guides"
+        },
+        "guides_heading": {
+          "label": "Overskrift til guides",
+          "default": "Fluefiskeguides",
+          "info": "Tilføj Guide-blokke for at vise sider over blogindlæggene. Vises kun på bloggens første side."
+        }
+      },
+      "blocks": {
+        "guide": {
+          "name": "Guide",
+          "settings": {
+            "page": {
+              "label": "Side"
+            },
+            "image": {
+              "label": "Billede"
+            },
+            "description": {
+              "label": "Beskrivelse",
+              "info": "Lad feltet være tomt for at bruge starten af sideteksten."
+            }
+          }
         }
       }
     },
@@ -3420,10 +3445,209 @@
         },
         "show_sku": {
           "label": "Vis SKU'er"
+        },
+        "b2b_only": {
+          "label": "Vis kun for B2B-kunder",
+          "info": "Når det er slået til, vises hurtigbestillingslisten kun for indloggede engroskøbere."
         }
       },
       "presets": {
         "name": "Hurtig ordreliste"
+      }
+    },
+    "product-specs": {
+      "name": "Produktspecifikationer",
+      "settings": {
+        "heading": {
+          "label": "Overskrift"
+        },
+        "color_scheme": {
+          "label": "Farveskema"
+        },
+        "padding_top": {
+          "label": "Indre margen, top"
+        },
+        "padding_bottom": {
+          "label": "Indre margen, bund"
+        }
+      },
+      "blocks": {
+        "spec": {
+          "name": "Specifikationskolonne",
+          "settings": {
+            "heading": {
+              "label": "Overskrift",
+              "default": "Egenskaber"
+            },
+            "content": {
+              "label": "Indhold",
+              "info": "Knyt et produktmetafelt som dynamisk kilde, eller lad feltet være tomt for at skjule kolonnen."
+            },
+            "wide": {
+              "label": "Bred kolonne",
+              "info": "Giv denne kolonne dobbelt bredde, f.eks. til en liste over egenskaber."
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Produktspecifikationer"
+      }
+    },
+    "product-editorial": {
+      "name": "Produktredaktion",
+      "settings": {
+        "heading": {
+          "label": "Overskrift",
+          "info": "Knyt et produktmetafelt som dynamisk kilde til en overskrift pr. produkt."
+        },
+        "content": {
+          "label": "Indhold",
+          "info": "Knyt et produktmetafelt som dynamisk kilde. Sektionen skjules, når den er tom."
+        },
+        "use_description_fallback": {
+          "label": "Brug produktbeskrivelsen som reserve",
+          "info": "Når der ikke er knyttet indhold, vises produktbeskrivelsen i stedet."
+        },
+        "fallback_heading": {
+          "label": "Reserveoverskrift",
+          "info": "Bruges, når der ikke er knyttet en overskrift pr. produkt.",
+          "default": "Beskrivelse og egenskaber"
+        },
+        "brand_heading": {
+          "label": "Overskrift til mærkekolonne",
+          "default": "Mærke"
+        },
+        "shipping_heading": {
+          "label": "Overskrift til leveringskolonne",
+          "default": "Levering og returnering"
+        },
+        "shipping_text": {
+          "label": "Tekst til leveringskolonne",
+          "default": "<p>Gratis levering på ordrer til USA over $75. Gratis returforsendelse inden for USA.</p>"
+        },
+        "color_scheme": {
+          "label": "Farveskema"
+        },
+        "padding_top": {
+          "label": "Indre margen, top"
+        },
+        "padding_bottom": {
+          "label": "Indre margen, bund"
+        }
+      },
+      "presets": {
+        "name": "Produktredaktion"
+      }
+    },
+    "sticky-atc-bar": {
+      "name": "Fast bjælke med læg i kurv",
+      "settings": {
+        "paragraph": {
+          "content": "Viser en bjælke med pris og læg-i-kurv, når kunden scroller forbi de vigtigste købsknapper."
+        },
+        "color_scheme": {
+          "label": "Farveskema"
+        }
+      },
+      "presets": {
+        "name": "Fast bjælke med læg i kurv"
+      }
+    },
+    "spawn_rods_reels": {
+      "name": "Landingsside for stænger og ruller",
+      "title": "Sidetitel",
+      "intro": "Introduktion",
+      "rods": "Kollektion af fluestænger",
+      "reels": "Kollektion af fluestængeruller",
+      "rods_image": "Erstat billede af fluestænger",
+      "reels_image": "Erstat billede af fluestængeruller",
+      "brand_menu": "Menu med stang- og rullemærker"
+    },
+    "spawn_home": {
+      "name": "Spawn premium-forside",
+      "hero_image": "Hovedbillede",
+      "eyebrow": "Linje over overskriften",
+      "hero_title": "Hovedtitel",
+      "hero_text": "Hovedbeskrivelse",
+      "tying_collection": "Kollektion til fluebinding",
+      "materials_collection": "Udvalgt materialekollektion",
+      "flies_collection": "Kollektion af signaturfluer",
+      "feature_image": "Billede af den udvalgte flue",
+      "feature_title": "Titel på den udvalgte flue",
+      "feature_text": "Beskrivelse af den udvalgte flue",
+      "feature_collection": "Udvalgt fluekollektion",
+      "store_image": "Butiksbillede",
+      "store_text": "Butiksbeskrivelse",
+      "blog": "Journalblog",
+      "category": "Kategori",
+      "category_title": "Kategorititel",
+      "category_image": "Erstat kategoribillede",
+      "category_subtitle": "Undertekst til kategori",
+      "category_cta": "Etiket til kategoriknap"
+    },
+    "wholesale_landing": {
+      "name": "Engros-landingsside",
+      "settings": {
+        "hero_image": "Hovedbillede",
+        "eyebrow": "Linje over overskriften",
+        "heading": "Overskrift",
+        "lede": "Støttetekst",
+        "points_header": "Hovedpunkter",
+        "point_1_title": "Titel for punkt 1",
+        "point_1_text": "Detalje for punkt 1",
+        "point_2_title": "Titel for punkt 2",
+        "point_2_text": "Detalje for punkt 2",
+        "point_3_title": "Titel for punkt 3",
+        "point_3_text": "Detalje for punkt 3",
+        "request_label": "Etiket til knappen for anmodning om adgang",
+        "login_label": "Etiket til log-ind-knap",
+        "shop_label": "Etiket til shopknap",
+        "account_label": "Etiket til kontoknap",
+        "shop_link": "Stoplink for indloggede købere",
+        "who_header": "Hvem det er til",
+        "who_heading": "Overskrift til „Hvem er det til“",
+        "who_text": "Tekst til „Hvem er det til“",
+        "after_header": "Efter godkendelse",
+        "after_heading": "Overskrift efter godkendelse",
+        "after_text": "Tekst efter godkendelse",
+        "form_header": "Anmodningsformular",
+        "form_heading": "Formularoverskrift",
+        "form_text": "Støttetekst til formular",
+        "support_email": "Reserve-e-mail til support"
+      },
+      "blocks": {
+        "richtext": {
+          "name": "RTF",
+          "settings": {
+            "text": "Tekst"
+          }
+        }
+      }
+    },
+    "river_conditions": {
+      "name": "Flodforhold",
+      "settings": {
+        "header_layout": {
+          "content": "Layout",
+          "info": "Styrer afstanden over og under blokken med flodforhold."
+        },
+        "header_products": {
+          "content": "Produktkort"
+        }
+      },
+      "blocks": {
+        "river_link": {
+          "name": "Flodlink",
+          "settings": {
+            "url": {
+              "label": "Webadresse"
+            },
+            "label": {
+              "label": "Etiket"
+            }
+          }
+        }
       }
     }
   }

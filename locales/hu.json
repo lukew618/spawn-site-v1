@@ -49,7 +49,8 @@
     },
     "search": {
       "search": "Keresés",
-      "reset": "Keresőszó törlése"
+      "reset": "Keresőszó törlése",
+      "placeholder": "Termékek és márkák keresése"
     },
     "cart": {
       "view": "Kosár megtekintése ({{ count }})",
@@ -139,7 +140,8 @@
         "from_price_html": "Legalacsonyabb ár: {{ price }}",
         "regular_price": "Normál ár",
         "sale_price": "Akciós ár",
-        "unit_price": "Egységár"
+        "unit_price": "Egységár",
+        "save_percent": "Megtakarítás: {{ percent }}%"
       },
       "share": "A termék megosztása",
       "sold_out": "Elfogyott",
@@ -315,7 +317,18 @@
       "duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_html": "Tartalmazza a vámokat. Az adókat, a kedvezményeket és a <a href=\"{{ link }}\">szállítási költséget</a> a megrendeléskor számítjuk ki.",
       "duties_included_taxes_at_checkout_shipping_at_checkout_without_policy": "Tartalmazza a vámokat. Az adókat, a kedvezményeket és a szállítási költséget a megrendeléskor számítjuk ki",
       "taxes_at_checkout_shipping_at_checkout_with_policy_html": "Az adókat, a kedvezményeket és a <a href=\"{{ link }}\">szállítási költséget</a> a megrendeléskor számítjuk ki.",
-      "taxes_at_checkout_shipping_at_checkout_without_policy": "Az adókat, a kedvezményeket és a szállítási költséget a megrendeléskor számítjuk ki"
+      "taxes_at_checkout_shipping_at_checkout_without_policy": "Az adókat, a kedvezményeket és a szállítási költséget a megrendeléskor számítjuk ki",
+      "empty_message": "Készítse elő a kötőasztalt a következő vízi napra.",
+      "shop_materials": "Légykötés vásárlása",
+      "shop_flies": "Legyek felfedezése",
+      "remove": "Eltávolítás",
+      "each": "darabonként",
+      "available_offers": "Elérhető ajánlatok",
+      "view_full_cart": "Teljes kosár megtekintése",
+      "shipping_remaining_html": "Még <strong>{{ amount }}</strong> az ingyenes szállításig.",
+      "shipping_unlocked": "Elérte az ingyenes szállítást.",
+      "shipping_progress": "Haladás az ingyenes szállításig",
+      "shipping_region": "A szomszédos USA-ba szóló rendeléseknél."
     },
     "footer": {
       "payment": "Fizetési módok"
@@ -383,6 +396,69 @@
       "min_error": "A termék minimális mennyisége {{ min }}",
       "max_error": "A termék maximális mennyisége {{ max }}",
       "step_error": "A termék mennyisége csak {{ step }} darabos lépésekben növelhető"
+    },
+    "river_conditions": {
+      "name": "Folyóviszonyok",
+      "no_river": "Ehhez az oldalhoz nincs folyóadat beállítva.",
+      "river_navigation": "Folyónavigáció",
+      "live_label": "Élő · USGS 15 percenként",
+      "flow": "Vízhozam",
+      "temperature": "Vízhőmérséklet",
+      "gage_height": "Vízállás",
+      "clarity": "Átlátszóság",
+      "unknown": "Ismeretlen",
+      "data_unavailable": "Az élő adatok átmenetileg nem érhetők el. Nézzen vissza hamarosan.",
+      "flow_history": "7 napos vízhozam",
+      "where": "Ahol horgászik",
+      "access_points": "Megközelítés · folyásirányban lefelé",
+      "nearest": "Legközelebbi",
+      "best_stretch": "A legjobb szakasz most",
+      "guide_report": "Vezetői jelentés",
+      "on_the_water": "Most a vízen",
+      "current_hatches": "Aktuális kikelések",
+      "no_hatches": "Most nincs aktív kikelés. Nézzen vissza hamarosan, vagy böngéssze alább a teljes légydobozt.",
+      "recommended_gear": "Ajánlott felszerelés",
+      "gear_lede": "Ahhoz igazítva, ami most a vízen van.",
+      "settings": {
+        "header_layout": {
+          "content": "Elrendezés",
+          "info": "A folyóviszonyok blokkja feletti és alatti térközt állítja."
+        },
+        "header_products": {
+          "content": "Termékkártyák"
+        }
+      },
+      "blocks": {
+        "river_link": {
+          "name": "Folyóhivatkozás",
+          "settings": {
+            "url": {
+              "label": "URL"
+            },
+            "label": {
+              "label": "Felirat"
+            }
+          }
+        }
+      }
+    },
+    "river_picker": {
+      "current": "Jelenlegi folyó",
+      "search_placeholder": "Folyók keresése…",
+      "search_label": "Folyók keresése",
+      "browse_all": "Összes folyó megtekintése",
+      "empty": "Nincs egyező folyó."
+    },
+    "rivers_index": {
+      "empty": "Még nincs folyó beállítva. Futtassa a seed szkriptet a folyóadatok feltöltéséhez.",
+      "search_placeholder": "Folyók vagy települések keresése…",
+      "search_label": "Folyók keresése",
+      "filter_label": "Szűrés régió szerint",
+      "all_regions": "Minden régió",
+      "flow": "Vízhozam",
+      "temperature": "Hőm.",
+      "view": "Viszonyok megtekintése",
+      "no_results": "Nincs egyező folyó. Törölje a szűrőket, vagy keressen más nevet."
     }
   },
   "localization": {

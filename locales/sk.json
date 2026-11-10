@@ -49,7 +49,8 @@
     },
     "search": {
       "search": "Vyhľadať",
-      "reset": "Vymazať hľadaný výraz"
+      "reset": "Vymazať hľadaný výraz",
+      "placeholder": "Hľadať produkty a značky"
     },
     "cart": {
       "view": "Zobraziť košík ({{ count }})",
@@ -148,7 +149,8 @@
         "from_price_html": "Od {{ price }}",
         "regular_price": "Normálna cena",
         "sale_price": "Cena po zľave",
-        "unit_price": "Jednotková cena"
+        "unit_price": "Jednotková cena",
+        "save_percent": "Ušetríte {{ percent }} %"
       },
       "pickup_availability": {
         "view_store_info": "Zobraziť informácie o obchode",
@@ -335,7 +337,18 @@
       "duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_html": "Vrátane ciel. Dane, zľavy a <a href=\"{{ link }}\">doprava</a> sa vypočítajú pri platbe.",
       "duties_included_taxes_at_checkout_shipping_at_checkout_without_policy": "Vrátane ciel. Dane, zľavy a doprava sa vypočítajú pri platbe.",
       "taxes_at_checkout_shipping_at_checkout_with_policy_html": "Dane, zľavy a <a href=\"{{ link }}\">doprava</a> sa vypočítajú pri platbe.",
-      "taxes_at_checkout_shipping_at_checkout_without_policy": "Dane, zľavy a doprava sa vypočítajú pri platbe."
+      "taxes_at_checkout_shipping_at_checkout_without_policy": "Dane, zľavy a doprava sa vypočítajú pri platbe.",
+      "empty_message": "Pripravte si viazací stôl na ďalší deň na vode.",
+      "shop_materials": "Nakupovať viazanie mušiek",
+      "shop_flies": "Preskúmať mušky",
+      "remove": "Odstrániť",
+      "each": "za kus",
+      "available_offers": "Dostupné ponuky",
+      "view_full_cart": "Zobraziť celý košík",
+      "shipping_remaining_html": "Do dopravy zadarmo vám chýba <strong>{{ amount }}</strong>.",
+      "shipping_unlocked": "Odomkli ste dopravu zadarmo.",
+      "shipping_progress": "Postup k doprave zadarmo",
+      "shipping_region": "Pri objednávkach do súvisiacich štátov USA."
     },
     "footer": {
       "payment": "Spôsoby platby"
@@ -407,6 +420,69 @@
       "min_error": "Minimálne množstvo tejto položky je {{ min }}",
       "max_error": "Maximálne množstvo tejto položky je {{ max }}",
       "step_error": "Túto položku môžete pridať iba v prírastkoch po {{ step }}"
+    },
+    "river_conditions": {
+      "name": "Stav rieky",
+      "no_river": "Pre túto stránku nie sú nastavené údaje o rieke.",
+      "river_navigation": "Navigácia riek",
+      "live_label": "Naživo · USGS každých 15 min",
+      "flow": "Prietok",
+      "temperature": "Teplota vody",
+      "gage_height": "Výška vodomeru",
+      "clarity": "Priezračnosť",
+      "unknown": "Neznáme",
+      "data_unavailable": "Živé údaje sú dočasne nedostupné. Skúste to čoskoro znova.",
+      "flow_history": "Prietok za 7 dní",
+      "where": "Kde práve lovíte",
+      "access_points": "Prístupy · zhora po prúde nadol",
+      "nearest": "Najbližšie",
+      "best_stretch": "Najlepší úsek práve teraz",
+      "guide_report": "Správa sprievodcu",
+      "on_the_water": "Teraz na vode",
+      "current_hatches": "Aktuálne liahnutia",
+      "no_hatches": "Práve teraz nie sú aktívne liahnutia. Skúste to čoskoro alebo si nižšie prezrite celú škatuľku mušiek.",
+      "recommended_gear": "Odporúčaná výbava",
+      "gear_lede": "Zladené s tým, čo je práve na vode.",
+      "settings": {
+        "header_layout": {
+          "content": "Rozloženie",
+          "info": "Nastavuje odsadenie nad a pod blokom stavu rieky."
+        },
+        "header_products": {
+          "content": "Karty produktov"
+        }
+      },
+      "blocks": {
+        "river_link": {
+          "name": "Odkaz na rieku",
+          "settings": {
+            "url": {
+              "label": "URL"
+            },
+            "label": {
+              "label": "Popis"
+            }
+          }
+        }
+      }
+    },
+    "river_picker": {
+      "current": "Aktuálna rieka",
+      "search_placeholder": "Hľadať rieky…",
+      "search_label": "Hľadať rieky",
+      "browse_all": "Prezrieť všetky rieky",
+      "empty": "Žiadna rieka nezodpovedá."
+    },
+    "rivers_index": {
+      "empty": "Zatiaľ nie sú nastavené žiadne rieky. Spustite seed skript a naplňte údaje.",
+      "search_placeholder": "Hľadať rieky alebo mestá…",
+      "search_label": "Hľadať rieky",
+      "filter_label": "Filtrovať podľa regiónu",
+      "all_regions": "Všetky regióny",
+      "flow": "Prietok",
+      "temperature": "Tepl.",
+      "view": "Zobraziť podmienky",
+      "no_results": "Žiadna rieka nezodpovedá. Zrušte filtre alebo skúste iný názov."
     }
   },
   "localization": {
