@@ -6,6 +6,15 @@
 <script src="{{ 'price-per-item.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'quick-order-list.js' | asset_url }}" defer="defer"></script>
 
+{%- liquid
+  assign show_quick_order = false
+  if section.settings.b2b_only == false
+    assign show_quick_order = true
+  elsif customer.b2b?
+    assign show_quick_order = true
+  endif
+-%}
+{%- if show_quick_order -%}
 {%- style -%}
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
@@ -25,6 +34,7 @@
   show_image: section.settings.show_image,
   show_sku: section.settings.show_sku
 %}
+{%- endif -%}
 
 {% schema %}
 {
@@ -34,6 +44,13 @@
     "templates": ["product"]
   },
   "settings": [
+    {
+      "type": "checkbox",
+      "id": "b2b_only",
+      "default": true,
+      "label": "t:sections.quick-order-list.settings.b2b_only.label",
+      "info": "t:sections.quick-order-list.settings.b2b_only.info"
+    },
     {
       "type": "checkbox",
       "id": "show_image",

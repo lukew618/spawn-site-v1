@@ -17,25 +17,62 @@
 
     <title>
       {%- liquid
-        assign title_separator = ' - ' | append: shop.name
-        assign clean_title = page_title | replace: title_separator, '' | strip
-        assign title_ndash = ' – ' | append: shop.name
-        assign clean_title = clean_title | replace: title_ndash, '' | strip
+        assign brand = shop.name | strip
+        assign clean_title = page_title | strip
+        assign seps = ' | ,| ,- , - ,– , – ' | split: ','
+        for i in (1..2)
+          for s in seps
+            assign tail = s | append: brand
+            assign clean_title = clean_title | remove_last: tail | strip
+          endfor
+        endfor
+        assign clean_title = clean_title | remove_last: ' | Spawn' | strip
         if template.suffix == 'rods-reels'
           assign clean_title = 'Rods & Reels'
         endif
+        if current_tags
+          assign tag_list = current_tags | join: ', '
+          assign clean_title = clean_title | append: ' – tagged "' | append: tag_list | append: '"'
+        endif
+        if current_page != 1
+          assign clean_title = clean_title | append: ' – Page ' | append: current_page
+        endif
+        assign with_brand = clean_title | append: ' – ' | append: brand
+        assign has_brand = false
+        assign clean_title_down = clean_title | downcase
+        assign brand_down = brand | downcase
+        if clean_title_down contains brand_down
+          assign has_brand = true
+        endif
       -%}
-      {{- clean_title -}}
-      {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
-      {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
-      {%- unless clean_title == shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+      {%- if has_brand or with_brand.size > 60 -%}
+        {{- clean_title -}}
+      {%- else -%}
+        {{- with_brand -}}
+      {%- endif -%}
     </title>
 
-    {% if page_description %}
-      <meta name="description" content="{{ page_description | escape }}">
-    {% endif %}
+    {%- liquid
+      assign desc = page_description | strip_html | strip_newlines | strip
+      if desc == blank and collection
+        assign desc = collection.description | strip_html | strip_newlines | strip
+      endif
+      if desc == blank and blog
+        assign desc = blog.title | append: ': fly tying tutorials, fishing guides and gear notes from Spawn Fly Fish in Ilwaco, WA.'
+      endif
+      if desc.size > 158
+        assign desc = desc | truncate: 155, '…'
+      endif
+      if current_page != 1 and desc != blank
+        assign desc = desc | append: ' Page ' | append: current_page | append: '.'
+      endif
+    -%}
+    {%- if desc != blank -%}
+      <meta name="description" content="{{ desc | escape }}">
+    {%- endif -%}
 
     {% render 'meta-tags' %}
+    {% render 'schema-organization' %}
 
     <script src="{{ 'constants.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'pubsub.js' | asset_url }}" defer="defer"></script>

@@ -23,5 +23,5 @@
     </div>
   </div>
   <div class="sh-footer__signature sh-shell"><a href="{{ routes.root_url }}">SPAWN FLY FISH.</a><span>Tied here. Fished everywhere.</span></div>
-  <div class="sh-footer__bottom sh-shell"><span>© {{ 'now' | date: '%Y' }} Spawn Fly Fish</span><div>{%- for policy in shop.policies -%}{%- if policy != blank -%}<a href="{{ policy.url }}">{{ policy.title | escape }}</a>{%- endif -%}{%- endfor -%}</div><div>{%- if settings.social_instagram_link != blank -%}<a href="{{ settings.social_instagram_link }}">Instagram</a>{%- endif -%}{%- if settings.social_youtube_link != blank -%}<a href="{{ settings.social_youtube_link }}">YouTube</a>{%- endif -%}</div></div>
+  <div class="sh-footer__bottom sh-shell"><span>© {{ 'now' | date: '%Y' }} Spawn Fly Fish</span><div>{%- if pages['wholesale'] != blank -%}<a href="{{ pages['wholesale'].url }}">Wholesale</a>{%- endif -%}{%- for policy in shop.policies -%}{%- if policy != blank -%}<a href="{{ policy.url }}">{{ policy.title | escape }}</a>{%- endif -%}{%- endfor -%}</div><div>{%- if settings.social_instagram_link != blank -%}<a href="{{ settings.social_instagram_link }}">Instagram</a>{%- endif -%}{%- if settings.social_youtube_link != blank -%}<a href="{{ settings.social_youtube_link }}">YouTube</a>{%- endif -%}</div></div>
 </footer>

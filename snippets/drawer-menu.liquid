@@ -63,7 +63,7 @@
       {% endfor %}
       <div class="drawer-menu__item"><a href="{{ blogs['spawn-blog'].url }}" class="drawer-menu__link">Learn</a></div>
       {%- if shop.customer_accounts_enabled -%}
-        <div class="drawer-menu__item"><a href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}" class="drawer-menu__link">{{ 'customer.account.title' | t }}</a></div>
+        <div class="drawer-menu__item"><a href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}" class="drawer-menu__link"{% unless customer %} rel="nofollow"{% endunless %}>{{ 'customer.account.title' | t }}</a></div>
       {%- endif -%}
       </div>
     </div>

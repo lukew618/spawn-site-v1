@@ -40,7 +40,7 @@
     <div class="sh-utilities">
       {% render 'header-search', input_id: 'Spawn-Home-Search' %}
       {%- if shop.customer_accounts_enabled -%}
-        <a class="sh-icon sh-account" href="{{ routes.account_login_url }}" aria-label="Your account"><span class="svg-wrapper">{{ 'icon-account.svg' | inline_asset_content }}</span></a>
+        <a class="sh-icon sh-account" href="{{ routes.account_login_url }}" rel="nofollow" aria-label="Your account"><span class="svg-wrapper">{{ 'icon-account.svg' | inline_asset_content }}</span></a>
       {%- endif -%}
       <a class="sh-icon sh-cart" href="{{ routes.cart_url }}" id="cart-icon-bubble" aria-label="{{ 'sections.header.cart_count' | t: count: cart.item_count }}">
         <span class="svg-wrapper">{{ 'icon-cart.svg' | inline_asset_content }}</span>

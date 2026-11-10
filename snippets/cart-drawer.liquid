@@ -45,13 +45,26 @@
 
               {%- if shop.customer_accounts_enabled and customer == null -%}
                 <p class="cart__login-paragraph">
-                  {{ 'sections.cart.login.paragraph_html' | t: link: routes.account_login_url }}
+                  {{ 'sections.cart.login.paragraph_html' | t: link: routes.account_login_url | replace: '<a ', '<a rel="nofollow" ' }}
                 </p>
               {%- endif -%}
             </div>
           </div>
         </div>
       {%- endif -%}
+      {%- if customer.b2b? -%}
+        <div class="free-shipping-bar sc-b2b-cart-note" aria-live="polite">
+          <div class="free-shipping-text">
+            <p>
+              Wholesale catalog pricing
+              {%- if customer.current_company -%}
+                for {{ customer.current_company.name | escape }}
+              {%- endif -%}
+              . Checkout uses your company location payment terms and shipping options.
+            </p>
+          </div>
+        </div>
+      {%- else -%}
       {%- assign free_shipping_threshold = 8500 -%}
       {%- assign remaining_amount = free_shipping_threshold | minus: cart.total_price -%}
       {%- assign progress_percentage = cart.total_price | times: 100.0 | divided_by: free_shipping_threshold | at_most: 100 -%}
@@ -68,6 +81,7 @@
         <div class="progress-bar-container"><div class="progress-bar" role="progressbar" aria-label="{{ 'sections.cart.shipping_progress' | t }}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{ progress_percentage | round }}"><div class="progress-bar-value" style="width: {{ progress_percentage }}%;"></div></div></div>
         <p class="sc-shipping-region">{{ 'sections.cart.shipping_region' | t }}</p>
       </div>
+      {%- endif -%}
 
       <cart-drawer-items
         {% if cart == empty %}

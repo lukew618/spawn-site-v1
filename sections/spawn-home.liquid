@@ -1,4 +1,7 @@
 {%- comment -%} spawn-merch-bot fly-library-traffic PREVIEW 2026-09-15: homepage Fly Library card {%- endcomment -%}
+{%- if customer.b2b? -%}
+  {% render 'spawn-home-wholesale', section: section %}
+{%- else -%}
 {%- liquid
   assign hero_alt = section.settings.hero_image.alt | default: 'Original Spawn flies, tied for days on the water'
   assign feature_alt = section.settings.feature_image.alt | default: 'A fly from the Spawn tying bench'
@@ -100,6 +103,7 @@
     </section>
   {%- endif -%}
 </div>
+{%- endif -%}
 {% schema %}
 {
   "name": "t:sections.spawn_home.name",

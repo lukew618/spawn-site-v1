@@ -189,6 +189,24 @@
         {%- endif -%}
       </div>
     </div>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": {{ collection.title | json }},
+        "url": {{ shop.url | append: collection.url | json }},
+        "itemListElement": [
+          {%- for product in collection.products -%}
+            {
+              "@type": "ListItem",
+              "position": {{ forloop.index }},
+              "url": {{ shop.url | append: product.url | json }},
+              "name": {{ product.title | json }}
+            }{%- unless forloop.last -%},{%- endunless -%}
+          {%- endfor -%}
+        ]
+      }
+    </script>
   {%- endpaginate -%}
   {% if section.settings.image_shape == 'arch' %}
     {{ 'mask-arch.svg' | inline_asset_content }}

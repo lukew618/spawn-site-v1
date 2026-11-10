@@ -1,0 +1,123 @@
+{%- comment -%}
+  Ordering-focused homepage for signed-in B2B / wholesale buyers.
+  Reuses spawn-home section settings for category links and collections.
+{%- endcomment -%}
+{%- liquid
+  assign account_url = routes.account_url
+  assign materials_id = section.id | append: '-wholesale-materials'
+  assign flies_id = section.id | append: '-wholesale-flies'
+  assign tying_url = routes.all_products_collection_url
+  assign flies_url = routes.all_products_collection_url
+  if section.settings.tying_collection != blank
+    assign tying_url = section.settings.tying_collection.url
+  endif
+  if section.settings.flies_collection != blank
+    assign flies_url = section.settings.flies_collection.url
+  endif
+  assign wholesale_page = pages['wholesale']
+  assign contact_page = pages['contact-us']
+-%}
+<div class="sh-home sh-home--wholesale">
+  <section class="sh-hero sh-hero--wholesale" aria-labelledby="SpawnWholesaleTitle">
+    <div class="sh-hero__content sh-shell">
+      <p class="sh-eyebrow">Wholesale ordering</p>
+      <h1 id="SpawnWholesaleTitle">Restock the bench.<br>Order with your catalog.</h1>
+      <p class="sh-hero__description">
+        {%- if customer.current_company -%}
+          Ordering for {{ customer.current_company.name | escape }}. Catalog pricing and quantity rules apply automatically.
+        {%- else -%}
+          Catalog pricing and quantity rules apply automatically while you are signed in.
+        {%- endif -%}
+      </p>
+      <div class="sh-actions">
+        <a class="sh-button sh-button--accent" href="{{ tying_url }}">Shop fly tying</a>
+        <a class="sh-button sh-button--outline" href="{{ flies_url }}">Shop Spawn flies</a>
+        <a class="sh-button sh-button--outline" href="{{ account_url }}">Reorder &amp; account</a>
+      </div>
+    </div>
+    <div class="sh-hero__bottom sh-shell">
+      <div class="sh-benefits" aria-label="Wholesale ordering notes">
+        <a href="{{ account_url }}"><strong>Your catalog</strong><span>Prices unlock when signed in</span></a>
+        <a href="{{ routes.all_products_collection_url }}"><strong>Pack quantities</strong><span>Follow quantity rules on PDPs</span></a>
+        {%- if wholesale_page != blank -%}
+          <a href="{{ wholesale_page.url }}"><strong>Dealer support</strong><span>Wholesale program details</span></a>
+        {%- else -%}
+          <a href="{{ account_url }}"><strong>Dealer support</strong><span>Account and order history</span></a>
+        {%- endif -%}
+      </div>
+    </div>
+  </section>
+
+  <section class="sh-section sh-shell" id="SpawnCategories" aria-labelledby="SpawnWholesaleCategoriesTitle">
+    <div class="sh-section-head">
+      <div>
+        <p class="sh-eyebrow">Order by category</p>
+        <h2 id="SpawnWholesaleCategoriesTitle">Product categories.</h2>
+        <p class="sh-category-intro">Jump straight to the lines you restock most.</p>
+      </div>
+    </div>
+    <div class="sh-categories">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'category' -%}
+          {%- liquid
+            assign category = block.settings.collection
+            assign category_image = block.settings.image | default: category.featured_image
+            assign category_title = block.settings.title | default: category.title
+            assign category_sizes = '(min-width: 1100px) 55vw, (min-width: 750px) 85vw, 100vw'
+            if forloop.index == 1 or forloop.index == 4
+              assign category_sizes = '(min-width: 1100px) 110vw, (min-width: 750px) 160vw, 250vw'
+            endif
+          -%}
+          {%- if category != blank -%}
+            <a class="sh-category" href="{{ category.url }}" aria-label="{{ category_title | escape }}" {{ block.shopify_attributes }}>
+              {%- if category_image -%}
+                {{ category_image | image_url: width: 1700 | image_tag: widths: '500, 750, 1000, 1400, 1700', sizes: category_sizes, loading: 'lazy', alt: category_title }}
+              {%- endif -%}
+              <span class="sh-category__copy">
+                <span class="sh-category__title">{{ category_title | escape }}</span>
+                {% if block.settings.subtitle != blank %}
+                  <span class="sh-category__subtitle">{{ block.settings.subtitle | escape }}</span>
+                {% endif %}
+                <span class="sh-category__cta">{{ block.settings.cta | default: 'Order from this collection' | escape }}</span>
+              </span>
+            </a>
+          {%- endif -%}
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </section>
+
+  {% render 'spawn-home-rail',
+    rail_collection: section.settings.materials_collection,
+    rail_id: materials_id,
+    eyebrow: 'Bench stock',
+    heading: 'Materials to reorder.',
+    link_label: 'Shop materials'
+  %}
+
+  {% render 'spawn-home-rail',
+    rail_collection: section.settings.flies_collection,
+    rail_id: flies_id,
+    eyebrow: 'Spawn patterns',
+    heading: 'Signature flies.',
+    link_label: 'Shop Spawn flies'
+  %}
+
+  <section class="sh-section sh-shell" aria-labelledby="SpawnWholesaleSupportTitle">
+    <div class="sh-section-head">
+      <div>
+        <p class="sh-eyebrow">Ordering help</p>
+        <h2 id="SpawnWholesaleSupportTitle">Need a hand?</h2>
+        <p class="sh-category-intro">
+          Use your account for past orders and reorders. For terms, assortments, or new locations, contact dealer support.
+        </p>
+        <div class="sh-actions" style="margin-top: 20px;">
+          <a class="sh-button sh-button--accent" href="{{ account_url }}">Open account</a>
+          {%- if contact_page != blank -%}
+            <a class="sh-button sh-button--outline" href="{{ contact_page.url }}">Contact Spawn</a>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

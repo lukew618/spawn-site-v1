@@ -45,6 +45,23 @@
       {%- endfor -%}
     </ul>
     {% render 'pagination', paginate: paginate %}
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": {{ section.settings.title | strip_html | default: 'Collections' | json }},
+        "itemListElement": [
+          {%- for collection in collections -%}
+            {
+              "@type": "ListItem",
+              "position": {{ forloop.index }},
+              "url": {{ shop.url | append: collection.url | json }},
+              "name": {{ collection.title | json }}
+            }{%- unless forloop.last -%},{%- endunless -%}
+          {%- endfor -%}
+        ]
+      }
+    </script>
   {%- endpaginate -%}
 </div>
 {% schema %}

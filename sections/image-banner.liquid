@@ -140,7 +140,15 @@
       {%- for block in section.blocks -%}
         {%- case block.type -%}
           {%- when 'heading' -%}
-            {%- if is_homepage_hero -%}
+            {%- liquid
+              assign banner_heading_tag = 'h2'
+              if is_homepage_hero
+                assign banner_heading_tag = 'h1'
+              elsif request.page_type == 'collection' and block.settings.heading_size == 'h1'
+                assign banner_heading_tag = 'h1'
+              endif
+            -%}
+            {%- if banner_heading_tag == 'h1' -%}
               <h1
                 class="banner__heading inline-richtext {{ block.settings.heading_size }}"
                 {{ block.shopify_attributes }}

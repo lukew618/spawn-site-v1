@@ -9,16 +9,39 @@
 <div class="full-bleed-video section-{{ section.id }}-padding">
   <div class="full-bleed-video__wrapper">
     {%- if section.settings.video != blank -%}
-      {{
-        section.settings.video
-        | video_tag:
-          autoplay: true,
-          loop: section.settings.enable_video_looping,
-          controls: false,
-          muted: true,
-          playsinline: true,
-          class: 'full-bleed-video__media'
-      }}
+      {%- liquid
+        assign video_alt = section.settings.heading | strip_html | strip
+        if video_alt == blank and collection != blank
+          assign video_alt = collection.title
+        endif
+        if video_alt == blank
+          assign video_alt = shop.name | strip
+        endif
+      -%}
+      <video
+        class="full-bleed-video__media"
+        playsinline="playsinline"
+        autoplay="autoplay"
+        muted="muted"
+        preload="metadata"
+        {% if section.settings.enable_video_looping %}
+          loop="loop"
+        {% endif %}
+        {% if section.settings.video.preview_image != blank %}
+          poster="{{ section.settings.video.preview_image | image_url: width: 1100 }}"
+        {% endif %}
+      >
+        {%- for source in section.settings.video.sources -%}
+          <source src="{{ source.url }}" type="{{ source.mime_type }}">
+        {%- endfor -%}
+        {%- if section.settings.video.preview_image != blank -%}
+          {{
+            section.settings.video.preview_image
+            | image_url: width: 1100
+            | image_tag: alt: video_alt, loading: 'lazy'
+          }}
+        {%- endif -%}
+      </video>
     {%- elsif section.settings.video_url != blank -%}
       {%- if section.settings.video_url.type == 'youtube' -%}
         <iframe
