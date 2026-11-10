@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>ENG-014 product card title fixture</title>
+    <link rel="stylesheet" href="../../assets/base.css" />
+    <link rel="stylesheet" href="../../assets/component-card.css" />
+    <style>
+      :root {
+        --font-heading-family: Georgia, "Times New Roman", serif;
+        --font-heading-style: normal;
+        --font-heading-weight: 500;
+        --font-heading-scale: 1;
+        --color-foreground: 18, 18, 18;
+        --color-background: 246, 243, 238;
+      }
+      html { font-size: 62.5%; }
+      body {
+        margin: 0;
+        background: rgb(var(--color-background));
+        color: rgb(var(--color-foreground));
+      }
+      .fixture {
+        box-sizing: border-box;
+        width: min(360px, calc(100% - 48px));
+        margin: 48px auto;
+        padding: 24px;
+        background: #fff;
+      }
+      .fixture p { margin: 16px 0 0; font: 14px/1.4 sans-serif; }
+    </style>
+  </head>
+  <body>
+    <div class="fixture">
+      <div class="card-wrapper product-card-wrapper">
+        <div class="card card--standard card--media">
+          <div class="card__content">
+            <div class="card__information">
+              <h3 class="card__heading h5">
+                <a class="full-unstyled-link" href="/products/spawn-unreal-dub">Spawn Unreal Dub</a>
+              </h3>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p id="proof"></p>
+    </div>
+    <script>
+      const heading = document.querySelector(".card__heading");
+      const style = getComputedStyle(heading);
+      document.getElementById("proof").textContent =
+        "computed " + style.fontSize + " / line-height " + style.lineHeight;
+    </script>
+  </body>
+</html>
