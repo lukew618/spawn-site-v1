@@ -1464,6 +1464,31 @@
           "options__4": {
             "label": "Duży"
           }
+        },
+        "guides_header": {
+          "content": "Wyróżnione przewodniki"
+        },
+        "guides_heading": {
+          "label": "Nagłówek przewodników",
+          "default": "Przewodniki muchowe",
+          "info": "Dodaj bloki Guide, aby pokazać strony nad wpisami. Tylko na pierwszej stronie bloga."
+        }
+      },
+      "blocks": {
+        "guide": {
+          "name": "Przewodnik",
+          "settings": {
+            "page": {
+              "label": "Strona"
+            },
+            "image": {
+              "label": "Obraz"
+            },
+            "description": {
+              "label": "Opis",
+              "info": "Zostaw puste, aby użyć początku tekstu strony."
+            }
+          }
         }
       }
     },
@@ -3420,10 +3445,209 @@
         },
         "show_sku": {
           "label": "Pokaż SKU"
+        },
+        "b2b_only": {
+          "label": "Pokaż tylko klientom B2B",
+          "info": "Po włączeniu lista szybkiego zamówienia jest widoczna tylko dla zalogowanych kupujących hurtowych."
         }
       },
       "presets": {
         "name": "Lista szybkich zamówień"
+      }
+    },
+    "product-specs": {
+      "name": "Specyfikacja produktu",
+      "settings": {
+        "heading": {
+          "label": "Nagłówek"
+        },
+        "color_scheme": {
+          "label": "Kolorystyka"
+        },
+        "padding_top": {
+          "label": "Wypełnienie na górze"
+        },
+        "padding_bottom": {
+          "label": "Wypełnienie na dole"
+        }
+      },
+      "blocks": {
+        "spec": {
+          "name": "Kolumna specyfikacji",
+          "settings": {
+            "heading": {
+              "label": "Nagłówek",
+              "default": "Cechy"
+            },
+            "content": {
+              "label": "Treść",
+              "info": "Połącz metapole produktu jako źródło dynamiczne albo zostaw puste, aby ukryć tę kolumnę."
+            },
+            "wide": {
+              "label": "Szeroka kolumna",
+              "info": "Nadaj tej kolumnie podwójną szerokość, na przykład dla listy cech."
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Specyfikacja produktu"
+      }
+    },
+    "product-editorial": {
+      "name": "Blok redakcyjny produktu",
+      "settings": {
+        "heading": {
+          "label": "Nagłówek",
+          "info": "Połącz metapole produktu jako źródło dynamiczne nagłówka dla każdego produktu."
+        },
+        "content": {
+          "label": "Treść",
+          "info": "Połącz metapole produktu jako źródło dynamiczne. Sekcja jest ukryta, gdy jest pusta."
+        },
+        "use_description_fallback": {
+          "label": "Użyj opisu produktu jako zapasowego",
+          "info": "Gdy nie połączono treści, pokaż opis produktu."
+        },
+        "fallback_heading": {
+          "label": "Nagłówek zapasowy",
+          "info": "Używane, gdy nie połączono nagłówka dla danego produktu.",
+          "default": "Opis i cechy"
+        },
+        "brand_heading": {
+          "label": "Nagłówek kolumny marki",
+          "default": "Marka"
+        },
+        "shipping_heading": {
+          "label": "Nagłówek kolumny wysyłki",
+          "default": "Wysyłka i zwroty"
+        },
+        "shipping_text": {
+          "label": "Tekst kolumny wysyłki",
+          "default": "<p>Darmowa wysyłka zamówień do USA powyżej $75. Darmowy zwrot na terenie USA.</p>"
+        },
+        "color_scheme": {
+          "label": "Kolorystyka"
+        },
+        "padding_top": {
+          "label": "Wypełnienie na górze"
+        },
+        "padding_bottom": {
+          "label": "Wypełnienie na dole"
+        }
+      },
+      "presets": {
+        "name": "Blok redakcyjny produktu"
+      }
+    },
+    "sticky-atc-bar": {
+      "name": "Przypięty pasek dodania do koszyka",
+      "settings": {
+        "paragraph": {
+          "content": "Pokazuje pasek z ceną i przyciskiem dodania do koszyka, gdy kupujący przewinie główne przyciski zakupu."
+        },
+        "color_scheme": {
+          "label": "Kolorystyka"
+        }
+      },
+      "presets": {
+        "name": "Przypięty pasek dodania do koszyka"
+      }
+    },
+    "spawn_rods_reels": {
+      "name": "Strona wędzisk i kołowrotków",
+      "title": "Tytuł strony",
+      "intro": "Wprowadzenie",
+      "rods": "Kolekcja wędzisk muchowych",
+      "reels": "Kolekcja kołowrotków muchowych",
+      "rods_image": "Zastępczy obraz wędzisk",
+      "reels_image": "Zastępczy obraz kołowrotków",
+      "brand_menu": "Menu z markami wędzisk i kołowrotków"
+    },
+    "spawn_home": {
+      "name": "Strona główna premium Spawn",
+      "hero_image": "Obraz główny",
+      "eyebrow": "Linia nad nagłówkiem",
+      "hero_title": "Tytuł główny",
+      "hero_text": "Opis główny",
+      "tying_collection": "Kolekcja do wiązania muszek",
+      "materials_collection": "Kolekcja wyróżnionych materiałów",
+      "flies_collection": "Kolekcja firmowych muszek",
+      "feature_image": "Obraz wyróżnionej muszki",
+      "feature_title": "Tytuł wyróżnionej muszki",
+      "feature_text": "Opis wyróżnionej muszki",
+      "feature_collection": "Kolekcja wyróżnionej muszki",
+      "store_image": "Zdjęcie sklepu",
+      "store_text": "Opis sklepu",
+      "blog": "Blog dziennika",
+      "category": "Kategoria",
+      "category_title": "Tytuł kategorii",
+      "category_image": "Zastępczy obraz kategorii",
+      "category_subtitle": "Podtytuł kategorii",
+      "category_cta": "Etykieta przycisku kategorii"
+    },
+    "wholesale_landing": {
+      "name": "Strona hurtowa",
+      "settings": {
+        "hero_image": "Obraz główny",
+        "eyebrow": "Linia nad nagłówkiem",
+        "heading": "Nagłówek",
+        "lede": "Tekst uzupełniający",
+        "points_header": "Wyróżniki w bloku głównym",
+        "point_1_title": "Tytuł wyróżnika 1",
+        "point_1_text": "Opis wyróżnika 1",
+        "point_2_title": "Tytuł wyróżnika 2",
+        "point_2_text": "Opis wyróżnika 2",
+        "point_3_title": "Tytuł wyróżnika 3",
+        "point_3_text": "Opis wyróżnika 3",
+        "request_label": "Etykieta przycisku prośby o dostęp",
+        "login_label": "Etykieta przycisku logowania",
+        "shop_label": "Etykieta przycisku sklepu",
+        "account_label": "Etykieta przycisku konta",
+        "shop_link": "Link do sklepu dla zalogowanych kupujących",
+        "who_header": "Dla kogo to jest",
+        "who_heading": "Nagłówek „Dla kogo“",
+        "who_text": "Tekst „Dla kogo“",
+        "after_header": "Po zatwierdzeniu",
+        "after_heading": "Nagłówek po zatwierdzeniu",
+        "after_text": "Tekst po zatwierdzeniu",
+        "form_header": "Formularz wniosku",
+        "form_heading": "Nagłówek formularza",
+        "form_text": "Tekst uzupełniający formularza",
+        "support_email": "Zapasowy e-mail pomocy"
+      },
+      "blocks": {
+        "richtext": {
+          "name": "Tekst sformatowany",
+          "settings": {
+            "text": "Tekst"
+          }
+        }
+      }
+    },
+    "river_conditions": {
+      "name": "Warunki na rzece",
+      "settings": {
+        "header_layout": {
+          "content": "Układ",
+          "info": "Ustawia odstęp nad i pod blokiem warunków rzeki."
+        },
+        "header_products": {
+          "content": "Karty produktów"
+        }
+      },
+      "blocks": {
+        "river_link": {
+          "name": "Link do rzeki",
+          "settings": {
+            "url": {
+              "label": "URL"
+            },
+            "label": {
+              "label": "Etykieta"
+            }
+          }
+        }
       }
     }
   }

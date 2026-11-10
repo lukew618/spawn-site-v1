@@ -49,7 +49,8 @@
     },
     "search": {
       "search": "Tìm kiếm",
-      "reset": "Xóa cụm từ tìm kiếm"
+      "reset": "Xóa cụm từ tìm kiếm",
+      "placeholder": "Tìm sản phẩm và thương hiệu"
     },
     "cart": {
       "view": "Xem giỏ hàng ({{ count }})",
@@ -139,7 +140,8 @@
         "from_price_html": "Từ {{ price }}",
         "regular_price": "Giá thông thường",
         "sale_price": "Giá ưu đãi",
-        "unit_price": "Đơn giá"
+        "unit_price": "Đơn giá",
+        "save_percent": "Tiết kiệm {{ percent }}%"
       },
       "share": "Chia sẻ sản phẩm này",
       "sold_out": "Đã bán hết",
@@ -315,7 +317,18 @@
       "duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_html": "Đã bao gồm thuế nhập khẩu. Thuế, ưu đãi giảm giá và <a href=\"{{ link }}\">phí vận chuyển</a> được tính khi thanh toán.",
       "duties_included_taxes_at_checkout_shipping_at_checkout_without_policy": "Đã bao gồm thuế nhập khẩu. Thuế, ưu đãi giảm giá và phí vận chuyển được tính khi thanh toán.",
       "taxes_at_checkout_shipping_at_checkout_with_policy_html": "Thuế, ưu đãi giảm giá và <a href=\"{{ link }}\">phí vận chuyển</a> được tính khi thanh toán.",
-      "taxes_at_checkout_shipping_at_checkout_without_policy": "Thuế, ưu đãi giảm giá và phí vận chuyển được tính khi thanh toán."
+      "taxes_at_checkout_shipping_at_checkout_without_policy": "Thuế, ưu đãi giảm giá và phí vận chuyển được tính khi thanh toán.",
+      "empty_message": "Chuẩn bị bàn buộc cho ngày tới trên nước.",
+      "shop_materials": "Mua đồ buộc ruồi",
+      "shop_flies": "Khám phá ruồi giả",
+      "remove": "Xóa",
+      "each": "mỗi cái",
+      "available_offers": "Ưu đãi hiện có",
+      "view_full_cart": "Xem toàn bộ giỏ",
+      "shipping_remaining_html": "Còn <strong>{{ amount }}</strong> nữa để được miễn phí vận chuyển.",
+      "shipping_unlocked": "Bạn đã được miễn phí vận chuyển.",
+      "shipping_progress": "Tiến độ đến miễn phí vận chuyển",
+      "shipping_region": "Cho đơn hàng tới phần lục địa liền kề của Hoa Kỳ."
     },
     "footer": {
       "payment": "Phương thức thanh toán"
@@ -383,6 +396,69 @@
       "min_error": "Mặt hàng này có tối thiểu {{ min }}",
       "max_error": "Mặt hàng này có tối đa {{ max }}",
       "step_error": "Bạn chỉ có thể thêm mặt hàng này theo đơn vị giao dịch {{ step }}"
+    },
+    "river_conditions": {
+      "name": "Điều kiện sông",
+      "no_river": "Trang này chưa được cấu hình dữ liệu sông.",
+      "river_navigation": "Điều hướng sông",
+      "live_label": "Trực tiếp · dữ liệu USGS mỗi 15 phút",
+      "flow": "Lưu lượng",
+      "temperature": "Nhiệt độ nước",
+      "gage_height": "Mực nước",
+      "clarity": "Độ trong",
+      "unknown": "Không rõ",
+      "data_unavailable": "Dữ liệu trực tiếp tạm thời không có. Hãy quay lại sau.",
+      "flow_history": "Lưu lượng 7 ngày",
+      "where": "Nơi bạn đang câu",
+      "access_points": "Điểm tiếp cận · từ thượng nguồn xuống hạ nguồn",
+      "nearest": "Gần nhất",
+      "best_stretch": "Khu vực đẹp nhất lúc này",
+      "guide_report": "Báo cáo của hướng dẫn viên",
+      "on_the_water": "Đang trên nước",
+      "current_hatches": "Lứa côn trùng hiện tại",
+      "no_hatches": "Hiện không có lứa côn trùng hoạt động. Hãy quay lại sau hoặc xem cả hộp ruồi bên dưới.",
+      "recommended_gear": "Đồ nghề gợi ý",
+      "gear_lede": "Chọn theo những gì đang có trên nước.",
+      "settings": {
+        "header_layout": {
+          "content": "Bố cục",
+          "info": "Chỉnh khoảng đệm phía trên và dưới khối điều kiện sông."
+        },
+        "header_products": {
+          "content": "Thẻ sản phẩm"
+        }
+      },
+      "blocks": {
+        "river_link": {
+          "name": "Liên kết sông",
+          "settings": {
+            "url": {
+              "label": "URL"
+            },
+            "label": {
+              "label": "Nhãn"
+            }
+          }
+        }
+      }
+    },
+    "river_picker": {
+      "current": "Sông hiện tại",
+      "search_placeholder": "Tìm sông…",
+      "search_label": "Tìm sông",
+      "browse_all": "Xem mọi con sông",
+      "empty": "Không có sông phù hợp."
+    },
+    "rivers_index": {
+      "empty": "Chưa cấu hình sông nào. Chạy script seed để điền dữ liệu sông.",
+      "search_placeholder": "Tìm sông hoặc thị trấn…",
+      "search_label": "Tìm sông",
+      "filter_label": "Lọc theo vùng",
+      "all_regions": "Mọi vùng",
+      "flow": "Lưu lượng",
+      "temperature": "Nhiệt độ",
+      "view": "Xem điều kiện",
+      "no_results": "Không có sông phù hợp. Xóa bộ lọc hoặc tìm tên khác."
     }
   },
   "localization": {

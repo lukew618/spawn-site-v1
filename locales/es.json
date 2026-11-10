@@ -49,7 +49,8 @@
     },
     "search": {
       "search": "Búsqueda",
-      "reset": "Borrar término de búsqueda"
+      "reset": "Borrar término de búsqueda",
+      "placeholder": "Buscar productos y marcas"
     },
     "cart": {
       "view": "Ver carrito ({{ count }})",
@@ -139,7 +140,8 @@
         "from_price_html": "A partir de {{ price }}",
         "regular_price": "Precio habitual",
         "sale_price": "Precio de oferta",
-        "unit_price": "Precio unitario"
+        "unit_price": "Precio unitario",
+        "save_percent": "Ahorra un {{ percent }} %"
       },
       "share": "Compartir este producto",
       "sold_out": "Agotado",
@@ -325,7 +327,18 @@
       "duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_html": "Aranceles incluidos. Impuestos, descuentos y <a href=\"{{ link }}\">envío</a> calculados en la pantalla de pago.",
       "duties_included_taxes_at_checkout_shipping_at_checkout_without_policy": "Aranceles incluidos. Impuestos, descuentos y envío calculados en la pantalla de pago.",
       "taxes_at_checkout_shipping_at_checkout_with_policy_html": "Impuestos, descuentos y <a href=\"{{ link }}\">envío</a> calculados en la pantalla de pago.",
-      "taxes_at_checkout_shipping_at_checkout_without_policy": "Impuestos, descuentos y envío calculados en la pantalla de pago."
+      "taxes_at_checkout_shipping_at_checkout_without_policy": "Impuestos, descuentos y envío calculados en la pantalla de pago.",
+      "empty_message": "Prepara el banco de atado para tu próximo día en el agua.",
+      "shop_materials": "Comprar montaje de moscas",
+      "shop_flies": "Explorar moscas",
+      "remove": "Quitar",
+      "each": "cada uno",
+      "available_offers": "Ofertas disponibles",
+      "view_full_cart": "Ver el carrito completo",
+      "shipping_remaining_html": "Te faltan <strong>{{ amount }}</strong> para el envío gratis.",
+      "shipping_unlocked": "Has conseguido el envío gratis.",
+      "shipping_progress": "Progreso hacia el envío gratis",
+      "shipping_region": "En pedidos a los Estados Unidos contiguos."
     },
     "footer": {
       "payment": "Formas de pago"
@@ -395,6 +408,69 @@
       "min_error": "Este artículo tiene un mínimo de {{ min }}.",
       "max_error": "Este artículo tiene un máximo de {{ max }}.",
       "step_error": "Solo puedes agregar este artículo en incrementos de {{ step }}"
+    },
+    "river_conditions": {
+      "name": "Condiciones del río",
+      "no_river": "No hay datos de río configurados para esta página.",
+      "river_navigation": "Navegación de ríos",
+      "live_label": "En vivo · datos USGS cada 15 min",
+      "flow": "Caudal",
+      "temperature": "Temperatura del agua",
+      "gage_height": "Altura del limnímetro",
+      "clarity": "Claridad",
+      "unknown": "Desconocido",
+      "data_unavailable": "Los datos en vivo no están disponibles temporalmente. Vuelve pronto.",
+      "flow_history": "Caudal de 7 días",
+      "where": "Dónde estás pescando",
+      "access_points": "Accesos · de aguas arriba hacia abajo",
+      "nearest": "Más cercano",
+      "best_stretch": "El mejor tramo ahora mismo",
+      "guide_report": "Informe del guía",
+      "on_the_water": "En el agua ahora",
+      "current_hatches": "Eclosiones actuales",
+      "no_hatches": "No hay eclosiones activas ahora. Vuelve pronto o mira abajo la caja completa de moscas.",
+      "recommended_gear": "Equipo recomendado",
+      "gear_lede": "Elegido según lo que hay en el agua ahora.",
+      "settings": {
+        "header_layout": {
+          "content": "Diseño",
+          "info": "Controla el relleno por encima y por debajo del bloque de condiciones del río."
+        },
+        "header_products": {
+          "content": "Tarjetas de producto"
+        }
+      },
+      "blocks": {
+        "river_link": {
+          "name": "Enlace del río",
+          "settings": {
+            "url": {
+              "label": "URL"
+            },
+            "label": {
+              "label": "Etiqueta"
+            }
+          }
+        }
+      }
+    },
+    "river_picker": {
+      "current": "Río actual",
+      "search_placeholder": "Buscar ríos…",
+      "search_label": "Buscar ríos",
+      "browse_all": "Ver todos los ríos",
+      "empty": "Ningún río coincide."
+    },
+    "rivers_index": {
+      "empty": "Todavía no hay ríos configurados. Ejecuta el script de carga para rellenar los datos.",
+      "search_placeholder": "Buscar ríos o localidades…",
+      "search_label": "Buscar ríos",
+      "filter_label": "Filtrar por región",
+      "all_regions": "Todas las regiones",
+      "flow": "Caudal",
+      "temperature": "Temp.",
+      "view": "Ver condiciones",
+      "no_results": "Ningún río coincide. Quita los filtros o busca otro nombre."
     }
   },
   "localization": {

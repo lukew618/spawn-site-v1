@@ -1464,6 +1464,31 @@
             "label": "大"
           },
           "info": "若想要獲得最佳結果，請使用外觀比例為 3:2 的圖片。[瞭解詳情](https://help.shopify.com/manual/shopify-admin/productivity-tools/image-editor#understanding-image-aspect-ratio)"
+        },
+        "guides_header": {
+          "content": "精選指南"
+        },
+        "guides_heading": {
+          "label": "指南標題",
+          "default": "飛釣指南",
+          "info": "新增 Guide 區塊，可在部落格文章上方展示頁面。僅顯示於部落格第一頁。"
+        }
+      },
+      "blocks": {
+        "guide": {
+          "name": "指南",
+          "settings": {
+            "page": {
+              "label": "頁面"
+            },
+            "image": {
+              "label": "圖片"
+            },
+            "description": {
+              "label": "說明",
+              "info": "留空則使用頁面正文的開頭。"
+            }
+          }
         }
       }
     },
@@ -3420,10 +3445,209 @@
         },
         "show_sku": {
           "label": "顯示存貨單位 (SKU)"
+        },
+        "b2b_only": {
+          "label": "僅向 B2B 客戶顯示",
+          "info": "啟用後，快速訂購清單僅對已登入的批發買家顯示。"
         }
       },
       "presets": {
         "name": "快速訂單清單"
+      }
+    },
+    "product-specs": {
+      "name": "產品規格",
+      "settings": {
+        "heading": {
+          "label": "標題"
+        },
+        "color_scheme": {
+          "label": "顏色配置"
+        },
+        "padding_top": {
+          "label": "頂端邊框間距"
+        },
+        "padding_bottom": {
+          "label": "底部邊框間距"
+        }
+      },
+      "blocks": {
+        "spec": {
+          "name": "規格欄",
+          "settings": {
+            "heading": {
+              "label": "標題",
+              "default": "特點"
+            },
+            "content": {
+              "label": "內容",
+              "info": "將產品中繼欄位作為動態來源連接，或留空以隱藏此欄。"
+            },
+            "wide": {
+              "label": "寬欄",
+              "info": "讓此欄占用雙倍寬度，例如特點清單。"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "產品規格"
+      }
+    },
+    "product-editorial": {
+      "name": "產品編輯區",
+      "settings": {
+        "heading": {
+          "label": "標題",
+          "info": "將產品中繼欄位作為動態來源，用於每個產品的標題。"
+        },
+        "content": {
+          "label": "內容",
+          "info": "將產品中繼欄位作為動態來源連接。為空時隱藏此區段。"
+        },
+        "use_description_fallback": {
+          "label": "改用產品描述",
+          "info": "未連接內容時，改為顯示產品描述。"
+        },
+        "fallback_heading": {
+          "label": "備用標題",
+          "info": "未連接每個產品的標題時使用。",
+          "default": "描述與特點"
+        },
+        "brand_heading": {
+          "label": "品牌欄標題",
+          "default": "品牌"
+        },
+        "shipping_heading": {
+          "label": "配送欄標題",
+          "default": "配送與退貨"
+        },
+        "shipping_text": {
+          "label": "配送欄正文",
+          "default": "<p>運往美國且超過 $75 的訂單免運費。美國境內退貨運費免費。</p>"
+        },
+        "color_scheme": {
+          "label": "顏色配置"
+        },
+        "padding_top": {
+          "label": "頂端邊框間距"
+        },
+        "padding_bottom": {
+          "label": "底部邊框間距"
+        }
+      },
+      "presets": {
+        "name": "產品編輯區"
+      }
+    },
+    "sticky-atc-bar": {
+      "name": "固定加入購物車列",
+      "settings": {
+        "paragraph": {
+          "content": "購物者捲過主要購買按鈕後，顯示帶價格和加入購物車按鈕的列。"
+        },
+        "color_scheme": {
+          "label": "顏色配置"
+        }
+      },
+      "presets": {
+        "name": "固定加入購物車列"
+      }
+    },
+    "spawn_rods_reels": {
+      "name": "竿與輪頁面",
+      "title": "頁面標題",
+      "intro": "簡介",
+      "rods": "飛釣竿系列",
+      "reels": "飛釣輪系列",
+      "rods_image": "飛釣竿圖片替換",
+      "reels_image": "飛釣輪圖片替換",
+      "brand_menu": "竿與輪品牌選單"
+    },
+    "spawn_home": {
+      "name": "Spawn 高級首頁",
+      "hero_image": "主圖",
+      "eyebrow": "標題上方小字",
+      "hero_title": "主標題",
+      "hero_text": "主描述",
+      "tying_collection": "綁製材料系列",
+      "materials_collection": "主推材料系列",
+      "flies_collection": "招牌毛鉤系列",
+      "feature_image": "主推毛鉤圖片",
+      "feature_title": "主推毛鉤標題",
+      "feature_text": "主推毛鉤描述",
+      "feature_collection": "主推毛鉤系列",
+      "store_image": "店面圖片",
+      "store_text": "店面描述",
+      "blog": "日誌部落格",
+      "category": "分類",
+      "category_title": "分類標題",
+      "category_image": "分類圖片替換",
+      "category_subtitle": "分類副標題",
+      "category_cta": "分類按鈕標籤"
+    },
+    "wholesale_landing": {
+      "name": "批發著陸頁",
+      "settings": {
+        "hero_image": "主圖",
+        "eyebrow": "標題上方小字",
+        "heading": "標題",
+        "lede": "輔助文字",
+        "points_header": "主視覺重點",
+        "point_1_title": "重點 1 的標題",
+        "point_1_text": "重點 1 的說明",
+        "point_2_title": "重點 2 的標題",
+        "point_2_text": "重點 2 的說明",
+        "point_3_title": "重點 3 的標題",
+        "point_3_text": "重點 3 的說明",
+        "request_label": "申請權限按鈕標籤",
+        "login_label": "登入按鈕標籤",
+        "shop_label": "商店按鈕標籤",
+        "account_label": "帳戶按鈕標籤",
+        "shop_link": "已登入買家的商店連結",
+        "who_header": "適用對象",
+        "who_heading": "「適用對象」標題",
+        "who_text": "「適用對象」正文",
+        "after_header": "核准之後",
+        "after_heading": "核准後的標題",
+        "after_text": "核准後的正文",
+        "form_header": "申請表單",
+        "form_heading": "表單標題",
+        "form_text": "表單輔助文字",
+        "support_email": "備用支援電子郵件"
+      },
+      "blocks": {
+        "richtext": {
+          "name": "RTF 文字",
+          "settings": {
+            "text": "文字"
+          }
+        }
+      }
+    },
+    "river_conditions": {
+      "name": "河流狀況",
+      "settings": {
+        "header_layout": {
+          "content": "版面配置",
+          "info": "控制河流狀況區塊上下的內距。"
+        },
+        "header_products": {
+          "content": "商品卡"
+        }
+      },
+      "blocks": {
+        "river_link": {
+          "name": "河流連結",
+          "settings": {
+            "url": {
+              "label": "網址"
+            },
+            "label": {
+              "label": "標籤"
+            }
+          }
+        }
       }
     }
   }

@@ -49,7 +49,8 @@
     },
     "search": {
       "search": "ค้นหา",
-      "reset": "ล้างคำที่ใช้ค้นหา"
+      "reset": "ล้างคำที่ใช้ค้นหา",
+      "placeholder": "ค้นหาสินค้าและแบรนด์"
     },
     "cart": {
       "view": "ดูตะกร้าสินค้า ({{ count }})",
@@ -138,7 +139,8 @@
         "from_price_html": "จาก {{ price }}",
         "regular_price": "ราคาปกติ",
         "sale_price": "ราคาโปรโมชัน",
-        "unit_price": "ราคาต่อหน่วย"
+        "unit_price": "ราคาต่อหน่วย",
+        "save_percent": "ประหยัด {{ percent }}%"
       },
       "share": "แชร์สินค้ารายการนี้",
       "sold_out": "ขายหมดแล้ว",
@@ -315,7 +317,18 @@
       "duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_html": "รวมอากรแล้ว ระบบจะคำนวณภาษี ส่วนลด และ<a href=\"{{ link }}\">ค่าจัดส่ง</a>ในขั้นตอนการชำระเงิน",
       "duties_included_taxes_at_checkout_shipping_at_checkout_without_policy": "รวมอากรแล้ว ระบบจะคำนวณภาษี ส่วนลด และค่าจัดส่งในขั้นตอนการชำระเงิน",
       "taxes_at_checkout_shipping_at_checkout_with_policy_html": "ระบบจะคำนวณภาษี ส่วนลด และ<a href=\"{{ link }}\">ค่าจัดส่ง</a>ในขั้นตอนการชำระเงิน",
-      "taxes_at_checkout_shipping_at_checkout_without_policy": "ระบบจะคำนวณภาษี ส่วนลด และค่าจัดส่งในขั้นตอนการชำระเงิน"
+      "taxes_at_checkout_shipping_at_checkout_without_policy": "ระบบจะคำนวณภาษี ส่วนลด และค่าจัดส่งในขั้นตอนการชำระเงิน",
+      "empty_message": "เตรียมโต๊ะผูกลายสำหรับวันถัดไปบนน้ำ",
+      "shop_materials": "ช้อปอุปกรณ์ผูกลาย",
+      "shop_flies": "สำรวจแมลงปลอม",
+      "remove": "นำออก",
+      "each": "ต่อชิ้น",
+      "available_offers": "ข้อเสนอที่ใช้ได้",
+      "view_full_cart": "ดูตะกร้าทั้งหมด",
+      "shipping_remaining_html": "อีก <strong>{{ amount }}</strong> จะได้จัดส่งฟรี",
+      "shipping_unlocked": "คุณได้จัดส่งฟรีแล้ว",
+      "shipping_progress": "ความคืบหน้าสู่การจัดส่งฟรี",
+      "shipping_region": "สำหรับคำสั่งซื้อไปยังสหรัฐฯ ส่วนที่ติดกัน"
     },
     "footer": {
       "payment": "วิธีการชำระเงิน"
@@ -383,6 +396,69 @@
       "min_error": "สินค้านี้มีจำนวนขั้นต่ำที่ {{ min }} รายการ",
       "max_error": "สินค้านี้มีจำนวนสูงสุดที่ {{ max }} รายการ",
       "step_error": "คุณสามารถเพิ่มสินค้านี้ได้ทีละ {{ step }} รายการในแต่ละครั้งเท่านั้น"
+    },
+    "river_conditions": {
+      "name": "สภาพแม่น้ำ",
+      "no_river": "ยังไม่ได้ตั้งค่าข้อมูลแม่น้ำสำหรับหน้านี้",
+      "river_navigation": "การนำทางแม่น้ำ",
+      "live_label": "สด · ข้อมูล USGS ทุก 15 นาที",
+      "flow": "ปริมาณน้ำ",
+      "temperature": "อุณหภูมิน้ำ",
+      "gage_height": "ระดับน้ำ",
+      "clarity": "ความใส",
+      "unknown": "ไม่ทราบ",
+      "data_unavailable": "ข้อมูลสดไม่พร้อมใช้งานชั่วคราว กลับมาตรวจสอบอีกครั้ง",
+      "flow_history": "ปริมาณน้ำ 7 วัน",
+      "where": "จุดที่คุณกำลังตกปลา",
+      "access_points": "จุดเข้าถึง · จากต้นน้ำลงปลายน้ำ",
+      "nearest": "ใกล้ที่สุด",
+      "best_stretch": "ช่วงที่ดีที่สุดในตอนนี้",
+      "guide_report": "รายงานไกด์",
+      "on_the_water": "บนน้ำตอนนี้",
+      "current_hatches": "แมลงฟักตอนนี้",
+      "no_hatches": "ตอนนี้ไม่มีแมลงฟัก กลับมาดูอีกครั้งหรือเลือกจากกล่องแมลงปลอมทั้งหมดด้านล่าง",
+      "recommended_gear": "อุปกรณ์ที่แนะนำ",
+      "gear_lede": "เลือกให้เข้ากับสิ่งที่อยู่บนน้ำตอนนี้",
+      "settings": {
+        "header_layout": {
+          "content": "เลย์เอาต์",
+          "info": "กำหนดระยะห่างด้านบนและด้านล่างของบล็อกสภาพแม่น้ำ"
+        },
+        "header_products": {
+          "content": "การ์ดสินค้า"
+        }
+      },
+      "blocks": {
+        "river_link": {
+          "name": "ลิงก์แม่น้ำ",
+          "settings": {
+            "url": {
+              "label": "URL"
+            },
+            "label": {
+              "label": "ป้าย"
+            }
+          }
+        }
+      }
+    },
+    "river_picker": {
+      "current": "แม่น้ำปัจจุบัน",
+      "search_placeholder": "ค้นหาแม่น้ำ…",
+      "search_label": "ค้นหาแม่น้ำ",
+      "browse_all": "ดูแม่น้ำทั้งหมด",
+      "empty": "ไม่พบแม่น้ำที่ตรงกัน"
+    },
+    "rivers_index": {
+      "empty": "ยังไม่ได้ตั้งค่าแม่น้ำ เรียกใช้สคริปต์ seed เพื่อเติมข้อมูลแม่น้ำ",
+      "search_placeholder": "ค้นหาแม่น้ำหรือเมือง…",
+      "search_label": "ค้นหาแม่น้ำ",
+      "filter_label": "กรองตามภูมิภาค",
+      "all_regions": "ทุกภูมิภาค",
+      "flow": "ปริมาณน้ำ",
+      "temperature": "อุณหภูมิน้ำ",
+      "view": "ดูสภาพ",
+      "no_results": "ไม่พบแม่น้ำที่ตรงกัน ล้างตัวกรองหรือค้นหาชื่ออื่น"
     }
   },
   "localization": {

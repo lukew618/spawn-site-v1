@@ -1464,6 +1464,31 @@
             "label": "大"
           },
           "info": "画像のアスペクト比が3:2のものを使用すると最適です。[詳しくはこちら](https://help.shopify.com/manual/shopify-admin/productivity-tools/image-editor#understanding-image-aspect-ratio)"
+        },
+        "guides_header": {
+          "content": "注目のガイド"
+        },
+        "guides_heading": {
+          "label": "ガイドの見出し",
+          "default": "フライフィッシングガイド",
+          "info": "Guideブロックを追加すると、ブログ記事の上にページを表示します。ブログの最初のページだけに表示されます。"
+        }
+      },
+      "blocks": {
+        "guide": {
+          "name": "ガイド",
+          "settings": {
+            "page": {
+              "label": "ページ"
+            },
+            "image": {
+              "label": "画像"
+            },
+            "description": {
+              "label": "説明",
+              "info": "空欄にすると、ページ本文の冒頭を使います。"
+            }
+          }
         }
       }
     },
@@ -3420,10 +3445,209 @@
         },
         "show_sku": {
           "label": "SKUを表示"
+        },
+        "b2b_only": {
+          "label": "B2Bのお客様にだけ表示",
+          "info": "有効にすると、クイック注文リストはログイン済みの卸売購入者にだけ表示されます。"
         }
       },
       "presets": {
         "name": "迅速な注文リスト"
+      }
+    },
+    "product-specs": {
+      "name": "商品仕様",
+      "settings": {
+        "heading": {
+          "label": "見出し"
+        },
+        "color_scheme": {
+          "label": "配色"
+        },
+        "padding_top": {
+          "label": "上部の余白"
+        },
+        "padding_bottom": {
+          "label": "下部の余白"
+        }
+      },
+      "blocks": {
+        "spec": {
+          "name": "仕様の列",
+          "settings": {
+            "heading": {
+              "label": "見出し",
+              "default": "特徴"
+            },
+            "content": {
+              "label": "コンテンツ",
+              "info": "商品メタフィールドを動的ソースとして接続するか、空のままにしてこの列を非表示にします。"
+            },
+            "wide": {
+              "label": "広い列",
+              "info": "特徴一覧のように、この列を2倍の幅にします。"
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "商品仕様"
+      }
+    },
+    "product-editorial": {
+      "name": "商品エディトリアル",
+      "settings": {
+        "heading": {
+          "label": "見出し",
+          "info": "商品ごとの見出し用に、商品メタフィールドを動的ソースとして接続します。"
+        },
+        "content": {
+          "label": "コンテンツ",
+          "info": "商品メタフィールドを動的ソースとして接続します。空のときはセクションを非表示にします。"
+        },
+        "use_description_fallback": {
+          "label": "商品説明に戻す",
+          "info": "コンテンツが接続されていないときは、商品説明を表示します。"
+        },
+        "fallback_heading": {
+          "label": "代替の見出し",
+          "info": "商品ごとの見出しが接続されていないときに使います。",
+          "default": "説明と特徴"
+        },
+        "brand_heading": {
+          "label": "ブランド列の見出し",
+          "default": "ブランド"
+        },
+        "shipping_heading": {
+          "label": "配送列の見出し",
+          "default": "配送と返品"
+        },
+        "shipping_text": {
+          "label": "配送列の本文",
+          "default": "<p>米国への$75超のご注文は送料無料。米国内の返品送料も無料です。</p>"
+        },
+        "color_scheme": {
+          "label": "配色"
+        },
+        "padding_top": {
+          "label": "上部の余白"
+        },
+        "padding_bottom": {
+          "label": "下部の余白"
+        }
+      },
+      "presets": {
+        "name": "商品エディトリアル"
+      }
+    },
+    "sticky-atc-bar": {
+      "name": "固定のカート追加バー",
+      "settings": {
+        "paragraph": {
+          "content": "主な購入ボタンを過ぎてスクロールすると、価格とカートに追加ボタンのバーを表示します。"
+        },
+        "color_scheme": {
+          "label": "配色"
+        }
+      },
+      "presets": {
+        "name": "固定のカート追加バー"
+      }
+    },
+    "spawn_rods_reels": {
+      "name": "ロッドとリールのページ",
+      "title": "ページタイトル",
+      "intro": "紹介文",
+      "rods": "フライロッドのコレクション",
+      "reels": "フライリールのコレクション",
+      "rods_image": "フライロッド画像の差し替え",
+      "reels_image": "フライリール画像の差し替え",
+      "brand_menu": "ロッドとリールのブランドメニュー"
+    },
+    "spawn_home": {
+      "name": "Spawnプレミアムホームページ",
+      "hero_image": "メイン画像",
+      "eyebrow": "見出し上の小さな文字",
+      "hero_title": "メインタイトル",
+      "hero_text": "メインの説明",
+      "tying_collection": "フライタイイングのコレクション",
+      "materials_collection": "注目素材のコレクション",
+      "flies_collection": "シグネチャーフライのコレクション",
+      "feature_image": "注目フライの画像",
+      "feature_title": "注目フライのタイトル",
+      "feature_text": "注目フライの説明",
+      "feature_collection": "注目フライのコレクション",
+      "store_image": "店舗の画像",
+      "store_text": "店舗の説明",
+      "blog": "ジャーナルブログ",
+      "category": "カテゴリー",
+      "category_title": "カテゴリーのタイトル",
+      "category_image": "カテゴリー画像の差し替え",
+      "category_subtitle": "カテゴリーのサブタイトル",
+      "category_cta": "カテゴリーボタンのラベル"
+    },
+    "wholesale_landing": {
+      "name": "卸売ランディング",
+      "settings": {
+        "hero_image": "メイン画像",
+        "eyebrow": "見出し上の小さな文字",
+        "heading": "見出し",
+        "lede": "補足文",
+        "points_header": "メインの要点",
+        "point_1_title": "要点1のタイトル",
+        "point_1_text": "要点1の詳細",
+        "point_2_title": "要点2のタイトル",
+        "point_2_text": "要点2の詳細",
+        "point_3_title": "要点3のタイトル",
+        "point_3_text": "要点3の詳細",
+        "request_label": "アクセス申請ボタンのラベル",
+        "login_label": "サインインボタンのラベル",
+        "shop_label": "ショップボタンのラベル",
+        "account_label": "アカウントボタンのラベル",
+        "shop_link": "ログイン済み購入者向けのショップリンク",
+        "who_header": "対象",
+        "who_heading": "「対象」の見出し",
+        "who_text": "「対象」の本文",
+        "after_header": "承認後",
+        "after_heading": "承認後の見出し",
+        "after_text": "承認後の本文",
+        "form_header": "申請フォーム",
+        "form_heading": "フォームの見出し",
+        "form_text": "フォームの補足文",
+        "support_email": "予備のサポートメール"
+      },
+      "blocks": {
+        "richtext": {
+          "name": "リッチテキスト",
+          "settings": {
+            "text": "テキスト"
+          }
+        }
+      }
+    },
+    "river_conditions": {
+      "name": "河川状況",
+      "settings": {
+        "header_layout": {
+          "content": "レイアウト",
+          "info": "河川状況ブロックの上下の余白を設定します。"
+        },
+        "header_products": {
+          "content": "商品カード"
+        }
+      },
+      "blocks": {
+        "river_link": {
+          "name": "川へのリンク",
+          "settings": {
+            "url": {
+              "label": "URL"
+            },
+            "label": {
+              "label": "ラベル"
+            }
+          }
+        }
       }
     }
   }
