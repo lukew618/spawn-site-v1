@@ -1464,6 +1464,31 @@
             "label": "Groß"
           },
           "info": "Verwende für Bilder ein Seitenverhältnis von 3:2 für optimale Ergebnisse. [Mehr Informationen](https://help.shopify.com/manual/shopify-admin/productivity-tools/image-editor#understanding-image-aspect-ratio)"
+        },
+        "guides_header": {
+          "content": "Vorgestellte Guides"
+        },
+        "guides_heading": {
+          "label": "Überschrift der Guides",
+          "default": "Fliegenfischer-Guides",
+          "info": "Fügen Sie Guide-Blöcke hinzu, um Seiten über den Blogbeiträgen zu zeigen. Nur auf der ersten Blogseite."
+        }
+      },
+      "blocks": {
+        "guide": {
+          "name": "Guide",
+          "settings": {
+            "page": {
+              "label": "Seite"
+            },
+            "image": {
+              "label": "Bild"
+            },
+            "description": {
+              "label": "Beschreibung",
+              "info": "Leer lassen, um den Anfang des Seitentexts zu verwenden."
+            }
+          }
         }
       }
     },
@@ -3420,10 +3445,209 @@
         },
         "show_sku": {
           "label": "SKUs anzeigen"
+        },
+        "b2b_only": {
+          "label": "Nur B2B-Kunden anzeigen",
+          "info": "Wenn aktiviert, erscheint die Schnellbestellliste nur für angemeldete Großhandelskunden."
         }
       },
       "presets": {
         "name": "Schnelle Bestellliste"
+      }
+    },
+    "product-specs": {
+      "name": "Produktspezifikationen",
+      "settings": {
+        "heading": {
+          "label": "Überschrift"
+        },
+        "color_scheme": {
+          "label": "Farbschema"
+        },
+        "padding_top": {
+          "label": "Oberes Padding"
+        },
+        "padding_bottom": {
+          "label": "Unteres Padding"
+        }
+      },
+      "blocks": {
+        "spec": {
+          "name": "Spezifikationsspalte",
+          "settings": {
+            "heading": {
+              "label": "Überschrift",
+              "default": "Merkmale"
+            },
+            "content": {
+              "label": "Inhalt",
+              "info": "Verbinden Sie ein Produkt-Metafeld als dynamische Quelle oder lassen Sie das Feld leer, um diese Spalte auszublenden."
+            },
+            "wide": {
+              "label": "Breite Spalte",
+              "info": "Geben Sie dieser Spalte die doppelte Breite, etwa für eine Merkmalsliste."
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Produktspezifikationen"
+      }
+    },
+    "product-editorial": {
+      "name": "Produkteditorial",
+      "settings": {
+        "heading": {
+          "label": "Überschrift",
+          "info": "Verbinden Sie ein Produkt-Metafeld als dynamische Quelle für eine produktbezogene Überschrift."
+        },
+        "content": {
+          "label": "Inhalt",
+          "info": "Verbinden Sie ein Produkt-Metafeld als dynamische Quelle. Der Abschnitt wird ausgeblendet, wenn er leer ist."
+        },
+        "use_description_fallback": {
+          "label": "Auf die Produktbeschreibung zurückgreifen",
+          "info": "Wenn kein Inhalt verbunden ist, wird stattdessen die Produktbeschreibung gezeigt."
+        },
+        "fallback_heading": {
+          "label": "Ersatzüberschrift",
+          "info": "Wird verwendet, wenn keine produktbezogene Überschrift verbunden ist.",
+          "default": "Beschreibung und Merkmale"
+        },
+        "brand_heading": {
+          "label": "Überschrift der Markenspalte",
+          "default": "Marke"
+        },
+        "shipping_heading": {
+          "label": "Überschrift der Versandspalte",
+          "default": "Versand und Rückgabe"
+        },
+        "shipping_text": {
+          "label": "Text der Versandspalte",
+          "default": "<p>Kostenloser Versand für Bestellungen in die USA über $75. Kostenlose Rücksendung innerhalb der USA.</p>"
+        },
+        "color_scheme": {
+          "label": "Farbschema"
+        },
+        "padding_top": {
+          "label": "Oberes Padding"
+        },
+        "padding_bottom": {
+          "label": "Unteres Padding"
+        }
+      },
+      "presets": {
+        "name": "Produkteditorial"
+      }
+    },
+    "sticky-atc-bar": {
+      "name": "Fixierte In-den-Warenkorb-Leiste",
+      "settings": {
+        "paragraph": {
+          "content": "Zeigt eine Leiste mit Preis und In-den-Warenkorb-Schaltfläche, sobald der Kaufbereich nach oben gescrollt wurde."
+        },
+        "color_scheme": {
+          "label": "Farbschema"
+        }
+      },
+      "presets": {
+        "name": "Fixierte In-den-Warenkorb-Leiste"
+      }
+    },
+    "spawn_rods_reels": {
+      "name": "Seite für Ruten und Rollen",
+      "title": "Seitentitel",
+      "intro": "Einleitung",
+      "rods": "Kollektion Fliegenruten",
+      "reels": "Kollektion Fliegenrollen",
+      "rods_image": "Anderes Bild für Fliegenruten",
+      "reels_image": "Anderes Bild für Fliegenrollen",
+      "brand_menu": "Menü mit Ruten- und Rollenmarken"
+    },
+    "spawn_home": {
+      "name": "Spawn-Premium-Startseite",
+      "hero_image": "Hauptbild",
+      "eyebrow": "Dachzeile",
+      "hero_title": "Haupttitel",
+      "hero_text": "Hauptbeschreibung",
+      "tying_collection": "Kollektion zum Fliegenbinden",
+      "materials_collection": "Kollektion vorgestellter Materialien",
+      "flies_collection": "Kollektion der Signature-Fliegen",
+      "feature_image": "Bild der vorgestellten Fliege",
+      "feature_title": "Titel der vorgestellten Fliege",
+      "feature_text": "Beschreibung der vorgestellten Fliege",
+      "feature_collection": "Kollektion der vorgestellten Fliege",
+      "store_image": "Ladenbild",
+      "store_text": "Ladenbeschreibung",
+      "blog": "Journal-Blog",
+      "category": "Kategorie",
+      "category_title": "Kategorietitel",
+      "category_image": "Anderes Kategoriebild",
+      "category_subtitle": "Untertitel der Kategorie",
+      "category_cta": "Beschriftung der Kategorie-Schaltfläche"
+    },
+    "wholesale_landing": {
+      "name": "Großhandelsseite",
+      "settings": {
+        "hero_image": "Hauptbild",
+        "eyebrow": "Dachzeile",
+        "heading": "Überschrift",
+        "lede": "Ergänzender Text",
+        "points_header": "Hervorhebungen im Hauptbereich",
+        "point_1_title": "Titel von Highlight 1",
+        "point_1_text": "Text zu Highlight 1",
+        "point_2_title": "Titel von Highlight 2",
+        "point_2_text": "Text zu Highlight 2",
+        "point_3_title": "Titel von Highlight 3",
+        "point_3_text": "Text zu Highlight 3",
+        "request_label": "Beschriftung der Schaltfläche für den Zugangsantrag",
+        "login_label": "Beschriftung der Anmeldeschaltfläche",
+        "shop_label": "Beschriftung der Shop-Schaltfläche",
+        "account_label": "Beschriftung der Kontoschaltfläche",
+        "shop_link": "Shoplink für angemeldete Käufer",
+        "who_header": "Für wen das ist",
+        "who_heading": "Überschrift „Für wen“",
+        "who_text": "Text „Für wen“",
+        "after_header": "Nach der Freigabe",
+        "after_heading": "Überschrift nach der Freigabe",
+        "after_text": "Text nach der Freigabe",
+        "form_header": "Anfrageformular",
+        "form_heading": "Formularüberschrift",
+        "form_text": "Ergänzender Formulartext",
+        "support_email": "Ersatz-E-Mail für den Support"
+      },
+      "blocks": {
+        "richtext": {
+          "name": "Rich Text",
+          "settings": {
+            "text": "Text"
+          }
+        }
+      }
+    },
+    "river_conditions": {
+      "name": "Flussbedingungen",
+      "settings": {
+        "header_layout": {
+          "content": "Layout",
+          "info": "Steuert den Abstand über und unter dem Block mit den Flussbedingungen."
+        },
+        "header_products": {
+          "content": "Produktkarten"
+        }
+      },
+      "blocks": {
+        "river_link": {
+          "name": "Flusslink",
+          "settings": {
+            "url": {
+              "label": "URL"
+            },
+            "label": {
+              "label": "Beschriftung"
+            }
+          }
+        }
       }
     }
   }

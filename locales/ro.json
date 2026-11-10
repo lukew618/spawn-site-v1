@@ -49,7 +49,8 @@
     },
     "search": {
       "search": "Căutați",
-      "reset": "Golește termenul de căutare"
+      "reset": "Golește termenul de căutare",
+      "placeholder": "Caută produse și mărci"
     },
     "cart": {
       "view": "Vezi coșul ({{ count }})",
@@ -147,7 +148,8 @@
         "from_price_html": "Începând cu {{ price }}",
         "regular_price": "Preț obișnuit",
         "sale_price": "Preț redus",
-        "unit_price": "Preț unitar"
+        "unit_price": "Preț unitar",
+        "save_percent": "Economisești {{ percent }}%"
       },
       "pickup_availability": {
         "view_store_info": "Vizualizați informațiile despre magazin",
@@ -325,7 +327,18 @@
       "duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_html": "Taxe vamale incluse. Taxele, reducerile și <a href=\"{{ link }}\">transportul</a> sunt calculate la finalizarea comenzii.",
       "duties_included_taxes_at_checkout_shipping_at_checkout_without_policy": "Taxe vamale incluse. Taxele, reducerile și transportul sunt calculate la finalizarea comenzii.",
       "taxes_at_checkout_shipping_at_checkout_with_policy_html": "Taxele, reducerile și <a href=\"{{ link }}\">transportul</a> sunt calculate la finalizarea comenzii.",
-      "taxes_at_checkout_shipping_at_checkout_without_policy": "Taxele, reducerile și transportul sunt calculate la finalizarea comenzii."
+      "taxes_at_checkout_shipping_at_checkout_without_policy": "Taxele, reducerile și transportul sunt calculate la finalizarea comenzii.",
+      "empty_message": "Pregătește masa de legat pentru următoarea zi pe apă.",
+      "shop_materials": "Cumpără materiale de legat",
+      "shop_flies": "Explorează muștele",
+      "remove": "Elimină",
+      "each": "bucata",
+      "available_offers": "Oferte disponibile",
+      "view_full_cart": "Vezi coșul complet",
+      "shipping_remaining_html": "Mai ai <strong>{{ amount }}</strong> până la livrarea gratuită.",
+      "shipping_unlocked": "Ai deblocat livrarea gratuită.",
+      "shipping_progress": "Progres către livrarea gratuită",
+      "shipping_region": "Pentru comenzile către SUA continentală."
     },
     "footer": {
       "payment": "Metode de plată"
@@ -395,6 +408,69 @@
       "min_error": "Pentru acest articol, valoarea minimă este de {{ min }}",
       "max_error": "Pentru acest articol, valoarea maximă este de {{ max }}",
       "step_error": "Poți introduce acest articol numai în incrementuri de {{ step }}"
+    },
+    "river_conditions": {
+      "name": "Condițiile râului",
+      "no_river": "Nu sunt configurate date despre râu pentru această pagină.",
+      "river_navigation": "Navigare râuri",
+      "live_label": "Live · date USGS la 15 minute",
+      "flow": "Debit",
+      "temperature": "Temperatura apei",
+      "gage_height": "Nivelul apei",
+      "clarity": "Claritate",
+      "unknown": "Necunoscut",
+      "data_unavailable": "Datele live sunt temporar indisponibile. Revino în curând.",
+      "flow_history": "Debit pe 7 zile",
+      "where": "Unde pescuiești",
+      "access_points": "Acces · din amonte spre aval",
+      "nearest": "Cel mai apropiat",
+      "best_stretch": "Cel mai bun sector acum",
+      "guide_report": "Raportul ghidului",
+      "on_the_water": "Pe apă acum",
+      "current_hatches": "Eclozări actuale",
+      "no_hatches": "Nu sunt eclozări active acum. Revino în curând sau răsfoiește mai jos toată cutia de muște.",
+      "recommended_gear": "Echipament recomandat",
+      "gear_lede": "Potrivit cu ce este pe apă acum.",
+      "settings": {
+        "header_layout": {
+          "content": "Aspect",
+          "info": "Controlează spațiul deasupra și dedesubtul blocului de condiții ale râului."
+        },
+        "header_products": {
+          "content": "Carduri de produs"
+        }
+      },
+      "blocks": {
+        "river_link": {
+          "name": "Link către râu",
+          "settings": {
+            "url": {
+              "label": "URL"
+            },
+            "label": {
+              "label": "Etichetă"
+            }
+          }
+        }
+      }
+    },
+    "river_picker": {
+      "current": "Râul curent",
+      "search_placeholder": "Caută râuri…",
+      "search_label": "Caută râuri",
+      "browse_all": "Vezi toate râurile",
+      "empty": "Niciun râu nu corespunde."
+    },
+    "rivers_index": {
+      "empty": "Nu este configurat încă niciun râu. Rulează scriptul de seed ca să completezi datele.",
+      "search_placeholder": "Caută râuri sau localități…",
+      "search_label": "Caută râuri",
+      "filter_label": "Filtrează după regiune",
+      "all_regions": "Toate regiunile",
+      "flow": "Debit",
+      "temperature": "Temp.",
+      "view": "Vezi condițiile",
+      "no_results": "Niciun râu nu corespunde. Șterge filtrele sau caută alt nume."
     }
   },
   "localization": {

@@ -49,7 +49,8 @@
     },
     "search": {
       "search": "Поиск",
-      "reset": "Удалить поисковый запрос"
+      "reset": "Удалить поисковый запрос",
+      "placeholder": "Искать товары и бренды"
     },
     "cart": {
       "view": "Просмотреть корзину ({{ count }})",
@@ -147,7 +148,8 @@
         "from_price_html": "От {{ price }}",
         "regular_price": "Обычная цена",
         "sale_price": "Цена со скидкой",
-        "unit_price": "Цена за единицу"
+        "unit_price": "Цена за единицу",
+        "save_percent": "Экономия {{ percent }}%"
       },
       "pickup_availability": {
         "view_store_info": "Сведения о магазине",
@@ -335,7 +337,18 @@
       "duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_html": "Пошлины включены. Налоги, скидки и <a href=\"{{ link }}\">стоимость доставки</a> рассчитываются при оформлении заказа.",
       "duties_included_taxes_at_checkout_shipping_at_checkout_without_policy": "Пошлины включены. Налоги, скидки и стоимость доставки рассчитываются при оформлении заказа.",
       "taxes_at_checkout_shipping_at_checkout_with_policy_html": "Налоги, скидки и <a href=\"{{ link }}\">стоимость доставки</a> рассчитываются при оформлении заказа.",
-      "taxes_at_checkout_shipping_at_checkout_without_policy": "Налоги, скидки и стоимость доставки рассчитываются при оформлении заказа."
+      "taxes_at_checkout_shipping_at_checkout_without_policy": "Налоги, скидки и стоимость доставки рассчитываются при оформлении заказа.",
+      "empty_message": "Соберите стол для вязания к следующему дню на воде.",
+      "shop_materials": "Купить материалы для вязания",
+      "shop_flies": "Смотреть мушки",
+      "remove": "Удалить",
+      "each": "за шт.",
+      "available_offers": "Доступные предложения",
+      "view_full_cart": "Открыть всю корзину",
+      "shipping_remaining_html": "До бесплатной доставки осталось <strong>{{ amount }}</strong>.",
+      "shipping_unlocked": "Бесплатная доставка открыта.",
+      "shipping_progress": "Прогресс до бесплатной доставки",
+      "shipping_region": "Для заказов в континентальную часть США."
     },
     "footer": {
       "payment": "Способы оплаты"
@@ -407,6 +420,69 @@
       "min_error": "Минимальное количество этого товара — {{ min }}",
       "max_error": "Максимальное количество этого товара — {{ max }}",
       "step_error": "Вы можете добавить этот товар только в количестве, кратном {{ step }}"
+    },
+    "river_conditions": {
+      "name": "Состояние реки",
+      "no_river": "Для этой страницы не заданы данные реки.",
+      "river_navigation": "Навигация по рекам",
+      "live_label": "В эфире · данные USGS каждые 15 мин",
+      "flow": "Расход",
+      "temperature": "Температура воды",
+      "gage_height": "Уровень воды",
+      "clarity": "Прозрачность",
+      "unknown": "Неизвестно",
+      "data_unavailable": "Данные в реальном времени временно недоступны. Загляните позже.",
+      "flow_history": "Расход за 7 дней",
+      "where": "Где вы рыбачите",
+      "access_points": "Подходы · от верховьев вниз",
+      "nearest": "Ближайшее",
+      "best_stretch": "Лучший участок сейчас",
+      "guide_report": "Отчёт гида",
+      "on_the_water": "Сейчас на воде",
+      "current_hatches": "Текущие вылеты",
+      "no_hatches": "Сейчас нет активного вылета. Загляните позже или посмотрите ниже полную коробку мушек.",
+      "recommended_gear": "Рекомендуемое снаряжение",
+      "gear_lede": "Подобрано под то, что сейчас на воде.",
+      "settings": {
+        "header_layout": {
+          "content": "Макет",
+          "info": "Задаёт отступ над блоком состояния реки и под ним."
+        },
+        "header_products": {
+          "content": "Карточки товаров"
+        }
+      },
+      "blocks": {
+        "river_link": {
+          "name": "Ссылка на реку",
+          "settings": {
+            "url": {
+              "label": "URL"
+            },
+            "label": {
+              "label": "Подпись"
+            }
+          }
+        }
+      }
+    },
+    "river_picker": {
+      "current": "Текущая река",
+      "search_placeholder": "Искать реки…",
+      "search_label": "Искать реки",
+      "browse_all": "Все реки",
+      "empty": "Нет подходящих рек."
+    },
+    "rivers_index": {
+      "empty": "Реки ещё не заданы. Запустите скрипт заполнения, чтобы добавить данные.",
+      "search_placeholder": "Искать реки или города…",
+      "search_label": "Искать реки",
+      "filter_label": "Фильтр по региону",
+      "all_regions": "Все регионы",
+      "flow": "Расход",
+      "temperature": "Темп.",
+      "view": "Смотреть условия",
+      "no_results": "Нет подходящих рек. Сбросьте фильтры или поищите другое название."
     }
   },
   "localization": {

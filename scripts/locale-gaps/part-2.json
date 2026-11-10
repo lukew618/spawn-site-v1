@@ -1,0 +1,82 @@
+[
+  {
+    "en": "After approval",
+    "tr": {"bg":"След одобрение","cs":"Po schválení","da":"Efter godkendelse","de":"Nach der Freigabe","el":"Μετά την έγκριση","es":"Tras la aprobación","fi":"Hyväksynnän jälkeen","fr":"Après approbation","hr":"Nakon odobrenja","hu":"Jóváhagyás után","id":"Setelah disetujui","it":"Dopo l’approvazione","ja":"承認後","ko":"승인 후","lt":"Po patvirtinimo","nb":"Etter godkjenning","nl":"Na goedkeuring","pl":"Po zatwierdzeniu","pt-BR":"Após a aprovação","pt-PT":"Após a aprovação","ro":"După aprobare","ru":"После одобрения","sk":"Po schválení","sl":"Po odobritvi","sv":"Efter godkännande","th":"หลังจากอนุมัติ","tr":"Onaydan sonra","vi":"Sau khi được duyệt","zh-CN":"批准之后","zh-TW":"核准之後"}
+  },
+  {
+    "en": "After body",
+    "tr": {"bg":"Текст след одобрение","cs":"Text po schválení","da":"Tekst efter godkendelse","de":"Text nach der Freigabe","el":"Κείμενο μετά την έγκριση","es":"Texto tras la aprobación","fi":"Teksti hyväksynnän jälkeen","fr":"Texte après approbation","hr":"Tekst nakon odobrenja","hu":"Szöveg jóváhagyás után","id":"Teks setelah disetujui","it":"Testo dopo l’approvazione","ja":"承認後の本文","ko":"승인 후 본문","lt":"Tekstas po patvirtinimo","nb":"Tekst etter godkjenning","nl":"Tekst na goedkeuring","pl":"Tekst po zatwierdzeniu","pt-BR":"Texto após a aprovação","pt-PT":"Texto após a aprovação","ro":"Text după aprobare","ru":"Текст после одобрения","sk":"Text po schválení","sl":"Besedilo po odobritvi","sv":"Text efter godkännande","th":"ข้อความหลังอนุมัติ","tr":"Onaydan sonraki metin","vi":"Nội dung sau khi duyệt","zh-CN":"批准后的正文","zh-TW":"核准後的正文"}
+  },
+  {
+    "en": "After heading",
+    "tr": {"bg":"Заглавие след одобрение","cs":"Nadpis po schválení","da":"Overskrift efter godkendelse","de":"Überschrift nach der Freigabe","el":"Επικεφαλίδα μετά την έγκριση","es":"Título tras la aprobación","fi":"Otsikko hyväksynnän jälkeen","fr":"Titre après approbation","hr":"Naslov nakon odobrenja","hu":"Cím jóváhagyás után","id":"Judul setelah disetujui","it":"Titolo dopo l’approvazione","ja":"承認後の見出し","ko":"승인 후 제목","lt":"Antraštė po patvirtinimo","nb":"Overskrift etter godkjenning","nl":"Kop na goedkeuring","pl":"Nagłówek po zatwierdzeniu","pt-BR":"Título após a aprovação","pt-PT":"Título após a aprovação","ro":"Titlu după aprobare","ru":"Заголовок после одобрения","sk":"Nadpis po schválení","sl":"Naslov po odobritvi","sv":"Rubrik efter godkännande","th":"หัวข้อหลังอนุมัติ","tr":"Onaydan sonraki başlık","vi":"Tiêu đề sau khi duyệt","zh-CN":"批准后的标题","zh-TW":"核准後的標題"}
+  },
+  {
+    "en": "All regions",
+    "tr": {"bg":"Всички региони","cs":"Všechny regiony","da":"Alle regioner","de":"Alle Regionen","el":"Όλες οι περιοχές","es":"Todas las regiones","fi":"Kaikki alueet","fr":"Toutes les régions","hr":"Sve regije","hu":"Minden régió","id":"Semua wilayah","it":"Tutte le regioni","ja":"すべての地域","ko":"모든 지역","lt":"Visi regionai","nb":"Alle regioner","nl":"Alle regio’s","pl":"Wszystkie regiony","pt-BR":"Todas as regiões","pt-PT":"Todas as regiões","ro":"Toate regiunile","ru":"Все регионы","sk":"Všetky regióny","sl":"Vse regije","sv":"Alla regioner","th":"ทุกภูมิภาค","tr":"Tüm bölgeler","vi":"Mọi vùng","zh-CN":"所有地区","zh-TW":"所有地區"}
+  },
+  {
+    "en": "Available offers",
+    "tr": {"bg":"Налични оферти","cs":"Dostupné nabídky","da":"Tilgængelige tilbud","de":"Verfügbare Angebote","el":"Διαθέσιμες προσφορές","es":"Ofertas disponibles","fi":"Saatavilla olevat tarjoukset","fr":"Offres disponibles","hr":"Dostupne ponude","hu":"Elérhető ajánlatok","id":"Penawaran yang tersedia","it":"Offerte disponibili","ja":"利用できる特典","ko":"이용 가능한 혜택","lt":"Galimi pasiūlymai","nb":"Tilgjengelige tilbud","nl":"Beschikbare aanbiedingen","pl":"Dostępne oferty","pt-BR":"Ofertas disponíveis","pt-PT":"Ofertas disponíveis","ro":"Oferte disponibile","ru":"Доступные предложения","sk":"Dostupné ponuky","sl":"Razpoložljive ponudbe","sv":"Tillgängliga erbjudanden","th":"ข้อเสนอที่ใช้ได้","tr":"Mevcut teklifler","vi":"Ưu đãi hiện có","zh-CN":"可用优惠","zh-TW":"可用優惠"}
+  },
+  {
+    "en": "Best stretch right now",
+    "tr": {"bg":"Най-добрият участък в момента","cs":"Nejlepší úsek právě teď","da":"Bedste strækning lige nu","de":"Beste Strecke im Moment","el":"Το καλύτερο τμήμα αυτή τη στιγμή","es":"El mejor tramo ahora mismo","fi":"Paras osuus juuri nyt","fr":"Meilleur secteur en ce moment","hr":"Najbolja dionica trenutačno","hu":"A legjobb szakasz most","id":"Ruas terbaik saat ini","it":"Il tratto migliore in questo momento","ja":"今いちばんの区間","ko":"지금 가장 좋은 구간","lt":"Geriausia atkarpa dabar","nb":"Beste strekning akkurat nå","nl":"Beste traject op dit moment","pl":"Najlepszy odcinek w tej chwili","pt-BR":"O melhor trecho agora","pt-PT":"O melhor troço neste momento","ro":"Cel mai bun sector acum","ru":"Лучший участок сейчас","sk":"Najlepší úsek práve teraz","sl":"Najboljši odsek trenutno","sv":"Bästa sträckan just nu","th":"ช่วงที่ดีที่สุดในตอนนี้","tr":"Şu an en iyi kesim","vi":"Khu vực đẹp nhất lúc này","zh-CN":"此刻最佳河段","zh-TW":"此刻最佳河段"}
+  },
+  {
+    "en": "Browse all rivers",
+    "tr": {"bg":"Всички реки","cs":"Prohlédnout všechny řeky","da":"Se alle floder","de":"Alle Flüsse ansehen","el":"Περιήγηση σε όλα τα ποτάμια","es":"Ver todos los ríos","fi":"Selaa kaikkia jokia","fr":"Parcourir toutes les rivières","hr":"Pregledaj sve rijeke","hu":"Összes folyó megtekintése","id":"Jelajahi semua sungai","it":"Sfoglia tutti i fiumi","ja":"すべての川を見る","ko":"모든 강 둘러보기","lt":"Peržiūrėti visas upes","nb":"Se alle elver","nl":"Alle rivieren bekijken","pl":"Przeglądaj wszystkie rzeki","pt-BR":"Ver todos os rios","pt-PT":"Ver todos os rios","ro":"Vezi toate râurile","ru":"Все реки","sk":"Prezrieť všetky rieky","sl":"Prebrskaj vse reke","sv":"Bläddra bland alla floder","th":"ดูแม่น้ำทั้งหมด","tr":"Tüm nehirlere göz at","vi":"Xem mọi con sông","zh-CN":"浏览所有河流","zh-TW":"瀏覽所有河流"}
+  },
+  {
+    "en": "Clarity",
+    "tr": {"bg":"Прозрачност","cs":"Průzračnost","da":"Klarhed","de":"Sicht","el":"Διαύγεια","es":"Claridad","fi":"Kirkkaus","fr":"Clarté","hr":"Prozirnost","hu":"Átlátszóság","id":"Kejernihan","it":"Limpidezza","ja":"透明度","ko":"투명도","lt":"Skaidrumas","nb":"Sikt","nl":"Helderheid","pl":"Przejrzystość","pt-BR":"Claridade","pt-PT":"Claridade","ro":"Claritate","ru":"Прозрачность","sk":"Priezračnosť","sl":"Jasnost","sv":"Sikt","th":"ความใส","tr":"Berraklık","vi":"Độ trong","zh-CN":"清澈度","zh-TW":"清澈度"}
+  },
+  {
+    "en": "Current Hatches",
+    "tr": {"bg":"Текущи излюпвания","cs":"Aktuální líhnutí","da":"Aktuelle klækninger","de":"Aktuelle Schlupf","el":"Τρέχουσες εκκολάψεις","es":"Eclosiones actuales","fi":"Nykyiset kuoriutumiset","fr":"Éclosions en cours","hr":"Trenutna izlijeganja","hu":"Aktuális kikelések","id":"Tetas saat ini","it":"Schiuse attuali","ja":"今のハッチ","ko":"현재 해치","lt":"Dabartiniai ritiniai","nb":"Aktuelle klekkinger","nl":"Huidige hatch","pl":"Aktualne wyloty","pt-BR":"Eclosões atuais","pt-PT":"Eclosões atuais","ro":"Eclozări actuale","ru":"Текущие вылеты","sk":"Aktuálne liahnutia","sl":"Trenutna izleganja","sv":"Aktuella kläckningar","th":"แมลงฟักตอนนี้","tr":"Güncel çıkışlar","vi":"Lứa côn trùng hiện tại","zh-CN":"当前羽化","zh-TW":"目前羽化"}
+  },
+  {
+    "en": "Current river",
+    "tr": {"bg":"Текуща река","cs":"Aktuální řeka","da":"Nuværende flod","de":"Aktueller Fluss","el":"Τρέχον ποτάμι","es":"Río actual","fi":"Nykyinen joki","fr":"Rivière actuelle","hr":"Trenutna rijeka","hu":"Jelenlegi folyó","id":"Sungai saat ini","it":"Fiume attuale","ja":"現在の川","ko":"현재 강","lt":"Dabartinė upė","nb":"Gjeldende elv","nl":"Huidige rivier","pl":"Bieżąca rzeka","pt-BR":"Rio atual","pt-PT":"Rio atual","ro":"Râul curent","ru":"Текущая река","sk":"Aktuálna rieka","sl":"Trenutna reka","sv":"Aktuell flod","th":"แม่น้ำปัจจุบัน","tr":"Geçerli nehir","vi":"Sông hiện tại","zh-CN":"当前河流","zh-TW":"目前河流"}
+  },
+  {
+    "en": "Explore flies",
+    "tr": {"bg":"Разгледай мухите","cs":"Prohlédnout mušky","da":"Udforsk fluer","de":"Fliegen entdecken","el":"Εξερεύνηση μυγών","es":"Explorar moscas","fi":"Tutustu perhoihin","fr":"Explorer les mouches","hr":"Istraži muhe","hu":"Legyek felfedezése","id":"Jelajahi lalat","it":"Esplora le mosche","ja":"フライを見る","ko":"플라이 살펴보기","lt":"Apžiūrėti muses","nb":"Utforsk fluer","nl":"Vliegen ontdekken","pl":"Przeglądaj muszki","pt-BR":"Explorar moscas","pt-PT":"Explorar moscas","ro":"Explorează muștele","ru":"Смотреть мушки","sk":"Preskúmať mušky","sl":"Razišči muhe","sv":"Utforska flugor","th":"สำรวจแมลงปลอม","tr":"Sinekleri keşfet","vi":"Khám phá ruồi giả","zh-CN":"浏览毛钩","zh-TW":"瀏覽毛鉤"}
+  },
+  {
+    "en": "Flow",
+    "tr": {"bg":"Отток","cs":"Průtok","da":"Vandføring","de":"Abfluss","el":"Παροχή","es":"Caudal","fi":"Virtaama","fr":"Débit","hr":"Protok","hu":"Vízhozam","id":"Debit","it":"Portata","ja":"流量","ko":"유량","lt":"Debitas","nb":"Vannføring","nl":"Afvoer","pl":"Przepływ","pt-BR":"Vazão","pt-PT":"Caudal","ro":"Debit","ru":"Расход","sk":"Prietok","sl":"Pretok","sv":"Vattenföring","th":"ปริมาณน้ำ","tr":"Debi","vi":"Lưu lượng","zh-CN":"流量","zh-TW":"流量"}
+  },
+  {
+    "en": "Gage height",
+    "tr": {"bg":"Ниво на водомера","cs":"Výška vodoměru","da":"Vandstand","de":"Pegelhöhe","el":"Ύψος σταθμημέτρου","es":"Altura del limnímetro","fi":"Vedenkorkeus","fr":"Hauteur d’échelle","hr":"Visina vodomjera","hu":"Vízállás","id":"Tinggi muka air","it":"Altezza idrometrica","ja":"水位","ko":"수위","lt":"Vandens lygis","nb":"Vannstand","nl":"Peilhoogte","pl":"Stan wody","pt-BR":"Nível do rio","pt-PT":"Altura do limnímetro","ro":"Nivelul apei","ru":"Уровень воды","sk":"Výška vodomeru","sl":"Višina vodomera","sv":"Vattenstånd","th":"ระดับน้ำ","tr":"Su seviyesi","vi":"Mực nước","zh-CN":"水位","zh-TW":"水位"}
+  },
+  {
+    "en": "Guide Report",
+    "tr": {"bg":"Доклад на гида","cs":"Zpráva průvodce","da":"Guiderapport","de":"Guidebericht","el":"Αναφορά οδηγού","es":"Informe del guía","fi":"Oppaan raportti","fr":"Compte-rendu du guide","hr":"Izvještaj vodiča","hu":"Vezetői jelentés","id":"Laporan pemandu","it":"Rapporto della guida","ja":"ガイドレポート","ko":"가이드 리포트","lt":"Gido ataskaita","nb":"Guiderapport","nl":"Gidsverslag","pl":"Raport przewodnika","pt-BR":"Relato do guia","pt-PT":"Relato do guia","ro":"Raportul ghidului","ru":"Отчёт гида","sk":"Správa sprievodcu","sl":"Poročilo vodnika","sv":"Guidens rapport","th":"รายงานไกด์","tr":"Rehber raporu","vi":"Báo cáo của hướng dẫn viên","zh-CN":"向导报告","zh-TW":"嚮導報告"}
+  },
+  {
+    "en": "Live · USGS 15-min feed",
+    "tr": {"bg":"На живо · данни USGS на 15 мин","cs":"Živě · USGS každých 15 min","da":"Live · USGS hvert 15. minut","de":"Live · USGS alle 15 Minuten","el":"Ζωντανά · ροή USGS ανά 15 λεπτά","es":"En vivo · datos USGS cada 15 min","fi":"Live · USGS 15 minuutin välein","fr":"En direct · flux USGS toutes les 15 min","hr":"Uživo · USGS svakih 15 min","hu":"Élő · USGS 15 percenként","id":"Langsung · data USGS tiap 15 menit","it":"In diretta · dati USGS ogni 15 min","ja":"ライブ · USGS 15分データ","ko":"실시간 · USGS 15분 데이터","lt":"Tiesiogiai · USGS kas 15 min.","nb":"Direkte · USGS hvert 15. minutt","nl":"Live · USGS elke 15 minuten","pl":"Na żywo · USGS co 15 min","pt-BR":"Ao vivo · dados USGS a cada 15 min","pt-PT":"Em direto · dados USGS a cada 15 min","ro":"Live · date USGS la 15 minute","ru":"В эфире · данные USGS каждые 15 мин","sk":"Naživo · USGS každých 15 min","sl":"V živo · USGS vsakih 15 min","sv":"Live · USGS var 15:e minut","th":"สด · ข้อมูล USGS ทุก 15 นาที","tr":"Canlı · USGS 15 dk verisi","vi":"Trực tiếp · dữ liệu USGS mỗi 15 phút","zh-CN":"实时 · USGS 15 分钟数据","zh-TW":"即時 · USGS 15 分鐘數據"}
+  },
+  {
+    "en": "Nearest",
+    "tr": {"bg":"Най-близо","cs":"Nejbližší","da":"Nærmest","de":"Am nächsten","el":"Πλησιέστερα","es":"Más cercano","fi":"Lähin","fr":"Le plus proche","hr":"Najbliže","hu":"Legközelebbi","id":"Terdekat","it":"Più vicino","ja":"最寄り","ko":"가장 가까운 곳","lt":"Artimiausia","nb":"Nærmest","nl":"Dichtstbij","pl":"Najbliżej","pt-BR":"Mais próximo","pt-PT":"Mais próximo","ro":"Cel mai apropiat","ru":"Ближайшее","sk":"Najbližšie","sl":"Najbližje","sv":"Närmast","th":"ใกล้ที่สุด","tr":"En yakın","vi":"Gần nhất","zh-CN":"最近","zh-TW":"最近"}
+  },
+  {
+    "en": "No rivers match.",
+    "tr": {"bg":"Няма съвпадащи реки.","cs":"Žádná řeka neodpovídá.","da":"Ingen floder matcher.","de":"Keine Flüsse gefunden.","el":"Κανένα ποτάμι δεν ταιριάζει.","es":"Ningún río coincide.","fi":"Yksikään joki ei täsmää.","fr":"Aucune rivière ne correspond.","hr":"Nijedna rijeka ne odgovara.","hu":"Nincs egyező folyó.","id":"Tidak ada sungai yang cocok.","it":"Nessun fiume corrisponde.","ja":"一致する川がありません。","ko":"일치하는 강이 없습니다.","lt":"Nėra atitinkančių upių.","nb":"Ingen elver samsvarer.","nl":"Geen rivieren gevonden.","pl":"Żadna rzeka nie pasuje.","pt-BR":"Nenhum rio encontrado.","pt-PT":"Nenhum rio corresponde.","ro":"Niciun râu nu corespunde.","ru":"Нет подходящих рек.","sk":"Žiadna rieka nezodpovedá.","sl":"Nobena reka se ne ujema.","sv":"Inga floder matchar.","th":"ไม่พบแม่น้ำที่ตรงกัน","tr":"Eşleşen nehir yok.","vi":"Không có sông phù hợp.","zh-CN":"没有匹配的河流。","zh-TW":"沒有相符的河流。"}
+  },
+  {
+    "en": "On the Water Now",
+    "tr": {"bg":"На водата сега","cs":"Teď na vodě","da":"På vandet nu","de":"Jetzt am Wasser","el":"Στο νερό τώρα","es":"En el agua ahora","fi":"Vedessä nyt","fr":"Sur l’eau maintenant","hr":"Na vodi sada","hu":"Most a vízen","id":"Di air sekarang","it":"In acqua adesso","ja":"今の水況","ko":"지금 물 상태","lt":"Ant vandens dabar","nb":"På vannet nå","nl":"Nu op het water","pl":"Teraz na wodzie","pt-BR":"Na água agora","pt-PT":"Na água agora","ro":"Pe apă acum","ru":"Сейчас на воде","sk":"Teraz na vode","sl":"Zdaj na vodi","sv":"På vattnet nu","th":"บนน้ำตอนนี้","tr":"Şimdi suda","vi":"Đang trên nước","zh-CN":"此刻水情","zh-TW":"此刻水情"}
+  },
+  {
+    "en": "Recommended Gear",
+    "tr": {"bg":"Препоръчано оборудване","cs":"Doporučená výbava","da":"Anbefalet grej","de":"Empfohlene Ausrüstung","el":"Προτεινόμενος εξοπλισμός","es":"Equipo recomendado","fi":"Suositeltu välineistö","fr":"Matériel recommandé","hr":"Preporučena oprema","hu":"Ajánlott felszerelés","id":"Perlengkapan yang disarankan","it":"Attrezzatura consigliata","ja":"おすすめのギア","ko":"추천 장비","lt":"Rekomenduojama įranga","nb":"Anbefalt utstyr","nl":"Aanbevolen uitrusting","pl":"Polecany sprzęt","pt-BR":"Equipamento recomendado","pt-PT":"Equipamento recomendado","ro":"Echipament recomandat","ru":"Рекомендуемое снаряжение","sk":"Odporúčaná výbava","sl":"Priporočena oprema","sv":"Rekommenderad utrustning","th":"อุปกรณ์ที่แนะนำ","tr":"Önerilen ekipman","vi":"Đồ nghề gợi ý","zh-CN":"推荐装备","zh-TW":"推薦裝備"}
+  },
+  {
+    "en": "Remove",
+    "tr": {"bg":"Премахни","cs":"Odebrat","da":"Fjern","de":"Entfernen","el":"Αφαίρεση","es":"Quitar","fi":"Poista","fr":"Supprimer","hr":"Ukloni","hu":"Eltávolítás","id":"Hapus","it":"Rimuovi","ja":"削除","ko":"삭제","lt":"Pašalinti","nb":"Fjern","nl":"Verwijderen","pl":"Usuń","pt-BR":"Remover","pt-PT":"Remover","ro":"Elimină","ru":"Удалить","sk":"Odstrániť","sl":"Odstrani","sv":"Ta bort","th":"นำออก","tr":"Kaldır","vi":"Xóa","zh-CN":"移除","zh-TW":"移除"}
+  }
+]

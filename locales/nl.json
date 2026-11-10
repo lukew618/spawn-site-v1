@@ -49,7 +49,8 @@
     },
     "search": {
       "search": "Zoeken",
-      "reset": "Zoekterm wissen"
+      "reset": "Zoekterm wissen",
+      "placeholder": "Zoek producten en merken"
     },
     "cart": {
       "view": "Winkelwagen bekijken ({{ count }})",
@@ -138,7 +139,8 @@
         "from_price_html": "Vanaf {{ price }}",
         "regular_price": "Normale prijs",
         "sale_price": "Aanbiedingsprijs",
-        "unit_price": "Eenheidsprijs"
+        "unit_price": "Eenheidsprijs",
+        "save_percent": "Bespaar {{ percent }}%"
       },
       "share": "Dit product delen",
       "sold_out": "Uitverkocht",
@@ -315,7 +317,18 @@
       "duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_html": "Douanerechten inbegrepen. Belastingen, kortingen en <a href=\"{{ link }}\">verzending</a> worden bij de checkout berekend.",
       "duties_included_taxes_at_checkout_shipping_at_checkout_without_policy": "Douanerechten inbegrepen. Belastingen, kortingen en verzending worden bij de checkout berekend.",
       "taxes_at_checkout_shipping_at_checkout_with_policy_html": "Belastingen, kortingen en <a href=\"{{ link }}\">verzending</a> worden bij de checkout berekend.",
-      "taxes_at_checkout_shipping_at_checkout_without_policy": "Belastingen, kortingen en verzending worden bij de checkout berekend."
+      "taxes_at_checkout_shipping_at_checkout_without_policy": "Belastingen, kortingen en verzending worden bij de checkout berekend.",
+      "empty_message": "Richt je bindtafel in voor de volgende dag op het water.",
+      "shop_materials": "Vliegbinding kopen",
+      "shop_flies": "Vliegen ontdekken",
+      "remove": "Verwijderen",
+      "each": "per stuk",
+      "available_offers": "Beschikbare aanbiedingen",
+      "view_full_cart": "Hele winkelwagen bekijken",
+      "shipping_remaining_html": "Nog <strong>{{ amount }}</strong> tot gratis verzending.",
+      "shipping_unlocked": "Je hebt gratis verzending ontgrendeld.",
+      "shipping_progress": "Voortgang naar gratis verzending",
+      "shipping_region": "Bij bestellingen naar de aaneengesloten VS."
     },
     "footer": {
       "payment": "Betaalmethoden"
@@ -383,6 +396,69 @@
       "min_error": "Voor dit artikel geldt een minimum van {{ min }}.",
       "max_error": "Voor dit artikel geldt een maximum van {{ max }}.",
       "step_error": "Je kunt dit artikel alleen toevoegen in stappen van {{ step }}"
+    },
+    "river_conditions": {
+      "name": "Rivieromstandigheden",
+      "no_river": "Voor deze pagina zijn geen riviergegevens ingesteld.",
+      "river_navigation": "Riviernavigatie",
+      "live_label": "Live · USGS elke 15 minuten",
+      "flow": "Afvoer",
+      "temperature": "Watertemperatuur",
+      "gage_height": "Peilhoogte",
+      "clarity": "Helderheid",
+      "unknown": "Onbekend",
+      "data_unavailable": "Livegegevens zijn tijdelijk niet beschikbaar. Kom snel terug.",
+      "flow_history": "Afvoer over 7 dagen",
+      "where": "Waar je vist",
+      "access_points": "Toegangen · van bovenstrooms naar beneden",
+      "nearest": "Dichtstbij",
+      "best_stretch": "Beste traject op dit moment",
+      "guide_report": "Gidsverslag",
+      "on_the_water": "Nu op het water",
+      "current_hatches": "Huidige hatch",
+      "no_hatches": "Nu geen actieve hatch. Kom snel terug of bekijk hieronder de volledige vliegende doos.",
+      "recommended_gear": "Aanbevolen uitrusting",
+      "gear_lede": "Afgestemd op wat er nu op het water is.",
+      "settings": {
+        "header_layout": {
+          "content": "Indeling",
+          "info": "Regelt de ruimte boven en onder het blok met rivieromstandigheden."
+        },
+        "header_products": {
+          "content": "Productkaarten"
+        }
+      },
+      "blocks": {
+        "river_link": {
+          "name": "Rivierlink",
+          "settings": {
+            "url": {
+              "label": "URL"
+            },
+            "label": {
+              "label": "Label"
+            }
+          }
+        }
+      }
+    },
+    "river_picker": {
+      "current": "Huidige rivier",
+      "search_placeholder": "Rivieren zoeken…",
+      "search_label": "Rivieren zoeken",
+      "browse_all": "Alle rivieren bekijken",
+      "empty": "Geen rivieren gevonden."
+    },
+    "rivers_index": {
+      "empty": "Er zijn nog geen rivieren ingesteld. Voer het seed-script uit om riviergegevens te vullen.",
+      "search_placeholder": "Zoek rivieren of plaatsen…",
+      "search_label": "Rivieren zoeken",
+      "filter_label": "Filteren op regio",
+      "all_regions": "Alle regio’s",
+      "flow": "Afvoer",
+      "temperature": "Temp.",
+      "view": "Omstandigheden bekijken",
+      "no_results": "Geen rivieren gevonden. Wis de filters of zoek een andere naam."
     }
   },
   "localization": {

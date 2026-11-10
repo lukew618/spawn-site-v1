@@ -1464,6 +1464,31 @@
             "label": "Stor"
           },
           "info": "Bruk et bilde med størrelsesforhold 3:2 for best resultat. [Finn ut mer](https://help.shopify.com/manual/shopify-admin/productivity-tools/image-editor#understanding-image-aspect-ratio)"
+        },
+        "guides_header": {
+          "content": "Utvalgte guider"
+        },
+        "guides_heading": {
+          "label": "Overskrift for guider",
+          "default": "Fluefiskeguider",
+          "info": "Legg til Guide-blokker for å vise sider over blogginnleggene. Vises bare på bloggens første side."
+        }
+      },
+      "blocks": {
+        "guide": {
+          "name": "Guide",
+          "settings": {
+            "page": {
+              "label": "Side"
+            },
+            "image": {
+              "label": "Bilde"
+            },
+            "description": {
+              "label": "Beskrivelse",
+              "info": "La stå tomt for å bruke starten av sideteksten."
+            }
+          }
         }
       }
     },
@@ -3420,10 +3445,209 @@
         },
         "show_sku": {
           "label": "Vis SKU-er"
+        },
+        "b2b_only": {
+          "label": "Vis bare for B2B-kunder",
+          "info": "Når den er på, vises hurtigbestillingslisten bare for innloggede grossistkjøpere."
         }
       },
       "presets": {
         "name": "Hurtigordreliste"
+      }
+    },
+    "product-specs": {
+      "name": "Produktspesifikasjoner",
+      "settings": {
+        "heading": {
+          "label": "Overskrift"
+        },
+        "color_scheme": {
+          "label": "Fargepalett"
+        },
+        "padding_top": {
+          "label": "Toppmarg"
+        },
+        "padding_bottom": {
+          "label": "Bunnmarg"
+        }
+      },
+      "blocks": {
+        "spec": {
+          "name": "Spesifikasjonskolonne",
+          "settings": {
+            "heading": {
+              "label": "Overskrift",
+              "default": "Egenskaper"
+            },
+            "content": {
+              "label": "Innhold",
+              "info": "Koble et produktmetafelt som dynamisk kilde, eller la det stå tomt for å skjule kolonnen."
+            },
+            "wide": {
+              "label": "Bred kolonne",
+              "info": "Gi denne kolonnen dobbel bredde, som en egenskapsliste."
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Produktspesifikasjoner"
+      }
+    },
+    "product-editorial": {
+      "name": "Produktredaksjonelt felt",
+      "settings": {
+        "heading": {
+          "label": "Overskrift",
+          "info": "Koble et produktmetafelt som dynamisk kilde for en overskrift per produkt."
+        },
+        "content": {
+          "label": "Innhold",
+          "info": "Koble et produktmetafelt som dynamisk kilde. Seksjonen skjules når den er tom."
+        },
+        "use_description_fallback": {
+          "label": "Fall tilbake til produktbeskrivelsen",
+          "info": "Når innhold ikke er koblet til, vises produktbeskrivelsen i stedet."
+        },
+        "fallback_heading": {
+          "label": "Reserveoverskrift",
+          "info": "Brukes når ingen overskrift per produkt er koblet til.",
+          "default": "Beskrivelse og egenskaper"
+        },
+        "brand_heading": {
+          "label": "Overskrift for merkekolonne",
+          "default": "Merke"
+        },
+        "shipping_heading": {
+          "label": "Overskrift for fraktkolonne",
+          "default": "Frakt og retur"
+        },
+        "shipping_text": {
+          "label": "Tekst for fraktkolonne",
+          "default": "<p>Gratis frakt på bestillinger til USA over $75. Gratis returfrakt i USA.</p>"
+        },
+        "color_scheme": {
+          "label": "Fargepalett"
+        },
+        "padding_top": {
+          "label": "Toppmarg"
+        },
+        "padding_bottom": {
+          "label": "Bunnmarg"
+        }
+      },
+      "presets": {
+        "name": "Produktredaksjonelt felt"
+      }
+    },
+    "sticky-atc-bar": {
+      "name": "Fest linje for legg i kurv",
+      "settings": {
+        "paragraph": {
+          "content": "Viser en linje med pris og legg-i-kurv når kunden ruller forbi hovedkjøpsknappene."
+        },
+        "color_scheme": {
+          "label": "Fargepalett"
+        }
+      },
+      "presets": {
+        "name": "Fest linje for legg i kurv"
+      }
+    },
+    "spawn_rods_reels": {
+      "name": "Side for stenger og hjul",
+      "title": "Sidetittel",
+      "intro": "Innledning",
+      "rods": "Samling av fluestenger",
+      "reels": "Samling av fluehjul",
+      "rods_image": "Eget bilde for fluestenger",
+      "reels_image": "Eget bilde for fluehjul",
+      "brand_menu": "Meny med stang- og hjulmerker"
+    },
+    "spawn_home": {
+      "name": "Spawn premium-forside",
+      "hero_image": "Hovedbilde",
+      "eyebrow": "Linje over overskriften",
+      "hero_title": "Hovedtittel",
+      "hero_text": "Hovedbeskrivelse",
+      "tying_collection": "Samling for fluebinding",
+      "materials_collection": "Samling for utvalgte materialer",
+      "flies_collection": "Samling av signaturfluer",
+      "feature_image": "Bilde av den utvalgte fluen",
+      "feature_title": "Tittel på den utvalgte fluen",
+      "feature_text": "Beskrivelse av den utvalgte fluen",
+      "feature_collection": "Samling for utvalgt flue",
+      "store_image": "Butikkbilde",
+      "store_text": "Butikkbeskrivelse",
+      "blog": "Journalblogg",
+      "category": "Kategori",
+      "category_title": "Kategoritittel",
+      "category_image": "Eget kategoribilde",
+      "category_subtitle": "Undertekst for kategori",
+      "category_cta": "Etikett for kategoriknapp"
+    },
+    "wholesale_landing": {
+      "name": "Engros-landingsside",
+      "settings": {
+        "hero_image": "Hovedbilde",
+        "eyebrow": "Linje over overskriften",
+        "heading": "Overskrift",
+        "lede": "Støttetekst",
+        "points_header": "Hovedpunkter",
+        "point_1_title": "Tittel for punkt 1",
+        "point_1_text": "Detalj for punkt 1",
+        "point_2_title": "Tittel for punkt 2",
+        "point_2_text": "Detalj for punkt 2",
+        "point_3_title": "Tittel for punkt 3",
+        "point_3_text": "Detalj for punkt 3",
+        "request_label": "Etikett for knappen for tilgangsforespørsel",
+        "login_label": "Etikett for påloggingsknapp",
+        "shop_label": "Etikett for butikkknapp",
+        "account_label": "Etikett for kontoknapp",
+        "shop_link": "Butikklenke for innloggede kjøpere",
+        "who_header": "Hvem det er for",
+        "who_heading": "Overskrift for „Hvem det er for“",
+        "who_text": "Tekst for „Hvem det er for“",
+        "after_header": "Etter godkjenning",
+        "after_heading": "Overskrift etter godkjenning",
+        "after_text": "Tekst etter godkjenning",
+        "form_header": "Forespørselsskjema",
+        "form_heading": "Skjemaoverskrift",
+        "form_text": "Støttetekst for skjema",
+        "support_email": "Reserve-e-post for støtte"
+      },
+      "blocks": {
+        "richtext": {
+          "name": "Rik tekst",
+          "settings": {
+            "text": "Tekst"
+          }
+        }
+      }
+    },
+    "river_conditions": {
+      "name": "Elveforhold",
+      "settings": {
+        "header_layout": {
+          "content": "Oppsett",
+          "info": "Styrer luft over og under blokken med elveforhold."
+        },
+        "header_products": {
+          "content": "Produktkort"
+        }
+      },
+      "blocks": {
+        "river_link": {
+          "name": "Elvelenke",
+          "settings": {
+            "url": {
+              "label": "URL-adresse"
+            },
+            "label": {
+              "label": "Etikett"
+            }
+          }
+        }
       }
     }
   }

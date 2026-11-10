@@ -49,7 +49,8 @@
     },
     "search": {
       "search": "Pesquisar",
-      "reset": "Limpar termo de pesquisa"
+      "reset": "Limpar termo de pesquisa",
+      "placeholder": "Buscar produtos e marcas"
     },
     "cart": {
       "view": "Ver carrinho ({{ count }})",
@@ -139,7 +140,8 @@
         "from_price_html": "De {{ price }}",
         "regular_price": "Preço normal",
         "sale_price": "Preço promocional",
-        "unit_price": "Preço unitário"
+        "unit_price": "Preço unitário",
+        "save_percent": "Economize {{ percent }}%"
       },
       "share": "Compartilhar o produto",
       "sold_out": "Esgotado",
@@ -325,7 +327,18 @@
       "duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_html": "Tributos de importação incluídos. Tributos, descontos e <a href=\"{{ link }}\">frete</a> calculados no checkout.",
       "duties_included_taxes_at_checkout_shipping_at_checkout_without_policy": "Tributos de importação incluídos. Tributos, descontos e frete calculados no checkout.",
       "taxes_at_checkout_shipping_at_checkout_with_policy_html": "Tributos, descontos e <a href=\"{{ link }}\">frete</a> calculados no checkout.",
-      "taxes_at_checkout_shipping_at_checkout_without_policy": "Tributos, descontos e frete calculados no checkout."
+      "taxes_at_checkout_shipping_at_checkout_without_policy": "Tributos, descontos e frete calculados no checkout.",
+      "empty_message": "Abasteça a bancada para o próximo dia na água.",
+      "shop_materials": "Comprar montagem de moscas",
+      "shop_flies": "Explorar moscas",
+      "remove": "Remover",
+      "each": "cada",
+      "available_offers": "Ofertas disponíveis",
+      "view_full_cart": "Ver carrinho completo",
+      "shipping_remaining_html": "Faltam <strong>{{ amount }}</strong> para o frete grátis.",
+      "shipping_unlocked": "Você ganhou frete grátis.",
+      "shipping_progress": "Progresso até o frete grátis",
+      "shipping_region": "Em pedidos para os estados contíguos dos EUA."
     },
     "footer": {
       "payment": "Formas de pagamento"
@@ -395,6 +408,69 @@
       "min_error": "Este item apresenta um mínimo de {{ min }}",
       "max_error": "Este item apresenta um máximo de {{ max }}",
       "step_error": "Só é possível adicionar este item em incrementos de {{ step }}"
+    },
+    "river_conditions": {
+      "name": "Condições do rio",
+      "no_river": "Não há dados de rio configurados para esta página.",
+      "river_navigation": "Navegação dos rios",
+      "live_label": "Ao vivo · dados USGS a cada 15 min",
+      "flow": "Vazão",
+      "temperature": "Temperatura da água",
+      "gage_height": "Nível do rio",
+      "clarity": "Claridade",
+      "unknown": "Desconhecido",
+      "data_unavailable": "Os dados ao vivo estão temporariamente indisponíveis. Volte em breve.",
+      "flow_history": "Vazão de 7 dias",
+      "where": "Onde você está pescando",
+      "access_points": "Acessos · da montante para a jusante",
+      "nearest": "Mais próximo",
+      "best_stretch": "O melhor trecho agora",
+      "guide_report": "Relato do guia",
+      "on_the_water": "Na água agora",
+      "current_hatches": "Eclosões atuais",
+      "no_hatches": "Não há eclosões ativas agora. Volte em breve ou veja abaixo a caixa completa de moscas.",
+      "recommended_gear": "Equipamento recomendado",
+      "gear_lede": "Escolhido para o que está na água agora.",
+      "settings": {
+        "header_layout": {
+          "content": "Layout",
+          "info": "Controla o espaçamento acima e abaixo do bloco de condições do rio."
+        },
+        "header_products": {
+          "content": "Cartões de produto"
+        }
+      },
+      "blocks": {
+        "river_link": {
+          "name": "Link do rio",
+          "settings": {
+            "url": {
+              "label": "URL"
+            },
+            "label": {
+              "label": "Rótulo"
+            }
+          }
+        }
+      }
+    },
+    "river_picker": {
+      "current": "Rio atual",
+      "search_placeholder": "Buscar rios…",
+      "search_label": "Buscar rios",
+      "browse_all": "Ver todos os rios",
+      "empty": "Nenhum rio encontrado."
+    },
+    "rivers_index": {
+      "empty": "Nenhum rio configurado ainda. Execute o script de seed para preencher os dados.",
+      "search_placeholder": "Buscar rios ou cidades…",
+      "search_label": "Buscar rios",
+      "filter_label": "Filtrar por região",
+      "all_regions": "Todas as regiões",
+      "flow": "Vazão",
+      "temperature": "Temp.",
+      "view": "Ver condições",
+      "no_results": "Nenhum rio encontrado. Limpe os filtros ou busque outro nome."
     }
   },
   "localization": {

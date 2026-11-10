@@ -49,7 +49,8 @@
     },
     "search": {
       "search": "검색",
-      "reset": "검색어 지우기"
+      "reset": "검색어 지우기",
+      "placeholder": "상품과 브랜드 검색"
     },
     "cart": {
       "view": "카트 보기({{ count }})",
@@ -139,7 +140,8 @@
         "from_price_html": "{{ price }}에서",
         "regular_price": "정가",
         "sale_price": "할인가",
-        "unit_price": "단가"
+        "unit_price": "단가",
+        "save_percent": "{{ percent }}% 절약"
       },
       "share": "이 제품 공유",
       "sold_out": "품절",
@@ -315,7 +317,18 @@
       "duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_html": "관세가 포함된 가격입니다. 결제 시 세금, 할인 및 <a href=\"{{ link }}\">배송료</a>가 계산됩니다.",
       "duties_included_taxes_at_checkout_shipping_at_checkout_without_policy": "관세가 포함된 가격입니다. 결제 시 세금, 할인 및 배송료가 계산됩니다.",
       "taxes_at_checkout_shipping_at_checkout_with_policy_html": "결제 시 세금, 할인 및 <a href=\"{{ link }}\">배송료</a>가 계산됩니다.",
-      "taxes_at_checkout_shipping_at_checkout_without_policy": "결제 시 세금, 할인 및 배송료가 계산됩니다."
+      "taxes_at_checkout_shipping_at_checkout_without_policy": "결제 시 세금, 할인 및 배송료가 계산됩니다.",
+      "empty_message": "다음 출조를 위해 타이잉 벤치를 채우세요.",
+      "shop_materials": "플라이 타이잉 쇼핑",
+      "shop_flies": "플라이 살펴보기",
+      "remove": "삭제",
+      "each": "개당",
+      "available_offers": "이용 가능한 혜택",
+      "view_full_cart": "장바구니 전체 보기",
+      "shipping_remaining_html": "무료 배송까지 <strong>{{ amount }}</strong> 남았습니다.",
+      "shipping_unlocked": "무료 배송이 적용되었습니다.",
+      "shipping_progress": "무료 배송까지 진행 상황",
+      "shipping_region": "미국 본토 주문이 대상입니다."
     },
     "footer": {
       "payment": "결제 방법"
@@ -383,6 +396,69 @@
       "min_error": "이 품목의 최소 개수는 {{ min }}개입니다.",
       "max_error": "이 품목은 최대 개수는 {{ max }}개입니다.",
       "step_error": "이 품목은 {{ step }}개 단위로만 추가할 수 있습니다."
+    },
+    "river_conditions": {
+      "name": "강 상태",
+      "no_river": "이 페이지에 강 데이터가 설정되어 있지 않습니다.",
+      "river_navigation": "강 탐색",
+      "live_label": "실시간 · USGS 15분 데이터",
+      "flow": "유량",
+      "temperature": "수온",
+      "gage_height": "수위",
+      "clarity": "투명도",
+      "unknown": "알 수 없음",
+      "data_unavailable": "실시간 데이터를 일시적으로 사용할 수 없습니다. 잠시 후 다시 확인하세요.",
+      "flow_history": "7일 유량",
+      "where": "지금 낚시하는 곳",
+      "access_points": "접근 지점 · 상류에서 하류로",
+      "nearest": "가장 가까운 곳",
+      "best_stretch": "지금 가장 좋은 구간",
+      "guide_report": "가이드 리포트",
+      "on_the_water": "지금 물 상태",
+      "current_hatches": "현재 해치",
+      "no_hatches": "지금은 활발한 해치가 없습니다. 잠시 후 다시 보거나 아래의 전체 플라이 박스를 살펴보세요.",
+      "recommended_gear": "추천 장비",
+      "gear_lede": "지금 물 상태에 맞춰 골랐습니다.",
+      "settings": {
+        "header_layout": {
+          "content": "레이아웃",
+          "info": "강 상태 블록 위아래 여백을 설정합니다."
+        },
+        "header_products": {
+          "content": "상품 카드"
+        }
+      },
+      "blocks": {
+        "river_link": {
+          "name": "강 링크",
+          "settings": {
+            "url": {
+              "label": "URL"
+            },
+            "label": {
+              "label": "레이블"
+            }
+          }
+        }
+      }
+    },
+    "river_picker": {
+      "current": "현재 강",
+      "search_placeholder": "강 검색…",
+      "search_label": "강 검색",
+      "browse_all": "모든 강 둘러보기",
+      "empty": "일치하는 강이 없습니다."
+    },
+    "rivers_index": {
+      "empty": "아직 설정된 강이 없습니다. 시드 스크립트를 실행해 강 데이터를 채우세요.",
+      "search_placeholder": "강 또는 마을 검색…",
+      "search_label": "강 검색",
+      "filter_label": "지역으로 필터",
+      "all_regions": "모든 지역",
+      "flow": "유량",
+      "temperature": "수온",
+      "view": "상태 보기",
+      "no_results": "일치하는 강이 없습니다. 필터를 지우거나 다른 이름으로 검색하세요."
     }
   },
   "localization": {

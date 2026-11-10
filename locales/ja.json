@@ -49,7 +49,8 @@
     },
     "search": {
       "search": "検索",
-      "reset": "検索ワードをクリアする"
+      "reset": "検索ワードをクリアする",
+      "placeholder": "商品とブランドを検索"
     },
     "cart": {
       "view": "カートを見る ({{ count }})",
@@ -139,7 +140,8 @@
         "from_price_html": "{{ price }}から",
         "regular_price": "通常価格",
         "sale_price": "セール価格",
-        "unit_price": "単価"
+        "unit_price": "単価",
+        "save_percent": "{{ percent }}%お得"
       },
       "share": "この商品を共有する",
       "sold_out": "売り切れ",
@@ -315,7 +317,18 @@
       "duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_html": "関税込。税、ディスカウント、および<a href=\"{{ link }}\">配送料</a>はチェックアウト時に計算されます。",
       "duties_included_taxes_at_checkout_shipping_at_checkout_without_policy": "関税込。税、ディスカウント、および配送料はチェックアウト時に計算されます。",
       "taxes_at_checkout_shipping_at_checkout_with_policy_html": "税、ディスカウント、および<a href=\"{{ link }}\">配送料</a>はチェックアウト時に計算されます。",
-      "taxes_at_checkout_shipping_at_checkout_without_policy": "税、ディスカウント、および配送料はチェックアウト時に計算されます。"
+      "taxes_at_checkout_shipping_at_checkout_without_policy": "税、ディスカウント、および配送料はチェックアウト時に計算されます。",
+      "empty_message": "次の釣行に備えて、タイイングベンチを整えましょう。",
+      "shop_materials": "フライタイイングを買う",
+      "shop_flies": "フライを見る",
+      "remove": "削除",
+      "each": "あたり",
+      "available_offers": "利用できる特典",
+      "view_full_cart": "カート全体を見る",
+      "shipping_remaining_html": "送料無料まであと<strong>{{ amount }}</strong>です。",
+      "shipping_unlocked": "送料無料になりました。",
+      "shipping_progress": "送料無料までの進み具合",
+      "shipping_region": "米国本土へのご注文が対象です。"
     },
     "footer": {
       "payment": "決済方法"
@@ -383,6 +396,69 @@
       "min_error": "このアイテムの最小値は{{ min }}です",
       "max_error": "このアイテムの最大値は{{ max }}です",
       "step_error": "このアイテムは、{{ step }}の増分でのみ追加できます"
+    },
+    "river_conditions": {
+      "name": "河川状況",
+      "no_river": "このページには川のデータが設定されていません。",
+      "river_navigation": "川のナビゲーション",
+      "live_label": "ライブ · USGS 15分データ",
+      "flow": "流量",
+      "temperature": "水温",
+      "gage_height": "水位",
+      "clarity": "透明度",
+      "unknown": "不明",
+      "data_unavailable": "ライブデータは一時的に利用できません。しばらくしてから確認してください。",
+      "flow_history": "7日間の流量",
+      "where": "今いる釣り場",
+      "access_points": "アクセス · 上流から下流へ",
+      "nearest": "最寄り",
+      "best_stretch": "今いちばんの区間",
+      "guide_report": "ガイドレポート",
+      "on_the_water": "今の水況",
+      "current_hatches": "今のハッチ",
+      "no_hatches": "今は活発なハッチがありません。しばらくしてから確認するか、下のフライボックスを見てください。",
+      "recommended_gear": "おすすめのギア",
+      "gear_lede": "今の水況に合わせています。",
+      "settings": {
+        "header_layout": {
+          "content": "レイアウト",
+          "info": "河川状況ブロックの上下の余白を設定します。"
+        },
+        "header_products": {
+          "content": "商品カード"
+        }
+      },
+      "blocks": {
+        "river_link": {
+          "name": "川へのリンク",
+          "settings": {
+            "url": {
+              "label": "URL"
+            },
+            "label": {
+              "label": "ラベル"
+            }
+          }
+        }
+      }
+    },
+    "river_picker": {
+      "current": "現在の川",
+      "search_placeholder": "川を検索…",
+      "search_label": "川を検索",
+      "browse_all": "すべての川を見る",
+      "empty": "一致する川がありません。"
+    },
+    "rivers_index": {
+      "empty": "まだ川が設定されていません。シードスクリプトを実行して川のデータを入れてください。",
+      "search_placeholder": "川または町を検索…",
+      "search_label": "川を検索",
+      "filter_label": "地域で絞り込む",
+      "all_regions": "すべての地域",
+      "flow": "流量",
+      "temperature": "水温",
+      "view": "状況を見る",
+      "no_results": "一致する川がありません。絞り込みを解除するか、別の名前で検索してください。"
     }
   },
   "localization": {

@@ -1464,6 +1464,31 @@
             "label": "Groot"
           },
           "info": "Gebruik voor de beste resultaten een afbeelding met een beeldverhouding van 3:2. [Meer informatie](https://help.shopify.com/manual/shopify-admin/productivity-tools/image-editor#understanding-image-aspect-ratio)"
+        },
+        "guides_header": {
+          "content": "Uitgelichte gidsen"
+        },
+        "guides_heading": {
+          "label": "Kop van de gidsen",
+          "default": "Vliegvissergidsen",
+          "info": "Voeg Guide-blokken toe om pagina’s boven de blogberichten te tonen. Alleen op de eerste blogpagina."
+        }
+      },
+      "blocks": {
+        "guide": {
+          "name": "Gids",
+          "settings": {
+            "page": {
+              "label": "Pagina"
+            },
+            "image": {
+              "label": "Afbeelding"
+            },
+            "description": {
+              "label": "Beschrijving",
+              "info": "Laat leeg om het begin van de paginatekst te gebruiken."
+            }
+          }
         }
       }
     },
@@ -3420,10 +3445,209 @@
         },
         "show_sku": {
           "label": "SKU's weergeven"
+        },
+        "b2b_only": {
+          "label": "Alleen tonen aan B2B-klanten",
+          "info": "Als dit aan staat, verschijnt de snelle bestellijst alleen voor ingelogde groothandelskopers."
         }
       },
       "presets": {
         "name": "Snelle lijst met bestellingen"
+      }
+    },
+    "product-specs": {
+      "name": "Productspecificaties",
+      "settings": {
+        "heading": {
+          "label": "Kop"
+        },
+        "color_scheme": {
+          "label": "Kleurschema"
+        },
+        "padding_top": {
+          "label": "Opvulling boven"
+        },
+        "padding_bottom": {
+          "label": "Opvulling onder"
+        }
+      },
+      "blocks": {
+        "spec": {
+          "name": "Specificatiekolom",
+          "settings": {
+            "heading": {
+              "label": "Kop",
+              "default": "Kenmerken"
+            },
+            "content": {
+              "label": "Inhoud",
+              "info": "Koppel een productmetafield als dynamische bron of laat het leeg om deze kolom te verbergen."
+            },
+            "wide": {
+              "label": "Brede kolom",
+              "info": "Geef deze kolom dubbele breedte, zoals een lijst met kenmerken."
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Productspecificaties"
+      }
+    },
+    "product-editorial": {
+      "name": "Redactioneel productblok",
+      "settings": {
+        "heading": {
+          "label": "Kop",
+          "info": "Koppel een productmetafield als dynamische bron voor een titel per product."
+        },
+        "content": {
+          "label": "Inhoud",
+          "info": "Koppel een productmetafield als dynamische bron. De sectie wordt verborgen als ze leeg is."
+        },
+        "use_description_fallback": {
+          "label": "Terugvallen op de productbeschrijving",
+          "info": "Als er geen inhoud is gekoppeld, wordt de productbeschrijving getoond."
+        },
+        "fallback_heading": {
+          "label": "Terugvalkop",
+          "info": "Gebruikt wanneer er geen titel per product is gekoppeld.",
+          "default": "Beschrijving en kenmerken"
+        },
+        "brand_heading": {
+          "label": "Kop van de merkkolom",
+          "default": "Merk"
+        },
+        "shipping_heading": {
+          "label": "Kop van de verzendkolom",
+          "default": "Verzending en retour"
+        },
+        "shipping_text": {
+          "label": "Tekst van de verzendkolom",
+          "default": "<p>Gratis verzending bij bestellingen naar de VS boven $75. Gratis retourzending binnen de VS.</p>"
+        },
+        "color_scheme": {
+          "label": "Kleurschema"
+        },
+        "padding_top": {
+          "label": "Opvulling boven"
+        },
+        "padding_bottom": {
+          "label": "Opvulling onder"
+        }
+      },
+      "presets": {
+        "name": "Redactioneel productblok"
+      }
+    },
+    "sticky-atc-bar": {
+      "name": "Vaste balk voor in winkelwagen",
+      "settings": {
+        "paragraph": {
+          "content": "Toont een balk met prijs en in-winkelwagenknop zodra de koper voorbij de hoofdkoopknoppen scrolt."
+        },
+        "color_scheme": {
+          "label": "Kleurschema"
+        }
+      },
+      "presets": {
+        "name": "Vaste balk voor in winkelwagen"
+      }
+    },
+    "spawn_rods_reels": {
+      "name": "Pagina voor hengels en molens",
+      "title": "Paginatitel",
+      "intro": "Inleiding",
+      "rods": "Collectie vliegenhengels",
+      "reels": "Collectie vliegwielen",
+      "rods_image": "Alternatieve afbeelding voor vliegenhengels",
+      "reels_image": "Alternatieve afbeelding voor vliegwielen",
+      "brand_menu": "Menu met hengel- en molenmerken"
+    },
+    "spawn_home": {
+      "name": "Premium-startpagina van Spawn",
+      "hero_image": "Hoofdafbeelding",
+      "eyebrow": "Regel boven de kop",
+      "hero_title": "Hoofdtitel",
+      "hero_text": "Hoofdbeschrijving",
+      "tying_collection": "Collectie vliegbinding",
+      "materials_collection": "Collectie uitgelichte materialen",
+      "flies_collection": "Collectie kenmerkende vliegen",
+      "feature_image": "Afbeelding van de uitgelichte vlieg",
+      "feature_title": "Titel van de uitgelichte vlieg",
+      "feature_text": "Beschrijving van de uitgelichte vlieg",
+      "feature_collection": "Collectie van de uitgelichte vlieg",
+      "store_image": "Winkelafbeelding",
+      "store_text": "Winkelbeschrijving",
+      "blog": "Journaalblog",
+      "category": "Categorie",
+      "category_title": "Categorietitel",
+      "category_image": "Alternatieve categorieafbeelding",
+      "category_subtitle": "Ondertitel van de categorie",
+      "category_cta": "Label van de categorieknop"
+    },
+    "wholesale_landing": {
+      "name": "Groothandelspagina",
+      "settings": {
+        "hero_image": "Hoofdafbeelding",
+        "eyebrow": "Regel boven de kop",
+        "heading": "Kop",
+        "lede": "Ondersteunende tekst",
+        "points_header": "Hoogtepunten in het hoofdblok",
+        "point_1_title": "Titel van highlight 1",
+        "point_1_text": "Tekst van highlight 1",
+        "point_2_title": "Titel van highlight 2",
+        "point_2_text": "Tekst van highlight 2",
+        "point_3_title": "Titel van highlight 3",
+        "point_3_text": "Tekst van highlight 3",
+        "request_label": "Label van de knop voor toegang aanvragen",
+        "login_label": "Label van de aanmeldknop",
+        "shop_label": "Label van de winkelknop",
+        "account_label": "Label van de accountknop",
+        "shop_link": "Shoplink voor ingelogde kopers",
+        "who_header": "Voor wie dit is",
+        "who_heading": "Kop „Voor wie“",
+        "who_text": "Tekst „Voor wie“",
+        "after_header": "Na goedkeuring",
+        "after_heading": "Kop na goedkeuring",
+        "after_text": "Tekst na goedkeuring",
+        "form_header": "Aanvraagformulier",
+        "form_heading": "Formuliekop",
+        "form_text": "Ondersteunende formuliertekst",
+        "support_email": "Terugval-e-mail voor support"
+      },
+      "blocks": {
+        "richtext": {
+          "name": "Tekst met opmaak",
+          "settings": {
+            "text": "Tekst"
+          }
+        }
+      }
+    },
+    "river_conditions": {
+      "name": "Rivieromstandigheden",
+      "settings": {
+        "header_layout": {
+          "content": "Opmaak",
+          "info": "Regelt de ruimte boven en onder het blok met rivieromstandigheden."
+        },
+        "header_products": {
+          "content": "Productkaarten"
+        }
+      },
+      "blocks": {
+        "river_link": {
+          "name": "Rivierlink",
+          "settings": {
+            "url": {
+              "label": "URL"
+            },
+            "label": {
+              "label": "Label"
+            }
+          }
+        }
       }
     }
   }

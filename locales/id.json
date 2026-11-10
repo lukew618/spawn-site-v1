@@ -49,7 +49,8 @@
     },
     "search": {
       "search": "Cari",
-      "reset": "Hapus kata kunci pencarian"
+      "reset": "Hapus kata kunci pencarian",
+      "placeholder": "Cari produk dan merek"
     },
     "cart": {
       "view": "Lihat keranjang ({{ count }})",
@@ -139,7 +140,8 @@
         "from_price_html": "Dari {{ price }}",
         "regular_price": "Harga reguler",
         "sale_price": "Harga obral",
-        "unit_price": "Harga satuan"
+        "unit_price": "Harga satuan",
+        "save_percent": "Hemat {{ percent }}%"
       },
       "share": "Bagikan produk ini",
       "sold_out": "Habis",
@@ -315,7 +317,18 @@
       "duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_html": "Termasuk bea cukai. Pajak, diskon, dan <a href=\"{{ link }}\">biaya pengiriman</a> dihitung saat checkout.",
       "duties_included_taxes_at_checkout_shipping_at_checkout_without_policy": "Termasuk bea cukai. Pajak, diskon, dan biaya pengiriman dihitung saat checkout.",
       "taxes_at_checkout_shipping_at_checkout_with_policy_html": "Pajak, diskon, dan <a href=\"{{ link }}\">biaya pengiriman</a> dihitung saat checkout.",
-      "taxes_at_checkout_shipping_at_checkout_without_policy": "Pajak, diskon, dan biaya pengiriman dihitung saat checkout."
+      "taxes_at_checkout_shipping_at_checkout_without_policy": "Pajak, diskon, dan biaya pengiriman dihitung saat checkout.",
+      "empty_message": "Siapkan meja tying untuk hari berikutnya di air.",
+      "shop_materials": "Belanja fly tying",
+      "shop_flies": "Jelajahi lalat",
+      "remove": "Hapus",
+      "each": "per buah",
+      "available_offers": "Penawaran yang tersedia",
+      "view_full_cart": "Lihat keranjang lengkap",
+      "shipping_remaining_html": "Kurang <strong>{{ amount }}</strong> lagi untuk ongkir gratis.",
+      "shipping_unlocked": "Anda mendapat ongkir gratis.",
+      "shipping_progress": "Progres menuju ongkir gratis",
+      "shipping_region": "Untuk pesanan ke wilayah Amerika Serikat yang bersambung."
     },
     "footer": {
       "payment": "Metode pembayaran"
@@ -383,6 +396,69 @@
       "min_error": "Item ini memiliki minimal {{ min }}",
       "max_error": "Item ini memiliki maksimum {{ max }}",
       "step_error": "Anda hanya dapat menambahkan item ini secara inkremental sebesar {{ step }}"
+    },
+    "river_conditions": {
+      "name": "Kondisi sungai",
+      "no_river": "Data sungai belum diatur untuk halaman ini.",
+      "river_navigation": "Navigasi sungai",
+      "live_label": "Langsung · data USGS tiap 15 menit",
+      "flow": "Debit",
+      "temperature": "Suhu air",
+      "gage_height": "Tinggi muka air",
+      "clarity": "Kejernihan",
+      "unknown": "Tidak diketahui",
+      "data_unavailable": "Data langsung untuk sementara tidak tersedia. Periksa lagi nanti.",
+      "flow_history": "Debit 7 hari",
+      "where": "Tempat Anda memancing",
+      "access_points": "Akses · dari hulu ke hilir",
+      "nearest": "Terdekat",
+      "best_stretch": "Ruas terbaik saat ini",
+      "guide_report": "Laporan pemandu",
+      "on_the_water": "Di air sekarang",
+      "current_hatches": "Tetas saat ini",
+      "no_hatches": "Tidak ada tetas yang aktif saat ini. Periksa lagi nanti atau lihat kotak lalat lengkap di bawah.",
+      "recommended_gear": "Perlengkapan yang disarankan",
+      "gear_lede": "Disesuaikan dengan yang ada di air saat ini.",
+      "settings": {
+        "header_layout": {
+          "content": "Tata letak",
+          "info": "Mengatur jarak di atas dan di bawah blok kondisi sungai."
+        },
+        "header_products": {
+          "content": "Kartu produk"
+        }
+      },
+      "blocks": {
+        "river_link": {
+          "name": "Tautan sungai",
+          "settings": {
+            "url": {
+              "label": "URL"
+            },
+            "label": {
+              "label": "Label"
+            }
+          }
+        }
+      }
+    },
+    "river_picker": {
+      "current": "Sungai saat ini",
+      "search_placeholder": "Cari sungai…",
+      "search_label": "Cari sungai",
+      "browse_all": "Jelajahi semua sungai",
+      "empty": "Tidak ada sungai yang cocok."
+    },
+    "rivers_index": {
+      "empty": "Belum ada sungai yang diatur. Jalankan skrip seed untuk mengisi data sungai.",
+      "search_placeholder": "Cari sungai atau kota…",
+      "search_label": "Cari sungai",
+      "filter_label": "Filter menurut wilayah",
+      "all_regions": "Semua wilayah",
+      "flow": "Debit",
+      "temperature": "Suhu",
+      "view": "Lihat kondisi",
+      "no_results": "Tidak ada sungai yang cocok. Hapus filter atau cari nama lain."
     }
   },
   "localization": {

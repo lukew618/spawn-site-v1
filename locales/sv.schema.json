@@ -1464,6 +1464,31 @@
             "label": "Stor"
           },
           "info": "Använd en bild med bildformat 3:2, för bästa resultat. [Mer information](https://help.shopify.com/manual/shopify-admin/productivity-tools/image-editor#understanding-image-aspect-ratio)"
+        },
+        "guides_header": {
+          "content": "Utvalda guider"
+        },
+        "guides_heading": {
+          "label": "Rubrik för guider",
+          "default": "Flugfiskeguider",
+          "info": "Lägg till Guide-block för att visa sidor ovanför blogginläggen. Bara på bloggens första sida."
+        }
+      },
+      "blocks": {
+        "guide": {
+          "name": "Guide",
+          "settings": {
+            "page": {
+              "label": "Sida"
+            },
+            "image": {
+              "label": "Bild"
+            },
+            "description": {
+              "label": "Beskrivning",
+              "info": "Lämna tomt för att använda början av sidtexten."
+            }
+          }
         }
       }
     },
@@ -3420,10 +3445,209 @@
         },
         "show_sku": {
           "label": "Visa lagerhållningsenheter"
+        },
+        "b2b_only": {
+          "label": "Visa bara för B2B-kunder",
+          "info": "När den är på visas snabborderlistan bara för inloggade grossistköpare."
         }
       },
       "presets": {
         "name": "Snabb orderlista"
+      }
+    },
+    "product-specs": {
+      "name": "Produktspecifikationer",
+      "settings": {
+        "heading": {
+          "label": "Rubrik"
+        },
+        "color_scheme": {
+          "label": "Färgschema"
+        },
+        "padding_top": {
+          "label": "Övre padding"
+        },
+        "padding_bottom": {
+          "label": "Nedre padding"
+        }
+      },
+      "blocks": {
+        "spec": {
+          "name": "Specifikationskolumn",
+          "settings": {
+            "heading": {
+              "label": "Rubrik",
+              "default": "Egenskaper"
+            },
+            "content": {
+              "label": "Innehåll",
+              "info": "Koppla ett produktmetafält som dynamisk källa eller lämna tomt för att dölja kolumnen."
+            },
+            "wide": {
+              "label": "Bred kolumn",
+              "info": "Ge den här kolumnen dubbel bredd, till exempel för en lista med egenskaper."
+            }
+          }
+        }
+      },
+      "presets": {
+        "name": "Produktspecifikationer"
+      }
+    },
+    "product-editorial": {
+      "name": "Produktredaktionellt block",
+      "settings": {
+        "heading": {
+          "label": "Rubrik",
+          "info": "Koppla ett produktmetafält som dynamisk källa för en rubrik per produkt."
+        },
+        "content": {
+          "label": "Innehåll",
+          "info": "Koppla ett produktmetafält som dynamisk källa. Avsnittet döljs när det är tomt."
+        },
+        "use_description_fallback": {
+          "label": "Använd produktbeskrivningen som reserv",
+          "info": "När inget innehåll är kopplat visas produktbeskrivningen i stället."
+        },
+        "fallback_heading": {
+          "label": "Reservrubrik",
+          "info": "Används när ingen rubrik per produkt är kopplad.",
+          "default": "Beskrivning och egenskaper"
+        },
+        "brand_heading": {
+          "label": "Rubrik för varumärkeskolumn",
+          "default": "Varumärke"
+        },
+        "shipping_heading": {
+          "label": "Rubrik för fraktkolumn",
+          "default": "Frakt och returer"
+        },
+        "shipping_text": {
+          "label": "Text för fraktkolumn",
+          "default": "<p>Fri frakt på beställningar till USA över $75. Fri returfrakt inom USA.</p>"
+        },
+        "color_scheme": {
+          "label": "Färgschema"
+        },
+        "padding_top": {
+          "label": "Övre padding"
+        },
+        "padding_bottom": {
+          "label": "Nedre padding"
+        }
+      },
+      "presets": {
+        "name": "Produktredaktionellt block"
+      }
+    },
+    "sticky-atc-bar": {
+      "name": "Fast list för lägg i varukorg",
+      "settings": {
+        "paragraph": {
+          "content": "Visar en list med pris och lägg-i-varukorg när köparen scrollar förbi de viktigaste köpknapparna."
+        },
+        "color_scheme": {
+          "label": "Färgschema"
+        }
+      },
+      "presets": {
+        "name": "Fast list för lägg i varukorg"
+      }
+    },
+    "spawn_rods_reels": {
+      "name": "Sida för spön och rullar",
+      "title": "Sidtitel",
+      "intro": "Inledning",
+      "rods": "Kollektion flugspön",
+      "reels": "Kollektion flugrullar",
+      "rods_image": "Egen bild för flugspön",
+      "reels_image": "Egen bild för flugrullar",
+      "brand_menu": "Meny med spö- och rullvarumärken"
+    },
+    "spawn_home": {
+      "name": "Spawn premium-startsida",
+      "hero_image": "Huvudbild",
+      "eyebrow": "Rad över rubriken",
+      "hero_title": "Huvudtitel",
+      "hero_text": "Huvudbeskrivning",
+      "tying_collection": "Kollektion för flugbinding",
+      "materials_collection": "Kollektion för utvalda material",
+      "flies_collection": "Kollektion signaturflugor",
+      "feature_image": "Bild på den utvalda flugan",
+      "feature_title": "Titel på den utvalda flugan",
+      "feature_text": "Beskrivning av den utvalda flugan",
+      "feature_collection": "Kollektion för den utvalda flugan",
+      "store_image": "Butiksbild",
+      "store_text": "Butiksbeskrivning",
+      "blog": "Journalblogg",
+      "category": "Kategori",
+      "category_title": "Kategorititel",
+      "category_image": "Egen kategoribild",
+      "category_subtitle": "Undertext för kategori",
+      "category_cta": "Etikett för kategoriknapp"
+    },
+    "wholesale_landing": {
+      "name": "Grossistsida",
+      "settings": {
+        "hero_image": "Huvudbild",
+        "eyebrow": "Rad över rubriken",
+        "heading": "Rubrik",
+        "lede": "Stödtext",
+        "points_header": "Höjdpunkter i huvudblocket",
+        "point_1_title": "Titel för punkt 1",
+        "point_1_text": "Text för punkt 1",
+        "point_2_title": "Titel för punkt 2",
+        "point_2_text": "Text för punkt 2",
+        "point_3_title": "Titel för punkt 3",
+        "point_3_text": "Text för punkt 3",
+        "request_label": "Etikett för knappen för åtkomstbegäran",
+        "login_label": "Etikett för inloggningsknapp",
+        "shop_label": "Etikett för butiksknapp",
+        "account_label": "Etikett för kontoknapp",
+        "shop_link": "Butikslänk för inloggade köpare",
+        "who_header": "Vem det är för",
+        "who_heading": "Rubrik för „Vem det är för“",
+        "who_text": "Text för „Vem det är för“",
+        "after_header": "Efter godkännande",
+        "after_heading": "Rubrik efter godkännande",
+        "after_text": "Text efter godkännande",
+        "form_header": "Förfrågningsformulär",
+        "form_heading": "Formulärrubrik",
+        "form_text": "Stödtext för formulär",
+        "support_email": "Reserv-e-post för support"
+      },
+      "blocks": {
+        "richtext": {
+          "name": "Rich text",
+          "settings": {
+            "text": "Text"
+          }
+        }
+      }
+    },
+    "river_conditions": {
+      "name": "Flodförhållanden",
+      "settings": {
+        "header_layout": {
+          "content": "Layout",
+          "info": "Styr avståndet ovanför och under blocket med flodförhållanden."
+        },
+        "header_products": {
+          "content": "Produktkort"
+        }
+      },
+      "blocks": {
+        "river_link": {
+          "name": "Flodlänk",
+          "settings": {
+            "url": {
+              "label": "URL"
+            },
+            "label": {
+              "label": "Etikett"
+            }
+          }
+        }
       }
     }
   }
