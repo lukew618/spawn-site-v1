@@ -14,7 +14,7 @@ const header = read('sections/header.liquid');
 const homeHeader = read('snippets/spawn-home-header.liquid');
 const drawerJs = read('assets/drawer-menu.js');
 const drawerLiquid = read('snippets/drawer-menu.liquid');
-const cardCss = read('assets/component-card.css');
+const storefrontCss = read('assets/spawn-storefront.css');
 const home = read('sections/spawn-home.liquid');
 const index = read('templates/index.json');
 const product = read('templates/product.json');
@@ -32,9 +32,10 @@ expect(!drawerJs.includes('Close Navigation'), 'drawer script must not hardcode 
 expect(drawerJs.includes('aria-expanded", "false"'), 'closing the drawer must reset aria-expanded');
 expect(drawerLiquid.includes("accessibility.close"), 'drawer close control must use the close translation');
 expect(!drawerLiquid.includes('Close Navigation'), 'drawer close control must not hardcode Close Navigation');
-expect(cardCss.includes('.product-card-wrapper .card:not(.card--horizontal) .card__heading'), 'product card titles must use the legibility rule');
-expect(cardCss.includes('font-size: 1.4rem'), 'product card titles must be 1.4rem on small screens');
-expect(cardCss.includes('font-size: 1.5rem'), 'product card titles must be 1.5rem from 750px');
+expect(storefrontCss.includes('body.spawn-storefront #MainContent .collection-premium .cp-card__title { font-size: var(--sf-type-card); }'), 'flies titles must use the card type token');
+expect(storefrontCss.includes('body.spawn-storefront #MainContent .collection-premium .cp-card__title { font-size: var(--sf-type-control); }'), 'flies titles must use the control type token on small screens');
+expect(!storefrontCss.includes('.cp-card__title { font-size: calc(var(--sf-type-card) + 1px)'), 'flies titles must not add a pixel to the card token');
+expect(!storefrontCss.includes('.cp-card__title { font-size: calc(var(--sf-type-control) + 1px)'), 'flies titles must not add a pixel to the control token');
 expect(home.includes('customer.b2b?'), 'wholesale homepage branch must stay in place');
 expect(home.includes("render 'spawn-home-wholesale'"), 'wholesale homepage render must stay in place');
 expect(index.includes('"premium_home"') && index.includes('"type": "spawn-home"'), 'homepage must keep the spawn-home section');
@@ -83,16 +84,18 @@ function cardSize(width, height) {
     width,
     height
   );
-  const match = dump.match(/computed ([0-9.]+px) \/ line-height ([0-9.]+px)/);
-  return match ? { fontSize: match[1], lineHeight: match[2] } : null;
+  const match = dump.match(/flies ([0-9.]+px) \/ line-height ([0-9.]+px) \| dawn ([0-9.]+px)/);
+  return match ? { fontSize: match[1], lineHeight: match[2], dawn: match[3] } : null;
 }
 
 const desktop = cardSize(1440, 900);
 const mobile = cardSize(390, 844);
-expect(desktop?.fontSize === '15px', `desktop card title should be 15px, got ${desktop?.fontSize}`);
-expect(mobile?.fontSize === '14px', `mobile card title should be 14px, got ${mobile?.fontSize}`);
-expect(desktop?.lineHeight === '21px', `desktop line-height should be 21px, got ${desktop?.lineHeight}`);
-expect(mobile?.lineHeight === '19.6px', `mobile line-height should be 19.6px, got ${mobile?.lineHeight}`);
+expect(desktop?.fontSize === '15px', `desktop flies title should be 15px, got ${desktop?.fontSize}`);
+expect(mobile?.fontSize === '14px', `mobile flies title should be 14px, got ${mobile?.fontSize}`);
+expect(desktop?.lineHeight === '21px', `desktop flies line-height should be 21px, got ${desktop?.lineHeight}`);
+expect(mobile?.lineHeight === '19.6px', `mobile flies line-height should be 19.6px, got ${mobile?.lineHeight}`);
+expect(desktop?.dawn === '15px', `desktop Dawn card title should stay 15px, got ${desktop?.dawn}`);
+expect(mobile?.dawn === '14px', `mobile Dawn card title should stay 14px, got ${mobile?.dawn}`);
 
 if (failures.length) {
   console.error(failures.map((failure) => `- ${failure}`).join('\n'));
