@@ -1,4 +1,6 @@
 export const LIVE_THEME_ID = '143738535999';
+const LIVE_THEME_VALUE = 143738535999n;
+const CANONICAL_THEME_ID = /^[1-9][0-9]*$/;
 export const STORE = 'spawn-fly-fish.myshopify.com';
 const ALLOWED_ROLES = new Set(['unpublished', 'development']);
 const BLOCKED_ENV = [
@@ -20,13 +22,37 @@ export class FenceError extends Error {
   }
 }
 
+export function assertCanonicalThemeId(value) {
+  if (value == null || value === '') throw new FenceError('theme push requires an explicit theme id');
+  const id = String(value);
+  if (!CANONICAL_THEME_ID.test(id)) throw new FenceError('theme id must be a canonical numeric id');
+  if (BigInt(id) === LIVE_THEME_VALUE) throw new FenceError(`refusing theme id ${LIVE_THEME_ID}`);
+  return id;
+}
+
+function mentionsLiveTheme(arg) {
+  const text = String(arg);
+  const candidates = [text];
+  const embedded = text.match(/^(?:--(?:theme|id|theme-id)|-t)=(.*)$/);
+  if (embedded) candidates.push(embedded[1]);
+  for (const candidate of candidates) {
+    if (candidate === LIVE_THEME_ID) return true;
+    if (/^[0-9]+$/.test(candidate)) {
+      try {
+        if (BigInt(candidate) === LIVE_THEME_VALUE) return true;
+      } catch {
+        // A non-decimal digit string is rejected by the canonical check.
+      }
+    }
+  }
+  return false;
+}
+
 export function assertThemeAllowed(theme) {
-  if (theme == null || theme.id == null || String(theme.id).trim() === '') {
+  if (theme == null || theme.id == null || theme.id === '') {
     throw new FenceError('theme push requires an explicit theme id');
   }
-  const id = String(theme.id).trim();
-  if (!/^\d+$/.test(id)) throw new FenceError('theme id must be numeric');
-  if (id === LIVE_THEME_ID) throw new FenceError(`refusing theme id ${LIVE_THEME_ID}`);
+  const id = assertCanonicalThemeId(theme.id);
   const role = String(theme.role || '').trim().toLowerCase();
   if (role === 'main' || role === 'live') throw new FenceError(`refusing theme role ${role}`);
   if (!ALLOWED_ROLES.has(role)) throw new FenceError(`refusing theme role ${role || 'unknown'}`);
@@ -44,14 +70,24 @@ export function assertArgvSafe(args) {
   if (list.includes('publish') || list.includes('delete') || list.includes('share')) {
     throw new FenceError('refusing publish or delete');
   }
-  if (list.includes(LIVE_THEME_ID)) throw new FenceError(`refusing theme id ${LIVE_THEME_ID}`);
+  if (list.some((arg) => mentionsLiveTheme(arg))) throw new FenceError(`refusing theme id ${LIVE_THEME_ID}`);
+  for (const flag of ['--theme', '--id']) {
+    const index = list.indexOf(flag);
+    if (index >= 0) assertCanonicalThemeId(list[index + 1] || '');
+  }
   const command = list[0] === 'theme' ? list[1] : '';
   if (command === 'push' || command === 'dev') {
     const themeIdx = list.indexOf('--theme');
-    const themeId = themeIdx >= 0 ? list[themeIdx + 1] : '';
-    if (!/^\d+$/.test(themeId || '')) throw new FenceError('theme push requires an explicit numeric theme id');
+    if (themeIdx < 0) throw new FenceError('theme push requires an explicit numeric theme id');
     if (!list.includes('--nodelete')) throw new FenceError('theme push must pass --nodelete');
   }
+}
+
+export function assertListedTheme(requested, listed) {
+  const wanted = assertCanonicalThemeId(requested);
+  const got = listed == null || listed.id == null ? '' : String(listed.id);
+  if (got !== wanted) throw new FenceError('theme list id did not match the requested id');
+  return assertThemeAllowed({ ...listed, id: got });
 }
 
 export function planThemeCommand(action, theme, { root }) {
@@ -64,11 +100,8 @@ export function planThemeCommand(action, theme, { root }) {
   const args = ['theme', action, '--path', root, '--store', STORE, '--no-color'];
   if (action === 'list') {
     args.push('--json');
-    if (theme?.id != null) {
-      const id = String(theme.id).trim();
-      if (id === LIVE_THEME_ID) throw new FenceError(`refusing theme id ${LIVE_THEME_ID}`);
-      if (!/^\d+$/.test(id)) throw new FenceError('theme id must be numeric');
-      args.push('--id', id);
+    if (theme?.id != null && theme.id !== '') {
+      args.push('--id', assertCanonicalThemeId(theme.id));
     }
     assertArgvSafe(args);
     return { args };

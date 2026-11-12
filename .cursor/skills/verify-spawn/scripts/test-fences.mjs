@@ -4,7 +4,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { LIVE_THEME_ID, planThemeCommand, scrubbedEnv, shopifyExecutable } from './fences.mjs';
-import { repoRoot } from './paths.mjs';
+import { currentEnvPath, repoRoot } from './paths.mjs';
 import { previewPlan, publicPreviewUrl } from './preview.mjs';
 import { redact } from './redact.mjs';
 import { readResult } from './result.mjs';
@@ -47,6 +47,7 @@ export function runFenceTests() {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'spawn-verify-fences-'));
   const sentinel = path.join(root, 'shopify-called');
   const bin = path.join(root, 'fake-shopify.sh');
+  const previousCurrent = fs.existsSync(currentEnvPath) ? fs.readFileSync(currentEnvPath) : null;
   fs.writeFileSync(bin, `#!/bin/sh\necho called >> ${JSON.stringify(sentinel)}\nexit 0\n`);
   fs.chmodSync(bin, 0o755);
   try {
@@ -69,6 +70,10 @@ export function runFenceTests() {
     throws(() => planThemeCommand('publish', { id: '55', name: 'ENG-038', role: 'unpublished' }, { root }), /publish/);
     throws(() => planThemeCommand('delete', { id: '55', name: 'ENG-038', role: 'unpublished' }, { root }), /delete/);
     throws(() => planThemeCommand('dev', { id: LIVE_THEME_ID, name: 'ENG-038', role: 'development' }, { root }), /143738535999/);
+    for (const disguised of ['0143738535999', '000143738535999', '+143738535999', '143738535999.0', '1.43738535999e11', '0x2177F1A8BF']) {
+      throws(() => planThemeCommand('push', { id: disguised, name: 'ENG-038', role: 'unpublished' }, { root }), /canonical numeric|143738535999/);
+      throws(() => planThemeCommand('list', { id: disguised }, { root }), /canonical numeric|143738535999/);
+    }
 
     const push = planThemeCommand('push', { id: '424242', name: 'ENG-038-preview', role: 'unpublished' }, { root: '/tmp/theme' });
     assert(push.args.includes('--theme') && push.args.includes('424242') && push.args.includes('--nodelete'), 'push plan omitted the explicit theme id');
@@ -153,7 +158,85 @@ export function runFenceTests() {
     if (process.env.SHOPIFY_CLI_THEME_TOKEN && fs.readFileSync(path.join(previewEvidence, 'result.txt'), 'utf8').includes(process.env.SHOPIFY_CLI_THEME_TOKEN)) {
       throw new Error('live theme result contained the token');
     }
+
+    const shimDir = path.join(root, 'bin');
+    fs.mkdirSync(shimDir);
+    const shim = path.join(shimDir, 'shopify');
+    fs.writeFileSync(shim, `#!/bin/sh\necho called >> ${JSON.stringify(sentinel)}\nexit 0\n`);
+    fs.chmodSync(shim, 0o755);
+    const disguisedIds = ['0143738535999', '000143738535999', '+143738535999', '143738535999.0', '1.43738535999e11', '0x2177F1A8BF'];
+    for (const disguised of disguisedIds) {
+      for (const mode of ['theme', 'from-env']) {
+        fs.rmSync(sentinel, { force: true });
+        const evidence = path.join(root, `disguised-${mode}-${disguised.replace(/[^a-z0-9.+-]/gi, '_')}`);
+        fs.mkdirSync(evidence, { recursive: true });
+        const env = {
+          ...process.env,
+          PATH: `${shimDir}${path.delimiter}${process.env.PATH}`,
+          SHOPIFY_CLI_THEME_TOKEN: 'shptka_VERIFY_SHOULD_NOT_APPEAR_038',
+        };
+        delete env.SPAWN_VERIFY_SHOPIFY_BIN;
+        delete env.SPAWN_VERIFY_ALLOW_FAKE_SHOPIFY;
+        let args;
+        if (mode === 'theme') {
+          args = [path.join(scriptDir, 'preview.mjs'), '--theme', disguised, '--execute', '--evidence', evidence];
+        } else {
+          fs.writeFileSync(currentEnvPath, `RUN_ID=disguised\nPID=1\nPORT=9\nEVIDENCE=${evidence}\nTHEME_ROOT=${repoRoot}\nSITE=${evidence}\n`);
+          env.SPAWN_VERIFY_THEME_ID = disguised;
+          args = [path.join(scriptDir, 'preview.mjs'), '--from-env'];
+        }
+        const result = spawnSync(process.execPath, args, { encoding: 'utf8', env });
+        const resultFile = mode === 'theme' ? path.join(evidence, 'result.txt') : path.join(evidence, 'preview', 'result.txt');
+        const countFile = mode === 'theme' ? path.join(evidence, 'shopify-spawn-count.txt') : path.join(evidence, 'preview', 'shopify-spawn-count.txt');
+        assert(result.status !== 0, `${mode} ${disguised} exited 0`);
+        assert(fs.existsSync(resultFile) && fs.readFileSync(resultFile, 'utf8').startsWith('FAIL\n'), `${mode} ${disguised} did not write FAIL`);
+        assert(fs.readFileSync(countFile, 'utf8').trim() === '0', `${mode} ${disguised} spawned shopify`);
+        assert(!fs.existsSync(sentinel), `${mode} ${disguised} invoked the shopify shim`);
+        const written = fs.readFileSync(resultFile, 'utf8');
+        assert(!written.includes('shptka_VERIFY_SHOULD_NOT_APPEAR_038'), `${mode} ${disguised} wrote the fake token`);
+      }
+    }
+
+    const returnDir = path.join(root, 'return-bin');
+    const returnLog = path.join(root, 'return-log');
+    fs.mkdirSync(returnDir);
+    fs.writeFileSync(path.join(returnDir, 'shopify'), `#!/bin/sh
+printf '%s\\n' "$*" >> ${JSON.stringify(returnLog)}
+if [ "$2" = "list" ]; then
+  printf '%s\\n' "$SHOPIFY_LIST_JSON"
+  exit 0
+fi
+exit 0
+`);
+    fs.chmodSync(path.join(returnDir, 'shopify'), 0o755);
+    for (const listedId of ['0143738535999', '143738535999', '0424242']) {
+      fs.rmSync(returnLog, { force: true });
+      const evidence = path.join(root, `listed-${listedId}`);
+      const env = {
+        ...process.env,
+        PATH: `${returnDir}${path.delimiter}${process.env.PATH}`,
+        SHOPIFY_CLI_THEME_TOKEN: 'shptka_VERIFY_SHOULD_NOT_APPEAR_038',
+        SHOPIFY_LIST_JSON: JSON.stringify([{ id: listedId, name: 'ENG-038', role: 'unpublished' }]),
+      };
+      delete env.SPAWN_VERIFY_SHOPIFY_BIN;
+      delete env.SPAWN_VERIFY_ALLOW_FAKE_SHOPIFY;
+      delete env.SPAWN_VERIFY_THEME_ID;
+      const result = spawnSync(process.execPath, [
+        path.join(scriptDir, 'preview.mjs'),
+        '--theme', '424242',
+        '--execute',
+        '--evidence', evidence,
+      ], { encoding: 'utf8', env });
+      const log = fs.existsSync(returnLog) ? fs.readFileSync(returnLog, 'utf8') : '';
+      assert(result.status !== 0, `listed ${listedId} exited 0`);
+      assert(readResult(evidence).startsWith('FAIL\n'), `listed ${listedId} did not write FAIL`);
+      assert(log.includes('theme list'), `listed ${listedId} did not list`);
+      assert(!log.includes('theme push'), `listed ${listedId} pushed`);
+      assert(!readResult(evidence).includes('shptka_VERIFY_SHOULD_NOT_APPEAR_038'), `listed ${listedId} wrote the fake token`);
+    }
   } finally {
+    if (previousCurrent == null) fs.rmSync(currentEnvPath, { force: true });
+    else fs.writeFileSync(currentEnvPath, previousCurrent);
     restoreEnv();
     fs.rmSync(root, { recursive: true, force: true });
   }

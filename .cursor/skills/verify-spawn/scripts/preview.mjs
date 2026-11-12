@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { VIEWPORTS, capturePage, withChrome } from './chrome.mjs';
-import { LIVE_THEME_ID, STORE, assertArgvSafe, assertThemeAllowed, planThemeCommand, scrubbedEnv, shopifyExecutable } from './fences.mjs';
+import { STORE, assertArgvSafe, assertCanonicalThemeId, assertListedTheme, planThemeCommand, scrubbedEnv, shopifyExecutable } from './fences.mjs';
 import { readCurrent, repoRoot } from './paths.mjs';
 import { redact } from './redact.mjs';
 import { beginEvidence, writeResult } from './result.mjs';
@@ -29,19 +29,18 @@ export function previewPlan(argv, { themeRoot = repoRoot, themes = null } = {}) 
   }
   const themeId = option(argv, '--theme');
   if (!themeId) throw new Error('theme push requires an explicit theme id');
-  if (themeId === LIVE_THEME_ID) throw new Error(`refusing theme id ${LIVE_THEME_ID}`);
-  if (!/^\d+$/.test(themeId)) throw new Error('theme id must be numeric');
+  const canonicalId = assertCanonicalThemeId(themeId);
   if (hasFlag(argv, '--execute') && hasFlag(argv, '--fixture')) {
     throw new Error('refusing to push from a fixture');
   }
   let theme = null;
   if (themes) {
-    const matches = themes.filter((item) => String(item.id) === themeId);
-    if (matches.length !== 1) throw new Error(`theme ${themeId} was not an unpublished ENG- theme`);
-    theme = assertThemeAllowed(matches[0]);
+    const matches = themes.filter((item) => String(item.id) === canonicalId);
+    if (matches.length !== 1) throw new Error(`theme ${canonicalId} was not an unpublished ENG- theme`);
+    theme = assertListedTheme(canonicalId, matches[0]);
   }
-  if (command === 'list') return planThemeCommand('list', { id: themeId }, { root: themeRoot });
-  if (!theme) return { pendingList: true, themeId };
+  if (command === 'list') return planThemeCommand('list', { id: canonicalId }, { root: themeRoot });
+  if (!theme) return { pendingList: true, themeId: canonicalId };
   return planThemeCommand(command === 'dev' ? 'dev' : 'push', theme, { root: themeRoot });
 }
 
@@ -51,14 +50,14 @@ function readFixture(file) {
 }
 
 export function publicPreviewUrl(value, themeId) {
-  if (String(themeId) === LIVE_THEME_ID) throw new Error(`refusing theme id ${LIVE_THEME_ID}`);
+  const id = assertCanonicalThemeId(themeId);
   const parsed = new URL(value);
   if (parsed.protocol !== 'https:') throw new Error('preview URL must be https');
   const host = parsed.hostname;
   if (host !== STORE && !host.endsWith('.myshopify.com') && !host.endsWith('.shopifypreview.com')) {
     throw new Error('preview URL host is not the store');
   }
-  if (parsed.searchParams.get('preview_theme_id') !== String(themeId)) {
+  if (parsed.searchParams.get('preview_theme_id') !== id) {
     throw new Error('preview URL is not for the unpublished theme');
   }
   for (const key of [...parsed.searchParams.keys()]) {
@@ -153,15 +152,16 @@ function runShopify(args, evidenceDir, label, markSpawned) {
 }
 
 function listTheme(themeId, evidenceDir, markSpawned) {
-  const plan = planThemeCommand('list', { id: themeId }, { root: repoRoot });
+  const requested = assertCanonicalThemeId(themeId);
+  const plan = planThemeCommand('list', { id: requested }, { root: repoRoot });
   const result = runShopify(plan.args, evidenceDir, 'theme-list', markSpawned);
   if (result.status !== 0) throw new Error('theme list failed');
   const stdout = redact(result.stdout || '');
   const parsed = JSON.parse(stdout.slice(stdout.search(/[\[{]/)));
   const themes = Array.isArray(parsed) ? parsed : (parsed.themes || []);
-  const matches = themes.filter((theme) => String(theme.id) === themeId);
-  if (matches.length !== 1) throw new Error(`theme ${themeId} was not an unpublished ENG- theme`);
-  return assertThemeAllowed(matches[0]);
+  const matches = themes.filter((theme) => String(theme.id) === requested);
+  if (matches.length !== 1) throw new Error(`theme ${requested} was not an unpublished ENG- theme`);
+  return assertListedTheme(requested, matches[0]);
 }
 
 function fail(evidenceDir, error, spawned) {
